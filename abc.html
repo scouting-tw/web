@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安納普爾納基地營 (ABC) 徒步行程規劃</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Style from Japan Alps */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            /* Placeholder for a background image. Replace '[圖片建議...]' with an actual URL or remove if not desired. */
+            background-image: url('https://www1.titohiking.com.tw/eWeb_titohiking/IMGDB/000011/00000216.GIF'); /* ABC 圖片建議 */
+            background-size: cover;
+            background-position: center 25%; /* Adjusted for ABC */
+            color: white;
+            padding: 80px 20px; /* Adjusted padding */
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.8em; /* Slightly adjusted */
+            margin: 0;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .header p.subtitle { /* Subtitle for the header */
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px #000;
+            margin-top: 10px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            position: sticky; /* Make nav sticky */
+            top: 0;
+            z-index: 1000; /* Ensure nav is above other content */
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 0.9em; /* Adjusted for more links */
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container { /* This will wrap all sections */
+            padding: 20px;
+        }
+        .section { /* Each major area/day group will be a section */
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section h2 { /* For main region titles, e.g., "核心考量" */
+            color: #0056b3; /* Japan Alps h2 color */
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            font-size: 1.8em; /* Adjusted */
+            margin-top: 0; /* Remove default margin if it's the first element */
+        }
+        .section h3 { /* For day titles, e.g., "第1天：徒步起點" */
+            color: #007bff; /* Japan Alps h3 color */
+            font-size: 1.4em; /* Adjusted */
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .content-block { /* Wrapper for content within a day/subsection */
+            margin-bottom: 20px;
+        }
+        img.content-image { /* Class for main content images */
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Japan Alps style */
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-caption { /* For text below images */
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .warning, .highlight { /* Merging warning and highlight styles */
+            background-color: #fff3cd;
+            border-left: 6px solid #ffeeba;
+            padding: 15px; /* Increased padding */
+            margin: 20px 0; /* Increased margin */
+            border-radius: 4px; /* Added radius */
+        }
+        .warning strong, .highlight strong {
+            color: #856404;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px; /* Ensure padding for lists */
+        }
+        ul li, ol li {
+            margin-bottom: 8px; /* From Japan Alps .gear-list li */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0; /* Increased margin */
+            box-shadow: 0 0 5px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px; /* Increased padding */
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef; /* Lighter, more modern th background */
+            color: #495057;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+        /* Specific for day plan sections */
+        .day-details {
+            margin-bottom: 30px;
+        }
+        .note {
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>安納普爾納基地營 (ABC) 徒步之旅</h1>
+    <p class="subtitle">尼泊爾喜馬拉雅的壯麗徒步體驗</p>
+</header>
+
+<nav>
+    <a href="#overview">重要提示</a>
+    <a href="#day0">第0天</a>
+    <a href="#day1">第1天</a>
+    <a href="#day2">第2天</a>
+    <a href="#day3">第3天</a>
+    <a href="#day4">第4天</a>
+    <a href="#day5">第5天</a>
+    <a href="#day6">第6天</a>
+    <a href="#day7">第7天</a>
+    <a href="#day8">第8天</a>
+    <a href="#day9">第9天</a>
+    <a href="#day10">第10天</a>
+</nav>
+
+<div class="container">
+
+    <section id="overview" class="section">
+        <h2>重要提示</h2>
+        <div class="content-block">
+            <ul>
+                <li><strong>行程天數彈性：</strong> ABC徒步的行程天數可以從短途的5-7天到較為悠閒的10-15天不等，這取決於您的體能、時間、是否包含Ghorepani Poon Hill環線以及徒步的起點和終點。以下提供的是一個相對經典且包含適應海拔的行程。</li>
+                <li><strong>起點/終點：</strong> 大多數ABC徒步行程從波卡拉 (Pokhara) 開始，實際的徒步起點可能是 Nayapul、Phedi、Kande 或更近的如 Siwai、Ghandruk 等地，這會影響前幾天的行程。</li>
+                <li><strong>住宿：</strong> 沿途住宿主要為茶館 (Teahouse)，提供基本的床位和餐飲。旺季時建議提早預訂或由您的嚮導/旅行社安排。</li>
+                <li><strong>海拔適應：</strong> ABC徒步會到達海拔4130公尺，務必注意高山反應的預防和處理。行程中應包含足夠的海拔適應日，並遵循「爬高睡低」的原則。</li>
+                <li><strong>許可證：</strong> 徒步ABC需要辦理安納普爾納保護區許可證 (ACAP) 和徒步者信息管理系統卡 (TIMS)。</li>
+                <li><strong>最佳季節：</strong> 春季 (3月至5月) 和秋季 (9月至11月) 是ABC徒步的最佳季節，天氣相對穩定，視野清晰。</li>
+                <li><strong>嚮導與背夫：</strong> 雖然可以獨自徒步，但聘請當地嚮導和/或背夫可以讓您的旅程更輕鬆、安全，並為當地社區提供支持。</li>
+                <li><strong>保險：</strong> 務必購買包含高海拔救援的旅行保險。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="itinerary" class="section">
+        <h2>ABC 經典行程詳解 (約10天)</h2>
+
+        <div class="day-details">
+            <h3 id="day0">第0天：抵達加德滿都 (Kathmandu) / 波卡拉 (Pokhara)</h3>
+            <div class="content-block">
+                <p><strong>內容：</strong> 從國際航班抵達加德滿都，轉機或直接前往波卡拉。在波卡拉進行最後的徒步準備，採買補給，確認裝備，並可能與嚮導會合。在波卡拉湖畔享受悠閒時光，為接下來的徒步養精蓄銳。</p>
+                <p><strong>住宿：</strong> 波卡拉的酒店/旅館。</p>
+                <img src="https://www.settour.com.tw/ss_img/info/location/DEL/L0/DEL0000032/DEL0000032_77798.jpg" alt="波卡拉費瓦湖" class="content-image">
+                <p class="image-caption">波卡拉費瓦湖 (圖片僅供參考)</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day1">第1天：波卡拉 – Nayapul – Ulleri (烏勒里)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> 波卡拉 (Pokhara) (海拔約822公尺)</p>
+                <p><strong>終點：</strong> Ulleri (烏勒里) (海拔約2020公尺)</p>
+                <p><strong>交通：</strong> 從波卡拉乘車 (吉普車/計程車) 約1.5-2小時到達Nayapul (海拔約1070公尺)，徒步起點。</p>
+                <p><strong>徒步距離：</strong> 約8-10公里</p>
+                <p><strong>徒步時間：</strong> 約4-6小時</p>
+                <p><strong>海拔爬升：</strong> 約950公尺 (從Nayapul算起)</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>從Nayapul開始徒步，沿著Modi Khola河谷上升。</li>
+                    <li>最初的路段相對平緩，經過梯田和村莊。</li>
+                    <li>從Hille (或 Tikhedhunga) 開始，將會有一段著名的「3000多級石階」的陡峭爬升，直接通往Ulleri。這段路程對膝蓋是個考驗。</li>
+                    <li>Ulleri是一個位於山坡上的美麗村莊，可以欣賞到壯麗的安納普爾納南峰 (Annapurna South) 和魚尾峰 (Machhapuchhre) 的初現。</li>
+                </ul>
+                <p><strong>住宿：</strong> Ulleri的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day2">第2天：Ulleri – Ghorepani (戈雷帕尼)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Ulleri (海拔約2020公尺)</p>
+                <p><strong>終點：</strong> Ghorepani (戈雷帕尼) (海拔約2860公尺)</p>
+                <p><strong>徒步距離：</strong> 約7-8公里</p>
+                <p><strong>徒步時間：</strong> 約4-5小時</p>
+                <p><strong>海拔爬升：</strong> 約840公尺</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>今天大部分路段是緩坡上升，穿過茂密的杜鵑花森林。</li>
+                    <li>沿途會經過Ban Thanti和Nangethanti等小村莊，提供休息和餐飲。</li>
+                    <li>隨著海拔升高，氣溫會逐漸下降，並可能感受到濕度增加。</li>
+                    <li>Ghorepani是一個熱鬧的徒步者村莊，也是通往Poon Hill的門戶。</li>
+                </ul>
+                <p><strong>住宿：</strong> Ghorepani的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day3">第3天：Ghorepani – Poon Hill (布恩山) 日出 – Tadapani (塔達帕尼)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Ghorepani (海拔約2860公尺)</p>
+                <p><strong>終點：</strong> Tadapani (塔達帕尼) (海拔約2630公尺)</p>
+                <p><strong>徒步距離：</strong> 約10-12公里 (含Poon Hill往返)</p>
+                <p><strong>徒步時間：</strong> 約6-8小時</p>
+                <p><strong>海拔爬升/下降：</strong> 上升約300公尺 (Poon Hill)，下降約530公尺 (至Tadapani)</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>清晨 (約4-5點) 摸黑出發，徒步約45-60分鐘爬升到Poon Hill (布恩山，海拔約3210公尺)，觀賞喜馬拉雅山脈的壯麗日出。</li>
+                    <li>Poon Hill是ABC路線上觀賞道拉吉里峰 (Dhaulagiri)、安納普爾納群峰、魚尾峰等連綿雪山的最佳觀景點之一。</li>
+                    <li>返回Ghorepani享用早餐。</li>
+                    <li>早餐後，開始向東南方向下降，穿過杜鵑花林，部分路段可能較為濕滑。</li>
+                    <li>抵達Tadapani，這是一個依山而建的村莊，也可以看到不錯的山景。</li>
+                </ul>
+                <p><strong>住宿：</strong> Tadapani的茶館。</p>
+                <img src="https://www.sundaynews.tw/userfiles/images/shred-6.jpg" alt="Poon Hill 日出景色" class="content-image">
+                <p class="image-caption">Poon Hill 日出景色 (圖片僅供參考)</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day4">第4天：Tadapani – Chomrong (喬姆隆) – Sinuwa (西努瓦)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Tadapani (海拔約2630公尺)</p>
+                <p><strong>終點：</strong> Sinuwa (西努瓦) (海拔約2340公尺)</p>
+                <p><strong>徒步距離：</strong> 約8-10公里</p>
+                <p><strong>徒步時間：</strong> 約5-7小時</p>
+                <p><strong>海拔變化：</strong> 先下降約600公尺至Chomrong Khola，再爬升約400公尺至Chomrong，然後下降約200公尺至Sinuwa。</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>從Tadapani開始，路段主要下降，途經梯田和森林。</li>
+                    <li>到達Chomrong (海拔約2170公尺)，這是一個重要的中轉站，也是ABC路線上最大的村莊之一。這裡有較好的茶館和商店，可以欣賞到魚尾峰和安納普爾納南峰的特寫。</li>
+                    <li>從Chomrong開始，將有大量的石階下坡到達Chomrong Khola (河流)，然後是一段陡峭的爬升到達對面的Sinuwa。</li>
+                    <li>Sinuwa是一個安靜的村莊，位於Modi Khola河谷的入口。</li>
+                </ul>
+                <p><strong>住宿：</strong> Sinuwa的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day5">第5天：Sinuwa – Deurali (德烏拉利)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Sinuwa (海拔約2340公尺)</p>
+                <p><strong>終點：</strong> Deurali (德烏拉利) (海拔約3230公尺)</p>
+                <p><strong>徒步距離：</strong> 約9-10公里</p>
+                <p><strong>徒步時間：</strong> 約6-7小時</p>
+                <p><strong>海拔爬升：</strong> 約890公尺</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>今天開始進入安納普爾納保護區的核心區域，沿著Modi Khola河谷向上游推進。</li>
+                    <li>路段穿過茂密的竹林 (Bamboo) 和杜鵑花林，景色逐漸變得更加原始和壯觀。</li>
+                    <li>會經過Dovan (海拔約2600公尺) 和 Himalaya (海拔約2920公尺) 等休息點。</li>
+                    <li>隨著海拔升高，氣溫會明顯下降，空氣也變得稀薄。</li>
+                    <li>到達Deurali，這裡的茶館條件相對簡單，但周圍的山景已非常壯麗。</li>
+                </ul>
+                <p><strong>住宿：</strong> Deurali的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day6">第6天：Deurali – Machhapuchhre Base Camp (MBC) – Annapurna Base Camp (ABC)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Deurali (海拔約3230公尺)</p>
+                <p><strong>終點：</strong> Annapurna Base Camp (ABC) (海拔約4130公尺)</p>
+                <p><strong>徒步距離：</strong> 約8-9公里</p>
+                <p><strong>徒步時間：</strong> 約4-5小時</p>
+                <p><strong>海拔爬升：</strong> 約900公尺</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>今天是最重要的一天，將到達徒步的終點。</li>
+                    <li>從Deurali到魚尾峰基地營 (Machhapuchhre Base Camp, MBC，海拔約3700公尺) 的路段相對平緩，但高海拔行走會讓體力消耗較大。</li>
+                    <li>MBC是觀賞魚尾峰、安納普爾納南峰、Hiunchuli峰等山峰的絕佳地點，但魚尾峰因其神聖性是禁止攀登的。可以在此稍作休息，適應海拔。</li>
+                    <li>從MBC到ABC的路程約1.5-2小時，坡度相對平緩，但高海拔行走會比較費力。</li>
+                    <li>抵達ABC！您將被360度的雪山環抱，包括雄偉的安納普爾納I峰 (8091公尺，世界第十高峰)、安納普爾納南峰、Baraha Shikhar (Fang峰)、Gangapurna峰等。傍晚和清晨的景色尤為壯觀。</li>
+                </ul>
+                <p><strong>住宿：</strong> ABC的茶館 (數量有限，條件相對簡陋)。</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOG-RXuyPdsjzDUNg6oQtp84OwPKmS_HRGIA&s" alt="Machhapuchhre Base Camp (MBC)" class="content-image">
+                <p class="image-caption">魚尾峰基地營 (Machhapuchhre Base Camp)</p>
+                <img src="https://a.bbkz.net/forum/attachment.php?attachmentid=2619792&thumb=1&d=1544780215" alt="Annapurna Base Camp (ABC)" class="content-image">
+                <p class="image-caption">安納普爾納基地營 (Annapurna Base Camp)</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day7">第7天：Annapurna Base Camp (ABC) – Bamboo (班布) 或 Sinuwa (西努瓦)</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Annapurna Base Camp (ABC) (海拔約4130公尺)</p>
+                <p><strong>終點：</strong> Bamboo (海拔約2310公尺) 或 Sinuwa (海拔約2340公尺)</p>
+                <p><strong>徒步距離：</strong> 約12-16公里</p>
+                <p><strong>徒步時間：</strong> 約6-8小時</p>
+                <p><strong>海拔下降：</strong> 約1800公尺</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>清晨可以在ABC欣賞日出照耀在安納普爾納群峰上的“金頂”奇觀。</li>
+                    <li>早餐後開始下撤。今天主要是下坡路段，返回的路徑與來時相同。</li>
+                    <li>雖然是下坡，但長時間行走對膝蓋也是考驗，建議使用登山杖。</li>
+                    <li>可以根據體能狀況選擇在Bamboo或繼續前行至Sinuwa過夜。</li>
+                </ul>
+                <p><strong>住宿：</strong> Bamboo 或 Sinuwa 的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day8">第8天：Bamboo / Sinuwa – Jhinu Danda (吉努丹達) 溫泉</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Bamboo (海拔約2310公尺) 或 Sinuwa (海拔約2340公尺)</p>
+                <p><strong>終點：</strong> Jhinu Danda (吉努丹達) (海拔約1760公尺)</p>
+                <p><strong>徒步距離：</strong> 約8-10公里</p>
+                <p><strong>徒步時間：</strong> 約5-6小時</p>
+                <p><strong>海拔下降：</strong> 約600-700公尺</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>今天繼續下撤，路段以陡峭的下坡為主。</li>
+                    <li>到達Chomrong後，不再爬升對面山坡，而是轉向右邊，一路下降至Jhinu Danda。</li>
+                    <li>Jhinu Danda以其天然溫泉而聞名。到達後，可以徒步約20-30分鐘下降到Modi Khola河邊的溫泉池，泡湯放鬆徒步多日的疲憊。</li>
+                </ul>
+                <p><strong>住宿：</strong> Jhinu Danda的茶館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day9">第9天：Jhinu Danda – Nayapul – 波卡拉</h3>
+            <div class="content-block">
+                <p><strong>起點：</strong> Jhinu Danda (海拔約1760公尺)</p>
+                <p><strong>終點：</strong> 波卡拉 (Pokhara) (海拔約822公尺)</p>
+                <p><strong>徒步距離：</strong> 約8-10公里</p>
+                <p><strong>徒步時間：</strong> 約3-4小時 (至Syauli Bazaar/Siwai)</p>
+                <p><strong>交通：</strong> 從Syauli Bazaar 或 Siwai 乘坐吉普車/計程車約2-3小時返回波卡拉。</p>
+                <p><strong>海拔下降：</strong> 約700公尺 (徒步部分)</p>
+                <p><strong>詳細介紹：</strong></p>
+                <ul>
+                    <li>從Jhinu Danda出發，沿著Modi Khola河谷繼續下行。</li>
+                    <li>這段路程相對平緩，穿過河邊的村莊和梯田。</li>
+                    <li>到達Syauli Bazaar或Siwai (海拔約1200公尺)，這裡有公路連接，可以找到車輛返回波卡拉。</li>
+                    <li>返回波卡拉後，可以好好享受熱水澡，品嚐美食，並慶祝完成ABC徒步。</li>
+                </ul>
+                <p><strong>住宿：</strong> 波卡拉的酒店/旅館。</p>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3 id="day10">第10天：從波卡拉返回</h3>
+            <div class="content-block">
+                <p><strong>內容：</strong> 從波卡拉搭乘飛機或巴士返回加德滿都，或直接從波卡拉前往其他目的地。結束令人難忘的安納普爾納基地營徒步之旅。</p>
+                <p><strong>交通：</strong> 波卡拉機場飛往加德滿都，或長途巴士。</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="preparation" class="section">
+        <h2>行前準備與建議</h2>
+        <div class="content-block">
+            <h3>必備裝備清單：</h3>
+            <ul>
+                <li><strong>徒步鞋：</strong> 一雙磨合好的、防水且抓地力強的徒步鞋。</li>
+                <li><strong>登山杖：</strong> 強烈推薦，特別是對於上下坡和保護膝蓋。</li>
+                <li><strong>背包：</strong> 根據天數選擇合適容量的背包 (如果請背夫，則準備一個日用小包)。</li>
+                <li><strong>保暖衣物：</strong> 多層次穿著，包括排汗內衣、抓絨衣、羽絨服/厚外套。</li>
+                <li><strong>防風防水外套：</strong> 高海拔地區天氣多變，防風防雨很重要。</li>
+                <li><strong>帽子/頭巾：</strong> 防曬、保暖或防塵。</li>
+                <li><strong>手套：</strong> 保暖手套。</li>
+                <li><strong>太陽眼鏡：</strong> 防雪盲和強烈紫外線。</li>
+                <li><strong>防曬霜、潤唇膏：</strong> 防止曬傷和嘴唇乾裂。</li>
+                <li><strong>水壺/水袋：</strong> 沿途可補充飲用水，但建議購買燒開的水或使用淨水片。</li>
+                <li><strong>個人洗漱用品：</strong> 毛巾、牙刷牙膏等。</li>
+                <li><strong>個人藥品：</strong> 感冒藥、止痛藥、腸胃藥、創可貼、消毒濕巾等。</li>
+                <li><strong>高能量零食：</strong> 巧克力、堅果、能量棒等。</li>
+                <li><strong>頭燈：</strong> 在山屋停電或清晨徒步時使用。</li>
+                <li><strong>相機及備用電池：</strong> 記錄美景。</li>
+                <li><strong>充電寶：</strong> 山屋充電可能收費或不方便。</li>
+                <li><strong>現金：</strong> 尼泊爾盧比，沿途茶館多數只收現金。</li>
+            </ul>
+
+            <h3>健康與安全：</h3>
+            <ul>
+                <li><strong>高山反應 (AMS)：</strong> 注意頭痛、噁心、疲勞等症狀。遵循嚮導建議，緩慢上升，多喝水，不要過度勞累。如有嚴重症狀，立即下撤。</li>
+                <li><strong>飲水：</strong> 飲用煮沸的水或瓶裝水，避免生水。</li>
+                <li><strong>食物：</strong> 茶館提供基本餐飲，多吃碳水化合物。</li>
+                <li><strong>尊重當地文化：</strong> 尊重當地風俗習慣，如進入寺廟脫鞋，不要隨意觸摸經幡等。</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>小提醒：</strong> 安納普爾納地區的網絡和通訊信號在高海拔地區可能會較差，部分茶館提供付費 Wi-Fi。</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>© 2025 安納普爾納徒步指南. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多洛米蒂每日徒步行程規劃</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Style from Japan Alps */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            /* Placeholder for a background image. Replace '[圖片建議...]' with an actual URL or remove if not desired. */
+            background-image: url('https://www.creativenatureart.com/images/xl/2022-Dolomites-B0007895-Rifugio-Auronzo-Pano.JPG');
+            background-size: cover;
+            background-position: center 20%;
+            color: white;
+            padding: 80px 20px; /* Adjusted padding */
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.8em; /* Slightly adjusted */
+            margin: 0;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .header p.subtitle { /* Subtitle for the header */
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px #000;
+            margin-top: 10px;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            position: sticky; /* Make nav sticky */
+            top: 0;
+            z-index: 1000; /* Ensure nav is above other content */
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 0.9em; /* Adjusted for more links */
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container { /* This will wrap all sections */
+            padding: 20px;
+        }
+        .section { /* Each major area/day group will be a section */
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section h2 { /* For main region titles, e.g., "區域一：三尖峰自然公園" */
+            color: #0056b3; /* Japan Alps h2 color */
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            font-size: 1.8em; /* Adjusted */
+            margin-top: 0; /* Remove default margin if it's the first element */
+        }
+        .section h3 { /* For day titles, e.g., "第1天：三尖峰環線徒步" */
+            color: #007bff; /* Japan Alps h3 color */
+            font-size: 1.4em; /* Adjusted */
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        .content-block { /* Wrapper for content within a day/subsection */
+             margin-bottom: 20px;
+        }
+        img.content-image { /* Class for main content images */
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Japan Alps style */
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-caption { /* For text below images */
+            text-align: center;
+            font-style: italic;
+            color: #777;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .warning, .highlight { /* Merging warning and highlight styles */
+            background-color: #fff3cd;
+            border-left: 6px solid #ffeeba;
+            padding: 15px; /* Increased padding */
+            margin: 20px 0; /* Increased margin */
+            border-radius: 4px; /* Added radius */
+        }
+        .warning strong, .highlight strong {
+            color: #856404;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px; /* Ensure padding for lists */
+        }
+        ul li, ol li {
+            margin-bottom: 8px; /* From Japan Alps .gear-list li */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0; /* Increased margin */
+            box-shadow: 0 0 5px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px; /* Increased padding */
+            text-align: left;
+        }
+        th {
+            background-color: #e9ecef; /* Lighter, more modern th background */
+            color: #495057;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9em;
+            margin-top: 30px;
+        }
+        /* Specific for day plan sections if needed, similar to .day-plan from Japan Alps */
+        .day-details {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>多洛米蒂每日徒步精選</h1>
+    <p class="subtitle">探索義大利山脈的壯麗步道</p>
+</header>
+
+<nav>
+    <a href="#core-considerations">核心考量</a>
+    <a href="#tre-cime">三尖峰區域</a>
+    <a href="#alta-via-1-day1-2">AV1 D1-D2</a>
+    <a href="#alta-via-1-day3-6">AV1 D3-D6</a>
+    <a href="#alta-via-1-day7-10">AV1 D7-D10</a>
+    <a href="#seceda-alpe-di-siusi">休斯高原-塞切達</a>
+    <a href="#val-di-funes">富內斯山谷</a>
+    <a href="#preparation">行前準備</a>
+</nav>
+
+<div class="container">
+
+    <section id="core-considerations" class="section">
+        <h2>核心考量</h2>
+        <div class="content-block">
+            <p><strong>住宿基地選擇：</strong> 為了實現每日日歸徒步，需要選擇1至3個中心住宿基地，以便輻射到各個景點。</p>
+            <ul>
+                <li><strong>三尖峰區域：</strong> 最佳基地是 米蘇里納湖 (Lago di Misurina) 附近或稍遠的 多比亞科 (Dobbiaco/Toblach) 、 科爾蒂納丹佩佐 (Cortina d'Ampezzo)。多比亞科去布拉耶斯湖也方便，科爾蒂納則更中心。</li>
+                <li><strong>Alta Via 1 (D1-D2)：</strong> 多比亞科 (Dobbiaco/Toblach)、維拉巴薩 (Niederdorf/Villabassa) 或聖坎迪多 (San Candido/Innichen) 等普斯特山谷 (Val Pusteria) 的城鎮，方便前往布拉耶斯湖和塞科費爾山。</li>
+                <li><strong>Alta Via 1 (D3-D6)：</strong> 科爾蒂納丹佩佐 (Cortina d'Ampezzo) 是最理想的中心基地，可以方便地到達拉加佐伊、五指峰、加爾山口和克羅達達拉戈。</li>
+                <li><strong>休斯高原-塞切達山 & 富內斯山谷：</strong> 這兩個區域相對靠近，可以選擇住在 奧蒂塞伊 (Ortisei) 、 聖克里斯蒂娜瓦爾加爾代納 (Santa Cristina Valgardena) 或 塞爾瓦迪加爾代納 (Selva di Val Gardena) 這些加爾代納山谷 (Val Gardena) 的城鎮，或者住在富內斯山谷內的 聖馬格達萊納 (Santa Maddalena/St. Magdalena) 或 聖彼得 (San Pietro/St. Peter)。卡斯泰爾羅托 (Castelrotto/Kastelruth) 或休斯 (Siusi/Seis) 也是休斯高原的好基地。</li>
+                <li><strong>Alta Via 1 (D7-D10)：</strong> 阿萊蓋 (Alleghe)、阿戈爾多 (Agordo) 或佐爾多山谷 (Val di Zoldo) 的小鎮 (如Pecol, Forno di Zoldo)，方便前往科爾代、奇維塔、莫亞扎和拉皮薩區域。</li>
+            </ul>
+            <p><strong>交通：</strong></p>
+            <ul>
+                <li>租車自駕是這種行程方式的必需。許多徒步起點公共交通不便或班次極少。</li>
+                <li>徒步起點停車： 熱門徒步起點的停車位在旺季非常緊張，務必早到！部分地點（如布拉耶斯湖）可能有交通管制或收費停車。</li>
+            </ul>
+            <p><strong>行程彈性：</strong> 山區天氣多變，可能需要根據天氣調整每日計劃。</p>
+            <p><strong>徒步難度：</strong> 日歸徒步雖然無需背負重裝，但部分路線本身仍具挑戰性，需要良好體能。</p>
+            <p><strong>纜車運用：</strong> 部分高海拔區域可以利用纜車輔助上下，節省體力和時間 (例如拉加佐伊山、五指峰附近、前往科爾代湖的部分路段等)，但需注意纜車的運營時間和費用。</p>
+            <p><strong>住宿預訂：</strong> 即使不住山屋，基地城鎮的酒店/民宿在旺季也需要提早預訂。</p>
+        </div>
+    </section>
+
+    <section id="tre-cime" class="section">
+        <h2>區域一：三尖峰自然公園 (Parco Naturale Tre Cime / Naturpark Drei Zinnen)</h2>
+        <div class="content-block">
+            <p><strong>建議基地：</strong> 米蘇里納湖 (Lago di Misurina)、多比亞科 (Dobbiaco)、聖坎迪多 (San Candido)、科爾蒂納丹佩佐 (Cortina d'Ampezzo)。從科爾蒂納開車到三尖峰收費公路入口約30-40分鐘；從多比亞科約30-40分鐘。</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/1200px-2019_Tre_Cime.jpg" alt="三尖峰 (Tre Cime di Lavaredo)" class="content-image">
+            <p class="image-caption">三尖峰 (Tre Cime di Lavaredo)</p>
+            <img src="https://media.istockphoto.com/id/486669886/zh/%E7%85%A7%E7%89%87/lake-misurina-with-reflection-of-clear-sky.jpg?s=612x612&w=0&k=20&c=4q4eXNrt08ncWYangJ4YLYe3ZNPCh6f_zJkwGri27jo=" alt="米蘇里納湖 (Lago di Misurina)" class="content-image">
+            <p class="image-caption">米蘇里納湖 (Lago di Misurina)</p>
+        </div>
+
+        <div class="day-details">
+            <h3>第1天：三尖峰環線徒步 (Tre Cime di Lavaredo Loop Hike)</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 近距離欣賞三尖峰的壯麗景色。</p>
+                <p><strong>行程亮點與簡介：</strong> 這是多洛米蒂最經典、最具標誌性的徒步路線之一。環繞著三座巨大的垂直岩峰行走，沿途風光無限。</p>
+                <p><strong>交通方式：</strong> 自駕至Rifugio Auronzo停車場。</p>
+                <div class="highlight"> <p><strong>重要提示：</strong> 通往Rifugio Auronzo的收費公路 (通常從米蘇里納湖附近開始) 在旺季有嚴格的車輛數量管制，停車位滿後會關閉道路，可能需要等待或乘坐接駁巴士。<strong>強烈建議極早 (清晨7點前) 抵達收費站入口排隊</strong>，或提前在線查詢是否有預訂停車位的系統。</p>
+                </div>
+                <p><strong>徒步路線建議：三尖峰環線 (Giro delle Tre Cime / Drei Zinnen Umrundung)</strong></p>
+                <table>
+                    <tr><th>起點/終點</th><td>Rifugio Auronzo (海拔2320公尺)</td></tr>
+                    <tr><th>路線</th><td>Rifugio Auronzo (2320m) → Rifugio Lavaredo (2344m) → Forcella Lavaredo (隘口, 2454m，觀賞三尖峰北壁經典角度) → Rifugio Locatelli/Dreizinnenhütte (2405m，午餐熱門點，視野絕佳) → Malga Langalm (高山牧場小屋) → 返回 Rifugio Auronzo。</td></tr>
+                    <tr><th>距離</th><td>約9.5 - 10公里環線</td></tr>
+                    <tr><th>時間</th><td>約3.5 - 5小時 (不含長時間休息和拍照)</td></tr>
+                    <tr><th>海拔總爬升/下降</th><td>約400公尺</td></tr>
+                    <tr><th>難度</th><td>中等。路徑清晰，但有起伏和碎石路段。</td></tr>
+                </table>
+                <p><strong>亮點：</strong> 從不同角度欣賞三尖峰的雄偉，Rifugio Locatelli前的平臺是觀賞三尖峰北壁和周圍群山的最佳地點之一，附近還有Piani湖群。</p>
+                <p><strong>注意事項：</strong></p>
+                <ul>
+                    <li>務必早到以確保能開車上山並找到停車位。</li>
+                    <li>高海拔地區天氣變化快，帶足衣物。</li>
+                    <li>Rifugio Locatelli午餐可能需要排隊。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="day-details">
+            <h3>第2天 (可選)：卡迪尼山脈觀景點 (Cadini di Misurina Viewpoint - "Pian dei Spiriti") 或周邊其他徒步</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 拍攝卡迪尼山脈的鋸齒狀奇峰，或探索三尖峰周邊其他步道。</p>
+                <p><strong>行程亮點與簡介：</strong> 卡迪尼觀景點是近年非常熱門的攝影點，景色獨特。</p>
+                <p><strong>交通方式：</strong> 同樣從Rifugio Auronzo停車場出發。</p>
+                <p><strong>徒步路線建議 (卡迪尼觀景點)：Sentiero Bonacossa (部分路段) 前往 Cadini di Misurina 觀景點</strong></p>
+                <table>
+                    <tr><th>起點</th><td>Rifugio Auronzo</td></tr>
+                    <tr><th>路線</th><td>從Rifugio Auronzo向南，沿著指向Rifugio Fratelli Fonda Savio的標誌 (Sentiero Bonacossa - 117號步道的一部分，但僅走至觀景點)。</td></tr>
+                    <tr><th>距離</th><td>往返約3-4公里</td></tr>
+                    <tr><th>時間</th><td>約1.5 - 2.5小時 (往返)</td></tr>
+                    <tr><th>海拔變化</th><td>少量升降，部分路段狹窄，需注意腳下。</td></tr>
+                    <tr><th>難度</th><td>中等 (部分路段需小心)</td></tr>
+                </table>
+                <p><strong>亮點：</strong> 拍攝卡迪尼群峰的經典“尖塔”視角。</p>
+                <p><strong>其他徒步選項：</strong></p>
+                <ul>
+                    <li>Monte Piana (歷史戰場，一戰露天博物館): 需要單獨驅車前往Monte Piana的停車場 (靠近米蘇里納湖)，然後乘坐吉普車或徒步上山。山頂平坦，有一戰遺跡和360度景觀。</li>
+                    <li>米蘇里納湖環湖： 輕鬆的湖畔散步。</li>
+                </ul>
+                <p><strong>注意事項：</strong> Sentiero Bonacossa全段是鐵索棧道(Via Ferrata)，前往觀景點的這小段不需要攀登裝備，但仍需小心。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="alta-via-1-day1-2" class="section">
+        <h2>區域二： 阿爾塔之路 1 號 (Alta Via 1) D1 & D2</h2>
+        <div class="day-details">
+            <h3>D1: 布拉耶斯湖 (Lago di Braies / Pragser Wildsee) 輕鬆遊</h3>
+             <div class="content-block">
+                <p><strong>主要目標：</strong> 布拉耶斯湖 (Lago di Braies)</p>
+                <p><strong>建議基地：</strong> 多比亞科 (Dobbiaco) 或周邊普斯特山谷城鎮。</p>
+                 <img src="https://images.simedia.cloud/cms-v2/CustomerData/557/Files/Images/drei-zinnen-sextner-dolomiten/allgemein/pragser-wildsee/header-pragser-wildsee-01.jpg/image.jpg?v=638822131840" alt="布拉耶斯湖 (Lago di Braies)" class="content-image">
+                <p class="image-caption">布拉耶斯湖 (Lago di Braies)</p>
+                <p><strong>行程亮點與簡介：</strong> 多洛米蒂最上鏡的湖泊之一，碧綠湖水映襯雄偉山峰。</p>
+                <p><strong>交通方式：</strong> 從多比亞科自駕約20-30分鐘至布拉耶斯湖停車場 (旺季早到！可能有交通管制，需換乘接駁巴士)。</p>
+                <p><strong>徒步路線建議：布拉耶斯湖環湖步道 (Giro del Lago di Braies / Seerundweg Pragser Wildsee)</strong></p>
+                <table>
+                    <tr><th>距離</th><td>約3.6公里環線</td></tr>
+                    <tr><th>時間</th><td>約1.5 - 2小時</td></tr>
+                    <tr><th>難度</th><td>輕鬆</td></tr>
+                </table>
+                <p><strong>亮點：</strong>沿湖邊小徑欣賞不同角度的湖光山色，可拍攝經典木船照片。</p>
+                <p><strong>其他活動：</strong> 在湖上划木船 (付費)。</p>
+                <p><strong>注意事項：</strong> 遊客極多，盡量早到或傍晚前往以避開人潮。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D2: 登頂塞科費爾山 (Seekofel / Croda del Becco) 挑戰</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 塞科費爾山頂 (Seekofel)</p>
+                <p><strong>建議基地：</strong> 多比亞科 (Dobbiaco) 或周邊普斯特山谷城鎮。</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Pragser_Wildsee_und_Seekofel_1.jpg" alt="塞科費爾山 (Seekofel)" class="content-image">
+                <p class="image-caption">塞科費爾山 (Seekofel)</p>
+                <p><strong>行程亮點與簡介：</strong> 俯瞰布拉耶斯湖及周圍壯麗山景的絕佳觀景點。</p>
+                <p><strong>交通方式：</strong> 自駕至布拉耶斯湖停車場。</p>
+                <p><strong>徒步路線建議：從布拉耶斯湖登頂塞科費爾山 (via Rifugio Biella)</strong></p>
+                <table>
+                    <tr><th>路線</th><td>Lago di Braies → Rifugio Biella (Seekofelhütte) → Seekofel山頂 → 原路返回</td></tr>
+                    <tr><th>距離</th><td>約14-15公里 (往返)</td></tr>
+                    <tr><th>時間</th><td>約6-8小時 (往返)</td></tr>
+                    <tr><th>海拔爬升</th><td>約1300公尺</td></tr>
+                    <tr><th>難度</th><td>較難 (持續爬升，高海拔，部分路段陡峭碎石坡)</td></tr>
+                </table>
+                <p><strong>亮點：</strong>Rifugio Biella是個不錯的中途休息點，山頂360度全景非常震撼。</p>
+                <p><strong>注意事項：</strong> 務必早出發，攜帶足夠水和食物，查看天氣預報。此為較長且有難度的日歸徒步。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="alta-via-1-day3-6" class="section">
+        <h2>區域二： 阿爾塔之路 1 號 (Alta Via 1) D3 - D6 (基地：科爾蒂納丹佩佐)</h2>
+        <div class="content-block">
+             <img src="https://www.dolomites.org/CustomerData/536/Files/Images/belluno/cortina-d-ampezzo/cortina-d-ampezzo.jpg" alt="科爾蒂納丹佩佐 (Cortina d'Ampezzo)" class="content-image">
+             <p class="image-caption">科爾蒂納丹佩佐 (Cortina d'Ampezzo)</p>
+        </div>
+        <div class="day-details">
+            <h3>D3: 拉加佐伊山 (Lagazuoi) – 歷史與雲端漫步</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 拉加佐伊山 (Monte Lagazuoi)</p>
+                <p><strong>建議基地：</strong> 科爾蒂納丹佩佐 (Cortina d'Ampezzo)。</p>
+             <img src="https://www.alta-badia.org/images/cms/main/754x435/B_RS77009_7679-falzarego-pass-gefallenen-denkmal.JPG" alt="拉加佐伊山" class="content-image">
+                <div class="image-caption">拉加佐伊山 (圖片參考 <a href="https://www.alta-badia.org/en/highlights/nature-and-landscape/dolomites/fanes-group/lagazuoi/" target="_blank" rel="noopener noreferrer">Alta Badia</a>)</div>
+                <p><strong>行程亮點與簡介：</strong> 一戰歷史遺跡與多洛米蒂群峰的無敵展望。</p>
+                <p><strong>交通方式：</strong> 從科爾蒂納自駕約25-35分鐘至法爾扎雷戈山口 (Passo Falzarego)。</p>
+                <p><strong>活動建議：</strong></p>
+                <ul>
+                    <li>拉加佐伊纜車 (Funivia Lagazuoi): 乘坐纜車直接上到山頂的Rifugio Lagazuoi (海拔2752公尺)。</li>
+                    <li>山頂探索：
+                        <ul>
+                            <li>欣賞360度全景，包括Civetta, Pelmo, Marmolada, Tofane等名峰。</li>
+                            <li>一戰隧道探索 (Gallerie Lagazuoi): 攜帶頭燈和安全帽 (可在山下纜車站租借)，探索保留下來的一戰奧匈帝國軍隊隧道系統。部分路段較暗且陡峭，需小心。</li>
+                            <li>山頂短途徒步： 沿山頂周圍的步道行走，參觀十字架和觀景點。</li>
+                        </ul>
+                    </li>
+                    <li>下山選擇：
+                        <ul>
+                            <li>再次乘坐纜車。</li>
+                            <li>徒步下山 (例如沿 Kaiserjäger 步道或通過隧道，部分路段為鐵索棧道 Via Ferrata，需有經驗和裝備)： 若選擇徒步下山，需預留充足時間和體力，並確認路線適合自己。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>注意事項：</strong> 確認纜車運營時間。隧道探索注意安全。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D4: 五指峰 (Cinque Torri) – 奇岩與戰爭記憶</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 五指峰 (Cinque Torri)</p>
+                <p><strong>建議基地：</strong> 科爾蒂納丹佩佐 (Cortina d'Ampezzo)。</p>
+                <img src="https://www.kbecan.com/wp-content/uploads/2024/10/Dolomites_Cinque_Torri_family_trip_climbing_07.jpg" alt="五指峰 (Cinque Torri)" class="content-image">
+                <p class="image-caption">五指峰 (Cinque Torri)</p>
+                <p><strong>行程亮點與簡介：</strong> 獨特的五座岩塔，一戰露天博物館，周邊山景壯麗。</p>
+                <p><strong>交通方式：</strong> 從科爾蒂納自駕約20-30分鐘至五指峰區域的停車場 (例如靠近Rifugio Col Gallina，或乘坐Cinque Torri纜車的山下站停車場)。</p>
+                <p><strong>徒步路線建議：五指峰環線與一戰露天博物館 (Giro delle Cinque Torri & Museo all'aperto della Grande Guerra)</strong></p>
+                <ul>
+                    <li>可以乘坐纜車上到Rifugio Scoiattoli附近，然後開始徒步。</li>
+                    <li>距離：環繞五指峰及參觀博物館約3-5公里。</li>
+                    <li>時間：約2-4小時 (含參觀時間)。</li>
+                    <li>難度：輕鬆至中等。</li>
+                </ul>
+                <p><strong>亮點：</strong>近距離觀賞五指峰，探索戰壕、碉堡，了解歷史。Rifugio Scoiattoli是絕佳的午餐和觀景地點。</p>
+                <p><strong>可選延伸：</strong> 從Rifugio Scoiattoli徒步至Rifugio Averau，甚至登頂Rifugio Nuvolau (山頂小屋，視野極佳，往返需額外2-3小時，有爬升)。</p>
+                <p><strong>注意事項：</strong> 旺季纜車站停車位緊張。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D5: 加爾山口 (Passo Giau) – 經典風光大道</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 加爾山口 (Passo Giau)</p>
+                <p><strong>建議基地：</strong> 科爾蒂納丹佩佐 (Cortina d'Ampezzo)。</p>
+                <img src="https://www.dolomiti.it/storage/localities/21536/conversions/passo_giau_autunno_chiesa_picjumbo_viktor_hanacek-tablet.jpg" alt="加爾山口 (Passo Giau)" class="content-image">
+                <p class="image-caption">加爾山口 (Passo Giau)</p>
+                <p><strong>行程亮點與簡介：</strong> 多洛米蒂最美的山口之一，標誌性的Ra Gusela岩峰，360度山景。</p>
+                <p><strong>交通方式：</strong> 從科爾蒂納自駕約30-40分鐘至加爾山口 (海拔2236公尺)。</p>
+                <p><strong>徒步路線建議：加爾山口周邊短途徒步</strong></p>
+                <ul>
+                    <li>Sentiero No. 436 (部分路段往Forcella Ambrizzola方向): 從山口出發，沿著Ra Gusela山腳向南行走一小段，欣賞不同角度的山景。可以根據體力決定往返距離。</li>
+                    <li>往Mondeval方向探索： 尋找拍攝Ra Gusela倒影的小水塘。</li>
+                    <li>時間：1-3小時不等。</li>
+                    <li>難度：輕鬆至中等。</li>
+                </ul>
+                <p><strong>較長徒步選項 (若時間體力充裕)：</strong>從Passo Giau前往 Mondeval de Sora 高原， 尋找中石器時代獵人墓葬遺址 Mesolithic burial site of the "Man of Mondeval" (需詳細地圖和規劃)。</p>
+                <p><strong>注意事項：</strong> 加爾山口風勢可能較大，注意保暖。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D6: 克羅達達拉戈 (Croda da Lago) – 靜謐湖泊與山屋</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 費代拉湖 (Lago Federa) 與 Rifugio Croda da Lago (Palmieri)</p>
+                <p><strong>建議基地：</strong> 科爾蒂納丹佩佐 (Cortina d'Ampezzo)。</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Croda_da_Lago_nord.jpg" alt="克羅達達拉戈湖泊" class="content-image">
+                <div class="image-caption">克羅達達拉戈湖泊 (圖片參考 <a href="https://en.wikipedia.org/wiki/Croda_da_Lago" target="_blank" rel="noopener noreferrer">Croda da Lago Wikipedia</a>)</div>
+                <p><strong>行程亮點與簡介：</strong> 風景如畫的高山湖泊，倒映著壯麗的克羅達達拉戈山脈。</p>
+                <p><strong>交通方式：</strong> 從科爾蒂納自駕約15-25分鐘至徒步起點。</p>
+                <p><strong>徒步路線建議：從 Ponte de Rocurto 或 Malga Federa 停車場前往 Rifugio Croda da Lago</strong></p>
+                <table>
+                    <tr><th>路線</th><td>有多條路徑可達，例如從 Val di Formin 的 Ponte de Rocurto (停車位有限) 沿437號步道，或從較高處的 Malga Federa 停車場 (需確認道路開放和通行條件) 前往。</td></tr>
+                    <tr><th>距離</th><td>約8-12公里 (往返，取決於起點)</td></tr>
+                    <tr><th>時間</th><td>約3-5小時 (往返)</td></tr>
+                    <tr><th>海拔爬升</th><td>約400-600公尺</td></tr>
+                    <tr><th>難度</th><td>中等</td></tr>
+                </table>
+                <p><strong>亮點：</strong>抵達寧靜的費代拉湖和溫馨的Rifugio Croda da Lago (Palmieri)，可以在此午餐。環湖漫步。</p>
+                <p><strong>注意事項：</strong> 確認最佳停車起點和路況。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="alta-via-1-day7-10" class="section">
+        <h2>區域二： 阿爾塔之路 1 號 (Alta Via 1) D7 - D10</h2>
+         <div class="day-details">
+            <h3>D7: 科爾代湖 (Lago Coldai) – 仰望奇維塔北壁</h3>
+             <div class="content-block">
+                <p><strong>主要目標：</strong> 科爾代湖 (Lago Coldai) 與 Rifugio Coldai，欣賞奇維塔山 (Monte Civetta) 西北壁。</p>
+                <p><strong>建議基地：</strong> 阿萊蓋 (Alleghe) 或帕拉法韋拉 (Palafavera) 附近的佐爾多山谷小鎮。</p>
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/bf/e5/b2/il-laghetto-ai-piedi.jpg?w=700&h=400&s=1" alt="科爾代湖與奇維塔山" class="content-image">
+                <div class="image-caption">科爾代湖與奇維塔山</div>
+                <p><strong>行程亮點與簡介：</strong> 近距離感受奇維塔山脈的雄偉氣勢。</p>
+                <p><strong>交通方式：</strong> 自駕至帕拉法韋拉 (Palafavera，海拔1500公尺左右)。</p>
+                <p><strong>徒步路線建議：從帕拉法韋拉前往 Rifugio Coldai 和科爾代湖</strong></p>
+                <ul>
+                    <li>可以乘坐帕拉法韋拉的纜車 (Col de Vescovo 方向，季節性運營，需確認) 上升一部分海拔，然後接駁步道。</li>
+                    <li>若全程徒步：沿564號轉556號步道。</li>
+                </ul>
+                 <table>
+                    <tr><th>距離</th><td>若從纜車上站開始，往返約6-8公里；若全程徒步，往返約10-12公里</td></tr>
+                    <tr><th>時間</th><td>纜車輔助下約2.5-4小時；全程徒步約4-6小時</td></tr>
+                    <tr><th>海拔爬升</th><td>纜車輔助下約300-400公尺；全程徒步約600-700公尺</td></tr>
+                    <tr><th>難度</th><td>中等</td></tr>
+                </table>
+                <p><strong>亮點：</strong>抵達科爾代湖 (Lago Coldai，海拔2143公尺)，湖後便是奇維塔山的巨大岩壁。Rifugio Coldai (海拔2132公尺) 是理想的休息點。</p>
+                <p><strong>注意事項：</strong> 確認纜車運營情況。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D8: 奇維塔 (Civetta) 山區風光 – 不同角度的欣賞</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 從不同角度欣賞奇維塔山或其周邊山谷。</p>
+                <p><strong>建議基地：</strong> 阿萊蓋 (Alleghe) 或佐爾多山谷小鎮。</p>
+                <img src="https://www.guidedolomiti.com/wp-content/uploads/tissi-e-civetta.webp" alt="奇維塔山 (Monte Civetta)" class="content-image">
+                <p class="image-caption">奇維塔山 (Monte Civetta)</p>
+                <p><strong>行程亮點與簡介：</strong> 探索奇維塔山群的其他面貌或周邊景色。</p>
+                <p><strong>徒步路線建議 (選項之一)：從阿萊蓋 (Alleghe) 乘坐纜車至 Col dei Baldi / Piani di Pezzè</strong></p>
+                <ul>
+                    <li>活動：在Col dei Baldi (海拔約1900公尺) 區域進行輕鬆的高山草甸徒步，這裡可以回望奇維塔山脈的東南面，以及遠眺馬爾莫拉達冰川 (Marmolada)。</li>
+                    <li>距離/時間：可長可短，自由安排，1-3小時。</li>
+                    <li>難度：輕鬆。</li>
+                </ul>
+                <p><strong>亮點：</strong>不同於昨日的奇維塔視角，廣闊的草甸和森林。</p>
+                <p><strong>或選擇佐爾多山谷 (Val di Zoldo) 內的步道：</strong> 例如從 Pecol 或 Mareson 出發，有一些可以深入山谷或登高望遠的路線，例如前往 Casera della Grava。</p>
+                <p><strong>傍晚：</strong> 可以在阿萊蓋湖 (Lago di Alleghe) 湖畔散步，欣賞夕陽下的奇維塔倒影。</p>
+                <p><strong>注意事項：</strong> 根據體能和興趣選擇合適的徒步。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D9: 莫亞扎 (Moiazza) 山區探索 – 杜蘭山口 (Passo Duran)</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 探索莫亞扎 (Moiazza) 山群南麓，以杜蘭山口為基地。</p>
+                <p><strong>建議基地：</strong> 阿戈爾多 (Agordo) 或靠近杜蘭山口的小鎮。</p>
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/bb/d0/a8/caption.jpg?w=800&h=500&s=1" alt="莫亞扎山區" class="content-image">
+                <div class="image-caption">莫亞扎山區</div>
+                <p><strong>行程亮點與簡介：</strong> 感受莫亞扎山脈的崎嶇與原始，杜蘭山口本身也是一個風景點。</p>
+                <p><strong>交通方式：</strong> 自駕至杜蘭山口 (Passo Duran, 海拔1601公尺)。</p>
+                <p><strong>徒步路線建議：從杜蘭山口前往 Rifugio Carestiato (Bruto Carestiato) 並返回 (部分路段)</strong></p>
+                <ul>
+                    <li>Rifugio Carestiato (海拔1834公尺) 位於AV1路線上，從杜蘭山口前往該山屋的步道 (如549號轉547號) 可以讓您體驗莫亞扎山區的風光。</li>
+                </ul>
+                <table>
+                    <tr><th>距離</th><td>往返Rifugio Carestiato約8-10公里</td></tr>
+                    <tr><th>時間</th><td>約3-5小時</td></tr>
+                    <tr><th>海拔爬升</th><td>約250-350公尺</td></tr>
+                    <tr><th>難度</th><td>中等</td></tr>
+                </table>
+                <p><strong>亮點：</strong>沿途可見莫亞扎山的南壁，山屋本身也是一個好的觀景和休息點。</p>
+                <p><strong>注意事項：</strong> 杜蘭山口是公路山口，停車方便。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>D10: 拉皮薩 (La Pissa) 瀑布</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 拉皮薩瀑布 (Cascata de La Pissa) 及周邊。</p>
+                <p><strong>建議基地：</strong> 阿戈爾多 (Agordo)。</p>
+                <div class="image-caption">拉皮薩瀑布 (示意圖)</div>
+                <p><strong>行程亮點與簡介：</strong> 輕鬆的自然景觀，為多洛米蒂行程畫上句點。</p>
+                <p><strong>交通方式：</strong> 從阿戈爾多自駕或乘坐當地交通前往拉皮薩瀑布區域 (位於Val Corpassa山谷，靠近Listolade村)。</p>
+                <p><strong>活動建議：徒步至拉皮薩瀑布</strong></p>
+                <ul>
+                    <li>從公路邊或指定停車點開始，有短途步道可以抵達瀑布下方。</li>
+                </ul>
+                <table>
+                    <tr><th>距離/時間</th><td>通常少於1小時</td></tr>
+                    <tr><th>難度</th><td>輕鬆</td></tr>
+                </table>
+                <p><strong>亮點：</strong>欣賞瀑布景觀，輕鬆的活動。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="seceda-alpe-di-siusi" class="section">
+        <h2>區域三：休斯高原 (Alpe di Siusi/Seiser Alm) - 塞切達山 (Seceda)</h2>
+        <div class="content-block">
+            <p><strong>建議基地：</strong> 加爾代納山谷 (Val Gardena) 的城鎮，如奧蒂塞伊 (Ortisei/St. Ulrich)、聖克里斯蒂娜 (Santa Cristina Valgardena/St. Christina)、塞爾瓦 (Selva di Val Gardena/Wolkenstein)；或者休斯高原山腳下的休斯 (Siusi/Seis) 或卡斯泰爾羅托 (Castelrotto/Kastelruth)。</p>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/f5/93/ba/alpedisiusi-valgardena.jpg?w=900&h=500&s=1" alt="休斯高原 (Alpe di Siusi)" class="content-image">
+            <p class="image-caption">休斯高原 (Alpe di Siusi)</p>
+        </div>
+        <div class="day-details">
+            <h3>第3天：塞切達山脊徒步 (Seceda Ridgeline)</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 欣賞塞切達山標誌性的鋸齒狀山脊和遠眺Odle/Geisler群峰。</p>
+                <img src="https://static.wixstatic.com/media/63218d_ab23c5aa1ffd4abba0995a5ea8867d15~mv2.jpg/v1/fill/w_2200,h_1238,al_c,q_90/Header-Wanderung-Seceda.jpg" alt="塞切達山 (Seceda)" class="content-image">
+                <p class="image-caption">塞切達山 (Seceda)</p>
+                <p><strong>行程亮點與簡介：</strong> 從山頂纜車站出發，沿著壯觀的山脊線徒步，景色令人難忘。</p>
+                <p><strong>交通方式：</strong></p>
+                <ul>
+                    <li>從 奧蒂塞伊 (Ortisei) ：乘坐 Ortisei-Furnes 纜車，再轉乘 Furnes-Seceda 纜車，直達Seceda山頂 (海拔2500公尺)。</li>
+                    <li>從 聖克里斯蒂娜 (Santa Cristina) ：乘坐 Col Raiser 纜車，然後徒步一段或再轉乘 Almhotel Col Raiser 附近的 Fermeda 升降椅 (季節性運營) 接近Seceda區域。</li>
+                </ul>
+                <p><strong>徒步路線建議：Seceda山頂環線或觀景點徒步</strong></p>
+                <table>
+                    <tr><th>起點/終點</th><td>Seceda纜車上站</td></tr>
+                    <tr><th>路線</th><td>
+                        <ul>
+                            <li>輕鬆觀景： 從纜車站出來，步行幾分鐘即可到達最佳觀景平台。</li>
+                            <li>山脊徒步至Forcella Pana / Panascharte (隘口)： 沿著山脊向東行走，欣賞Odle群峰 (Geislergruppe) 的壯麗景色。可以走到Forcella Pana再折返，或繼續向下至Rifugio Troier或更遠。</li>
+                            <li>環線選項： 有多條不同長度和難度的環線可以組合，例如Seceda → Forcella Pana → Rifugio Troier → Baita Sofie → 返回纜車站 (部分路段可能需乘坐其他升降椅輔助)。</li>
+                        </ul>
+                    </td></tr>
+                    <tr><th>距離</th><td>2 - 8公里不等，取決於選擇</td></tr>
+                    <tr><th>時間</th><td>1 - 4小時不等</td></tr>
+                    <tr><th>難度</th><td>輕鬆至中等</td></tr>
+                </table>
+                <p><strong>亮點：</strong> 標誌性的Seceda山脊線，背後是奇特的Odle/Geisler群峰，前方是廣闊的休斯高原。</p>
+                <p><strong>注意事項：</strong> 務必查詢纜車運營時間和日期。山頂風大，注意保暖。</p>
+            </div>
+        </div>
+        <div class="day-details">
+            <h3>第4天：休斯高原 (Alpe di Siusi / Seiser Alm) 廣闊草甸徒步</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 體驗歐洲最大的高山草甸，欣賞Sassolungo (長石山) 和Sassopiatto (扁石山) 的景色。</p>
+                <p><strong>行程亮點與簡介：</strong> 在開闊的草甸上徒步，周圍是經典的多洛米蒂山峰，適合各種體能水平。</p>
+                <p><strong>交通方式：</strong></p>
+                <ul>
+                    <li>從 休斯 (Siusi/Seis) ：乘坐Alpe di Siusi纜車上到Compaccio/Compatsch (休斯高原的中心)。</li>
+                    <li>從 奧蒂塞伊 (Ortisei) ：乘坐Mont Sëuc纜車上到休斯高原的另一側。</li>
+                </ul>
+                <p class="note">注意： 通常私家車輛在特定時段 (如上午9點至下午5點) 禁止駛入休斯高原的主要區域，需使用纜車或公共巴士。</p>
+                <p><strong>徒步路線建議 (從Compaccio/Compatsch出發)：</strong></p>
+                <ul>
+                    <li>輕鬆環線： 有許多標記清晰的平緩步道環繞Compaccio，適合家庭。</li>
+                    <li>前往Baita Sanon / Gostner Schwaige / Rauchhütte 等高山小屋： 選擇一個或幾個風景優美的小屋作為目標，沿途欣賞風景，並在小屋享用午餐或點心。例如，Compaccio → Baita Sanon → Compaccio (約1.5-2.5小時)。</li>
+                    <li>漢斯和葆拉·施泰格小徑 (Hans und Paula Steger Weg - No. 30): 一條紀念登山先驅的文化主題小徑，相對平緩，風景優美。</li>
+                    <li>Piz覽景點 ( viewpoint Puflatsch / Bullaccia): 從Compaccio乘坐Telemix Bullaccia升降椅或徒步上山，山頂有環形步道和觀景台，可以俯瞰休斯高原和遠處的Sciliar/Schlern山。</li>
+                </ul>
+                <p><strong>距離/時間/難度：</strong> 選擇多樣，從幾公里到十幾公里，輕鬆到中等。</p>
+                <p><strong>注意事項：</strong> 休斯高原非常開闊，注意防曬。可以租借自行車或乘坐馬車遊覽。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="val-di-funes" class="section">
+        <h2>區域四：富內斯山谷 (Val di Funes / Villnößtal)</h2>
+        <div class="content-block">
+            <p><strong>建議基地：</strong> 富內斯山谷內的聖馬格達萊納 (Santa Maddalena/St. Magdalena) 或聖彼得 (San Pietro/St. Peter)；或者也可以從加爾代納山谷的城鎮當天往返 (車程約40-60分鐘)。</p>
+             <img src="https://lilliansblog.com/wp-content/uploads/2021/06/santa-maddalena-val-di-funes-italy_l.jpeg" alt="富內斯山谷 (Val di Funes) 與聖馬格達萊納教堂" class="content-image">
+            <p class="image-caption">富內斯山谷與聖馬格達萊納教堂</p>
+        </div>
+        <div class="day-details">
+            <h3>第5天：富內斯山谷 – 聖馬格達萊納教堂與Odle群峰經典視角</h3>
+            <div class="content-block">
+                <p><strong>主要目標：</strong> 拍攝聖馬格達萊納小教堂 (Chiesetta di San Giovanni in Ranui 通常被誤認為聖馬格達萊納教堂，實際是Ranuihof的私人小教堂，但風景極佳) 和真正的聖馬格達萊納教堂 (Church of St. Magdalena) 背靠Odle/Geisler群峰的經典畫面。</p>
+                <p><strong>行程亮點與簡介：</strong> 富內斯山谷以其田園詩般的風景和背後崢嶸的Odle群峰北壁而聞名，是攝影愛好者的天堂。</p>
+                <p><strong>交通方式：</strong> 自駕至富內斯山谷內的聖馬格達萊納村。</p>
+                <p><strong>活動建議：</strong></p>
+                <ul>
+                    <li>拍攝經典照片：
+                        <ul>
+                            <li>Chiesetta di San Giovanni in Ranui (聖約翰小教堂): 位於Ranui，背景是Odle群峰，非常上鏡。通常只能在外面觀賞和拍攝。</li>
+                            <li>Church of St. Magdalena (聖馬格達萊納教堂) 與觀景點： 從村莊中徒步一小段上坡路至一個觀景平台 (Panoramaweg或類似標示)，可以拍攝到教堂和村莊與Odle群峰的合影。</li>
+                        </ul>
+                    </li>
+                    <li>聖馬格達萊納全景步道 (Panoramaweg St. Magdalena): 一條環繞村莊的輕鬆徒步路線，可以從不同角度欣賞Odle群峰。
+                        <ul>
+                            <li>距離：約6-8公里。</li>
+                            <li>時間：約2-3小時。</li>
+                            <li>難度：輕鬆。</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>可選較長徒步：Adolf Munkel Trail (Via delle Odle / Adolf-Munkel-Weg)</strong></p>
+                <table>
+                    <tr><th>起點</th><td>通常從Zanser Alm/Malga Zannes停車場 (需從聖馬格達萊納再往山谷深處開一段路)</td></tr>
+                    <tr><th>路線</th><td>這條步道緊貼Odle群峰的北麓，景色極為壯觀。可以選擇走全程或部分路段，例如前往Gschnagenhardt Alm、Geisleralm (Malga Casnago) 或 Dusler Alm等高山小屋。</td></tr>
+                    <tr><th>距離</th><td>前往Geisleralm並返回約9-10公里</td></tr>
+                    <tr><th>時間</th><td>約3-4小時</td></tr>
+                    <tr><th>難度</th><td>中等</td></tr>
+                </table>
+                <p><strong>亮點：</strong> 近距離感受Odle群峰的雄偉，高山牧場小屋是理想的休息和午餐地點。</p>
+                <p><strong>注意事項：</strong> 經典教堂拍攝點遊客較多。Adolf Munkel Trail的Zanser Alm停車場在旺季也可能較滿，建議早到。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="preparation" class="section">
+        <h2>行前準備與每日注意事項</h2>
+        <div class="content-block">
+            <ul>
+                <li><strong>每日確認天氣：</strong> 高山天氣多變，務必每日查詢最新天氣預報，並準備應對突變天氣的衣物。</li>
+                <li><strong>提早出發：</strong> 尤其是在旺季，早出發可以避開人潮，更容易找到停車位，並有更充裕的時間完成徒步，避免摸黑下山。</li>
+                <li><strong>攜帶物品：</strong> 背包內應有足夠的水、高能量零食/午餐、防曬霜、太陽鏡、遮陽帽、急救包、頭燈、地圖、指南針/GPS、手機 (充滿電，但山區信號不穩)。</li>
+                <li><strong>導航：</strong> 雖然部分熱門步道標記清晰，但詳細地圖和導航工具仍然非常重要。</li>
+                <li><strong>纜車時刻表：</strong> 如果計劃使用纜車，務必提前查詢其運營日期和時間。</li>
+                <li><strong>停車：</strong> 熱門景點停車位有限且可能收費。</li>
+                <li><strong>保持彈性：</strong> 準備好備選計劃，以應對天氣變化或其他突發狀況。</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<footer class="footer">
+    <p>此行程規劃參考了「多洛米蒂每日(Day Hike)徒步行程規劃」文件內容。</p>
+    <p>安全永遠是第一位的，請務必根據自身能力和當時的天氣情況做出判斷。本行程僅供參考。</p>
+    <p>© 2025 多洛米蒂徒步探險</p>
+</footer>
+
+</body>
+</html>

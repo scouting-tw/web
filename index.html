@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球徒步旅行目的地</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定義字體設定 */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* 確保圖片在卡片中良好顯示 */
+        .card-image {
+            width: 100%;
+            height: 200px; /* 固定高度，保持一致性 */
+            object-fit: cover; /* 裁剪圖片以填充容器 */
+            border-top-left-radius: 0.75rem; /* 與卡片圓角一致 */
+            border-top-right-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-indigo-900 text-gray-100 min-h-screen flex flex-col items-center py-10 px-4">
+
+    <!-- 主標題區塊 -->
+    <header class="text-center mb-12">
+        <h1 class="text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+            探索世界，徒步旅行
+        </h1>
+        <p class="text-xl text-blue-200">
+            精選全球最令人驚嘆的徒步路線，開啟您的冒險之旅。
+        </p>
+    </header>
+
+    <!-- 目的地卡片網格 -->
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
+
+        <!-- 日本北阿爾卑斯山脈極限挑戰卡片 -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/3498db/ffffff?text=Japan+Alps" alt="日本北阿爾卑斯山脈" class="card-image">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-blue-300 mb-3">日本北阿爾卑斯山脈極限挑戰</h2>
+                <p class="text-gray-300 text-lg mb-4">
+                    探索日本壯麗的山脈，體驗獨特的文化與令人屏息的自然風光。
+                </p>
+                <a href="japan-alps.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <!-- 多洛米蒂AV1每日徒步精選卡片 -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/2ecc71/ffffff?text=Dolomites+AV1" alt="多洛米蒂AV1" class="card-image">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-green-300 mb-3">多洛米蒂AV1每日徒步精選</h2>
+                <p class="text-gray-300 text-lg mb-4">
+                    穿越義大利多洛米蒂山脈的史詩級路線，感受阿爾卑斯山的雄偉。
+                </p>
+                <a href="dolomites.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <!-- 環白朗峰步道 (Tour du Mont Blanc, TMB) 卡片 -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/e74c3c/ffffff?text=Tour+du+Mont+Blanc" alt="環白朗峰步道" class="card-image">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-red-300 mb-3">環白朗峰步道 (TMB)</h2>
+                <p class="text-gray-300 text-lg mb-4">
+                    歐洲最經典的徒步路線之一，環繞西歐最高峰白朗峰。
+                </p>
+                <a href="tmb.html" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <!-- 安納普爾納基地營 (ABC) 經典徒步之旅卡片 -->
+        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/f39c12/ffffff?text=Annapurna+Base+Camp" alt="安納普爾納基地營" class="card-image">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-yellow-300 mb-3">安納普爾納基地營 (ABC)</h2>
+                <p class="text-gray-300 text-lg mb-4">
+                    尼泊爾的經典徒步路線，直達喜馬拉雅山脈的壯麗核心。
+                </p>
+                <a href="abc.html" class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 頁腳 (可選) -->
+    <footer class="mt-12 text-center text-gray-400 text-sm">
+        <p>&copy; 2025 徒步旅行。版權所有。</p>
+    </footer>
+
+</body>
+</html>

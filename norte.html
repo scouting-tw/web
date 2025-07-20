@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西班牙朝聖之路：北方之路與原始之路徒步攻略</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #4a69bd; /* 深藍色 */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 400px; /* 固定高度 */
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b3/Camino_del_Norte_coast.jpg'); /* 示意圖：北方之路海岸線 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+        .hero-banner h2 {
+            font-size: 3.5em;
+            margin: 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .section {
+            background-color: white;
+            margin: 30px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+        }
+        .section h2 {
+            color: #2c3e50; /* 深灰色 */
+            font-size: 2.4em;
+            border-bottom: 3px solid #4a69bd;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section h3 {
+            color: #4a69bd;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid #7cb9e8; /* 淺藍色邊條 */
+            padding-left: 10px;
+        }
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        .section ul {
+            list-style-type: disc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .section ul li {
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        .section strong {
+            color: #2c3e50;
+        }
+
+        /* Key Info Section */
+        .key-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .key-info-item {
+            background-color: #e6f7ff; /* 淺藍色背景 */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .key-info-item:hover {
+            transform: translateY(-5px);
+        }
+        .key-info-item i {
+            font-size: 3em;
+            color: #4a69bd;
+            margin-bottom: 15px;
+        }
+        .key-info-item h4 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .key-info-item p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 0;
+        }
+
+        /* Itinerary Section */
+        .itinerary-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .itinerary-day {
+            background-color: #fbfbfb;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px 25px;
+            transition: box-shadow 0.3s ease;
+        }
+        .itinerary-day:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .itinerary-day strong {
+            display: block;
+            font-size: 1.3em;
+            color: #4a69bd;
+            margin-bottom: 8px;
+        }
+        .itinerary-day p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Images within sections */
+        .section-image {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Call to Action / Advice */
+        .advice-box {
+            background-color: #f0f8ff; /* 淺藍色調 */
+            border-left: 6px solid #4a69bd;
+            padding: 25px;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .advice-box h3 {
+            color: #4a69bd;
+            margin-top: 0;
+            padding-left: 0;
+            border-left: none;
+            text-align: center;
+        }
+        .advice-box ul {
+            list-style-type: none; /* No bullets for this list */
+            padding-left: 0;
+            text-align: left;
+        }
+        .advice-box ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+        .advice-box ul li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #28a745; /* Green checkmark */
+            font-size: 1.2em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 50px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: #7cb9e8;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .hero-banner {
+                height: 250px;
+            }
+            .hero-banner h2 {
+                font-size: 2em;
+                padding: 15px;
+            }
+            .section {
+                padding: 25px;
+                margin: 20px auto;
+            }
+            .section h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .section h3 {
+                font-size: 1.5em;
+            }
+            .key-info-grid {
+                grid-template-columns: 1fr;
+            }
+            .itinerary-day strong {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>西班牙聖地牙哥朝聖之路</h1>
+            <p>Camino de Santiago: 一場連結智慧與行動的徒步旅程</p>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <h2>北方之路與原始之路：徒步781公里，穿越西班牙北部</h2>
+    </div>
+
+    <main class="container">
+        <section class="section intro-section">
+            <h2>開啟您的朝聖之旅</h2>
+            [cite_start]<p>「北方之路 (Camino del Norte)」Irun-Oviedo 466公里與「原始之路 (Camino Primitivo)」Oviedo-Santiago de Compostela 315公里，這兩條路線皆是西班牙聖地牙哥朝聖之路 (Camino de Santiago) 的著名路徑，以其美麗的風景和挑戰性的地形聞名。 [cite: 1]</p>
+            [cite_start]<p>這份行程建議基於公開資訊規劃，旨在幫助您準備這段意義非凡的徒步旅程。 [cite: 1]</p>
+
+            <div class="key-info-grid">
+                <div class="key-info-item">
+                    <i class="fas fa-route"></i>
+                    <h4>總里程</h4>
+                    [cite_start]<p>約 466 公里 (北方之路) + 315 公里 (原始之路) = 約 781 公里 [cite: 2]</p>
+                </div>
+                <div class="key-info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h4>預估總天數</h4>
+                    [cite_start]<p>約 35-40 天 (此為徒步時間，不含休息日或城市探索日) [cite: 3]</p>
+                </div>
+                <div class="key-info-item">
+                    <i class="fas fa-walking"></i>
+                    <h4>體能準備</h4>
+                    [cite_start]<p>長距離徒步需要良好體能，建議規律進行長距離步行訓練。 [cite: 5]</p>
+                </div>
+                <div class="key-info-item">
+                    <i class="fas fa-backpack"></i>
+                    <h4>裝備重點</h4>
+                    [cite_start]<p>輕量化是關鍵，必備舒適徒步鞋、快乾衣物、雨具、急救包、水袋。 [cite: 6]</p>
+                </div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Sign_of_the_Camino_de_Santiago.jpg" alt="Camino de Santiago 路標" class="section-image">
+            [cite_start]<p style="text-align: center; font-style: italic; color: #777;">沿途您將看到黃色箭頭和扇貝標誌指引方向。 [cite: 9]</p>
+        </section>
+
+        <section class="section">
+            [cite_start]<h2>重要提示與實用資訊 [cite: 4]</h2>
+            <div class="advice-box">
+                <h3>行前準備與注意事項</h3>
+                <ul>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>住宿：</strong> 主要入住「朝聖者庇護所 (Albergues)」，價格實惠且提供基本設施。部分城鎮也有私人旅館或酒店可選擇。 [cite: 7]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>朝聖者護照 (Credencial)：</strong> 入住庇護所和最終取得證明（Compostela）的必備文件。可在出發前或Irun取得。 [cite: 8]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>最佳時間：</strong> 春季（4-5月）和秋季（9-10月）為最佳時機，可避開夏季高溫和人群。 [cite: 10]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>行程彈性：</strong> 以下行程為建議，請依個人體能、天氣及住宿情況彈性調整每日里程。 [cite: 11]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>行李運輸：</strong> 可利用行李運輸服務，減輕每日負擔，只背小包徒步。 [cite: 94]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>飲食：</strong> 庇護所多有廚房可自炊，小鎮餐廳也提供價格合理的「朝聖者菜單 (Menu del Peregrino)」。 [cite: 95]</li>
+                    [cite_start]<li><i class="fas fa-check-circle"></i> <strong>安全：</strong> 獨自行走時請告知親友行程，注意個人財物安全並遵守當地法規。 [cite: 96]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            [cite_start]<h2>第一部分：北方之路 (Camino del Norte) - Irun 至 Oviedo (約 466 公里) [cite: 12]</h2>
+            [cite_start]<p><strong>預估徒步天數：約 21-23 天</strong> [cite: 13]</p>
+            [cite_start]<p>北方之路沿著西班牙北部海岸線前進，風景優美，但也常有起伏較大的地形。 [cite: 14]</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Playa_de_la_Concha%2C_San_Sebasti%C3%A1n_%281%29.jpg/1024px-Playa_de_la_Concha%2C_San_Sebasti%C3%A1n_%281%29.jpg" alt="聖塞瓦斯蒂安海灘" class="section-image">
+            <p style="text-align: center; font-style: italic; color: #777;">北方之路沿途有著令人驚嘆的海岸風光。</p>
+
+            <h3>詳細行程建議</h3>
+            <div class="itinerary-list">
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 1 天：Irun 依倫 → San Sebastián 聖塞瓦斯蒂安 (約 27 公里)</strong> [cite: 15]
+                    [cite_start]<p>從法國邊境小鎮Irun出發，沿著海岸線進入風景如畫的聖塞瓦斯蒂安。 [cite: 16]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 2 天：San Sebastián 聖塞瓦斯蒂安 → Zarautz 薩勞茨 (約 22 公里)</strong> [cite: 17]
+                    [cite_start]<p>繼續沿著海岸線，經過美麗的海灘小鎮。 [cite: 18]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 3 天：Zarautz 薩勞茨 → Deba 德瓦 (約 22 公里)</strong> [cite: 19]
+                    [cite_start]<p>此段路程可能包含一些較陡峭的山路。 [cite: 20]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 4 天：Deba 德瓦 → Markina-Xemein 馬爾基納-謝梅因 (約 24 公里)</strong> [cite: 21]
+                    [cite_start]<p>逐漸離開海岸，進入內陸丘陵地帶。 [cite: 22]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 5 天：Markina-Xemein 馬爾基納-謝梅因 → Gernika-Lumo 格爾尼卡-盧莫 (約 25 公里)</strong> [cite: 23]
+                    [cite_start]<p>前往歷史名城格爾尼卡。 [cite: 24]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 6 天：Gernika-Lumo 格爾尼卡-盧莫 → Lezama 萊薩馬 (約 21 公里)</strong> [cite: 25]
+                    [cite_start]<p>接近畢爾包市區。 [cite: 26]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 7 天：Lezama 萊薩馬 → Bilbao 畢爾包 (約 12 公里)</strong> [cite: 27]
+                    [cite_start]<p>短程徒步進入畢爾包市區，下午可探索這座充滿藝術氣息的城市。 [cite: 28]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 8 天：Bilbao 畢爾包 → Portugalete 葡萄牙萊特 (約 15 公里)</strong> [cite: 29]
+                    [cite_start]<p>從畢爾包出發，跨越比斯開橋，重新回到海岸線。 [cite: 30]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 9 天：Portugalete 葡萄牙萊特 → Castro Urdiales 卡斯特羅烏爾迪亞萊斯 (約 27 公里)</strong> [cite: 31]
+                    [cite_start]<p>再次沿著海岸線前進。 [cite: 32]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 10 天：Castro Urdiales 卡斯特羅烏爾迪亞萊斯 → Laredo 拉雷多 (約 30 公里)</strong> [cite: 33]
+                    [cite_start]<p>較長的一天，有著美麗的海景。 [cite: 34]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 11 天：Laredo 拉雷多 → Güemes 圭梅斯 (約 29 公里)</strong> [cite: 35]
+                    [cite_start]<p>可選擇搭船橫渡聖托尼亞海灣以縮短路程。 [cite: 36]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 12 天：Güemes 圭梅斯 → Santander 桑坦德 (約 18 公里)</strong> [cite: 37]
+                    [cite_start]<p>進入坎塔布里亞大區的首府桑坦德。 [cite: 38]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 13 天：Santander 桑坦德 → Santa Cruz de Bezana/Mogro (約 10-15 公里)</strong> [cite: 39]
+                    [cite_start]<p>此段可依個人選擇搭乘渡輪或步行繞過海灣。 [cite: 40]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 14 天：Santa Cruz de Bezana/Mogro → Santillana del Mar 桑蒂利亞納德爾馬爾 (約 15-20 公里)</strong> [cite: 41]
+                    [cite_start]<p>到達這座保存完好的中世紀小鎮。 [cite: 42]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 15 天：Santillana del Mar 桑蒂利亞納德爾馬爾 → Comillas 科米利亞斯 (約 22 公里)</strong> [cite: 43]
+                    [cite_start]<p>沿途經過一些迷人的村莊。 [cite: 44]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 16 天：Comillas 科米利亞斯 → Llanes 利亞內斯 (約 28 公里)</strong> [cite: 45]
+                    [cite_start]<p>進入阿斯圖里亞斯大區，風景逐漸轉變。 [cite: 46]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 17 天：Llanes 利亞內斯 → Ribadesella 里瓦德塞利亞 (約 30 公里)</strong> [cite: 47]
+                    [cite_start]<p>又是一個沿海的長途步行。 [cite: 48]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 18 天：Ribadesella 里瓦德塞利亞 → Villaviciosa 維拉維西奧薩 (約 28 公里)</strong> [cite: 49]
+                    [cite_start]<p>沿途會經過蘋果酒的產地。 [cite: 50]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 19 天：Villaviciosa 維拉維西奧薩 → Gijón 希洪 (約 19 公里)</strong> [cite: 51]
+                    [cite_start]<p>抵達阿斯圖里亞斯最大的城市希洪。 [cite: 52]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 20 天：Gijón 希洪 → Avilés 阿維列斯 (約 25 公里)</strong> [cite: 53]
+                    [cite_start]<p>從希洪向西行進。 [cite: 54]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 21 天：Avilés 阿維列斯 → Oviedo 奧維耶多 (約 29 公里)</strong> [cite: 55]
+                    [cite_start]<p>結束北方之路的徒步，抵達奧維耶多，為原始之路的起點做準備。 [cite: 56]</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            [cite_start]<h2>第二部分：原始之路 (Camino Primitivo) - Oviedo 至 Santiago de Compostela (約 315 公里) [cite: 57]</h2>
+            [cite_start]<p><strong>預估徒步天數：約 14-16 天</strong> [cite: 58]</p>
+            [cite_start]<p>原始之路是第一條通往聖地牙哥的朝聖之路，以其崎嶇的山路和壯麗的內陸風景而聞名，挑戰性較高。 [cite: 59]</p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Camino_Primitivo_-_Mountain_Pass.jpg/1024px-Camino_Primitivo_-_Mountain_Pass.jpg" alt="原始之路山景" class="section-image">
+            <p style="text-align: center; font-style: italic; color: #777;">原始之路的壯麗山景，挑戰與美景並存。</p>
+
+            <h3>詳細行程建議</h3>
+            <div class="itinerary-list">
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 1 天：Oviedo 奧維耶多 → Grado 格拉多 (約 26 公里)</strong> [cite: 60]
+                    [cite_start]<p>從奧維耶多的教堂出發，正式開始原始之路。 [cite: 61]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 2 天：Grado 格拉多 → Salas 薩拉斯 (約 23 公里)</strong> [cite: 62]
+                    [cite_start]<p>路徑穿過山谷和森林。 [cite: 63]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 3 天：Salas 薩拉斯 → Tineo 蒂內奧 (約 20 公里)</strong> [cite: 64]
+                    [cite_start]<p>進入更為偏遠的山區。 [cite: 65]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 4 天：Tineo 蒂內奧 → Pola de Allande 波拉德阿蘭德 (約 28 公里)</strong> [cite: 66]
+                    [cite_start]<p>這一天會遇到不少爬坡。 [cite: 67]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 5 天：Pola de Allande 波拉德阿蘭德 → La Mesa 拉梅薩 / Berducedo (約 22 公里)</strong> [cite: 68]
+                    [cite_start]<p>這段路程景色優美，但也有挑戰。 [cite: 69]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 6 天：La Mesa 拉梅薩 / Berducedo → Grandas de Salime 格蘭達斯德薩利梅 (約 15 公里)</strong> [cite: 70]
+                    [cite_start]<p>相對較短的一天，會經過水庫。 [cite: 71]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 7 天：Grandas de Salime 格蘭達斯德薩利梅 → A Fonsagrada 阿豐薩格拉達 (約 26 公里)</strong> [cite: 72]
+                    [cite_start]<p>穿越加利西亞邊界，進入新的地區。 [cite: 73]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 8 天：A Fonsagrada 阿豐薩格拉達 → Cádavo Baleira 卡達沃巴萊拉 (約 25 公里)</strong> [cite: 74]
+                    [cite_start]<p>路徑依然在山區蜿蜒。 [cite: 75]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 9 天：Cádavo Baleira 卡達沃巴萊拉 → Lugo 盧戈 (約 30 公里)</strong> [cite: 76]
+                    [cite_start]<p>抵達盧戈，其羅馬古城牆是世界文化遺產，值得一遊。 [cite: 77]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 10 天：Lugo 盧戈 → Ponte Ferreira 費雷拉橋 (約 27 公里)</strong> [cite: 78]
+                    [cite_start]<p>離開盧戈，繼續向西前進。 [cite: 79]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 11 天：Ponte Ferreira 費雷拉橋 → Melide 梅利德 (約 20 公里)</strong> [cite: 80]
+                    [cite_start]<p>在梅利德，原始之路會與法國之路（Camino Francés）匯合，之後的路段將會有更多朝聖者。 [cite: 81]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 12 天：Melide 梅利德 → Arzúa 阿蘇阿 (約 14 公里)</strong> [cite: 82]
+                    [cite_start]<p>較短的一天，適合稍作休息或享受當地美食（如章魚）。 [cite: 83]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 13 天：Arzúa 阿蘇阿 → Pedrouzo / O Pino 佩德羅索 / 奧皮諾 (約 19 公里)</strong> [cite: 84]
+                    [cite_start]<p>距離聖地牙哥越來越近，氣氛也越來越熱烈。 [cite: 85]</p>
+                </div>
+                <div class="itinerary-day">
+                    [cite_start]<strong>第 14 天：Pedrouzo / O Pino 佩德羅索 / 奧皮諾 → Santiago de Compostela 聖地牙哥德孔波斯特拉 (約 20 公里)</strong> [cite: 86]
+                    [cite_start]<p>徒步的最後一天，最終抵達聖地牙哥德孔波斯特拉大教堂。 [cite: 87]</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section arrival-section">
+            [cite_start]<h2>抵達聖地牙哥德孔波斯特拉 [cite: 88]</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Santiago_de_Compostela%2C_catedral_y_plaza_del_Obradoiro.jpg/1024px-Santiago_de_Compostela%2C_catedral_y_plaza_del_Obradoiro.jpg" alt="聖地牙哥德孔波斯特拉大教堂" class="section-image">
+            <p style="text-align: center; font-style: italic; color: #777;">完成朝聖之路的終點：聖地牙哥德孔波斯特拉大教堂。</p>
+            <ul>
+                [cite_start]<li><strong>大教堂：</strong> 抵達後可前往大教堂，參與朝聖者彌撒。 [cite: 89]</li>
+                [cite_start]<li><strong>Compostela：</strong> 憑蓋滿印章的朝聖者護照到朝聖者辦公室 (Pilgrim's Office) 領取Compostela（證書）。 [cite: 90]</li>
+                [cite_start]<li><strong>慶祝：</strong> 與其他朝聖者一同慶祝完成這段意義非凡的旅程。 [cite: 91]</li>
+            </ul>
+            <div class="advice-box" style="background-color: #f7fff0; border-left-color: #28a745;">
+                [cite_start]<h3>享受過程，Buen Camino！ [cite: 97, 98]</h3>
+                [cite_start]<p>朝聖之路不僅是身體的考驗，更是心靈的旅程。請放鬆心情，享受沿途的風景、結識新的朋友，並體驗這獨特的文化。 [cite: 97]</p>
+                [cite_start]<p style="text-align: center; font-size: 1.2em; font-weight: bold; color: #28a745;">祝您徒步愉快，Buen Camino！ [cite: 98]</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 西班牙朝聖之路徒步攻略. All rights reserved.</p>
+            <p><a href="#">隱私權政策</a> | <a href="#">使用條款</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

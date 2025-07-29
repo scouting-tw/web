@@ -28,6 +28,11 @@
             background: #64748b;
             border-radius: 10px;
         }
+        /* Specific list style for nested lists */
+        .list-circle li::marker {
+            content: '• ';
+            color: #ef4444; /* Red dot for important tips */
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -60,12 +65,18 @@
                 <div class="bg-blue-50 p-6 rounded-lg shadow-inner">
                     <h3 class="text-2xl font-semibold text-blue-800 mb-3">1. 科爾蒂納丹佩佐 (Cortina d'Ampezzo) 或其附近小鎮</h3>
                     <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂東部，是前往三尖山、賈烏山口、五塔、馬爾莫拉達山、布萊依斯湖和羅薩爾滕湖的絕佳基地。科爾蒂納本身也是一個熱鬧且設施完善的山城。</p>
-                    <p class="text-base"><b>停留天數：</b> 7 晚。</p>
+                    <p class="text-base"><b>停留天數：</b> 6 晚。</p>
+                    <div class="mt-4 flex justify-center">
+                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/276572937.jpg?k=25fc50651d81bfb0ffc1ad6ffce51cc0979140a40633b4023fe73bd0e100b366&o=" alt="科爾蒂納丹佩佐小鎮" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
+                    </div>
                 </div>
                 <div class="bg-green-50 p-6 rounded-lg shadow-inner">
                     <h3 class="text-2xl font-semibold text-green-800 mb-3">2. 奧蒂塞伊 (Ortisei) 或加爾代納山谷 (Val Gardena) 其他城鎮</h3>
                     <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂西部，方便前往塞切達山、休斯高原、富內斯山谷、卡雷扎湖、塞拉山口和聖馬蒂諾迪卡斯特羅扎。加爾代納山谷是著名的滑雪和徒步區，配套設施完善。</p>
                     <p class="text-base"><b>停留天數：</b> 7 晚。</p>
+                    <div class="mt-4 flex justify-center">
+                        <img src="https://www.dolomites.org/CustomerData/536/Files/Images/belluno/cortina-d-ampezzo/cortina-d-ampezzo.jpg" alt="科爾蒂納丹佩佐小鎮" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
+                    </div>
                 </div>
             </div>
         </section>
@@ -90,9 +101,9 @@
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">第 1 天：抵達科爾蒂納丹佩佐，山城漫遊</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午/下午：</b> 飛抵威尼斯馬可波羅機場 (VCE) 或特雷維索機場 (TSF)，租車後駕車前往科爾蒂納丹佩佐 (車程約 2-2.5 小時)。</li>
+                        <li><b>上午/下午：</b> 飛抵威尼斯馬可波羅機場 (VCE) 或特雷維索機場 (TSF)，租車後駕車前往科爾蒂納丹佩佐 (Cortina d'Ampezzo)。車程約 2-2.5 小時，沿途風景優美，可預留時間欣賞。</li>
                         <li><b>下午：</b> 辦理入住手續，稍作休息。</li>
-                        <li><b>傍晚：</b> 在<b class="text-blue-600">科爾蒂納丹佩佩佐 (Cortina d'Ampezzo)</b> 小鎮漫步，感受其時尚與歷史氣息，逛逛精品店，在咖啡館享受義式濃縮咖啡，並享用晚餐。</li>
+                        <li><b>傍晚：</b> 在<b class="text-blue-600">科爾蒂納丹佩佐 (Cortina d'Ampezzo)</b> 小鎮漫步。您可以逛逛 Corso Italia 大街上的精品店、藝術畫廊，感受這個「多洛米蒂珍珠」的優雅氛圍。在歷史悠久的鐘樓下拍照留念，並找一家舒適的咖啡館，享受道地的義式濃縮咖啡。晚餐可選擇當地特色餐廳，品嚐南蒂羅爾美食。</li>
                         <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -102,16 +113,24 @@
 
                 <!-- Day 2 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 2 天：多洛米蒂的象徵 - 三尖山 (Tre Cime di Lavaredo)</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 2 天：多洛米蒂的象徵 - 三尖山 (Tre Cime di Lavaredo) 經典環形徒步</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 提早出發 (尤其旺季)，駕車前往奧龍佐小屋 (Rifugio Auronzo) 停車場。
+                        <li><b>上午：</b> <b>務必提早出發</b> (尤其旺季，建議上午 8 點前抵達)，駕車前往奧龍佐小屋 (Rifugio Auronzo) 停車場。
                             <ul class="list-circle list-inside ml-5 text-red-600 font-medium">
-                                <li><b>重要提示：</b> 前往三尖山的路段有收費站 (通常為每輛車約 30 歐元)，且停車位有限，建議盡早抵達。</li>
+                                <li><b>重要提示：</b> 前往三尖山的路段有收費站 (通常為每輛車約 30 歐元)，且停車位有限，旺季時可能需要排隊甚至管制。</li>
                             </ul>
                         </li>
-                        <li><b>全天：</b> 沿著經典的<b class="text-blue-600">三尖山 (Tre Cime di Lavaredo)</b> 環形步道徒步 (約 3-4 小時，難度適中)，從不同角度欣賞這三座獨特的山峰。沿途可欣賞壯麗山景和二戰遺跡。</li>
+                        <li><b>全天：</b> 進行經典的<b class="text-blue-600">三尖山 (Tre Cime di Lavaredo)</b> 環形徒步。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>路線：</b> 從 Rifugio Auronzo (2320m) 出發，沿著 101 號步道輕鬆走到 Rifugio Lavaredo (2344m)，然後繼續前往 Rifugio Locatelli (2405m)。Rifugio Locatelli 是拍攝三尖山正面全景的最佳地點。回程可選擇原路返回，或走 105 號步道形成環線。</li>
+                                <li><b>距離：</b> 約 9-10 公里</li>
+                                <li><b>爬升/下降：</b> 約 400 米</li>
+                                <li><b>預計時間：</b> 3-4 小時 (不含休息拍照)</li>
+                                <li><b>亮點：</b> 沿途可欣賞壯麗的山景、二戰遺跡，並從不同角度欣賞這三座獨特的山峰。</li>
+                            </ul>
+                        </li>
                         <li><b>傍晚：</b> 返回科爾蒂納，晚餐。</li>
-                        <li><b>住宿：：</b> 科爾蒂納丹佩佐或附近。</li>
+                        <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/2019_Tre_Cime.jpg/1200px-2019_Tre_Cime.jpg" alt="三尖山" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
@@ -122,8 +141,13 @@
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">第 3 天：高山隘口與二戰遺跡 - 賈烏山口與五塔</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">賈烏山口 (Passo Giau)</b>，沿途欣賞壯麗的盤山公路風景。在山口觀景點停車拍照，感受 360 度群山環繞的震撼。</li>
-                        <li><b>下午：</b> 前往<b class="text-blue-600">五塔 (Cinque Torri)</b>，可選擇乘坐纜車上山 (或徒步)。參觀露天二戰博物館，了解這片區域的歷史，並近距離欣賞獨特的岩塔群。</li>
+                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">賈烏山口 (Passo Giau)</b> (從科爾蒂納約 30-40 分鐘車程)。沿途是經典的多洛米蒂盤山公路風景，彎道多但景色絕美。在山口頂部有大型停車場，您可以輕鬆下車，感受 360 度群山環繞的震撼，並拍攝壯麗的風景照。</li>
+                        <li><b>下午：</b> 從賈烏山口駕車約 15-20 分鐘前往<b class="text-blue-600">五塔 (Cinque Torri)</b>。您可以將車停在纜車站下方，然後乘坐纜車 (或選擇徒步) 上山。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>亮點：</b> 五塔是由五座獨立的岩塔組成，形狀各異。這裡也是第一次世界大戰的戰場，山頂設有保存完好的<b>露天二戰博物館</b>，您可以沿著步道參觀戰壕、掩體，了解當年的歷史。</li>
+                                <li><b>建議活動：</b> 在五塔周圍進行輕鬆的環形徒步 (約 1-2 小時)，近距離欣賞岩塔群和歷史遺跡。</li>
+                            </ul>
+                        </li>
                         <li><b>傍晚：</b> 返回科爾蒂納，晚餐。</li>
                         <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
@@ -135,15 +159,21 @@
 
                 <!-- Day 4 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 4 天：多洛米蒂的珍珠 - 布萊依斯湖</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 4 天：多洛米蒂的珍珠 - 布萊依斯湖 (Lago di Braies)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 提早出發 (約 1 小時車程)，前往<b class="text-blue-600">布萊依斯湖 (Lago di Braies)</b>。
+                        <li><b>上午：</b> <b>提早出發</b> (從科爾蒂納約 1 小時車程)，前往<b class="text-blue-600">布萊依斯湖 (Lago di Braies)</b>。
                             <ul class="list-circle list-inside ml-5 text-red-600 font-medium">
-                                <li><b>重要提示：</b> 旺季時湖區可能實施交通管制，需提前預訂停車位或搭乘接駁車。建議查詢最新交通資訊。</li>
+                                <li><b>重要提示：</b> 旺季時湖區可能實施交通管制，需提前預訂停車位或搭乘接駁車。請務必在出發前查詢官方網站的最新交通資訊和停車預訂方式。</li>
                             </ul>
                         </li>
-                        <li><b>全天：</b> 租借一艘木船在翡翠綠的湖上划行，或沿著環湖步道輕鬆散步。湖畔的小木屋是絕佳的拍照點。</li>
-                        <li><b>下午：</b> 可選擇在湖區周邊進行短途徒步，或前往附近的其他小鎮探索。</li>
+                        <li><b>全天：</b> 享受布萊依斯湖的湖光山色。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>划船：</b> 租借一艘經典的木船，在翡翠綠的湖上划行，近距離欣賞湖畔的小木屋和周圍的山峰倒影。這是最受歡迎的活動之一。</li>
+                                <li><b>環湖步道：</b> 沿著環湖步道輕鬆散步 (約 1-1.5 小時)，從不同角度欣賞湖泊的美麗。步道平緩，適合各年齡層。</li>
+                                <li><b>攝影：</b> 湖畔的小木屋和清澈的湖水是絕佳的拍照點，尤其在清晨或傍晚的光線下。</li>
+                            </ul>
+                        </li>
+                        <li><b>下午：</b> 可選擇在湖區周邊的 Rifugio 或餐廳享用午餐，或前往附近的其他小鎮探索。</li>
                         <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -153,11 +183,19 @@
 
                 <!-- Day 5 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 5 天：多洛米蒂女王 - 馬爾莫拉達山</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 5 天：多洛米蒂女王 - 馬爾莫拉達山 (Marmolada)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>全天：</b> 駕車前往<b class="text-blue-600">馬爾莫拉達山 (Marmolada)</b> 纜車站 (約 1 小時車程)。乘坐三段式纜車直達山頂，體驗冰川的壯麗，並在天氣晴朗時俯瞰整個多洛米蒂山脈的壯闊全景。山頂還有一個冰川博物館。</li>
-                        <li><b>建議活動：</b> 在山頂觀景台欣賞風景，參觀博物館。夏季若有興趣可考慮冰川徒步 (需專業嚮導)。</li>
-                        <li><b>住宿：：</b> 科爾蒂納丹佩佐或附近。</li>
+                        <li><b>全天：</b> 駕車前往<b class="text-blue-600">馬爾莫拉達山 (Marmolada)</b> 纜車站 (從科爾蒂納約 1 小時車程，途經法爾扎雷戈山口)。</li>
+                        <li><b>登頂體驗：</b> 乘坐三段式纜車直達山頂的 Punta Rocca (3265m)。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>冰川壯麗：</b> 在山頂近距離感受多洛米蒂唯一的大型冰川，即使在夏季也可能看到積雪。</li>
+                                <li><b>360 度全景：</b> 天氣晴朗時，從山頂觀景台可俯瞰整個多洛米蒂山脈的壯闊全景，視野極佳。</li>
+                                <li><b>冰川博物館：</b> 山頂設有「多洛米蒂第一次世界大戰博物館」，展示了冰川戰爭的歷史，非常值得參觀。</li>
+                            </ul>
+                        </li>
+                        <li><b>建議活動：</b> 在山頂觀景台欣賞風景，參觀博物館。夏季若有興趣且有專業嚮導陪同，可考慮冰川徒步。冬季則是著名的滑雪勝地。</li>
+                        <li><b>重要提示：</b> 山頂氣溫較低，即使夏季也可能需要羽絨服或厚外套。請務必做好保暖措施。</li>
+                        <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Marmolada_Sunset.jpg" alt="馬爾莫拉達山" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
@@ -168,8 +206,16 @@
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">第 6 天：夢幻牛奶藍 - 羅薩爾滕湖 (Lago di Sorapis) 徒步</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>全天：</b> 挑戰一段中等難度的徒步，前往隱藏在高山深處的<b class="text-blue-600">羅薩爾滕湖 (Lago di Sorapis)</b>。湖水因冰川融水中的礦物質而呈現獨特而夢幻的牛奶藍色，如仙境般迷人。</li>
-                        <li><b>建議活動：</b> 從 Passo Tre Croci 附近的步道起點徒步前往 (約 2-2.5 小時單程)，享受沿途的山景。請務必穿著合適的徒步鞋。在湖邊拍照，感受其獨特之美。</li>
+                        <li><b>全天：</b> 挑戰一段中等難度的徒步，前往隱藏在高山深處的<b class="text-blue-600">羅薩爾滕湖 (Lago di Sorapis)</b>。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>徒步路線：</b> 最常見的起點是 Passo Tre Croci 山口附近 (從科爾蒂納約 15-20 分鐘車程)。沿著 215 號步道，途經森林、岩石路段，部分路段可能有鐵索輔助 (Via Ferrata 簡易版，不需專業裝備但需小心)。</li>
+                                <li><b>距離：</b> 約 11-13 公里 (往返)</li>
+                                <li><b>爬升/下降：</b> 約 500-600 米</li>
+                                <li><b>預計時間：</b> 4-5 小時 (往返，不含休息拍照)</li>
+                                <li><b>亮點：</b> 湖水因冰川融水中的礦物質而呈現獨特而夢幻的牛奶藍色，如仙境般迷人。在湖邊的 Rifugio Vandelli 可稍作休息。</li>
+                            </ul>
+                        </li>
+                        <li><b>建議活動：</b> 請務必穿著合適的徒步鞋，並攜帶足夠的水和食物。在湖邊拍照，感受其獨特之美。</li>
                         <li><b>住宿：</b> 科爾蒂納丹佩佐或附近。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -179,10 +225,16 @@
 
                 <!-- Day 7 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 7 天：高山隘口與歷史遺跡 - 法爾扎雷戈山口與拉加祖瓦伊山</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 7 天：高山隘口與歷史遺跡 - 法爾扎雷戈山口與拉加祖瓦伊山 (轉移基地日)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
                         <li><b>上午：</b> 輕鬆收拾行李，從科爾蒂納丹佩佐出發，駕車前往<b class="text-blue-600">法爾扎雷戈山口 (Passo Falzarego)</b> (約 20-30 分鐘車程)。</li>
-                        <li><b>中午：</b> 在山口欣賞壯麗的山景，並可選擇搭乘纜車登上<b class="text-blue-600">拉加祖瓦伊山 (Lagazuoi)</b>。山頂不僅有令人驚嘆的全景，還有保存完好的第一次世界大戰戰壕和隧道，您可以探索這些歷史遺跡，感受當年的氛圍。</li>
+                        <li><b>中午：</b> 在山口欣賞壯麗的山景，並可選擇搭乘纜車登上<b class="text-blue-600">拉加祖瓦伊山 (Lagazuoi)</b>。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>纜車體驗：</b> 拉加祖瓦伊纜車 (Funivia Lagazuoi) 將您帶到 2752 公尺的山頂。</li>
+                                <li><b>歷史探索：</b> 山頂不僅有令人驚嘆的全景，還有保存完好的第一次世界大戰戰壕和隧道，您可以探索這些歷史遺跡，感受當年的氛圍。這裡曾是義大利和奧匈帝國軍隊激戰的場所。</li>
+                                <li><b>午餐：</b> 山頂的 Rifugio Lagazuoi 提供美味的餐點和無敵的景觀。</li>
+                            </ul>
+                        </li>
                         <li><b>下午：</b> 結束拉加祖瓦伊的行程後，繼續駕車前往第二個住宿基地：<b class="text-blue-600">奧蒂塞伊 (Ortisei) 或加爾代納山谷 (Val Gardena) 的其他城鎮</b> (車程約 1 - 1.5 小時)。</li>
                         <li><b>傍晚：</b> 辦理入住手續，晚餐。</li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
@@ -200,11 +252,17 @@
 
                 <!-- Day 8 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 8 天：鋸齒山脊的震撼 - 塞切達山</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 8 天：鋸齒山脊的震撼 - 塞切達山 (Seceda)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 在奧蒂塞伊搭乘纜車前往<b class="text-blue-600">塞切達山 (Seceda)</b>。</li>
-                        <li><b>全天：</b> 抵達山頂後，立即會被其獨特的鋸齒狀垂直山脊所震撼。在觀景點拍照，並沿著山脊線的步道輕度徒步，享受令人屏息的 360 度全景。</li>
-                        <li><b>下午：</b> 可選擇在山頂的小屋用餐，或繼續探索周邊步道。</li>
+                        <li><b>上午：</b> 在奧蒂塞伊 (Ortisei) 搭乘兩段式纜車 (Ortisei-Furnes-Seceda) 前往<b class="text-blue-600">塞切達山 (Seceda)</b>。</li>
+                        <li><b>全天：</b> 抵達山頂後，立即會被其獨特的鋸齒狀垂直山脊所震撼。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>觀景與攝影：</b> 在山頂的觀景點拍照，這是多洛米蒂最標誌性的景觀之一。</li>
+                                <li><b>山脊步道：</b> 沿著山脊線的步道輕度徒步 (約 1-2 小時)，享受令人屏息的 360 度全景，遠眺薩索隆戈群山和休斯高原。</li>
+                                <li><b>午餐：</b> 山頂的 Rifugio Seceda 或其他小屋提供餐飲服務，您可以在此享受美食與美景。</li>
+                            </ul>
+                        </li>
+                        <li><b>下午：</b> 可選擇繼續探索周邊步道，或搭乘纜車返回奧蒂塞伊，在小鎮漫步。</li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -214,11 +272,17 @@
 
                 <!-- Day 9 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 9 天：歐洲最大高山草甸 - 休斯高原</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 9 天：歐洲最大高山草甸 - 休斯高原 (Alpe di Siusi)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 從奧蒂塞伊搭乘纜車 (或從科爾蒂納搭乘貢多拉纜車) 前往<b class="text-blue-600">休斯高原 (Alpe di Siusi)</b>。</li>
-                        <li><b>全天：</b> 在歐洲最大的高山草甸上漫步，欣賞廣闊的綠色草地和背景的薩索隆戈山。這裡有許多輕鬆的徒步路線，也可租借電動自行車探索。</li>
-                        <li><b>建議活動：</b> 野餐、拍照，享受悠閒的田園風光。</li>
+                        <li><b>上午：</b> 從奧蒂塞伊搭乘貢多拉纜車 (Ortisei-Alpe di Siusi Gondola) 前往<b class="text-blue-600">休斯高原 (Alpe di Siusi)</b>。</li>
+                        <li><b>全天：</b> 在歐洲最大的高山草甸上漫步，欣賞廣闊的綠色草地在春夏季開滿野花，背景是壯麗的薩索隆戈山 (Sassolungo) 和施利爾恩山 (Schlern)。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>輕鬆徒步：</b> 高原上有許多平緩且風景優美的徒步路線，適合全家大小。</li>
+                                <li><b>騎行：</b> 也可以租借電動自行車，輕鬆探索高原的每個角落。</li>
+                                <li><b>野餐/小屋體驗：</b> 在草甸上找個風景優美的地方野餐，或在眾多山中小屋 (Rifugio) 享用午餐和點心。</li>
+                            </ul>
+                        </li>
+                        <li><b>建議活動：</b> 野餐、拍照，享受悠閒的田園風光。冬季這裡則是著名的滑雪勝地。</li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -228,11 +292,17 @@
 
                 <!-- Day 10 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 10 天：明信片般的田園風光 - 富內斯山谷</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 10 天：明信片般的田園風光 - 富內斯山谷 (Val di Funes)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">富內斯山谷 (Val di Funes)</b> (約 40 分鐘 - 1 小時車程)。</li>
-                        <li><b>全天：</b> 探索這個寧靜的山谷，尋找著名的<b class="text-blue-600">聖約翰教堂 (Chiesa di San Giovanni in Ranui)</b> 和<b class="text-blue-600">聖瑪格達萊納教堂 (Santa Maddalena Church)</b>。這裡的景色是典型的多洛米蒂田園風光，背景是壯麗的蓋斯勒山峰，是攝影愛好者的天堂。</li>
-                        <li><b>建議活動：：</b> 漫步於山谷中的小徑，尋找最佳角度拍攝教堂與山峰的合影，體驗寧靜的鄉村生活。</li>
+                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">富內斯山谷 (Val di Funes)</b> (從奧蒂塞伊約 40 分鐘 - 1 小時車程)。</li>
+                        <li><b>全天：</b> 探索這個寧靜的山谷，這裡的景色是典型的多洛米蒂田園風光，背景是壯麗的蓋斯勒山峰 (Geisler Group)，是攝影愛好者的天堂。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>聖約翰教堂 (Chiesa di San Giovanni in Ranui)：</b> 位於山谷深處，被草地和樹木環繞，背景是蓋斯勒山峰，是經典的明信片場景。</li>
+                                <li><b>聖瑪格達萊納教堂 (Santa Maddalena Church)：</b> 坐落在山坡上，俯瞰整個山谷，同樣是與蓋斯勒山峰合影的絕佳地點。</li>
+                                <li><b>漫步與攝影：</b> 漫步於山谷中的小徑，尋找最佳角度拍攝教堂與山峰的合影，體驗寧靜的鄉村生活。</li>
+                            </ul>
+                        </li>
+                        <li><b>建議活動：</b> 這裡非常適合悠閒地散步和拍照，享受大自然的寧靜。</li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -243,11 +313,16 @@
 
                 <!-- Day 11 -->
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
-                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 11 天：彩虹湖的傳說 - 卡雷扎湖</h4>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-3">第 11 天：彩虹湖的傳說 - 卡雷扎湖 (Lago di Carezza)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">卡雷扎湖 (Lago di Carezza)</b> (約 30-40 分鐘車程)。</li>
-                        <li><b>全天：</b> 欣賞其繽紛的湖水色彩，湖底的礦物質在陽光下折射出紅、綠、藍等多種顏色，與背景的拉特馬爾山相映成趣。沿著湖畔步道欣賞不同角度的湖色。</li>
-                        <li><b>下午：</b> 可選擇在湖區周邊進行短途徒步，或前往附近的博爾扎諾 (Bolzano) 參觀冰人奧茲博物館。</li>
+                        <li><b>上午：</b> 駕車前往<b class="text-blue-600">卡雷扎湖 (Lago di Carezza)</b> (從奧蒂塞伊約 30-40 分鐘車程)。</li>
+                        <li><b>全天：</b> 欣賞其繽紛的湖水色彩，湖底的礦物質在陽光下折射出紅、綠、藍等多種顏色，與背景的拉特馬爾山 (Latemar) 相映成趣。
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>湖畔步道：</b> 沿著湖畔步道輕鬆散步，從不同角度欣賞湖色變幻。步道維護良好，易於行走。</li>
+                                <li><b>傳說故事：</b> 了解關於「彩虹湖」的當地傳說，為其增添神秘色彩。</li>
+                            </ul>
+                        </li>
+                        <li><b>下午：</b> 可選擇在湖區周邊進行短途徒步，或前往附近的<b>博爾扎諾 (Bolzano)</b> 參觀著名的<b>冰人奧茲博物館 (South Tyrol Museum of Archaeology)</b>，了解五千年前冰人奧茲的歷史。</li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -260,7 +335,14 @@
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">第 12 天：山隘巡禮 - 塞拉山口 (Sella Pass) 與周邊</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
                         <li><b>全天：</b> 駕車穿越多洛米蒂最著名的四大山口之一：<b class="text-blue-600">塞拉山口 (Sella Pass)</b>。這裡提供了令人驚嘆的 360 度全景視野，可近距離欣賞塞拉群山的雄偉。</li>
-                        <li><b>建議活動：</b> 駕車穿越山口，在觀景點停車拍照。可從這裡搭乘纜車前往薩索隆戈 (Sassolungo) 或探索周邊的徒步路線，體驗高山風情。您也可以順道遊覽其他鄰近的山口，如加爾代納山口 (Gardena Pass)、波爾多伊山口 (Pordoi Pass) 或坎波隆戈山口 (Campolongo Pass)，完成著名的「塞拉環線 (Sella Ronda)」部分路段的自駕體驗。</li>
+                        <li><b>建議活動：</b>
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>山口觀景：</b> 在山口停車拍照，感受其壯麗。</li>
+                                <li><b>纜車登高：</b> 可從塞拉山口搭乘纜車前往薩索隆戈 (Sassolungo) 或薩索波爾多伊 (Sass Pordoi) 觀景台，從更高處俯瞰周邊山景。</li>
+                                <li><b>塞拉環線 (Sella Ronda) 自駕：</b> 您也可以順道遊覽其他鄰近的山口，如加爾代納山口 (Gardena Pass)、波爾多伊山口 (Pordoi Pass) 或坎波隆戈山口 (Campolongo Pass)，完成著名的「塞拉環線」部分路段的自駕體驗，這是一條環繞塞拉群山的景觀公路。</li>
+                                <li><b>短途徒步：</b> 各山口附近都有許多輕鬆的徒步路線，適合短暫停留和探索。</li>
+                            </ul>
+                        </li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -272,8 +354,15 @@
                 <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">第 13 天：南多洛米蒂風情 - 聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza)</h4>
                     <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><b>全天：</b> 進行一次較長的日遊，駕車前往多洛米蒂南部的山城<b class="text-blue-600">聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza)</b> (從奧蒂塞伊約 1.5 - 2 小時車程)。這裡背靠著壯麗的帕萊迪聖馬蒂諾山群 (Pale di San Martino)，其獨特的尖塔狀山峰令人印象深刻，提供了與多洛米蒂其他地區略有不同的山景風格。</li>
-                        <li><b>建議活動：</b> 在小鎮漫步，欣賞帕萊山群的日出日落。可搭乘纜車上山，探索高山步道，或在小鎮周邊進行輕鬆的散步。感受其更為原始和壯觀的自然風光。</li>
+                        <li><b>全天：</b> 進行一次較長的日遊，駕車前往多洛米蒂南部的山城<b class="text-blue-600">聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza)</b> (從奧蒂塞伊約 1.5 - 2 小時車程)。</li>
+                        <li><b>景點特色：</b> 這裡背靠著壯麗的帕萊迪聖馬蒂諾山群 (Pale di San Martino)，其獨特的尖塔狀山峰令人印象深刻，提供了與多洛米蒂其他地區略有不同的山景風格，更為原始和壯觀。</li>
+                        <li><b>建議活動：</b>
+                            <ul class="list-circle list-inside ml-5">
+                                <li><b>小鎮漫步：</b> 在聖馬蒂諾迪卡斯特羅扎小鎮漫步，感受其獨特魅力。</li>
+                                <li><b>日出日落：</b> 欣賞帕萊山群的日出日落，光線變化下的山峰尤為壯觀。</li>
+                                <li><b>高山探索：</b> 可搭乘纜車上山，探索高山步道，或在小鎮周邊進行輕鬆的散步。這裡也是攀岩和徒步的熱門地點。</li>
+                            </ul>
+                        </li>
                         <li><b>住宿：</b> 奧蒂塞伊或加爾代納山谷。</li>
                     </ul>
                     <div class="mt-4 flex justify-center">
@@ -300,7 +389,7 @@
                 <li><b>徒步難度：</b> 行程中建議的徒步路線多為難度適中或較輕鬆的步道，但多洛米蒂也有許多高難度路線，請根據自身體能選擇。羅薩爾滕湖的徒步路線相對較長且部分路段有挑戰性，請評估體能。</li>
                 <li><b>高山天氣：</b> 山區天氣多變，即使是夏季也可能突然下雨或氣溫驟降。務必攜帶防風防水外套、多層衣物、帽子、太陽眼鏡和防曬霜。</li>
                 <li><b>預訂：</b> 旺季 (7-8 月和冬季滑雪季) 時，住宿、熱門纜車票和餐廳建議提前數月預訂。</li>
-                <li><b>早起：：</b> 許多熱門景點 (如三尖山、布萊依斯湖) 在旺季時停車位有限且人潮眾多，建議盡早出發以避開高峰。</li>
+                <li><b>早起：</b> 許多熱門景點 (如三尖山、布萊依斯湖) 在旺季時停車位有限且人潮眾多，建議盡早出發以避開高峰。</li>
                 <li><b>山區駕駛：</b> 多洛米蒂山區道路多為盤山公路，彎道多且坡度大，請謹慎駕駛。</li>
             </ul>
         </section>

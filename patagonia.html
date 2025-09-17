@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巴塔哥尼亞探險之旅：15 日自駕健行</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/0d9488/ffffff?text=壯麗的Fitz+Roy');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Hero Section -->
+    <div class="hero text-white h-screen flex flex-col justify-center items-center text-center p-4 rounded-b-lg shadow-lg">
+        <h1 class="text-4xl sm:text-6xl font-bold mb-4">巴塔哥尼亞 15 日探險</h1>
+        <p class="text-xl sm:text-2xl font-light mb-8">從冰川到高山，一趟說走就走的南美自駕健行之旅</p>
+        <a href="#itinerary" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+            查看詳細行程
+        </a>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">世界盡頭的冰與火之歌</h2>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+            巴塔哥尼亞，一片位於南美洲最南端的傳奇土地。在這裡，您可以親眼見證巨大的莫雷諾冰川崩解入湖，挑戰阿根廷最美的 Fitz Roy 日行，並在智利百內國家公園感受世界級的 W 縱走。這趟 15 天的自駕健行之旅，將帶您深入這片狂野而純粹的自然秘境。
+        </p>
+    </div>
+
+    <!-- Highlights Section -->
+    <div class="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">經典路線</h3>
+            <p class="text-gray-600">一次囊括阿根廷與智利的經典景點，不留遺憾。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h1a3 3 0 003-3v-4a3 3 0 00-3-3H7a3 3 0 00-3 3v4a3 3 0 003 3z" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">彈性自駕</h3>
+            <p class="text-gray-600">全程自駕，自由掌控行程，探索更多未知之美。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.674M12 3v1m6.364 1.636l-.707.707M3.636 4.364l.707.707m0 7.778l-.707-.707M12 21v-1m-6.364-1.636l.707-.707M4 11h-.5m15 0H20M5 16s1.5-2 7-2s7 2 7 2m-4-6l-3 3-3-3" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">深度健行</h3>
+            <p class="text-gray-600">深入世界級步道，親身感受南美山岳的魅力。</p>
+        </div>
+    </div>
+
+    <!-- Itinerary Section -->
+    <div id="itinerary" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">15 日完整行程規劃</h2>
+        <div id="schedule-container" class="space-y-8">
+            <!-- Itinerary cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="bg-teal-500 text-white py-16 text-center rounded-t-lg shadow-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">準備好踏上旅程了嗎？</h2>
+            <p class="text-lg mb-8">這是一趟需要充足準備的冒險。立即開始規劃，讓夢想不再只是夢想！</p>
+            <a href="#" class="bg-white text-teal-500 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                索取詳細資料
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Use a function to define the itinerary data based on the provided document
+        function getItineraryData() {
+            return [
+                {
+                    day: 1,
+                    title: "抵達 El Calafate，開啟旅程",
+                    activities: "抵達、取車與簡易採購。小鎮漫步、裝備最後檢查。",
+                    image: "https://placehold.co/800x600/6b7280/ffffff?text=El+Calafate+鎮景"
+                },
+                {
+                    day: 2,
+                    title: "近距離感受莫雷諾冰川",
+                    activities: "Perito Moreno 觀景走道 + 可選 MiniTrekking 或 Big Ice 冰上健行。",
+                    image: "https://placehold.co/800x600/4b5563/ffffff?text=莫雷諾冰川"
+                },
+                {
+                    day: 3,
+                    title: "自駕前往 El Chaltén",
+                    activities: "約 3.5–4 小時車程。下午進行短途暖身步道。",
+                    image: "https://placehold.co/800x600/374151/ffffff?text=El+Chaltén+景色"
+                },
+                {
+                    day: 4,
+                    title: "挑戰經典 Fitz Roy 日行",
+                    activities: "全天健行 Laguna de los Tres，欣賞壯麗的 Fitz Roy。",
+                    image: "https://placehold.co/800x600/1f2937/ffffff?text=Laguna+de+los+Tres"
+                },
+                {
+                    day: 5,
+                    title: "Laguna Torre 冰川湖健行",
+                    activities: "全天健行 Laguna Torre，近距離接觸冰川與冰山。",
+                    image: "https://placehold.co/800x600/0f172a/ffffff?text=Laguna+Torre"
+                },
+                {
+                    day: 6,
+                    title: "跨越邊境，前往智利百內",
+                    activities: "約 5–6 小時車程，從 El Calafate 前往 Puerto Natales。",
+                    image: "https://placehold.co/800x600/083344/ffffff?text=百內國家公園入口"
+                },
+                {
+                    day: 7,
+                    title: "準備百內 W 縱走",
+                    activities: "在 Puerto Natales 整補，為 W 縱走做最後準備。",
+                    image: "https://placehold.co/800x600/155e75/ffffff?text=Puerto+Natales"
+                },
+                {
+                    day: 8,
+                    title: "百內 W 縱走起點",
+                    activities: "進入百內國家公園，開始 W 縱走的第一天。",
+                    image: "https://placehold.co/800x600/437989/ffffff?text=百內W縱走"
+                },
+                {
+                    day: 9,
+                    title: "W 縱走：探索 Grey 冰川",
+                    activities: "前往 Grey 冰川，欣賞壯觀的冰河景色。",
+                    image: "https://placehold.co/800x600/678f9f/ffffff?text=Grey+冰川"
+                },
+                {
+                    day: 10,
+                    title: "W 縱走：挑戰法國谷",
+                    activities: "跨越 Valle Francés，沿途景色變化多端。",
+                    image: "https://placehold.co/800x600/94b4c4/ffffff?text=法國谷"
+                },
+                {
+                    day: 11,
+                    title: "W 縱走：Base Torres 經典視角",
+                    activities: "挑戰攻頂 Base Torres，欣賞百內三塔的經典畫面。",
+                    image: "https://placehold.co/800x600/c2d2dd/ffffff?text=百內三塔"
+                },
+                {
+                    day: 12,
+                    title: "W 縱走結束，返回市區",
+                    activities: "從百內國家公園返回 Puerto Natales，稍作休息。",
+                    image: "https://placehold.co/800x600/e9f1f6/ffffff?text=百內日出"
+                },
+                {
+                    day: 13,
+                    title: "前往 Punta Arenas",
+                    activities: "搭車前往 Punta Arenas，準備結束南美洲行程。",
+                    image: "https://placehold.co/800x600/d5e3ea/ffffff?text=Punta+Arenas"
+                },
+                {
+                    day: 14,
+                    title: "企鵝與海峽",
+                    activities: "可選前往 Magellan 企鵝保護區或 Magdalena 島。",
+                    image: "https://placehold.co/800x600/abbbcc/ffffff?text=麥哲倫企鵝"
+                },
+                {
+                    day: 15,
+                    title: "告別巴塔哥尼亞",
+                    activities: "從 Punta Arenas 搭機返回，結束這趟難忘的旅程。",
+                    image: "https://placehold.co/800x600/7a8e9e/ffffff?text=Punta+Arenas+機場"
+                }
+            ];
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('schedule-container');
+            const data = getItineraryData();
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('flex', 'flex-col', 'md:flex-row', 'bg-white', 'p-6', 'rounded-xl', 'shadow-lg', 'transform', 'transition', 'duration-300', 'hover:scale-105');
+
+                const imageHtml = `
+                    <div class="md:w-1/2 rounded-xl overflow-hidden mb-4 md:mb-0 md:mr-6">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                `;
+                const contentHtml = `
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-2 text-teal-500">Day ${item.day}</h3>
+                        <p class="text-xl font-semibold mb-2">${item.title}</p>
+                        <p class="text-gray-600 mb-2">${item.activities}</p>
+                    </div>
+                `;
+
+                if (item.day % 2 === 1) {
+                    card.innerHTML = imageHtml + contentHtml;
+                } else {
+                    card.innerHTML = contentHtml + imageHtml;
+                }
+                container.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>

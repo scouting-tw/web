@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北阿爾卑斯．槍岳-劍岳 7 日縱走</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080/0d9488/ffffff?text=壯麗的山岳風景');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Hero Section -->
+    <div class="hero text-white h-screen flex flex-col justify-center items-center text-center p-4 rounded-b-lg shadow-lg">
+        <h1 class="text-4xl sm:text-6xl font-bold mb-4">北阿爾卑斯 7 日縱走</h1>
+        <p class="text-xl sm:text-2xl font-light mb-8">從槍岳到劍岳，挑戰裏銀座，踏上最孤高壯麗的稜線</p>
+        <a href="#itinerary" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+            查看詳細行程
+        </a>
+    </div>
+
+    <!-- Introduction Section -->
+    <div class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">探索日本山岳的黃金路線</h2>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+            這條被譽為「裏銀座」的經典縱走路線，帶你穿越日本北阿爾卑斯山脈的核心。從宏偉的槍岳，途經如夢似幻的高山花園，最終抵達傳說中的劍岳。這不僅是一趟挑戰體能的旅程，更是一場洗滌心靈的視覺盛宴。
+        </p>
+    </div>
+
+    <!-- Highlights Section -->
+    <div class="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h1a3 3 0 003-3v-4a3 3 0 00-3-3H7a3 3 0 00-3 3v4a3 3 0 003 3z" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">路線精華</h3>
+            <p class="text-gray-600">一次走完裏銀座與劍岳，飽覽北阿爾卑斯的精華景點。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18s-4-5-8-10a12 12 0 0116 0c-4 5-8 10-8 10z" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">絕美景色</h3>
+            <p class="text-gray-600">途經五色ヶ原等高山湖泊，體驗變化萬千的稜線風光。</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105">
+            <svg class="h-16 w-16 text-teal-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <h3 class="font-bold text-xl mb-2">經典山屋</h3>
+            <p class="text-gray-600">住宿在雙六小屋、野口五郎小屋等知名山屋，享受山居生活。</p>
+        </div>
+    </div>
+
+    <!-- Itinerary Section -->
+    <div id="itinerary" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">7 日完整行程規劃</h2>
+        <div id="schedule-container" class="space-y-8">
+            <!-- Itinerary cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="bg-teal-500 text-white py-16 text-center rounded-t-lg shadow-lg">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">準備好挑戰自己了嗎？</h2>
+            <p class="text-lg mb-8">這是一趟需要充分準備的旅程。立即開始規劃，為您的冒險做好準備！</p>
+            <a href="#" class="bg-white text-teal-500 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                聯絡我們
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Use a function to define the itinerary data
+        function getItineraryData() {
+            return [
+                {
+                    day: 1,
+                    title: "從槍岳出發，踏上裏銀座稜線",
+                    route: "槍ヶ岳山荘 → 双六小屋",
+                    duration: "4 - 5 hr",
+                    distance: "約 7–9 km",
+                    image: "https://placehold.co/800x600/6b7280/ffffff?text=壯麗的槍岳"
+                },
+                {
+                    day: 2,
+                    title: "前往裏銀座核心，壯闊稜線漫步",
+                    route: "双六小屋 → 野口五郎小屋",
+                    duration: "6 - 7 hr",
+                    distance: "約 10–12 km",
+                    image: "https://placehold.co/800x600/4b5563/ffffff?text=裏銀座稜線風光"
+                },
+                {
+                    day: 3,
+                    title: "穿越高山花園，抵達烏帽子小屋",
+                    route: "野口五郎小屋 → 烏帽子小屋",
+                    duration: "4 - 6 hr",
+                    distance: "約 7–9 km",
+                    image: "https://placehold.co/800x600/374151/ffffff?text=高山花園"
+                },
+                {
+                    day: 4,
+                    title: "挑戰最長路程，下切黑部水壩",
+                    route: "烏帽子小屋 → 奥黒部ヒュッテ",
+                    duration: "9 - 13 hr",
+                    distance: "約 15–17 km",
+                    image: "https://placehold.co/800x600/1f2937/ffffff?text=黑部水壩"
+                },
+                {
+                    day: 5,
+                    title: "沿著黑部川，進入仙境平乃小屋",
+                    route: "奥黒部ヒュッテ → 平乃小屋",
+                    duration: "2 - 3 hr",
+                    distance: "約 4–5 km",
+                    image: "https://placehold.co/800x600/0f172a/ffffff?text=平乃小屋溪谷"
+                },
+                {
+                    day: 6,
+                    title: "五色ヶ原的夢幻之境",
+                    route: "平乃小屋 → 五色ヶ原山荘",
+                    duration: "4 - 6 hr",
+                    distance: "約 6–8 km",
+                    image: "https://placehold.co/800x600/083344/ffffff?text=五色ヶ原"
+                },
+                {
+                    day: 7,
+                    title: "邁向最後挑戰，抵達劍山莊",
+                    route: "五色ヶ原山荘 → 剣山荘",
+                    duration: "5 - 7 hr",
+                    distance: "約 10–12 km",
+                    image: "https://placehold.co/800x600/155e75/ffffff?text=劍山莊與劍岳"
+                }
+            ];
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('schedule-container');
+            const data = getItineraryData();
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.classList.add('flex', 'flex-col', 'md:flex-row', 'bg-white', 'p-6', 'rounded-xl', 'shadow-lg', 'transform', 'transition', 'duration-300', 'hover:scale-105');
+
+                const imageHtml = `
+                    <div class="md:w-1/2 rounded-xl overflow-hidden mb-4 md:mb-0 md:mr-6">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                `;
+                const contentHtml = `
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-bold mb-2 text-teal-500">Day ${item.day}</h3>
+                        <p class="text-xl font-semibold mb-2">${item.title}</p>
+                        <p class="text-gray-600 mb-2">路線：${item.route}</p>
+                        <div class="flex items-center text-gray-700 mb-2">
+                            <svg class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>時數：${item.duration}</span>
+                        </div>
+                        <div class="flex items-center text-gray-700">
+                            <svg class="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5-5m0 0l5-5m-5 5h12a2 2 0 012 2v2a2 2 0 01-2 2H4" />
+                            </svg>
+                            <span>距離：${item.distance}</span>
+                        </div>
+                    </div>
+                `;
+
+                if (item.day % 2 === 1) {
+                    card.innerHTML = imageHtml + contentHtml;
+                } else {
+                    card.innerHTML = contentHtml + imageHtml;
+                }
+                container.appendChild(card);
+            });
+        });
+    </script>
+</body>
+</html>

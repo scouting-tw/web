@@ -14,9 +14,12 @@
             background-color: #f0f4f8;
         }
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1920x1080/0d9488/ffffff?text=壯麗的山岳風景');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdntwrunning.biji.co/800_0669c5fcfdcb882804de9b297b361479.jpg');
             background-size: cover;
             background-position: center;
+        }
+        .itinerary-image {
+            object-fit: cover;
         }
     </style>
 </head>
@@ -95,6 +98,7 @@
                     route: "槍ヶ岳山荘 → 双六小屋",
                     duration: "4 - 5 hr",
                     distance: "約 7–9 km",
+                    activities: "今日從槍ヶ岳山莊出發，沿著西鎌尾根或雙六稜線前往雙六小屋。這段路程標誌著裏銀座縱走的正式開始，沿途可以回望宏偉的槍岳，感受群山之巔的壯闊氣勢。雙六小屋設施完善，是第一天的絕佳休整點。",
                     image: "https://placehold.co/800x600/6b7280/ffffff?text=壯麗的槍岳"
                 },
                 {
@@ -103,6 +107,7 @@
                     route: "双六小屋 → 野口五郎小屋",
                     duration: "6 - 7 hr",
                     distance: "約 10–12 km",
+                    activities: "從雙六小屋出發，先短程登頂雙六岳，然後正式進入裏銀座的精華稜線。這段路線視野開闊，天氣好時可遠眺立山連峰與槍岳，景色極為壯觀。途中將行經鷲羽岳，最終抵達野口五郎小屋，欣賞稜線上的日落美景。",
                     image: "https://placehold.co/800x600/4b5563/ffffff?text=裏銀座稜線風光"
                 },
                 {
@@ -111,6 +116,7 @@
                     route: "野口五郎小屋 → 烏帽子小屋",
                     duration: "4 - 6 hr",
                     distance: "約 7–9 km",
+                    activities: "今日行程相對輕鬆，將穿越裏銀座最美的「高山花園」。沿途可見盛開的高山植物與清澈的湖泊，風景如夢似幻。抵達烏帽子小屋後，可以選擇輕裝前往烏帽子岳山頂，從不同角度欣賞這片美麗的山岳景觀。",
                     image: "https://placehold.co/800x600/374151/ffffff?text=高山花園"
                 },
                 {
@@ -119,6 +125,7 @@
                     route: "烏帽子小屋 → 奥黒部ヒュッテ",
                     duration: "9 - 13 hr",
                     distance: "約 15–17 km",
+                    activities: "這是整個行程中體力與時間考驗最大的一天。從烏帽子小屋出發，將穿越水晶岳、赤牛岳等偏遠而壯麗的稜線，最終大幅下切至黑部湖畔的奥黒部ヒュッテ。這段路程考驗耐力，但沿途的景色也最為原始純粹。",
                     image: "https://placehold.co/800x600/1f2937/ffffff?text=黑部水壩"
                 },
                 {
@@ -127,6 +134,7 @@
                     route: "奥黒部ヒュッテ → 平乃小屋",
                     duration: "2 - 3 hr",
                     distance: "約 4–5 km",
+                    activities: "相對輕鬆的一天，沿著平緩的黑部川河畔前進。這段路線景色優美，溪水潺潺，猶如置身於山林仙境。抵達平乃小屋後，可以好好休息，為接下來的陡峭上坡做準備。",
                     image: "https://placehold.co/800x600/0f172a/ffffff?text=平乃小屋溪谷"
                 },
                 {
@@ -135,6 +143,7 @@
                     route: "平乃小屋 → 五色ヶ原山荘",
                     duration: "4 - 6 hr",
                     distance: "約 6–8 km",
+                    activities: "這段路程將帶您進入五色ヶ原的夢幻高原。這片廣闊的平原上散佈著五顏六色的小池塘，與遠方的山脈相映成趣。這是北阿爾卑斯獨有的景觀，也是整趟旅程中風景最為獨特的一站。夜晚可住宿於五色ヶ原山莊。",
                     image: "https://placehold.co/800x600/083344/ffffff?text=五色ヶ原"
                 },
                 {
@@ -143,6 +152,7 @@
                     route: "五色ヶ原山荘 → 剣山荘",
                     duration: "5 - 7 hr",
                     distance: "約 10–12 km",
+                    activities: "最後一天，我們將從五色ヶ原出發，穿過內藏助山莊，朝著劍岳前進。這段路程將逐漸接近劍岳的險峻地形，感受到「日本最險峻之山」的氣勢。最終抵達劍山莊，為這趟艱難而精彩的縱走畫下完美的句點。",
                     image: "https://placehold.co/800x600/155e75/ffffff?text=劍山莊與劍岳"
                 }
             ];
@@ -158,13 +168,15 @@
 
                 const imageHtml = `
                     <div class="md:w-1/2 rounded-xl overflow-hidden mb-4 md:mb-0 md:mr-6">
-                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-xl">
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover rounded-xl itinerary-image">
                     </div>
                 `;
                 const contentHtml = `
                     <div class="md:w-1/2">
                         <h3 class="text-2xl font-bold mb-2 text-teal-500">Day ${item.day}</h3>
                         <p class="text-xl font-semibold mb-2">${item.title}</p>
+                        <p class="text-gray-600 mb-2">${item.activities}</p>
+                        <hr class="my-4 border-gray-200">
                         <p class="text-gray-600 mb-2">路線：${item.route}</p>
                         <div class="flex items-center text-gray-700 mb-2">
                             <svg class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

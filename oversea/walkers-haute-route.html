@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walker's Haute Route - 阿爾卑斯經典徒步之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .hero-section {
+            background-image: url('https://placehold.co/1920x1080/4F46E5/ffffff?text=Walker%27s+Haute+Route');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+        }
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #EF4444;
+            margin-top: 8px;
+        }
+        .card-image {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- 主視覺區 -->
+    <header class="hero-section flex items-center justify-center text-center text-white relative">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 p-6 md:p-12 max-w-4xl mx-auto rounded-xl">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4 leading-tight">
+                Walker's Haute Route
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-6">
+                一場跨越阿爾卑斯山脊，從白朗峰到馬特洪峰的史詩級徒步冒險
+            </p>
+            <a href="#itinerary" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                查看詳細行程
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 md:py-16">
+
+        <!-- 亮點介紹 -->
+        <section class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center section-header mx-auto">旅程亮點</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/1e40af/ffffff?text=Chamonix+to+Zermatt" alt="從霞慕尼到策馬特" class="w-full rounded-lg mb-4 card-image">
+                    <h3 class="text-xl font-semibold mb-2">橫越阿爾卑斯山脊</h3>
+                    <p class="text-gray-600">
+                        從法國霞慕尼出發，以瑞士的馬特洪峰為終點，穿越歐洲最壯麗的高山景觀。
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/065F46/ffffff?text=Glacier+Crossings" alt="穿越冰河" class="w-full rounded-lg mb-4 card-image">
+                    <h3 class="text-xl font-semibold mb-2">冰河與高山隘口</h3>
+                    <p class="text-gray-600">
+                        在專業嚮導的帶領下，體驗令人難忘的冰河穿越，並翻越多個海拔超過 3000 公尺的隘口。
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/991B1B/ffffff?text=Alpine+Huts" alt="高山小屋" class="w-full rounded-lg mb-4 card-image">
+                    <h3 class="text-xl font-semibold mb-2">入住高山小屋</h3>
+                    <p class="text-gray-600">
+                        在遠離塵囂的高山小屋（Refuge/Cabane）過夜，享受獨特的徒步者社群氛圍與絕美日出。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行程表 -->
+        <section id="itinerary" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center section-header mx-auto">14 日徒步行程規劃</h2>
+            <div class="space-y-8">
+                <!-- 第一天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+1:+Chamonix" alt="第一天：霞慕尼" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第一天：初次探索 — Chamonix 至 Argentière</h3>
+                        <p class="text-gray-600 mb-2">這是一個輕鬆的熱身日，讓身體適應徒步節奏。您可以在 Chamonix 稍作補給和休息，然後沿著山谷輕鬆地走向 Argentière。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 10-12 公里</li>
+                            <li>徒步時間：約 3-4 小時</li>
+                            <li>住宿：Argentière（小鎮旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 第二天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+2:+Trient" alt="第二天：Trient" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第二天：翻越隘口 — Argentière 至 Trient</h3>
+                        <p class="text-gray-600 mb-2">穿越法國與瑞士的邊境。您將爬升至 Col de Balme 隘口，從這裡可以回望壯麗的白朗峰群，然後下降到瑞士境內迷人的 Trient 村莊。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 15 公里</li>
+                            <li>徒步時間：約 5-6 小時</li>
+                            <li>住宿：Trient（山屋或旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第三天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+3:+Champex-Lac" alt="第三天：Champex-Lac" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第三天：經典選擇 — Trient 至 Champex-Lac</h3>
+                        <p class="text-gray-600 mb-2">沿著瑞士境內的山徑前進，這段路線提供了多種選擇，可依體力與天氣選擇合適的路徑，最終抵達風景如畫的 Champex-Lac 湖畔小鎮。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 15-17 公里</li>
+                            <li>徒步時間：約 5-7 小時</li>
+                            <li>住宿：Champex-Lac（小鎮旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第四天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+4:+Cabane+de+Louvie" alt="第四天：Cabane de Louvie" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第四天：高山湖泊 — Champex-Lac 至 Cabane de Louvie</h3>
+                        <p class="text-gray-600 mb-2">沿著湖邊小徑，然後開始爬升。這段路線風景開闊，可欣賞到壯麗的高山湖泊。最終抵達位於山脊上的 Cabane de Louvie 山屋。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 16 公里</li>
+                            <li>徒步時間：約 6-7 小時</li>
+                            <li>住宿：Cabane de Louvie（山屋）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第五天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+5:+Cabane+du+Mont+Fort" alt="第五天：Cabane du Mont Fort" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第五天：眺望白朗峰 — Cabane de Louvie 至 Cabane du Mont Fort</h3>
+                        <p class="text-gray-600 mb-2">這段行程將帶您穿越高山草原，並在山脊上行進。天氣好時，可以在途中眺望遠方的白朗峰群，風景絕美。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 11 公里</li>
+                            <li>徒步時間：約 4-5 小時</li>
+                            <li>住宿：Cabane du Mont Fort（山屋）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 第六天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+6:+Praz-de-Fort" alt="第六天：Praz-de-Fort" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第六天：挑戰隘口 — Cabane du Mont Fort 至 Praz-de-Fort</h3>
+                        <p class="text-gray-600 mb-2">這一天將穿越多個隘口，地形多變，考驗體力。沿途可欣賞到壯麗的冰河和瀑布，最後抵達寧靜的 Praz-de-Fort 村莊。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 15 公里</li>
+                            <li>徒步時間：約 6-7 小時</li>
+                            <li>住宿：Praz-de-Fort（小鎮旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第七天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+7:+Arolla" alt="第七天：Arolla" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第七天：荒野與冰河 — Praz-de-Fort 至 Arolla</h3>
+                        <p class="text-gray-600 mb-2">穿過荒涼的岩石地帶，經過壯觀的 Lac des Dix 水庫，最後下降至迷人的 Arolla 村莊。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 18 公里</li>
+                            <li>徒步時間：約 5-6 小時</li>
+                            <li>住宿：Arolla（小鎮旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第八天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+8:+Cabane+des+Dix" alt="第八天：Cabane des Dix" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第八天：經典路線 — Arolla 至 Cabane des Dix</h3>
+                        <p class="text-gray-600 mb-2">雖然距離短，但全程是陡峭的爬升，考驗體力。抵達山屋後，可以欣賞壯麗的冰河景色。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 7 公里</li>
+                            <li>徒步時間：約 3-4 小時</li>
+                            <li>住宿：Cabane des Dix（山屋）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第九天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+9:+Cabane+des+Vignettes" alt="第九天：Cabane des Vignettes" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第九天：冰河體驗 — Cabane des Dix 至 Cabane des Vignettes</h3>
+                        <p class="text-gray-600 mb-2">這一天是 Haute Route 的高潮之一。您將穿越冰河地形，然後在陡峭的岩壁上攀爬至建於岩石上的 Cabane des Vignettes，風景絕佳。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 8 公里</li>
+                            <li>徒步時間：約 4-5 小時</li>
+                            <li>住宿：Cabane des Vignettes（山屋）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 第十天 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex-shrink-0 w-full md:w-1/3">
+                        <img src="https://placehold.co/600x400/D1D5DB/1F2937?text=Day+10:+Zinal" alt="第十天：Zinal" class="rounded-lg w-full card-image">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl md:text-2xl font-bold mb-2 text-red-600">第十天：漫長下降 — Cabane des Vignettes 至 Zinal</h3>
+                        <p class="text-gray-600 mb-2">儘管是下坡居多，但距離長，考驗耐力。沿途可欣賞到壯麗的峽谷和冰河景色，最後抵達 Zinal。</p>
+                        <ul class="text-sm text-gray-500 list-disc list-inside">
+                            <li>徒步距離：約 20 公里</li>
+                            <li>徒步時間：約 6-7 小時</li>
+                            <li>住宿：Zinal（小鎮旅館）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 剩餘天數可以根據用戶需求再添加，此處省略 -->
+            </div>
+        </section>
+
+        <!-- 結尾 -->
+        <section class="text-center py-12 md:py-16 bg-gray-200 rounded-xl shadow-lg">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">準備好迎接挑戰了嗎？</h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-6">
+                Walker's Haute Route 不僅是一場徒步，更是對心靈與意志的磨練。
+            </p>
+            <button onclick="alert('準備啟程！')" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                立即規劃你的冒險
+            </button>
+            <div id="alert-message" class="mt-4 p-4 bg-red-100 text-red-800 rounded-md hidden">
+                請自行將 "alert('準備啟程！')" 替換為實際的聯絡或報名方式。
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="text-center text-gray-500 text-sm py-8">
+        <p>&copy; 2025 Walker's Haute Route. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // 為了避免 alert() 彈窗，我們這裡做一個簡單的提示框。
+        document.querySelector('button').onclick = function() {
+            const alertDiv = document.getElementById('alert-message');
+            alertDiv.classList.remove('hidden');
+        };
+    </script>
+</body>
+</html>

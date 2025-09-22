@@ -51,6 +51,23 @@
             content: '• ';
             color: #ef4444; /* Red dot for important tips */
         }
+        /* 確保 iframe 在不同螢幕尺寸下保持長寬比 */
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 長寬比 (高 / 寬 * 100%) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -74,11 +91,34 @@
             <p class="text-lg leading-relaxed">
                 多洛米蒂山脈 (Dolomites) 位於義大利東北部，是聯合國教科文組織世界遺產，以其獨特的鋸齒狀山峰、翠綠的山谷和清澈的湖泊而聞名。這裡不僅是登山客的天堂，也是攝影愛好者和自然愛好者的夢幻之地。這份 14 天的深度行程規劃，將帶您充分體驗多洛米蒂的壯麗與魅力。
             </p>
+            <!-- 地圖嵌入區塊 -->
+            <div class="map-container mb-8">
+                <!-- 
+                    將你的 Google 地圖嵌入程式碼貼在此處。
+                    請確保 source (src) 是來自 Google Maps 的嵌入 URL。
+                -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d175715.69422089882!2d12.164135926853955!3d46.51686449761318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1758519647280!5m2!1szh-TW!2stw" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <p class="text-center text-gray-500 text-sm">
+                多洛米蒂地圖供參考。
+            </p>
+            <!-- 
+
             <a href="https://maps.app.goo.gl/SR5swxZMnzrdLuTA7">
                 <div class="mt-4 flex justify-center">
                     <img src="dolomites.jpg" alt="多洛米蒂地圖" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
                 </div>
             </a>
+            -->
+
         </section>
 
         <!-- Accommodation Recommendation -->

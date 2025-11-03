@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026世界最後秘境：格陵蘭島健行 13 天</title>
+    <style>
+        /* --- 全域樣式 --- */
+        :root {
+            --primary-color: #007bff; /* 冰川藍 */
+            --secondary-color: #00bcd4; /* 北極光色 */
+            --background-light: #f4f7f6;
+            --text-dark: #333;
+            --text-light: #fff;
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            color: var(--primary-color);
+        }
+
+        /* --- 橫幅與標題 --- */
+        .hero {
+            /* 請替換為實際圖片路徑 */
+            background: url('https://travelwithmikeanna.com/wp-content/uploads/2020/05/2019-08-02-to-0803-Kangerlussauq-Greenland-107-scaled.jpg') center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero-content {
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 0.1em;
+            color: var(--text-light);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero p {
+            font-size: 1.6em;
+            font-weight: 300;
+            color: #d8d8d8;
+        }
+        
+        /* --- 摘要資訊區塊 --- */
+        .summary-bar {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .summary-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        .summary-item {
+            margin: 10px 20px;
+            text-transform: uppercase;
+        }
+
+        .summary-item strong {
+            display: block;
+            font-size: 1.6em;
+            margin-bottom: 5px;
+            font-family: var(--font-serif);
+        }
+
+        /* --- 圖片樣式與微調基礎設定 --- */
+        .day-card img, .intro-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background-color: #a8dadc; /* 淺藍色佔位背景 */
+            transition: transform 0.3s;
+        }
+        
+        .day-card img:hover {
+            transform: scale(1.02);
+        }
+
+        /* 圖片微調類別範例：讓裁切中心點向下移動 50px */
+        .img-align-bottom {
+            object-position: 50% calc(50% + 50px); 
+        }
+        
+        /* 圖片微調類別範例：讓裁切中心點向上移動 30px */
+        .img-align-top {
+            object-position: 50% calc(50% - 30px); 
+        }
+        /* 註：將這些類別加到 img 標籤中，即可實現單獨微調 */
+
+
+        /* --- 介紹與文化區塊 --- */
+        .intro, .culture {
+            padding: 40px 0;
+        }
+        
+        .intro-content {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .intro-text {
+            flex: 2;
+        }
+        
+        .intro-img-container {
+            flex: 1;
+        }
+        
+        .culture h3 {
+            color: var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+
+        /* --- 行程表區塊 --- */
+        .itinerary {
+            background-color: var(--text-light);
+            padding: 50px 0;
+        }
+
+        .day-card {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .day-number {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .day-title {
+            font-size: 1.4em;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .day-detail {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .location-highlight {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* --- 冰島區塊 --- */
+        .iceland-break {
+            background-color: #ffe082; /* 淺黃色/溫暖色 */
+            padding: 40px 0;
+            text-align: center;
+            border-top: 5px solid #ff9800;
+        }
+
+        .iceland-break h2 {
+            color: #ff9800;
+        }
+        
+        /* --- 響應式調整 --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .intro-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>世界最後秘境：格陵蘭島健行</h1>
+            <p>空無一人的阿爾卑斯山：探索東格陵蘭原始的冰雪荒野</p>
+        </div>
+    </header>
+
+    <section class="summary-bar">
+        <div class="summary-grid container">
+            <div class="summary-item">
+                <strong>13 天</strong>
+                <span>總天數</span>
+            </div>
+            <div class="summary-item">
+                <strong>€ 4200</strong>
+                <span>當地預估費用</span>
+            </div>
+            <div class="summary-item">
+                <strong>徒步/文化</strong>
+                <span>行程主題</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro container">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h2>🌎 廣闊、寧靜、未受破壞的自然之美</h2>
+                <p>格陵蘭島的自然風光壯麗而又偏遠。景色廣闊，如同無盡的阿爾卑斯山，空無一人。世界上很少有地方擁有如此未受破壞的自然風光和如此稀少的人口，希望能為大家帶來這種寧靜和廣闊的感受。</p>
+                <p>格陵蘭島及其自然環境在我們心中佔有特殊的地位，因此，確保對當地人的旅行尊重和保護非常重要。在當地人帶領下重視**不留下任何痕跡**，並好好保護我們珍惜的大自然。</p>
+            </div>
+            <div class="intro-img-container">
+                <img src="path/to/vast-landscape.jpg" alt="格陵蘭島廣闊的冰川景觀" class="intro-image">
+            </div>
+        </div>
+        
+        <div class="culture">
+            <h3>🤝 與當地因紐特社區的緊密合作</h3>
+            <p>在東格陵蘭，當地社區人口稀少，生活方式比其他地區更接近傳統的因紐特人。我們與當地人密切合作，特別是在交通和文化方面。他們比任何人都更了解這片土地、氣候和荒野，並保存著自己國家的文化和歷史。</p>
+        </div>
+    </section>
+
+    <section class="itinerary container">
+        <h2>🧭 東格陵蘭島徒步探索 (Day 1 - 10)</h2>
+
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 1</div>
+                <h3 class="day-title">✈️ 抵達世界盡頭：凱夫拉維克 → 庫魯蘇克 (Kulusuk)</h3>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Air-Greenland-dash8-200s-nuuk-airport.jpg/640px-Air-Greenland-dash8-200s-nuuk-airport.jpg" alt="庫魯蘇克機場小型飛機" class="img-align-bottom">
+            <p>下午稍晚從冰島凱夫拉維克機場 ($KEF$) 搭乘小型飛機飛往 <span class="location-highlight">庫魯蘇克</span>，飛行時間約 1 小時 45 分鐘。步行前往當地傳統民宅的小屋式住宿中享用晚餐並過夜。</p>
+            <div class="day-detail">
+                **交通：** 冰島→格陵蘭 (約 1h 45m) | **住宿：** 庫魯蘇克傳統民宅 | **備註：** 當地時間 17:15 降落
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 2</div>
+                <h3 class="day-title">🏔️ 探索冰山與浮冰之島</h3>
+            </div>
+            <img src="path/to/kulusuk-hike.jpg" alt="庫魯蘇克島的冰山景觀">
+            <p>早上出發探索庫魯蘇克島的美麗風景。爬上小山，向西望去，海面上有大量的冰山和浮冰。欣賞山間湖泊的綠色，前往海岸欣賞懸崖和岩層。</p>
+            <div class="day-detail">
+                **活動：** 庫魯蘇克島徒步 | **時長：** 6-7 小時 | **住宿：** 庫魯蘇克傳統民宅
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 3</div>
+                <h3 class="day-title">🚢 乘船前往庫米特 (Kuummiit)</h3>
+            </div>
+            <img src="path/to/kuummiit-village.jpg" alt="庫米特村莊與花崗岩山峰">
+            <p>早上搭船（約 1 小時）前往阿馬薩利克地區最北端的村莊 <span class="location-highlight">庫米特 (Kuummiit)</span>。村莊坐落在高聳陡峭的花崗岩山腳下。下午在村莊和海岸邊散步，可能有機會遇到釣北極紅點鮭的當地人。</p>
+            <div class="day-detail">
+                **交通：** 乘船 (約 1 小時) | **活動：** 村莊散步 | **住宿：** 庫米特當地人家
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 4</div>
+                <h3 class="day-title">🧗 挑戰 Qeqqit 山 (1100m)</h3>
+            </div>
+            <img src="path/to/qeqqit-mountain-view.jpg" alt="從Qeqqit山頂看到的景色">
+            <p>攀登近 $1100\text{m}$ 高的 <span class="location-highlight">Qeqqit Qaqqartivaat 山峰</span>。從這座山上看到的景色真是令人嘆為觀止：一望無際的山脈、冰川、峽灣和山谷。</p>
+            <div class="day-detail">
+                **活動：** 登山健行 | **時長：** 6-7 小時 | **上升：** $1050\text{m}$ | **住宿：** 庫米特當地人家
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 5</div>
+                <h3 class="day-title">🧊 航向冰峽灣邊緣：蒂尼特其拉克 (Tiniteqilaaq)</h3>
+            </div>
+            <img src="path/to/tiniteqilaaq-ice-fjord.jpg" alt="塞爾米利克冰峽灣">
+            <p>從庫米特到 <span class="location-highlight">蒂尼特其拉克 (Tiniteqilaaq)</span> 的美麗航行，兩岸是高聳的花崗岩山峰。抵達後，我們來到塞爾米利克冰峽灣的邊緣，欣賞不斷崩解出冰山的景象。</p>
+            <div class="day-detail">
+                **交通：** 乘船 (3 小時) | **活動：** 村莊步行 (3 小時) | **住宿：** 蒂尼特齊拉克
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 6</div>
+                <h3 class="day-title">🌸 塞爾米利克上方的岩石山脊</h3>
+            </div>
+            <img src="path/to/sermilik-ridge.jpg" alt="俯瞰塞爾米利克峽灣的山脊">
+            <p>徒步繞行小河，尋找格陵蘭島的國花「年輕女孩」（Niviarsiaq）。然後爬上長而寬的山脊，到達 $420\text{m}$ 高處，**360°** 視野盡覽格陵蘭冰蓋、金字塔形山脈和塞爾米利克峽灣。</p>
+            <div class="day-detail">
+                **活動：** 山脊徒步 | **時長：** 6-7 小時 | **上升：** $420\text{m}$
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 7</div>
+                <h3 class="day-title">🚶 徒步 Sermilikvejen 到達東格陵蘭最大城：塔西拉克 (Tasilaq)</h3>
+            </div>
+            <img src="path/to/sermilikvejen-hike.jpg" alt="Sermilikvejen步道景色">
+            <p>清晨乘船到「黃金海灘」。沿著 Sermilikvejen 爬過幾個湖泊和小山口 ($350\text{m}$)，最終沿海岸線到達東格陵蘭最大的城鎮 <span class="location-highlight">塔西拉克 (Tasilaq)</span> ($2000$ 居民)。</p>
+            <div class="day-detail">
+                **活動：** 徒步 | **時長：** 6-7 小時 | **上升：** $350\text{m}$ | **住宿：** 賓館
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 8</div>
+                <h3 class="day-title">⚓ 攀登水手山 (Somandsfjeldet)</h3>
+            </div>
+            <img src="path/to/sailors-mountain.jpg" alt="從水手山俯瞰塔西拉克">
+            <p>從小鎮後面開始攀登海拔 $679\text{m}$ 的水手山 (Qaqqartivakajik)。繼續攀登更高的山頂，欣賞更多的山脈、冰川和冰山，然後下降到北側的花谷，欣賞北極植物盛開。</p>
+            <div class="day-detail">
+                **活動：** 登山 | **時長：** 5-6 小時 | **上升：** $650\text{m}$ | **住宿：** 賓館
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 9</div>
+                <h3 class="day-title">🛶 塔西拉克文化日與回程庫魯蘇克</h3>
+            </div>
+            <img src="path/to/tasiilaq-museum.jpg" alt="塔西拉克博物館">
+            <p>早上穿過塔西拉克上方的山丘。自由的下午可以參觀當地**博物館**、手工藝品商店或海港。下午搭船（1 小時）返回 <span class="location-highlight">庫魯蘇克</span>，入住旅行開始時的同一棟房子。</p>
+            <div class="day-detail">
+                **活動：** 步行 (3 小時) / 觀光 / 乘船 | **住宿：** 庫魯蘇克傳統民宅
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 10</div>
+                <h3 class="day-title">✈️ 告別格陵蘭島</h3>
+            </div>
+            <img src="path/to/kulusuk-coast.jpg" alt="庫魯蘇克海岸景觀">
+            <p>早上沿著海岸散步，到達庫魯蘇克村東邊的山丘。在家吃午飯，下午 $15:30$ 出發去機場，搭乘 $18:00$ 的班機返回凱夫拉維克。</p>
+            <div class="day-detail">
+                **交通：** 格陵蘭→冰島 | **抵達：** 冰島凱夫拉維克 (21:45)
+            </div>
+        </div>
+
+        <div class="iceland-break">
+            <h2>🇮🇸 冰島中繼站：旅程尾聲 (Day 11 - 13)</h2>
+        </div>
+
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 11</div>
+                <h3 class="day-title">冰島雷克雅維克市區觀光</h3>
+            </div>
+            <div class="day-detail">
+                **活動：** 雷克雅維克市區自由探索。
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 12</div>
+                <h3 class="day-title">冰島金圈旅行 (自費)</h3>
+            </div>
+            <div class="day-detail">
+                **活動：** 可自費參加冰島著名金圈 (Golden Circle) 之旅。
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-header">
+                <div class="day-number">Day 13</div>
+                <h3 class="day-title">🛫 返程</h3>
+            </div>
+            <div class="day-detail">
+                **活動：** 從凱夫拉維克機場 ($KEF$) 搭機返家，結束 13 天的冰雪秘境之旅。
+            </div>
+        </div>
+
+    </section>
+    
+    <footer class="summary-bar">
+        <p>&copy; 2026 世界秘境探索。期待與您一同踏上格陵蘭冰雪之旅！</p>
+    </footer>
+
+</body>
+</html>

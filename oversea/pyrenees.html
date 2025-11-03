@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比利牛斯山徒步之旅：安道爾18天史詩級探險</title>
+    <style>
+        /* --- 全域樣式 --- */
+        :root {
+            --primary-color: #A33A0D; /* 深土橘色/紅棕色 */
+            --secondary-color: #0F5E56; /* 深青色/森林綠 */
+            --background-light: #f9f9f9;
+            --text-dark: #333;
+            --text-light: #fff;
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            color: var(--primary-color);
+        }
+
+        /* --- 橫幅與標題 --- */
+        .hero {
+            background: url('');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* 半透明遮罩 */
+        }
+
+        .hero-content {
+            z-index: 10;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.2em;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            font-weight: 300;
+            color: #ccc;
+        }
+
+        /* --- 摘要資訊區塊 --- */
+        .summary-bar {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .summary-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        .summary-item {
+            margin: 10px 20px;
+        }
+
+        .summary-item strong {
+            display: block;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        /* --- 亮點區塊 --- */
+        .highlights {
+            background-color: var(--background-light);
+            padding: 40px 0;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .highlight-card {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: var(--text-light);
+            transition: transform 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+        }
+
+        /* --- 行程表區塊 --- */
+        .itinerary {
+            padding: 50px 0;
+        }
+
+        .itinerary h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .day-card {
+            display: flex;
+            background: var(--text-light);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .day-number {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100px;
+            font-size: 1.5em;
+            font-family: var(--font-serif);
+        }
+
+        .day-detail {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* 雙週標題 */
+        .week-divider {
+            text-align: center;
+            background-color: #ddd;
+            padding: 10px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        
+        /* --- 費用包含區塊 --- */
+        .inclusions {
+            background-color: #e8e8e8;
+            padding: 40px 0;
+        }
+
+        .inclusions h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+
+        .inclusion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .inclusion-item {
+            background: var(--text-light);
+            padding: 15px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .inclusion-item ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .inclusion-item ul li::before {
+            content: "✅";
+            margin-right: 10px;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffe0b2; /* 淺橘色 */
+            border-left: 5px solid var(--primary-color);
+            font-style: italic;
+        }
+
+        /* --- 安道爾特別區塊 --- */
+        .andorra-break {
+            background-color: #d1e7dd; /* 淺綠色 */
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .andorra-break h3 {
+            color: var(--secondary-color);
+            font-size: 2em;
+        }
+
+        /* --- 響應式調整 --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .summary-grid {
+                flex-direction: column;
+            }
+            
+            .day-card {
+                flex-direction: column;
+            }
+            
+            .day-number {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>縱橫群峰之巔：比利牛斯山 18 天史詩級徒步之旅</h1>
+            <p>深藏的安道爾 🇦🇩 小到離譜，好玩到炸！</p>
+        </div>
+    </header>
+
+    <section class="summary-bar">
+        <div class="summary-grid container">
+            <div class="summary-item">
+                <strong>18 天</strong>
+                <span>總天數</span>
+            </div>
+            <div class="summary-item">
+                <strong>€ 2500</strong>
+                <span>當地費用</span>
+            </div>
+            <div class="summary-item">
+                <strong>2592 m</strong>
+                <span>最高海拔（奇斯託港）</span>
+            </div>
+            <div class="summary-item">
+                <strong>自助徒步</strong>
+                <span>旅行形式</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights container">
+        <h2>✨ 旅程亮點：野性與壯麗的完美融合</h2>
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <h3>峽谷與高山風光</h3>
+                <p>體驗壯麗的高山風光和深峽谷的壯麗景觀，沉浸於比利牛斯山的野性之美。</p>
+                <p></p>
+            </div>
+            <div class="highlight-card">
+                <h3>追尋西班牙遺跡</h3>
+                <p>探索鮮為人知的埃爾普雷皮里尼奧山脈，那裡遍布早期西班牙遺跡。</p>
+                <p></p>
+            </div>
+            <div class="highlight-card">
+                <h3>豐富的野生動物</h3>
+                <p>山坡上散佈著野馬，天空中則充滿了許多令人難以置信的猛禽。</p>
+                <p></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="itinerary container">
+        <h2>📅 每日行程：史詩級的徒步路線</h2>
+
+        <div class="week-divider">第一週：阿拉貢內斯省的狂野山徑</div>
+
+        <div class="day-card">
+            <div class="day-number">Day 1</div>
+            <div class="day-info">
+                <h3>抵達哈卡 (Jaca)</h3>
+                <p>抵達比利牛斯阿拉貢內斯省首府哈卡。晚餐與您的健行同伴會面，並參加當地山地導遊的第一次簡報。</p>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-number">Day 2</div>
+            <div class="day-info">
+                <h3>Oza 或 Aguastuertas 到 Lizara</h3>
+                <p>您的比利牛斯山探險之旅從 Oza/Aguastuertas 開始，經過一段技術簡單但漫長的徒步，到達風景優美的 Lizara 山間小屋。</p>
+                <div class="day-detail">
+                    <strong>距離：</strong>17 公里 | <strong>時長：</strong>5-6 小時 | <strong>升降：</strong>+1100 m / -720 m
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-number">Day 3</div>
+            <div class="day-info">
+                <h3>利扎拉 → 坎丹丘/松波特</h3>
+                <p>沿 GR-11 變體行走，欣賞 Aisa 山口到法國 Pic du Midi d'Ossau 的壯麗景色。</p>
+                <div class="day-detail">
+                    <strong>距離：</strong>16 公里 | <strong>升降：</strong>+1040 m / -940 m
+                </div>
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-number">Day 6</div>
+            <div class="day-info">
+                <h3>Respomuso → Panticosa</h3>
+                <p>本週最真實的高山階段，登上 Tebarrai 山口 (2782 m)，抵達設有 SPA 的山間酒店。</p>
+                <div class="day-detail">
+                    <strong>距離：</strong>14 公里 | <strong>升降：</strong>+710 m / -1270 m
+                </div>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="day-card">
+            <div class="day-number" style="background-color: var(--secondary-color);">Day 8</div>
+            <div class="day-info">
+                <h3>休息日：返回哈卡</h3>
+                <p>休息調整，從托爾拉返回哈卡。</p>
+            </div>
+        </div>
+        
+        <div class="week-divider">第二週：奧爾德薩峽谷與安道爾</div>
+
+        <div class="day-card">
+            <div class="day-number">Day 9</div>
+            <div class="day-info">
+                <h3>托爾拉 → 戈里茲 (Goriz)</h3>
+                <p>從奧德薩大峽谷上升，沿著 Faja de Pelay 風景優美的路線行駛，到達 Goriz 山間小屋。</p>
+                <div class="day-detail">
+                    <strong>距離：</strong>12 公里 | <strong>時長：</strong>5-6 小時 | <strong>升降：</strong>+880 m / -190 m
+                </div>
+                <p></p>
+            </div>
+        </div>
+        
+        <div class="day-card">
+            <div class="day-number">Day 13</div>
+            <div class="day-info">
+                <h3>維亞多斯 → 貝納斯克</h3>
+                <p>穿越奇斯託港 (2592 m)，看到 Bachimala 和 Posets 的花崗岩岩石防波堤。到達山地運動中心貝納斯克。</p>
+                <div class="day-detail">
+                    <strong>距離：</strong>21 公里 | <strong>時長：</strong>8-9 小時 | <strong>升降：</strong>+900 m / -1360 m
+                </div>
+            </div>
+        </div>
+
+        <div class="andorra-break">
+            <h3>安道爾城市觀光與休息 (Day 16-17)</h3>
+            <p>結束長途跋涉，在比利牛斯山中的迷你國家——安道爾享受悠閒時光。</p>
+        </div>
+
+    </section>
+
+    <section class="inclusions">
+        <div class="container">
+            <h2>🎒 費用包含與服務細節</h2>
+            <div class="inclusion-grid">
+                <div class="inclusion-item">
+                    <h3>住宿與餐飲</h3>
+                    <ul>
+                        <li>8 晚雙人房住宿（獨立衛浴）</li>
+                        <li>6 晚山間小屋雙層床住宿（提供毯子）</li>
+                        <li>14 次徒步旅行者早餐</li>
+                        <li>14 頓晚餐（固定菜單）</li>
+                    </ul>
+                </div>
+                <div class="inclusion-item">
+                    <h3>交通與支援</h3>
+                    <ul>
+                        <li>行程中指定健行往返交通</li>
+                        <li>當地山地嚮導每日簡報</li>
+                        <li>第 8 天從托爾拉返回哈卡</li>
+                        <li>第 15 天從 Llauset 停車場的接駁</li>
+                    </ul>
+                </div>
+                <div class="inclusion-item">
+                    <h3>行李轉運服務</h3>
+                    <ul>
+                        <li>第 2、4、6 和 7 天的行李轉運</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note">
+                **📌 備註：** 第 5、9、12 天住宿為汽車無法到達的山間小屋 (Refugio)，主要行李將被轉運至下一家酒店，您需自行背負當日及隔日所需物資。
+            </div>
+        </div>
+    </section>
+
+    <footer class="summary-bar">
+        <p>&copy; 2025 比利牛斯山徒步之旅。立即預訂，開始您的史詩探險！</p>
+    </footer>
+
+</body>
+</html>

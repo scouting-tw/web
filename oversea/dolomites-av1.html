@@ -3,222 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>多洛米蒂 AV1 全程健行：12 天壯麗之旅</title>
+    <title>征服多洛米蒂：Alta Via 1 (AV1) 12 天全程山屋健行</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f9; }
-        .header { background-color: #4CAF50; color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { margin: 0; font-size: 2.5em; }
-        .header p { font-size: 1.2em; margin-top: 10px; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
-        .section { background-color: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-        h2 { color: #2E8B57; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-top: 0; }
-        .itinerary-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .itinerary-table th, .itinerary-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        .itinerary-table th { background-color: #E6F3E6; color: #38761d; font-weight: bold; }
-        .key-points { margin-top: 20px; padding: 15px; background-color: #fff9e6; border: 1px solid #ffcc00; border-radius: 5px; }
-        .key-points h3 { color: #cc9900; margin-top: 0; }
-        .price-box { margin-top: 30px; padding: 20px; background-color: #d9edf7; border: 1px solid #bce8f1; border-radius: 5px; }
-        .price-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        .price-table th, .price-table td { border: none; padding: 8px 12px; text-align: left; }
-        .price-table th { background-color: #b3d9ff; font-weight: bold; }
-        .price-total { font-size: 1.5em; font-weight: bold; color: #d9534f; margin-top: 10px; text-align: center; }
-        .note { font-size: 0.9em; color: #666; margin-top: 15px; }
+        /* Custom font and base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        .header {
+            /* 使用 AV1 起點 Lago di Braies 的經典圖片作為背景 */
+            background-image: url('https://images.simedia.cloud/cms-v2/CustomerData/557/Files/Images/drei-zinnen-sextner-dolomiten/allgemein/pragser-wildsee/header-pragser-wildsee-01.jpg/image.jpg?v=638822131840');
+            background-size: cover;
+            background-position: center 20%;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3.2em;
+            margin: 0;
+            text-shadow: 3px 3px 6px #000;
+        }
+        .header p.subtitle {
+            font-size: 1.4em;
+            text-shadow: 2px 2px 4px #000;
+            margin-top: 15px;
+        }
+        .section-title {
+            color: #1e40af; /* Dark blue for section titles */
+        }
+        /* Custom list style for nested lists */
+        .list-circle li::marker {
+            content: '• ';
+            color: #ef4444; /* Red dot for important tips */
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .day-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-    <div class="header">
-        <h1>🏔️ <b>多洛米蒂 AV1 全程健行：12 天壯麗之旅</b></h1>
-        <p>從米蘭出發，征服多洛米蒂高山步道一號線 (Alta Via 1)！</p>
-    </div>
+    <header class="header">
+        <h1>⛰️ 征服 AV1：多洛米蒂高山步道全程</h1>
+        <p class="subtitle">12 天純粹山岳體驗，從米蘭出發的壯麗健行之旅</p>
+        <div style="text-align:center; padding-top:30px;">
+            <a href="#booking" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest">
+                預訂您的山屋冒險
+            </a>
+        </div>
+    </header>
     
-    <div class="container">
-        
-        <div class="section">
-            <h2>行程概覽</h2>
+    <main class="container mx-auto px-4 py-12">
+
+        <section class="mb-12 bg-white p-10 rounded-xl shadow-xl">
+            <h2 class="text-3xl font-extrabold section-title mb-6 border-b-2 pb-2">關於 Alta Via 1 (AV1)</h2>
             
-            <p>本行程專為征服多洛米蒂 AV1 全程而設計，總計 <b>12 天</b>，其中包含 <b>10 天</b>高山健行。</p>
-            <ul>
-                <li><b>健行起點：</b> Lago di Braies (布萊耶斯湖)</li>
-                <li><b>健行終點：</b> La Pissa</li>
-                <li><b>交通往返：</b> 米蘭</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🚌 交通與健行分段行程</h2>
-            
-            <h3>第 I 部分：交通與健行開始 (2 天)</h3>
-            <table class="itinerary-table">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>行程概要</th>
-                        <th>交通/住宿細節</th>
-                        <th>備註</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Day 1</td>
-                        <td>米蘭 → 多洛米蒂門戶</td>
-                        <td>從米蘭 (LIN/BGY) 搭乘火車前往波爾查諾 (Bolzano/Bozen)。</td>
-                        <td>如果中午左右出發，抵達時已晚。建議住在波爾查諾火車站附近。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 2</td>
-                        <td>進入 AV1 起點：Lago di Braies</td>
-                        <td>早晨從 Bolzano 搭乘火車前往布魯尼科 (Brunico/Bruneck)。上午從 Brunico 搭乘巴士 (Bus 442) 前往 Lago di Braies。</td>
-                        <td>下午開始健行。從湖畔爬升至第一個山屋。住宿：Rifugio Biella 或 Rifugio Sennes。</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>第 II 部分：AV1 核心健行 (8 天)</h3>
-            
-            <table class="itinerary-table">
-                <thead>
-                    <tr>
-                        <th>日期</th>
-                        <th>AV1 路段</th>
-                        <th>步行時間 (小時)</th>
-                        <th>住宿山屋 (Rifugio)</th>
-                        <th>建議與景點</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Day 3</td>
-                        <td>Rifugio Biella → Rifugio Fanes</td>
-                        <td>5-6</td>
-                        <td>Rifugio Fanes</td>
-                        <td>經過 Fanes 高原，風景開闊壯麗。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 4</td>
-                        <td>Rifugio Fanes → Rifugio Lagazuoi</td>
-                        <td>6-7</td>
-                        <td>Rifugio Lagazuoi</td>
-                        <td>爬升至 Lagazuoi 峰，景觀絕佳，可見 WWI 戰壕。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 5</td>
-                        <td>Rifugio Lagazuoi → Rifugio Averau</td>
-                        <td>3-4</td>
-                        <td>Rifugio Averau (或 Nuvolau)</td>
-                        <td>可搭乘纜車下降或走 WWI 隧道。健行經過 Cinque Torri (五塔區)。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 6</td>
-                        <td>Rifugio Averau → Rifugio Coldai</td>
-                        <td>5-6</td>
-                        <td>Rifugio Coldai</td>
-                        <td>經過 Passo Giau，遠眺 Mount Pelmo。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 7</td>
-                        <td>Rifugio Coldai → Rifugio Vazzoler</td>
-                        <td>5-6</td>
-                        <td>Rifugio Vazzoler</td>
-                        <td>繞著 Civetta 峰群移動，前往 Val di Zoldo。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 8</td>
-                        <td>Rifugio Vazzoler → Rifugio Carestiato</td>
-                        <td>4-5</td>
-                        <td>Rifugio Carestiato</td>
-                        <td>經過 Passo Duran，風景轉為更荒涼的南多洛米蒂。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 9</td>
-                        <td>Rifugio Carestiato → Rifugio Pramperet</td>
-                        <td>6-7</td>
-                        <td>Rifugio Pramperet</td>
-                        <td>較長距離的路段，進入 Belluno Dolomites 區域。</td>
-                    </tr>
-                    <tr>
-                        <td>Day 10</td>
-                        <td>Rifugio Pramperet → Rifugio 7° Alpini</td>
-                        <td>5-6</td>
-                        <td>Rifugio 7° Alpini</td>
-                        <td>途經 Forcella P. d'Alvis，最終目標是 Belluno 附近的七阿爾卑斯山屋。</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>第 III 部分：健行結束與返程 (Day 11~12)</h3>
-            <p>健行結束後，從 Rifugio 7° Alpini 下降至 Belluno (約 2-3 小時)。中午在 Belluno 搭乘火車返回米蘭。</p>
-            <p>您可以選擇：</p>
-            <ul>
-                <li><b>Day 11 晚</b> 住宿在維羅納 (Verona) 或威尼斯 (Venezia Mestre)，作為返回米蘭的中繼點。</li>
-                <li><b>Day 12 早上</b> 再從 Verona 或 Venezia Mestre 搭乘高速火車 (如 Frecciarossa 或 Italo) 返回米蘭中央車站 (Milano Centrale)。</li>
-            </ul>
-        </div>
-
-        <div class="section key-points">
-            <h3>📌 關鍵規劃細節</h3>
-            <p>為了確保旅程順利，請務必注意以下事項：</p>
-            <ul>
-                <li><b>山屋預訂 (Rifugio Reservation)：</b> 這是 AV1 成功的<b>第一步</b>。務必在出發前 <b>6 至 12 個月</b>預訂所有山屋（特別是 7 月和 8 月）。</li>
-                <li><b>裝備要求：</b> 需具備適合<b>高山徒步的靴子</b>、<b>防雨/防風外套</b>、<b>頭燈</b>和充足的補給品。</li>
-                <li><b>地圖準備：</b> 準備好詳細的地圖 (如 Tabacco 1:25000) 和 GPS 軌跡。</li>
-                <li><b>交通建議：</b> 從 Belluno 無法直達米蘭，必須經過 Verona 或 Venezia Mestre 轉乘高速列車。</li>
-            </ul>
-        </div>
-
-        <div class="section price-box">
-            <h2>💰 12 天 AV1 全程費用預估 (單人)</h2>
-            
-            <p>此預估以舒適的中等預算為準，健行期間住宿山屋 (Rifugio)。</p>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>項目</th>
-                        <th>費用範圍 (歐元)</th>
-                        <th>備註與計算依據</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>A. 交通總費用 (米蘭往返)</td>
-                        <td>€95 - €180</td>
-                        <td>往返交通，包含所有火車與巴士段。</td>
-                    </tr>
-                    <tr>
-                        <td>B. 健行住宿 (10 晚山屋)</td>
-                        <td>€450 - €650</td>
-                        <td>依據：平均每晚 €45-€65 (含床位、淋浴、早餐)</td>
-                    </tr>
-                    <tr>
-                        <td>C. 健行餐食 (10 天)</td>
-                        <td>€300 - €500</td>
-                        <td>山屋晚餐、午餐補給；平均每日 €30-€50。</td>
-                    </tr>
-                    <tr>
-                        <td>D. 城市住宿 (2 晚)</td>
-                        <td>€120 - €200</td>
-                        <td>經濟型旅館，平均每晚 €60-€100。</td>
-                    </tr>
-                    <tr>
-                        <td>E. 裝備/雜費 (保險等)</td>
-                        <td>€100 - €200</td>
-                        <td>高山保險、緊急費用。</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="price-total">
-                總預估費用 (不含機票)：€1,065 - €1,730
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-8">
+                <div class="p-4 bg-yellow-50 rounded-lg shadow-inner">
+                    <p class="text-4xl font-bold text-yellow-700">10 天</p>
+                    <p class="text-sm text-gray-600 mt-1">核心健行天數</p>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg shadow-inner">
+                    <p class="text-4xl font-bold text-green-700">120 KM</p>
+                    <p class="text-sm text-gray-600 mt-1">總徒步里程</p>
+                </div>
+                <div class="p-4 bg-red-50 rounded-lg shadow-inner">
+                    <p class="text-4xl font-bold text-red-700">山屋</p>
+                    <p class="text-sm text-gray-600 mt-1">全程住宿 Rifugio</p>
+                </div>
             </div>
+
+            <p class="text-lg leading-relaxed mb-6">
+                Alta Via 1 是多洛米蒂山脈最經典、景色最豐富的高山步道。它難度適中，路徑清晰，非常適合初次進行多日高山健行的愛好者。您將全程入住傳統的山區小屋 **(Rifugio)**，體驗道地的阿爾卑斯登山文化。
+            </p>
             
-            <div class="note">
-                <p>⚠️ <b>費用注意事項：</b></p>
-                <ul>
-                    <li>山屋建議訂購<b>半膳 (Half Board)</b> 服務，通常價格在 €65 - €85 之間。</li>
-                    <li>火車票<b>越早購買</b> (提前 3-6 個月)，越能搶到早鳥票，節省費用。</li>
-                    <li>如果您單獨旅行，城市飯店和山屋可能會收取單人附加費 (Single Supplement) 。</li>
-                </ul>
+            <div class="map-container mb-8">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113110.45700878197!2d12.043960010955938!3d46.46740621432179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47781b49f91a56e9%3A0x279f53e30e78c894!2sAlta%20Via%201%20Dolomites!5e0!3m2!1szh-TW!2sit!4v1700200000000"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
+
+            <p class="text-center text-gray-500 text-sm">                
+                <a href="https://en.wikipedia.org/wiki/Alta_Via_1" target="_blank" class="hover:text-blue-500">查看 AV1 路線概況</a>
+            </p>
+        </section>
+
+        <section class="mb-12 bg-blue-50 p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-extrabold section-title mb-6">🚄 交通與後勤安排</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-800 mb-3">米蘭往返交通</h3>
+                    <p class="text-base mb-2"><b>Day 1 (去程):</b> 從米蘭機場搭乘火車至 **波爾查諾 (Bolzano)**，建議在此過夜以緩解疲勞，確保第二天順利銜接。次日轉區間車至 **布魯尼科 (Brunico)**，再搭乘巴士 **Bus 442** 至起點 Lago di Braies。</p>
+                    <p class="text-base mb-2"><b>Day 11 (返程):</b> 從終點 **Belluno** 火車站搭乘火車，經由 **Venezia Mestre 或 Verona** 轉乘高速列車，當天即可返回 **米蘭中央車站**。</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-800 mb-3">山屋與費用參考 (單人預估)</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><b>10 晚山屋住宿 (Rifugio):</b> 預估 €450 - €650。強烈建議預訂 **半膳 (Half Board)**。</li>
+                        <li><b>10 天山區餐食:</b> 預估 €300 - €500 (含午餐補給及額外飲品)。</li>
+                        <li><b>城市住宿 (2 晚):</b> 預估 €120 - €200 (Bolzano/Verona/Milan 經濟型旅館)。</li>
+                    </ul>
+                    <div class="mt-4 p-4 bg-white rounded-lg shadow">
+                         <p class="text-lg font-bold text-red-600">總預估費用 (不含機票): €1,065 - €1,730</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-extrabold section-title mb-6 text-center border-b-2 pb-2">🚶 12 天 AV1 全程健行詳細行程</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="day-card bg-gray-100">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Day 1-2：啟程與 AV1 起點</h4>
+                    <p class="text-sm font-semibold text-gray-600 mb-2">交通轉場 / 徒步開始</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li><b>Day 1：</b> 米蘭機場 → 波爾查諾 (Bolzano) 住宿。</li>
+                        <li><b>Day 2：</b> Bolzano → Brunico → Lago di Braies。下午開始徒步。</li>
+                        <li><b>住宿：</b> Day 1: Bolzano 飯店; Day 2: Rifugio Biella / Sennes。</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Lago_di_Braies_2020.jpg" alt="Lago di Braies" class="rounded-lg w-full h-32 object-cover">
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Day 3-5：Fanes 高原與五塔</h4>
+                    <p class="text-sm font-semibold text-gray-600 mb-2">精華路段 | 經典地標</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li>Day 3: Rifugio Fanes (壯麗高原)。</li>
+                        <li>Day 4: Rifugio Lagazuoi (WWI 遺跡、景觀極佳)。</li>
+                        <li>Day 5: Rifugio Averau (Cinque Torri 五塔區、輕鬆徒步)。</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://static.nationalgeographic.co.uk/files/styles/image_360/public/cinque-torri.jpg" alt="Cinque Torri" class="rounded-lg w-full h-32 object-cover">
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Day 6-8：Civetta 峰群與 Zoldo 山谷</h4>
+                    <p class="text-sm font-semibold text-gray-600 mb-2">環繞巨峰 | 冰湖</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li>Day 6: Rifugio Coldai (Lago Coldai 冰湖美景)。</li>
+                        <li>Day 7: Rifugio Vazzoler (壯觀的 Civetta 山壁)。</li>
+                        <li>Day 8: Rifugio Carestiato (南多洛米蒂開始)。</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://www.dolomiti.it/storage/localities/21798/conversions/civetta_coldai_dji_0137-tablet.jpg" alt="Mount Civetta" class="rounded-lg w-full h-32 object-cover">
+                    </div>
+                </div>
+
+                <div class="day-card">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Day 9-10：Belluno Dolomites 終點</h4>
+                    <p class="text-sm font-semibold text-gray-600 mb-2">長距離路段 | 健行結束</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li>Day 9: Rifugio Pramperet (長途跋涉)。</li>
+                        <li>Day 10: Rifugio 7° Alpini (最終山屋)。</li>
+                        <li>Day 11 上午: 下降至 Belluno 鎮區。</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://www.dolomiti.it/storage/localities/22295/conversions/rifugio_pussa-tablet.jpg" alt="Rifugio 7 Alpini" class="rounded-lg w-full h-32 object-cover">
+                    </div>
+                </div>
+                
+                <div class="day-card bg-gray-100">
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">Day 11-12：賦歸米蘭</h4>
+                    <p class="text-sm font-semibold text-gray-600 mb-2">長途交通 / 旅程終點</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
+                        <li><b>Day 11：</b> Belluno → Venezia Mestre/Verona (轉乘高速列車) → 米蘭中央車站。</li>
+                        <li><b>Day 12：</b> 米蘭市區解散/搭機返程。</li>
+                        <li><b>交通時間：</b> Belluno 到米蘭約 4-5 小時火車車程。</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Milano_Centrale_Station.jpg/1200px-Milano_Centrale_Station.jpg" alt="Milano Centrale" class="rounded-lg w-full h-32 object-cover">
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="bg-yellow-50 p-8 rounded-xl shadow-md border-l-4 border-yellow-500">
+            <h2 class="text-3xl font-bold text-yellow-800 mb-4">🚨 關鍵安全與預訂提示 (AV1)</h2>
+            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                <li><b>山屋預訂至上：</b> 務必在健行季節開始前 **6-12 個月**預訂所有山屋床位，尤其是熱門的 Lagazuoi 和 Averau。這是成功完成 AV1 的最重要步驟。</li>
+                <li><b>高山保險：</b> 雖然 AV1 難度不高，但仍建議購買涵蓋高山救援的旅行保險。</li>
+                <li><b>裝備要求：</b> 必備**高筒徒步靴**、**防雨/防風外套**、**頭燈**、充足飲用水和急救包。</li>
+                <li><b>天氣變化：</b> 山區天氣多變，午後雷雨常見。建議清晨出發，並隨時準備應對氣溫驟降。</li>
+                <li><b>GPS與地圖：</b> 即使路徑清晰，仍建議攜帶 **Tabacco 1:25000 地圖**及裝有 GPS 軌跡的手機或設備。</li>
+            </ul>
+            <div id="booking" style="text-align:center; padding-top:30px;">
+                <a href="#header" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest">
+                    返回頂部並預訂
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-xl">
+        <div class="container mx-auto text-center text-sm opacity-80">
+            © 2026 多洛米蒂 AV1 健行規劃。祝您旅途愉快！
         </div>
-    </div>
+    </footer>
+
 </body>
 </html>

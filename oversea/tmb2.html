@@ -56,12 +56,22 @@
             margin-bottom: 8px;
         }
         .day-image {
-            width: 100%;
-            height: 200px;
+            /* 讓圖片在 Grid 內自動填滿 */
+            width: 100%; 
+            height: 100%; /* 讓圖片填滿側邊欄高度 */
+            max-height: 250px; /* 設置一個最大高度以控制卡片大小 */
             object-fit: cover;
             border-radius: 8px;
-            margin-top: 10px;
+            margin-top: 0;
         }
+        /* 調整標題和副標題，讓它們在 Grid 內保持一致性 */
+        .content-container {
+            /* 這是容納所有文字內容的容器 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
     </style>
 </head>
 <body class="text-gray-800">
@@ -108,157 +118,223 @@
             <h2 class="text-3xl font-extrabold section-title mb-8 text-center border-b-2 pb-2">🗓️ 11 天 TMB 每日詳細行程規劃</h2>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 1：義大利 庫馬耶 (Courmayeur) → 瑞士 拉富利 (La Fouly)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">翻越瑞義邊界 <b>Grand Col Ferret</b></p>
-                <span class="transport-tag">公車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 搭乘早班公車前往 <b>Rifugio Elena</b> 附近，開始健行。上坡越過海拔 2537 公尺的 <b>Grand Col Ferret</b> (瑞義邊界)。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 義大利勃朗峰山脈的壯麗視角，抵達瑞士段後是溫和的下坡。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 瑞士 拉富利 (La Fouly) 旅館。</p>
-                <img src="https://www.saint-bernard.ch/files/56749466.jpg" alt="Grand Col Ferret 景觀" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 1：義大利 庫馬耶 (Courmayeur) → 瑞士 拉富利 (La Fouly)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">翻越瑞義邊界 <b>Grand Col Ferret</b></p>
+                        <span class="transport-tag">公車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 搭乘早班公車前往 <b>Rifugio Elena</b> 附近，開始健行。上坡越過海拔 2537 公尺的 <b>Grand Col Ferret</b> (瑞義邊界)。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 義大利勃朗峰山脈的壯麗視角，抵達瑞士段後是溫和的下坡。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 瑞士 拉富利 (La Fouly) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://www.saint-bernard.ch/files/56749466.jpg" alt="Grand Col Ferret 景觀" class="day-image">
+                    </div>
+                </div>
             </div>
             
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 2：拉富利 (La Fouly) → 奧西耶爾 (Orsieres)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">瑞士小鎮風光</p>
-                <span class="transport-tag">公車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> <b>直接搭乘公車</b>從 La Fouly 前往 <b>Orsieres (奧西耶爾)</b> 的旅館。這是輕鬆的小鎮風光之旅。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 享受瑞士 Val Ferret 山谷的寧靜風光，為接下來的徒步儲備體力。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 奧西耶爾 (Orsieres) 旅館。</p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEcMdG0bN9E2lFgd5XvKbTSYVtpcC_gYdZAw&s" alt="Orsieres 小鎮景觀" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 2：拉富利 (La Fouly) → 奧西耶爾 (Orsieres)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">瑞士小鎮風光</p>
+                        <span class="transport-tag">公車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> <b>直接搭乘公車</b>從 La Fouly 前往 <b>Orsieres (奧西耶爾)</b> 的旅館。這是輕鬆的小鎮風光之旅。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 享受瑞士 Val Ferret 山谷的寧靜風光，為接下來的徒步儲備體力。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 奧西耶爾 (Orsieres) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEcMdG0bN9E2lFgd5XvKbTSYVtpcC_gYdZAw&s" alt="Orsieres 小鎮景觀" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 3：尚佩克斯湖 (Champex Lac) → 特里安 (Trient)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">尚佩湖畔美景與<b>粉紅教堂</b></p>
-                <span class="transport-tag">公車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 搭公車至 <b>尚佩湖畔 (Champex Lac)</b>，短暫休息後沿 TMB 路線健行。到「公雞小屋」享用美味午餐。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 徒步經過 <b>Col de la Forclaz</b> 附近，晚上入住 <b>Trient</b> 小鎮，欣賞其標誌性的<b>粉紅教堂</b>。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 特里安 (Trient) 小鎮旅館。</p>
-                <img src="https://www.salamanderadventures.co.uk/app/uploads/2024/03/AdobeStock_39723712012.jpeg" alt="Trient 粉紅教堂" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 3：尚佩克斯湖 (Champex Lac) → 特里安 (Trient)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">尚佩湖畔美景與<b>粉紅教堂</b></p>
+                        <span class="transport-tag">公車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 搭公車至 <b>尚佩湖畔 (Champex Lac)</b>，短暫休息後沿 TMB 路線健行。到「公雞小屋」享用美味午餐。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 徒步經過 <b>Col de la Forclaz</b> 附近，晚上入住 <b>Trient</b> 小鎮，欣賞其標誌性的<b>粉紅教堂</b>。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 特里安 (Trient) 小鎮旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://www.salamanderadventures.co.uk/app/uploads/2024/03/AdobeStock_39723712012.jpeg" alt="Trient 粉紅教堂" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 4：特里安 (Trient) → 霞慕尼 (Chamonix)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">翻越 <b>Col de Balme</b>，直奔霞慕尼</p>
-                <span class="transport-tag">纜車/公車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 健行上坡至 <b>Col de Balme (巴爾梅邊界)</b>。搭乘纜車下降到 <b>Le Tour</b>，再轉公車前往 TMB 基地鎮 <b>霞慕尼 (Chamonix)</b>。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 從 Col de Balme 可第一次完整看到勃朗峰山塊的壯闊全景。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館 (連住三晚)。</p>
-                <img src="https://toursdumontblanc.com/_next/image?url=https%3A%2F%2Fcdn.world-discovery.com%2F20224%2Frefuge-col-de-la-balme.webp&w=3840&q=75" alt="Col de Balme 景觀" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 4：特里安 (Trient) → 霞慕尼 (Chamonix)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">翻越 <b>Col de Balme</b>，直奔霞慕尼</p>
+                        <span class="transport-tag">纜車/公車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 健行上坡至 <b>Col de Balme (巴爾梅邊界)</b>。搭乘纜車下降到 <b>Le Tour</b>，再轉公車前往 TMB 基地鎮 <b>霞慕尼 (Chamonix)</b>。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 從 Col de Balme 可第一次完整看到勃朗峰山塊的壯闊全景。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館 (連住三晚)。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://toursdumontblanc.com/_next/image?url=https%3A%2F%2Fcdn.world-discovery.com%2F20224%2Frefuge-col-de-la-balme.webp&w=3840&q=75" alt="Col de Balme 景觀" class="day-image">
+                    </div>
+                </div>
             </div>
             
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 5：觀景台之王 – <b>南針峰 (Aiguille du Midi)</b> 與冰海 (Mer de Glace)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">純觀光日，欣賞白朗峰零距離</p>
-                <span class="transport-tag">纜車</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 全日觀光。搭乘纜車登上 <b>南針峰</b> (海拔 3842m)，欣賞勃朗峰的零距離壯闊景色。下午可前往 <b>冰海 (Mer de Glace)</b>，參觀冰川與冰洞。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 南針峰的「踏入虛空 (Step into the Void)」觀景台，是世界級的冰川景觀。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館。</p>
-                <img src="https://static.wixstatic.com/media/7a565a_09a1bcb2a5cc482e9c8794426d035f88~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7a565a_09a1bcb2a5cc482e9c8794426d035f88~mv2.jpg" alt="南針峰觀景台" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 5：觀景台之王 – <b>南針峰 (Aiguille du Midi)</b> 與冰海 (Mer de Glace)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">純觀光日，欣賞白朗峰零距離</p>
+                        <span class="transport-tag">纜車</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 全日觀光。搭乘纜車登上 <b>南針峰</b> (海拔 3842m)，欣賞勃朗峰的零距離壯闊景色。下午可前往 <b>冰海 (Mer de Glace)</b>，參觀冰川與冰洞。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 南針峰的「踏入虛空 (Step into the Void)」觀景台，是世界級的冰川景觀。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://static.wixstatic.com/media/7a565a_09a1bcb2a5cc482e9c8794426d035f88~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/7a565a_09a1bcb2a5cc482e9c8794426d035f88~mv2.jpg" alt="南針峰觀景台" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 6：白朗峰全景與藍色高山湖 – <b>布雷凡 & 弗雷傑</b> (Brévent & Flégère)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">TMB 著名景觀湖：<b>Lac Blanc</b></p>
-                <span class="transport-tag">纜車</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 利用纜車，在 <b>Brévent</b> 和 <b>Flégère</b> 之間進行輕鬆徒步或觀光。這兩處是欣賞勃朗峰山脈西側全景的最佳位置。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 可選擇爬升至著名的 <b>Lac Blanc (白湖)</b>，欣賞勃朗峰倒影在藍色湖面上的經典畫面。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館。</p>
-                <img src="https://ambitionoutdoor.com/wp-content/uploads/2018/03/lac-blanc-massif-aiguilles-rouges-chamonix-mont-blanc-slideshow.jpg" alt="Lac Blanc 與勃朗峰倒影" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 6：白朗峰全景與藍色高山湖 – <b>布雷凡 & 弗雷傑</b> (Brévent & Flégère)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">TMB 著名景觀湖：<b>Lac Blanc</b></p>
+                        <span class="transport-tag">纜車</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 利用纜車，在 <b>Brévent</b> 和 <b>Flégère</b> 之間進行輕鬆徒步或觀光。這兩處是欣賞勃朗峰山脈西側全景的最佳位置。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 可選擇爬升至著名的 <b>Lac Blanc (白湖)</b>，欣賞勃朗峰倒影在藍色湖面上的經典畫面。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 霞慕尼 (Chamonix) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://ambitionoutdoor.com/wp-content/uploads/2018/03/lac-blanc-massif-aiguilles-rouges-chamonix-mont-blanc-slideshow.jpg" alt="Lac Blanc 與勃朗峰倒影" class="day-image">
+                    </div>
+                </div>
             </div>
             
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 7：霞慕尼 → 萊孔塔米訥 (Les Contamines)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">翻越 <b>Col de Tricot</b>，下坡至 Miage 山谷</p>
-                <span class="transport-tag">公車/纜車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 搭車至 Les Houches，搭乘纜車開始徒步。經過 <b>Col de Tricot</b> 後一路下坡到 <b>Miage 山屋</b>享用午餐，餐後繼續徒步至 Les Contamines。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 欣賞 Miage 山谷的原始美景，這是 TMB 中段最經典的田園風光。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 萊孔塔米訥 (Les Contamines) 旅館。</p>
-                <img src="https://glacierchange.com/wp-content/uploads/2024/02/Glacier-du-Miage-1982-swisseduc.ch_.jpg" alt="Miage 山谷景色" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 7：霞慕尼 → 萊孔塔米訥 (Les Contamines)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">翻越 <b>Col de Tricot</b>，下坡至 Miage 山谷</p>
+                        <span class="transport-tag">公車/纜車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 搭車至 Les Houches，搭乘纜車開始徒步。經過 <b>Col de Tricot</b> 後一路下坡到 <b>Miage 山屋</b>享用午餐，餐後繼續徒步至 Les Contamines。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 欣賞 Miage 山谷的原始美景，這是 TMB 中段最經典的田園風光。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 萊孔塔米訥 (Les Contamines) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://glacierchange.com/wp-content/uploads/2024/02/Glacier-du-Miage-1982-swisseduc.ch_.jpg" alt="Miage 山谷景色" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 8：萊孔塔米訥 (Les Contamines) → 萊沙皮厄 (Les Chapieux)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3"><b>最長最累但景色最壯闊的一天</b></p>
-                <span class="transport-tag">公車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 今天體能挑戰高。一路上坡至 <b>Bonhomme 山屋</b>享用午餐 (供餐時間 11~14 點)。午餐後長距離下坡至 <b>Les Chapieux</b>，搭公車前往旅館。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 巨大的山谷視野，感受阿爾卑斯山區的原始荒涼感。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> Les Chapieux 附近旅館/民宿。</p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjtESInnmkuiy8PoNPtF-69GOj0KcA3m5R_g&s" alt="Bonhomme 山屋附近景觀" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 8：萊孔塔米訥 (Les Contamines) → 萊沙皮厄 (Les Chapieux)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3"><b>最長最累但景色最壯闊的一天</b></p>
+                        <span class="transport-tag">公車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 今天體能挑戰高。一路上坡至 <b>Bonhomme 山屋</b>享用午餐 (供餐時間 11~14 點)。午餐後長距離下坡至 <b>Les Chapieux</b>，搭公車前往旅館。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 巨大的山谷視野，感受阿爾卑斯山區的原始荒涼感。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> Les Chapieux 附近旅館/民宿。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjtESInnmkuiy8PoNPtF-69GOj0KcA3m5R_g&s" alt="Bonhomme 山屋附近景觀" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 9：萊沙皮厄 (Les Chapieux) → 庫馬耶 (Courmayeur)</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">重返<b>義大利</b>，經典 <b>Elisabetta 山屋</b></p>
-                <span class="transport-tag">公車/纜車輔助</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 搭公車到 Glaciers 或 Mottets 開始徒步。爬升翻越 <b>Col de la Seigne</b> (法義邊界)。中午在 <b>Elisabetta 山屋</b> 午餐。餐後下坡，經 Combal 再到 Miage 搭公車返回起點 <b>Courmayeur</b>。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> Elisabetta 山屋前方的冰河景色與宏偉的山谷，是 TMB 路線中最具標誌性的義大利風光。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 庫馬耶 (Courmayeur) 旅館。</p>
-                <img src="https://www.gulliver.it/wp-content/uploads/2019/08/01/soldini-elisabetta-rifugio-da-la-visaille_c81a.jpg" alt="Rifugio Elisabetta Soldini 景觀" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 9：萊沙皮厄 (Les Chapieux) → 庫馬耶 (Courmayeur)</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">重返<b>義大利</b>，經典 <b>Elisabetta 山屋</b></p>
+                        <span class="transport-tag">公車/纜車輔助</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 搭公車到 Glaciers 或 Mottets 開始徒步。爬升翻越 <b>Col de la Seigne</b> (法義邊界)。中午在 <b>Elisabetta 山屋</b> 午餐。餐後下坡，經 Combal 再到 Miage 搭公車返回起點 <b>Courmayeur</b>。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> Elisabetta 山屋前方的冰河景色與宏偉的山谷，是 TMB 路線中最具標誌性的義大利風光。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 庫馬耶 (Courmayeur) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://www.gulliver.it/wp-content/uploads/2019/08/01/soldini-elisabetta-rifugio-da-la-visaille_c81a.jpg" alt="Rifugio Elisabetta Soldini 景觀" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 10：庫馬耶 → Miage 山谷折返</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">補足義大利段 Miage 山谷的徒步距離</p>
-                <span class="transport-tag">公車/徒步</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 搭公車回 Miage，從 Miage 山谷徒步走回 <b>Courmayeur</b> 鎮區。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> 在輕鬆的環境下，享受義大利 Val Veny 山谷的田園和冰川景色。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 庫馬耶 (Courmayeur) 旅館。</p>
-                <img src="https://www.lovevda.it/defaultimagethumb/sch_percorsi/2215?width=600&height=337" alt="Val Veny 山谷景色" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 10：庫馬耶 → Miage 山谷折返</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">補足義大利段 Miage 山谷的徒步距離</p>
+                        <span class="transport-tag">公車/徒步</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 搭公車回 Miage，從 Miage 山谷徒步走回 <b>Courmayeur</b> 鎮區。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> 在輕鬆的環境下，享受義大利 Val Veny 山谷的田園和冰川景色。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 庫馬耶 (Courmayeur) 旅館。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://www.lovevda.it/defaultimagethumb/sch_percorsi/2215?width=600&height=337" alt="Val Veny 山谷景色" class="day-image">
+                    </div>
+                </div>
             </div>
 
             <div class="day-card mb-6">
-                <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 11：<b>博納蒂小屋 (Rifugio Bonatti)</b> → 總結</h4>
-                <p class="text-lg font-semibold text-gray-600 mb-3">TMB 最美山屋景觀，完美收尾</p>
-                <span class="transport-tag">徒步/公車</span>
-                <p class="text-base leading-relaxed">
-                    <b>行程概要：</b> 徒步前往 TMB 路線中最著名的山屋之一 <b>Rifugio Bonatti</b>，從此處可遠眺庫馬耶的山谷全景和勃朗峰義大利側的雄偉山脊。徒步結束後，搭乘公車返回 Courmayeur 鎮區，準備離開。
-                </p>
-                <p class="text-base leading-relaxed mt-2">
-                    <b>亮點：</b> Bonatti 山屋景觀是 TMB 最不可錯過的視野之一。
-                </p>
-                <p class="text-base font-semibold mt-3"><b>住宿：</b> 依後續交通安排，可在 Courmayeur 續住或前往其他城市。</p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9TaCu1CSiRtMtngFD8Cp9GPFRdTock_jBNQ&s" alt="Rifugio Bonatti 與 Grandes Jorasses" class="day-image">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="content-container md:col-span-2">
+                        <h4 class="text-2xl font-bold text-blue-700 mb-2">Day 11：<b>博納蒂小屋 (Rifugio Bonatti)</b> → 總結</h4>
+                        <p class="text-lg font-semibold text-gray-600 mb-3">TMB 最美山屋景觀，完美收尾</p>
+                        <span class="transport-tag">徒步/公車</span>
+                        <p class="text-base leading-relaxed">
+                            <b>行程概要：</b> 徒步前往 TMB 路線中最著名的山屋之一 <b>Rifugio Bonatti</b>，從此處可遠眺庫馬耶的山谷全景和勃朗峰義大利側的雄偉山脊。徒步結束後，搭乘公車返回 Courmayeur 鎮區，準備離開。
+                        </p>
+                        <p class="text-base leading-relaxed mt-2">
+                            <b>亮點：</b> Bonatti 山屋景觀是 TMB 最不可錯過的視野之一。
+                        </p>
+                        <p class="text-base font-semibold mt-3"><b>住宿：</b> 依後續交通安排，可在 Courmayeur 續住或前往其他城市。</p>
+                    </div>
+                    <div class="md:col-span-1">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9TaCu1CSiRtMtngFD8Cp9GPFRdTock_jBNQ&s" alt="Rifugio Bonatti 與 Grandes Jorasses" class="day-image">
+                    </div>
+                </div>
             </div>
 
         </section>

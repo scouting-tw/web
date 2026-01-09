@@ -577,24 +577,24 @@
 
     <script>
         var player;
-        var isPlaying = false; // 紀錄目前是否正在播放
-        var currentVideoId = ''; // 紀錄目前載入的影片 ID
-        
-        // UI 元素
+        var isPlaying = false; 
+        var currentVideoId = ''; 
+        // ★ 設定預設音樂 (輕鬆背景音樂)
+        var defaultVideoId = 'V7Bohz21qq4'; 
+        var defaultName = "輕鬆背景音樂";
+
         var toggleBtn = document.getElementById('music-toggle');
         var musicText = document.getElementById('music-text');
         var waveIcon = document.getElementById('music-wave-icon');
     
-        // 1. 載入 YouTube IFrame API
+        // 1. 載入 YouTube API
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     
-        // 2. YouTube API 準備就緒
+        // 2. 初始化播放器
         function onYouTubeIframeAPIReady() {
-            // 預設先載入第一天的音樂 (或是通用背景音樂)
-            var defaultVideoId = 'V7Bohz21qq4'; 
             currentVideoId = defaultVideoId;
     
             player = new YT.Player('video-placeholder', {
@@ -607,35 +607,31 @@
                 },
                 events: {
                     'onStateChange': onPlayerStateChange,
-                    'onReady': startScrollObserver // 播放器準備好後，開始啟動捲動偵測
+                    'onReady': startScrollObserver 
                 }
             });
         }
     
-        // 3. 監聽播放狀態
+        // 3. 監聽播放狀態 (控制按鈕樣式)
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 isPlaying = true;
-                // UI 變為播放狀態
                 toggleBtn.classList.add('ring-2', 'ring-blue-400', 'bg-blue-50');
                 waveIcon.classList.add('playing');
-                // 如果文字是「播放...」開頭，改成「暫停」
                 if(musicText.innerText.includes('播放')) {
                     musicText.innerText = musicText.innerText.replace('播放', '暫停');
                 }
             } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
                 isPlaying = false;
-                // UI 變為暫停狀態
                 toggleBtn.classList.remove('ring-2', 'ring-blue-400', 'bg-blue-50');
                 waveIcon.classList.remove('playing');
-                // 改回「播放」
                 if(musicText.innerText.includes('暫停')) {
                     musicText.innerText = musicText.innerText.replace('暫停', '播放');
                 }
             }
         }
     
-        // 4. 按鈕點擊邏輯
+        // 4. 按鈕點擊事件
         toggleBtn.addEventListener('click', function() {
             if (isPlaying) {
                 player.pauseVideo();
@@ -645,33 +641,47 @@
         });
     
         // ==========================================
-        // 5. 核心：捲動偵測邏輯 (Intersection Observer)
+        // 5. ★ 核心修改：全域捲動偵測
         // ==========================================
         function startScrollObserver() {
-            // 設定觀察選項：當區塊進入畫面中央 (threshold 0.5) 時觸發
             var options = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.6 // 數值越大代表要看到越多內容才切換 (0.0 ~ 1.0)
+                threshold: 0.15 // 稍微降低閾值，讓切換更靈敏
             };
     
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
+                    // 只有當區塊「進入」畫面時才觸發
                     if (entry.isIntersecting) {
-                        // 抓取該區塊設定的 YouTube ID 和名稱
-                        var newVideoId = entry.target.getAttribute('data-video-id');
-                        var dayName = entry.target.getAttribute('data-day-name');
-    
-                        if (newVideoId && newVideoId !== currentVideoId) {
-                            changeTrack(newVideoId, dayName);
+                        
+                        // 嘗試抓取該區塊的 ID
+                        var targetId = entry.target.getAttribute('data-video-id');
+                        var targetName = entry.target.getAttribute('data-day-name');
+
+                        if (targetId) {
+                            // A. 如果這個區塊有設定 ID (例如 Day 2)，就播它的歌
+                            if (targetId !== currentVideoId) {
+                                changeTrack(targetId, targetName);
+                            }
+                        } else {
+                            // B. 如果這個區塊沒有 ID (例如標題、住宿介紹)，就播 Default
+                            // 為了避免重複觸發，只有當「現在不是播 Default」時才切換
+                            if (currentVideoId !== defaultVideoId) {
+                                changeTrack(defaultVideoId, defaultName);
+                            }
                         }
                     }
                 });
             }, options);
     
-            // 開始觀察所有帶有 .day-section 的區塊
-            document.querySelectorAll('.day-section').forEach(function(section) {
-                observer.observe(section);
+            // ★ 新的寫法 (更聰明)：
+            // 1. 抓取所有結構區塊 (header, section, footer) 用來觸發 Default 音樂
+            // 2. 抓取所有「有設定 data-video-id 屬性」的元素 (不管它是 div 還是 section)
+            var allSections = document.querySelectorAll('.header, section, footer, [data-video-id]');
+            
+            allSections.forEach(function(el) {
+                observer.observe(el);
             });
         }
     
@@ -680,18 +690,15 @@
             console.log("切換至:", dayName);
             currentVideoId = newId;
     
-            // 更新按鈕文字
             var actionVerb = isPlaying ? "暫停" : "播放";
             musicText.innerText = actionVerb + " " + dayName;
     
             if (isPlaying) {
-                // 如果原本就在聽，直接無縫載入並播放下一首
                 player.loadVideoById({
                     videoId: newId,
                     startSeconds: 0
                 });
             } else {
-                // 如果原本是暫停，只換片但不自動播 (Cue)
                 player.cueVideoById({
                     videoId: newId,
                     startSeconds: 0

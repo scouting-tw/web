@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多洛米蒂山脈 14 天深度行程規劃</title>
-    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom font for a clean look */
@@ -13,7 +12,7 @@
             background-color: #f8fafc; /* Light gray background */
         }
         .header {
-            background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/76/2d/32/caption.jpg?w=1200&h=-1&s=1'); /* Placeholder: Use a suitable TMB image if available, otherwise keep this or remove. */
+            background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/76/2d/32/caption.jpg?w=1200&h=-1&s=1');
             background-size: cover;
             background-position: center 0%;
             color: white;
@@ -30,7 +29,7 @@
             text-shadow: 1px 1px 2px #000;
             margin-top: 10px;
         }
-        /* Custom scrollbar for better aesthetics */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -46,16 +45,14 @@
             background: #64748b;
             border-radius: 10px;
         }
-        /* Specific list style for nested lists */
         .list-circle li::marker {
             content: '• ';
-            color: #ef4444; /* Red dot for important tips */
+            color: #ef4444;
         }
-        /* 確保 iframe 在不同螢幕尺寸下保持長寬比 */
         .map-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 長寬比 (高 / 寬 * 100%) */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 12px;
@@ -68,11 +65,44 @@
             width: 100%;
             height: 100%;
         }
+        
+        /* 音樂播放器專用樣式 */
+        #yt-player-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* 播放按鈕動畫 */
+        .music-wave {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+        }
+        .bar {
+            width: 3px;
+            height: 10px;
+            background: #1d4ed8;
+            margin: 0 1px;
+            animation: sound 0ms -800ms linear infinite alternate;
+            transition: height 0.8s;
+        }
+        .playing .bar {
+            animation-duration: 400ms;
+        }
+        @keyframes sound {
+            0% { height: 3px; opacity: .35; }
+            100% { height: 15px; opacity: 0.95; }
+        }
     </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Header Section -->
     <header class="header">
         <h1>多洛米蒂山脈深度之旅</h1>
         <p class="subtitle">14 天精選行程，探索義大利的自然瑰寶</p>
@@ -85,13 +115,11 @@
     
     <main class="container mx-auto px-4 py-8">
 
-        <!-- Introduction -->
         <section class="mb-12 bg-white p-8 rounded-xl shadow-md">
             <h2 class="text-3xl font-bold text-blue-700 mb-4">歡迎來到多洛米蒂</h2>
             <p class="text-lg leading-relaxed">
                 多洛米蒂山脈 (Dolomites) 位於義大利東北部，是聯合國教科文組織世界遺產，以其獨特的鋸齒狀山峰、翠綠的山谷和清澈的湖泊而聞名。這裡不僅是登山客的天堂，也是攝影愛好者和自然愛好者的夢幻之地。這份 14 天的深度行程規劃，將帶您充分體驗多洛米蒂的壯麗與魅力。
             </p>
-            <!-- 地圖嵌入區塊 -->
             <div class="map-container mb-8">
                 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Syu0sS-wATn3VPujeOgCAQJavHpQ7OE&ehbc=2E312F"
                     width="100%" 
@@ -108,7 +136,6 @@
             </p>
         </section>
 
-        <!-- Accommodation Recommendation -->
         <section class="mb-12 bg-white p-8 rounded-xl shadow-md">
             <h2 class="text-3xl font-bold text-blue-700 mb-6">住宿點選擇</h2>
             <p class="text-lg mb-6 leading-relaxed">
@@ -132,7 +159,6 @@
             </div>
         </section>
 
-        <!-- Transportation -->
         <section class="mb-12 bg-white p-8 rounded-xl shadow-md">
             <h2 class="text-3xl font-bold text-blue-700 mb-4">交通方式</h2>
             <p class="text-lg leading-relaxed">
@@ -140,11 +166,9 @@
             </p>
         </section>
 
-        <!-- 14-Day Itinerary -->
         <section class="mb-12">
             <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">行程規劃</h2>
 
-            <!-- Day 1 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 1 天：米蘭市區集合，租車，前往多洛米蒂</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -161,7 +185,6 @@
                 </div>
             </div>
 
-            <!-- Day 2 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 2 天：多洛米蒂的象徵 - 三尖山 (Tre Cime di Lavaredo) 經典環形徒步</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -196,7 +219,6 @@
                 </div>
             </div>
 
-            <!-- Day 3 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 3 天：多洛米蒂的珍珠 - 布萊依斯湖 (Lago di Braies)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -228,7 +250,6 @@
                 </div>
             </div>
 
-            <!-- Day 4 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 4 天：高山隘口與二戰遺跡 - 五塔 (Cinque Torri) 與拉加祖瓦伊山 (Lagazuoi)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -255,7 +276,6 @@
                 </div>
             </div>
 
-            <!-- Day 5 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 5 天：多洛米蒂女王 - 馬爾莫拉達山 (Marmolada)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -284,7 +304,6 @@
                 </div>
             </div>
 
-            <!-- Day 6 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 6 天：夢幻牛奶藍 - 羅薩爾滕湖 (Lago di Sorapis) 徒步</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -313,7 +332,6 @@
                 </div>
             </div>
 
-            <!-- Day 7 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 7 天：高山隘口與歷史遺跡 (轉移基地日) - 法爾扎雷戈山口 (Passo Falzarego) 與賈烏山口 (Passo Giau) </h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -343,7 +361,6 @@
 
             </div>
 
-            <!-- Day 8 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 8 天：鋸齒山脊的震撼 - 塞切達山 (Seceda)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -371,7 +388,6 @@
                 </div>                
             </div>
 
-            <!-- Day 9 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 9 天：歐洲最大高山草甸 - 休斯高原 (Alpe di Siusi)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -399,7 +415,6 @@
                 </div>                
             </div>
 
-            <!-- Day 10 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 10 天：明信片般的田園風光 - 富內斯山谷 (Val di Funes)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -427,7 +442,6 @@
                 </div>                
             </div>
 
-            <!-- Day 11 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 11 天：彩虹湖的傳說 - 卡雷扎湖 (Lago di Carezza)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -454,7 +468,6 @@
                 </div>
             </div>
 
-            <!-- Day 12 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 12 天：山隘巡禮 - 塞拉山口 (Sella Pass) 與周邊</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -482,7 +495,6 @@
                 </div>
             </div>
 
-            <!-- Day 13 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 13 天：南多洛米蒂風情 - 聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza) - 米蘭</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -511,7 +523,6 @@
                 </div>
             </div>
 
-            <!-- Day 14 -->
             <div class="bg-white p-6 rounded-xl shadow-md mb-6">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 14 天：米蘭市區解散</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
@@ -524,7 +535,6 @@
             </div>
         </section>
 
-        <!-- Important Tips -->
         <section class="bg-yellow-50 p-8 rounded-xl shadow-md border-l-4 border-yellow-500">
             <h2 class="text-3xl font-bold text-yellow-800 mb-4">重要提示</h2>
             <ul class="list-disc list-inside space-y-3 text-gray-700">
@@ -544,12 +554,77 @@
 
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-xl">
         <div class="container mx-auto text-center text-sm opacity-80">
-            &copy; 2026 多洛米蒂深度之旅規劃。祝您旅途愉快！
+            © 2026 多洛米蒂深度之旅規劃。祝您旅途愉快！
         </div>
     </footer>
 
+    <div id="yt-player-container">
+        <div id="video-placeholder"></div>
+    </div>
+
+    <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
+        <div class="music-wave" id="music-wave-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <span id="music-text" class="font-bold text-sm tracking-wide">播放旅程配樂</span>
+    </button>
+
+    <script>
+        var player;
+        var isPlaying = false;
+        var toggleBtn = document.getElementById('music-toggle');
+        var musicText = document.getElementById('music-text');
+        var waveIcon = document.getElementById('music-wave-icon');
+
+        // 載入 YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-placeholder', {
+                videoId: 'hYAn5S6QDSc', // 你的 YouTube 影片 ID
+                playerVars: {
+                    'autoplay': 0,      // 預設不自動播放 (避免瀏覽器阻擋)
+                    'controls': 0,      // 隱藏控制項
+                    'loop': 1,          // 循環播放
+                    'playlist': 'hYAn5S6QDSc' // 循環播放必需
+                },
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                musicText.innerText = "暫停配樂";
+                toggleBtn.classList.add('ring-2', 'ring-blue-400'); // 加入光暈
+                waveIcon.classList.add('playing'); // 開始波形動畫
+            } else {
+                isPlaying = false;
+                musicText.innerText = "播放旅程配樂";
+                toggleBtn.classList.remove('ring-2', 'ring-blue-400');
+                waveIcon.classList.remove('playing'); // 停止波形動畫
+            }
+        }
+
+        toggleBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        });
+    </script>
+    
 </body>
 </html>

@@ -290,7 +290,14 @@
                         </div>
                     </div>    
                 </div>
-                <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTDsw-LR9kJk7IJyY2VvgV62XECqTujPJ7lEQYzXg5Vamu5vAqGRPENrdWki3JIuuJRt-9ZFMCwqbHJ/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
+                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                    border-radius: 8px; will-change: transform;">
+                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                        src="https://docs.google.com/presentation/d/e/2PACX-1vTDsw-LR9kJk7IJyY2VvgV62XECqTujPJ7lEQYzXg5Vamu5vAqGRPENrdWki3JIuuJRt-9ZFMCwqbHJ/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
+                </div>
+
                 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTDsw-LR9kJk7IJyY2VvgV62XECqTujPJ7lEQYzXg5Vamu5vAqGRPENrdWki3JIuuJRt-9ZFMCwqbHJ/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
             </div>
             
@@ -1188,6 +1195,153 @@
             © 2026 多洛米蒂 AV1 健行規劃。祝您旅途愉快！
         </div>
     </footer>
+
+    <div id="yt-player-container">
+        <div id="video-placeholder"></div>
+    </div>
+
+    <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
+        <div class="music-wave" id="music-wave-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        
+        <span id="music-text" class="font-bold text-sm tracking-wide">播放 輕鬆音樂</span>
+    </button>
+
+    <script>
+        var player;
+        var isPlaying = false; 
+        var currentVideoId = ''; 
+        // ★ 設定預設音樂 (輕鬆背景音樂)
+        var defaultVideoId = 'V7Bohz21qq4'; 
+        var defaultName = "輕鬆背景音樂";
+
+        var toggleBtn = document.getElementById('music-toggle');
+        var musicText = document.getElementById('music-text');
+        var waveIcon = document.getElementById('music-wave-icon');
+    
+        // 1. 載入 YouTube API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+        // 2. 初始化播放器
+        function onYouTubeIframeAPIReady() {
+            currentVideoId = defaultVideoId;
+    
+            player = new YT.Player('video-placeholder', {
+                videoId: defaultVideoId,
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': defaultVideoId
+                },
+                events: {
+                    'onStateChange': onPlayerStateChange,
+                    'onReady': startScrollObserver 
+                }
+            });
+        }
+    
+        // 3. 監聽播放狀態 (控制按鈕樣式)
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                toggleBtn.classList.add('ring-2', 'ring-blue-400', 'bg-blue-50');
+                waveIcon.classList.add('playing');
+                if(musicText.innerText.includes('播放')) {
+                    musicText.innerText = musicText.innerText.replace('播放', '暫停');
+                }
+            } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+                isPlaying = false;
+                toggleBtn.classList.remove('ring-2', 'ring-blue-400', 'bg-blue-50');
+                waveIcon.classList.remove('playing');
+                if(musicText.innerText.includes('暫停')) {
+                    musicText.innerText = musicText.innerText.replace('暫停', '播放');
+                }
+            }
+        }
+    
+        // 4. 按鈕點擊事件
+        toggleBtn.addEventListener('click', function() {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        });
+    
+        // ==========================================
+        // 5. ★ 核心修改：全域捲動偵測
+        // ==========================================
+        function startScrollObserver() {
+            var options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // 稍微降低閾值，讓切換更靈敏
+            };
+    
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    // 只有當區塊「進入」畫面時才觸發
+                    if (entry.isIntersecting) {
+                        
+                        // 嘗試抓取該區塊的 ID
+                        var targetId = entry.target.getAttribute('data-video-id');
+                        var targetName = entry.target.getAttribute('data-day-name');
+
+                        if (targetId) {
+                            // A. 如果這個區塊有設定 ID (例如 Day 2)，就播它的歌
+                            if (targetId !== currentVideoId) {
+                                changeTrack(targetId, targetName);
+                            }
+                        } else {
+                            // B. 如果這個區塊沒有 ID (例如標題、住宿介紹)，就播 Default
+                            // 為了避免重複觸發，只有當「現在不是播 Default」時才切換
+                            if (currentVideoId !== defaultVideoId) {
+                                changeTrack(defaultVideoId, defaultName);
+                            }
+                        }
+                    }
+                });
+            }, options);
+    
+            // ★ 新的寫法 (更聰明)：
+            // 1. 抓取所有結構區塊 (header, section, footer) 用來觸發 Default 音樂
+            // 2. 抓取所有「有設定 data-video-id 屬性」的元素 (不管它是 div 還是 section)
+            var allSections = document.querySelectorAll('.header, section, footer, [data-video-id]');
+            
+            allSections.forEach(function(el) {
+                observer.observe(el);
+            });
+        }
+    
+        // 6. 切換音樂函式
+        function changeTrack(newId, dayName) {
+            console.log("切換至:", dayName);
+            currentVideoId = newId;
+    
+            var actionVerb = isPlaying ? "暫停" : "播放";
+            musicText.innerText = actionVerb + " " + dayName;
+    
+            if (isPlaying) {
+                player.loadVideoById({
+                    videoId: newId,
+                    startSeconds: 0
+                });
+            } else {
+                player.cueVideoById({
+                    videoId: newId,
+                    startSeconds: 0
+                });
+            }
+        }
+    </script>
 
 </body>
 </html>

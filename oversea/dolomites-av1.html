@@ -64,6 +64,40 @@
         .day-card:hover {
             transform: translateY(-5px);
         }
+
+        /* 音樂播放器專用樣式 */
+        #yt-player-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* 播放按鈕動畫 */
+        .music-wave {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+        }
+        .bar {
+            width: 3px;
+            height: 10px;
+            background: #1d4ed8;
+            margin: 0 1px;
+            animation: sound 0ms -800ms linear infinite alternate;
+            transition: height 0.8s;
+        }
+        .playing .bar {
+            animation-duration: 400ms;
+        }
+        @keyframes sound {
+            0% { height: 3px; opacity: .35; }
+            100% { height: 15px; opacity: 0.95; }
+        }
     </style>
 </head>
 <body class="text-gray-800">

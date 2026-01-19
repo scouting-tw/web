@@ -2,59 +2,79 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>簡報配樂模式</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>沉浸式簡報 (手機修復版)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. 簡報容器：全螢幕時會佔滿畫面 
-           背景設為黑，避免載入時閃爍
+        /* 1. 簡報容器：改用 position: fixed 強制蓋版 
+           z-index 設很高，確保蓋住原本的內容
         */
         #presentation-container {
-            display: none; /* 預設隱藏 */
-            width: 100%;
-            height: 100%;
+            display: none; 
+            position: fixed; /* 關鍵修改：固定定位 */
+            top: 0; 
+            left: 0; 
+            width: 100vw;    /* 寬度佔滿視窗 */
+            height: 100vh;   /* 高度佔滿視窗 */
             background-color: black;
+            z-index: 9999;   /* 確保在最上層 */
         }
 
-        /* 讓 Google Slides iframe 填滿容器 */
+        /* iframe 設定 */
         #presentation-container iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
 
-        /* 2. 隱藏的 YouTube 播放器 
-           注意：不能設為 display: none，否則瀏覽器可能會限制播放。
-           技巧是設為極小且透明。
+        /* 2. 手機版必備：自訂關閉按鈕 
+           因為手機沒有 Esc 鍵，需要這個按鈕來復原
         */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        /* 3. 隱藏的 YouTube 播放器 */
         #music-player-container {
             position: absolute;
             top: -9999px;
             left: -9999px;
-            width: 1px;
+            width: 1px; 
             height: 1px;
             opacity: 0;
-            overflow: hidden;
         }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
 
-    <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md">
+    <div id="start-screen" class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-11/12">
         <h1 class="text-3xl font-bold mb-2 text-gray-800">沉浸式簡報</h1>
-        <p class="text-gray-500 mb-6">Google Slides + YouTube 背景氛圍音樂</p>
+        <p class="text-gray-500 mb-6">手機/電腦通用版</p>
         
         <button id="start-btn" onclick="startExperience()" 
-                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto">
-            <span>🚀</span> 開始演示 (含配樂)
+                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto w-full">
+            <span>🚀</span> 開始演示
         </button>
         <p id="loading-text" class="mt-4 text-sm text-gray-400">正在載入播放器...</p>
     </div>
 
     <div id="presentation-container">
+        <button class="close-btn" onclick="exitExperience()">✕ 關閉</button>
+        
         <iframe 
             id="slide-frame"
-            src="https://docs.google.com/presentation/d/e/2PACX-1vQHaynvG2zdqsV6dNBSrgw9hyPDyZd8NPjYWF4AFs1BqqpCR_aqU-BTdWGuhUKdl-ANKH7ki4eDcM96/pubembed?start=false&loop=false&delayms=3000" 
+            src="https://docs.google.com/presentation/d/e/2PACX-1vR2aXZ8qJ9_0_X_X_X_X/embed?start=false&loop=false&delayms=3000" 
             allowfullscreen="true" 
             mozallowfullscreen="true" 
             webkitallowfullscreen="true">
@@ -66,111 +86,92 @@
     </div>
 
     <script>
-        // ==========================================
-        //  設定區：請修改這裡
-        // ==========================================
-        // 1. YouTube 音樂 ID (例如 v=jfKfPfyJRdk)
-        const YOUTUBE_MUSIC_ID = "5B5R1bVyZS0"; // Lofi Hip Hop
-        // 2. 音量 (0-100)
+        // ================= 設定區 =================
+        const YOUTUBE_MUSIC_ID = "jfKfPfyJRdk"; // Lofi Hip Hop
         const MUSIC_VOLUME = 50; 
+        // =========================================
 
-        // ==========================================
-        //  YouTube API 載入與設定
-        // ==========================================
         var player;
         var isPlayerReady = false;
 
-        // 1. 動態載入 YouTube IFrame API
+        // 載入 YouTube API
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // 2. 當 API 下載完成後，會自動呼叫此函數
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-player', {
-                height: '200',
-                width: '200',
+                height: '200', width: '200',
                 videoId: YOUTUBE_MUSIC_ID,
-                playerVars: {
-                    'playsinline': 1,
-                    'controls': 0,     // 不顯示控制列
-                    'loop': 1,         // 循環播放 (需配合 playlist)
-                    'playlist': YOUTUBE_MUSIC_ID // 循環播放必須指定 playlist
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
+                playerVars: { 'playsinline': 1, 'controls': 0, 'loop': 1, 'playlist': YOUTUBE_MUSIC_ID },
+                events: { 'onReady': onPlayerReady }
             });
         }
 
-        // 3. 播放器準備好後的處理
         function onPlayerReady(event) {
             isPlayerReady = true;
             player.setVolume(MUSIC_VOLUME);
-            document.getElementById('loading-text').innerText = "系統就緒，準備出發！";
+            document.getElementById('loading-text').innerText = "系統就緒，請點擊開始";
             document.getElementById('loading-text').className = "mt-4 text-sm text-green-600 font-bold";
         }
 
-        // ==========================================
-        //  全螢幕與連動邏輯
-        // ==========================================
-        
+        // ====== 核心功能：開始體驗 ======
         function startExperience() {
-            if (!isPlayerReady) {
-                alert("音樂載入中，請稍後...");
-                return;
-            }
+            if (!isPlayerReady) { alert("音樂載入中，請稍後..."); return; }
 
+            // 1. 隱藏開始畫面 (解決手機版被遮擋的問題)
+            document.getElementById('start-screen').style.display = 'none';
+
+            // 2. 顯示簡報容器 (佔滿全螢幕)
             const container = document.getElementById('presentation-container');
-            
-            // A. 顯示簡報容器
             container.style.display = 'block';
 
-            // B. 請求全螢幕
-            if (container.requestFullscreen) {
-                container.requestFullscreen();
-            } else if (container.webkitRequestFullscreen) { 
-                container.webkitRequestFullscreen();
-            } else if (container.msRequestFullscreen) { 
-                container.msRequestFullscreen();
-            }
+            // 3. 嘗試進入瀏覽器全螢幕 (電腦版有效，手機版可能無效但沒關係，因為我們用了 fixed css)
+            if (container.requestFullscreen) container.requestFullscreen().catch(e => {});
+            else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
 
-            // C. ★ 關鍵：同時播放音樂
-            // 由於這是使用者點擊觸發的 (User Interaction)，瀏覽器允許自動播放
+            // 4. 播放音樂
             player.playVideo();
 
-            // D. 綁定監聽器 (處理 Esc 退出)
+            // 5. 綁定 Esc 監聽 (給電腦版用)
             setupExitListener();
         }
 
-        // 監聽全螢幕狀態改變
-        function setupExitListener() {
-            document.addEventListener('fullscreenchange', handleExit);
-            document.addEventListener('webkitfullscreenchange', handleExit);
-            document.addEventListener('mozfullscreenchange', handleExit);
-            document.addEventListener('MSFullscreenChange', handleExit);
+        // ====== 核心功能：退出體驗 (手動按鈕或 Esc) ======
+        function exitExperience() {
+            // 1. 退出瀏覽器全螢幕
+            if (document.fullscreenElement || document.webkitIsFullScreen) {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+
+            // 2. 執行清理工作
+            cleanupUI();
         }
 
-        function handleExit() {
-            // 如果目前沒有全螢幕元素 (代表使用者按了 Esc 或是退出了)
-            if (!document.fullscreenElement && 
-                !document.webkitIsFullScreen && 
-                !document.mozFullScreen && 
-                !document.msFullscreenElement) {
-                
-                // 1. 暫停音樂
-                if (player && typeof player.pauseVideo === 'function') {
-                    player.pauseVideo();
-                    // 或者使用 player.stopVideo(); 若希望下次從頭開始
-                }
+        // 真正的 UI 復原邏輯
+        function cleanupUI() {
+            // 暫停音樂
+            if (player && typeof player.pauseVideo === 'function') {
+                player.pauseVideo();
+            }
 
-                // 2. 隱藏簡報容器
-                document.getElementById('presentation-container').style.display = 'none';
+            // 隱藏簡報，顯示開始畫面
+            document.getElementById('presentation-container').style.display = 'none';
+            document.getElementById('start-screen').style.display = 'block'; // 關鍵：把主畫面叫回來
+        }
 
-                // 3. 移除監聽器 (避免重複綁定)
-                document.removeEventListener('fullscreenchange', handleExit);
-                document.removeEventListener('webkitfullscreenchange', handleExit);
+        // 監聽 Esc 鍵 (電腦版)
+        function setupExitListener() {
+            document.addEventListener('fullscreenchange', handleEscCheck);
+            document.addEventListener('webkitfullscreenchange', handleEscCheck);
+        }
+
+        function handleEscCheck() {
+            // 如果偵測到退出全螢幕，就執行清理
+            if (!document.fullscreenElement && !document.webkitIsFullScreen) {
+                cleanupUI();
             }
         }
     </script>

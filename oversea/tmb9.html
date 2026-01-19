@@ -14,7 +14,7 @@
             color: #333;
         }
         .header {
-            background-image: url('https://i.ytimg.com/vi/kvJMrr7-RgU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCTU3E8bIHBos6qh0SHSZM8q0BZsg'); /* Placeholder: Use a suitable TMB image if available, otherwise keep this or remove. */
+            background-image: url('https://i.ytimg.com/vi/kvJMrr7-RgU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCTU3E8bIHBos6qh0SHSZM8q0BZsg'); 
             background-size: cover;
             background-position: center 20%;
             color: white;
@@ -176,6 +176,41 @@
             100% { height: 15px; opacity: 0.95; }
         }
 
+        /* 全螢幕簡報容器樣式 */
+        #fs-overlay {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            z-index: 9999; /* 最上層 */
+        }
+        #fs-overlay iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #fs-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            font-weight: bold;
+        }
+        #fs-close-btn:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
+
     </style>
 </head>
 <body>
@@ -220,7 +255,10 @@
     <section class="section">
         <h2>TMB 經典11天行程詳解 (逆時針)</h2>
 
-        <div id="day0" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="rxJ2X8t_cVU" data-day-name="Milano → Courmayeur 導覽">
+        <div id="day0" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="rxJ2X8t_cVU" 
+             data-day-name="Milano → Courmayeur"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSRtDL9eyWnPS7bU4qOKFBFvPRIsN4f97GefjG1RkioHrfxpCcUCCmykOn9mQABV3rKuXqMN0dQeDYb/embed?start=true&loop=true&delayms=3000">
             <h3>第0天：庫馬耶 (Courmayeur) 集合</h3>
             <a href="https://drive.google.com/file/d/1M4dzmhXwoh-f_UK8zu-eXxWHRsC5_pg7/view?usp=sharing" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition mb-4">【米蘭-庫馬耶交通】</a>
             <div class="content-block">
@@ -230,16 +268,17 @@
                     <li><strong>備註：</strong> 庫馬耶 (Courmayeur)有多種酒店、旅館、青年旅館可供選擇。</li>
                 </ul>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vSRtDL9eyWnPS7bU4qOKFBFvPRIsN4f97GefjG1RkioHrfxpCcUCCmykOn9mQABV3rKuXqMN0dQeDYb/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vSRtDL9eyWnPS7bU4qOKFBFvPRIsN4f97GefjG1RkioHrfxpCcUCCmykOn9mQABV3rKuXqMN0dQeDYb/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day1" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="YHiyu1VKgoA" data-day-name="Courmayeur → Rifugio Bonatti → Arnouvaz 導覽">
+        <div id="day1" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="YHiyu1VKgoA" 
+             data-day-name="Courmayeur → Rifugio Bonatti → Arnouvaz"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vShZnceia3B2uuOsV_yGplFuY_TRMx-W2M3O8aV4pi5HcpmfrG1LZUr0yDsHBJpjCdIGv-S7nvyoNcr/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第1天：Courmayeur → Rifugio Bonatti → Arnouvaz</h3>
             <p class="text-lg font-semibold text-green-700 mb-4">TMB 完美一日 — 勃朗峰全景巡禮</p>
             
@@ -283,16 +322,17 @@
                     </ul>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vShZnceia3B2uuOsV_yGplFuY_TRMx-W2M3O8aV4pi5HcpmfrG1LZUr0yDsHBJpjCdIGv-S7nvyoNcr/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vShZnceia3B2uuOsV_yGplFuY_TRMx-W2M3O8aV4pi5HcpmfrG1LZUr0yDsHBJpjCdIGv-S7nvyoNcr/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day2" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="U26_yQX_Ovc" data-day-name="Arnouvaz → Grand Col Ferret → La Fouly 導覽">
+        <div id="day2" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="U26_yQX_Ovc" 
+             data-day-name="Arnouvaz → Grand Col Ferret → La Fouly"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vRs0WHWFXjoc1G4zlZCM1_BA8IIAkQ_SC1Bs0Vm-pylOlJ7a7c2ipyinjMHZ4qe9ARdnLFubSkKRVLO/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第2天：Arnouvaz → Grand Col Ferret → La Fouly</h3>
             <p class="text-lg font-semibold text-red-700 mb-4">跨越義瑞國境 — 大費雷特隘口挑戰</p>
             
@@ -346,16 +386,17 @@
                     </ul>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vRs0WHWFXjoc1G4zlZCM1_BA8IIAkQ_SC1Bs0Vm-pylOlJ7a7c2ipyinjMHZ4qe9ARdnLFubSkKRVLO/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vRs0WHWFXjoc1G4zlZCM1_BA8IIAkQ_SC1Bs0Vm-pylOlJ7a7c2ipyinjMHZ4qe9ARdnLFubSkKRVLO/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day3" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="SNeq4Sh3yj8" data-day-name="La Fouly → Praz-de-Fort → Champex-Lac 導覽">
+        <div id="day3" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="SNeq4Sh3yj8" 
+             data-day-name="La Fouly → Praz-de-Fort → Champex-Lac"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vRxNxG_eQ1tSvMxVtAHTzHu4UFWkGwlCGyyTBmod7YPqsdECWJWllpQh0bcoOIdEb0Us1j46fDdlFDG/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第3天：La Fouly → Praz-de-Fort → Champex-Lac</h3>
             <p class="text-lg font-semibold text-green-700 mb-4">瑞士田園巡禮 — 費雷山谷的漫步</p>
             
@@ -363,7 +404,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="md:col-span-2">
                         <p class="text-base leading-relaxed text-gray-700 mb-4">
-                            今日路程是 TMB 全線最輕鬆的「恢復日」 。路徑主要在瑞士費雷山谷中穿行，風景由雄偉絕壁轉為寧靜的高山森林與瑞士木屋小鎮 。您將穿過 Praz-de-Fort 和 Issert 等迷人村莊，最後以一小段森林爬升抵達素有「瑞士小加拿大」之稱的尚佩克斯湖 [cite: 172, 177]。
+                            今日路程是 TMB 全線最輕鬆的「恢復日」 。路徑主要在瑞士費雷山谷中穿行，風景由雄偉絕壁轉為寧靜的高山森林與瑞士木屋小鎮 。您將穿過 Praz-de-Fort 和 Issert 等迷人村莊，最後以一小段森林爬升抵達素有「瑞士小加拿大」之稱的尚佩克斯湖。
                         </p>
                         
                         <div class="grid grid-cols-2 gap-3 mb-4">
@@ -404,21 +445,22 @@
                     <p class="text-sm text-gray-700 mb-2">若想將體力保留給最後前往 Champex 的爬升，可利用公車分段完成 ：</p>
                     <ul class="list-disc ml-5 text-sm text-gray-700 space-y-1">
                         <li><strong>分段建議：</strong>從 La Fouly 搭車至 <b>Praz-de-Fort</b> 或 <b>Issert</b> 。</li>
-                        <li><strong>頻率：</strong>旺季大約每小時一班車 [cite: 175]。</li>
-                        <li><strong>末班提醒：</strong>從 La Fouly 返回 Orsières 方向的末班車約在 19:46 左右 [cite: 175]。</li>
+                        <li><strong>頻率：</strong>旺季大約每小時一班車。</li>
+                        <li><strong>末班提醒：</strong>從 La Fouly 返回 Orsières 方向的末班車約在 19:46 左右。</li>
                     </ul>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vRxNxG_eQ1tSvMxVtAHTzHu4UFWkGwlCGyyTBmod7YPqsdECWJWllpQh0bcoOIdEb0Us1j46fDdlFDG/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vRxNxG_eQ1tSvMxVtAHTzHu4UFWkGwlCGyyTBmod7YPqsdECWJWllpQh0bcoOIdEb0Us1j46fDdlFDG/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day4" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="M4ESWnFG85U" data-day-name="Champex-Lac → Trient / Col de la Forclaz 導覽">
+        <div id="day4" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="M4ESWnFG85U" 
+             data-day-name="Champex-Lac → Trient / Col de la Forclaz"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTbLhNerooaTzPsM_eVSXN9wu_RL38llfCmvl35i9OcfPuE14XP0qnq5ENHvNaiszw3-FuAneygTzYN/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第4天：Champex-Lac → Trient / Col de la Forclaz</h3>
             <p class="text-lg font-semibold text-red-700 mb-4">瑞士最終章 — 分岔路口的抉擇</p>
             
@@ -481,16 +523,17 @@
                     </ul>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vTbLhNerooaTzPsM_eVSXN9wu_RL38llfCmvl35i9OcfPuE14XP0qnq5ENHvNaiszw3-FuAneygTzYN/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vTbLhNerooaTzPsM_eVSXN9wu_RL38llfCmvl35i9OcfPuE14XP0qnq5ENHvNaiszw3-FuAneygTzYN/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day5" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="NiJkBsOnD5Y" data-day-name="Trient / Forclaz → Col de Balme → Chamonix Valley 導覽">
+        <div id="day5" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="NiJkBsOnD5Y" 
+             data-day-name="Trient / Forclaz → Col de Balme → Chamonix Valley"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTwKlOPJ5MRcYh9YorkAg0H7cbPKBfEUA_jLDBYjYbOnp1ERFIAv8GKwRk2elJZlEanIwq_SI2Absds/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第5天：Trient / Forclaz → Col de Balme → Chamonix Valley</h3>
             <p class="text-lg font-semibold text-red-700 mb-4">瑞法國境越嶺 — 迎接白朗峰壯麗亮相</p>
             
@@ -545,16 +588,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vTwKlOPJ5MRcYh9YorkAg0H7cbPKBfEUA_jLDBYjYbOnp1ERFIAv8GKwRk2elJZlEanIwq_SI2Absds/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vTwKlOPJ5MRcYh9YorkAg0H7cbPKBfEUA_jLDBYjYbOnp1ERFIAv8GKwRk2elJZlEanIwq_SI2Absds/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day6" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="rnxbFa7uJEE" data-day-name="Le Tour → Lac Blanc → La Flégère 導覽">
+        <div id="day6" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="rnxbFa7uJEE" 
+             data-day-name="Le Tour → Lac Blanc → La Flégère"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vRWac_swSeSrW2rsG7Zrx71HQj6bOZFgKO_LSmkyQu_7XAxcDth0cOZWkFfL_2N63yF1-UAMiRXmnX8/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第6天：Le Tour → Lac Blanc → La Flégère</h3>
             <p class="text-lg font-semibold text-blue-700 mb-4">史詩級徒步日：白湖巔峰跨越</p>
             
@@ -614,16 +658,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vRWac_swSeSrW2rsG7Zrx71HQj6bOZFgKO_LSmkyQu_7XAxcDth0cOZWkFfL_2N63yF1-UAMiRXmnX8/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vRWac_swSeSrW2rsG7Zrx71HQj6bOZFgKO_LSmkyQu_7XAxcDth0cOZWkFfL_2N63yF1-UAMiRXmnX8/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day7" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="Nh_QH4Y9pWY" data-day-name="La Flégère → Planpraz → Le Brévent 導覽">
+        <div id="day7" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="Nh_QH4Y9pWY" 
+             data-day-name="La Flégère → Planpraz → Le Brévent"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSq28VZJuetGYF6gMdyj6OsM1P0mrh6edJ8hOSuQGHy-JFXEezqfpWnOAkXYjsNXtOVpOTLrZCOjneh/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第7天：La Flégère → Planpraz → Le Brévent</h3>
             <p class="text-lg font-semibold text-green-700 mb-4">南大陽台步道的視覺全景</p>
             
@@ -681,16 +726,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vSq28VZJuetGYF6gMdyj6OsM1P0mrh6edJ8hOSuQGHy-JFXEezqfpWnOAkXYjsNXtOVpOTLrZCOjneh/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vSq28VZJuetGYF6gMdyj6OsM1P0mrh6edJ8hOSuQGHy-JFXEezqfpWnOAkXYjsNXtOVpOTLrZCOjneh/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day8" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="lvGqO-L4YpY" data-day-name="Les Houches → Les Contamines → Balme/Prés 導覽">
+        <div id="day8" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="lvGqO-L4YpY" 
+             data-day-name="Les Houches → Les Contamines → Balme/Prés"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQn4gz5Yt18o7oda91O61XGjFUEVkoHsFg5-Vn1R5lBLzETBEHC2H0VtcyRZCqGWFQ5wKIbz0heV7VN/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第8天：Les Houches → Les Contamines → Balme/Prés</h3>
             <p class="text-lg font-semibold text-red-700 mb-4">TMB 啟程挑戰 — 萊蘇什的體力試煉</p>
             
@@ -754,16 +800,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vQn4gz5Yt18o7oda91O61XGjFUEVkoHsFg5-Vn1R5lBLzETBEHC2H0VtcyRZCqGWFQ5wKIbz0heV7VN/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vQn4gz5Yt18o7oda91O61XGjFUEVkoHsFg5-Vn1R5lBLzETBEHC2H0VtcyRZCqGWFQ5wKIbz0heV7VN/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day9" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="dNIrkV7f_sc" data-day-name="Balme/Prés → Col du Bonhomme → Les Chapieux 導覽">
+        <div id="day9" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="dNIrkV7f_sc" 
+             data-day-name="Balme/Prés → Col du Bonhomme → Les Chapieux"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vS4Mf_NvCM7DyEC5Qqr5Tpn8uw1fr0WaEMpMyAWuYwgcpnV146e0Yqmngr3ZG2Meb16wc-28rh3tLnU/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第9天：Balme/Prés → Col du Bonhomme → Les Chapieux</h3>
             <p class="text-lg font-semibold text-red-700 mb-4">一日雙隘口長征 — 從高山巔峰到谷地樞紐</p>
             
@@ -825,16 +872,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vS4Mf_NvCM7DyEC5Qqr5Tpn8uw1fr0WaEMpMyAWuYwgcpnV146e0Yqmngr3ZG2Meb16wc-28rh3tLnU/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vS4Mf_NvCM7DyEC5Qqr5Tpn8uw1fr0WaEMpMyAWuYwgcpnV146e0Yqmngr3ZG2Meb16wc-28rh3tLnU/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day10" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="i5nqXm8vRzQ" data-day-name="Les Chapieux → Col de la Seigne → Val Veny → Courmayeur 導覽">
+        <div id="day10" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="i5nqXm8vRzQ" 
+             data-day-name="Les Chapieux → Col de la Seigne → Val Veny → Courmayeur"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vR2YR5YcEP8NhW_gF4BIg3oZtNYeWpw-Ca9AnLGnpMkXVhoi3qdY1QdFYeB5SzxcieL1ANdbz1cBJ3s/embed?start=true&loop=true&delayms=3000">
             <h3 class="text-2xl font-bold text-blue-800 mb-2">第10天：Les Chapieux → Col de la Seigne → Val Veny → Courmayeur</h3>
             <p class="text-lg font-semibold text-green-700 mb-4">一日雙國遠征 — 跨越賽尼隘口進入義大利</p>
             
@@ -899,17 +947,17 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vR2YR5YcEP8NhW_gF4BIg3oZtNYeWpw-Ca9AnLGnpMkXVhoi3qdY1QdFYeB5SzxcieL1ANdbz1cBJ3s/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vR2YR5YcEP8NhW_gF4BIg3oZtNYeWpw-Ca9AnLGnpMkXVhoi3qdY1QdFYeB5SzxcieL1ANdbz1cBJ3s/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
 
-        <div id="day11" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" data-video-id="5B5R1bVyZS0" data-day-name="Skyway Monte Bianco → Courmayeur → Via Roma 導覽">
-            <h3 class="text-2xl font-bold text-blue-800 mb-2">第11天：Skyway Monte Bianco → Courmayeur → Via Roma</h3>
+        <div id="day11" class="day-details bg-white p-6 rounded-xl shadow-lg border border-gray-200" 
+             data-video-id="5B5R1bVyZS0" 
+             data-day-name="Skyway Monte Bianco → Courmayeur → Via Roma"
+             data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTyQ8qX_9pZ5Z6_7_8_9_0_1_2_3_4_5/embed?start=true&loop=true&delayms=3000"> <h3 class="text-2xl font-bold text-blue-800 mb-2">第11天：Skyway Monte Bianco → Courmayeur → Via Roma</h3>
             <p class="text-lg font-semibold text-indigo-700 mb-4">阿爾卑斯巔峰之巔 — 庫馬耶與白朗峰</p>
             
             <div class="content-block">
@@ -967,11 +1015,9 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                border-radius: 8px; will-change: transform;">
+            <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
                 <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://docs.google.com/presentation/d/e/2PACX-1vQHaynvG2zdqsV6dNBSrgw9hyPDyZd8NPjYWF4AFs1BqqpCR_aqU-BTdWGuhUKdl-ANKH7ki4eDcM96/pubembed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    src="https://docs.google.com/presentation/d/e/2PACX-1vRWac_swSeSrW2rsG7Zrx71HQj6bOZFgKO_LSmkyQu_7XAxcDth0cOZWkFfL_2N63yF1-UAMiRXmnX8/embed?start=false&loop=false&delayms=3000" allowfullscreen="allowfullscreen" allow="fullscreen">
                 </iframe>
             </div>
         </div>
@@ -1009,6 +1055,11 @@
     <div id="video-placeholder"></div>
 </div>
 
+<div id="fs-overlay">
+    <button id="fs-close-btn" onclick="closeFullScreen()">✕ 關閉體驗</button>
+    <iframe id="fs-iframe" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+
 <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
     <div class="music-wave" id="music-wave-icon">
         <div class="bar"></div>
@@ -1024,13 +1075,17 @@
     var player;
     var isPlaying = false; 
     var currentVideoId = ''; 
-    // ★ 設定預設音樂 (輕鬆背景音樂)
     var defaultVideoId = 'V7Bohz21qq4'; 
     var defaultName = "輕鬆背景音樂";
+    
+    // 用來儲存目前視窗中該 Day 的 Google Slide URL
+    var currentSlideUrl = '';
 
     var toggleBtn = document.getElementById('music-toggle');
     var musicText = document.getElementById('music-text');
     var waveIcon = document.getElementById('music-wave-icon');
+    var fsOverlay = document.getElementById('fs-overlay');
+    var fsIframe = document.getElementById('fs-iframe');
 
     // 1. 載入 YouTube API
     var tag = document.createElement('script');
@@ -1063,66 +1118,156 @@
             isPlaying = true;
             toggleBtn.classList.add('ring-2', 'ring-blue-400', 'bg-blue-50');
             waveIcon.classList.add('playing');
-            if(musicText.innerText.includes('播放')) {
-                musicText.innerText = musicText.innerText.replace('播放', '暫停');
+            
+            // 如果不在全螢幕模式，更新按鈕文字
+            if (fsOverlay.style.display !== 'block') {
+               updateButtonText(true);
             }
         } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
             isPlaying = false;
             toggleBtn.classList.remove('ring-2', 'ring-blue-400', 'bg-blue-50');
             waveIcon.classList.remove('playing');
-            if(musicText.innerText.includes('暫停')) {
-                musicText.innerText = musicText.innerText.replace('暫停', '播放');
+            
+            if (fsOverlay.style.display !== 'block') {
+               updateButtonText(false);
             }
         }
     }
 
-    // 4. 按鈕點擊事件
-    toggleBtn.addEventListener('click', function() {
-        if (isPlaying) {
-            player.pauseVideo();
+    // 更新按鈕文字的輔助函式
+    function updateButtonText(playing) {
+        var baseText = currentSlideUrl ? "全螢幕體驗" : "輕鬆音樂";
+        var action = playing ? "暫停" : "播放";
+        // 如果有簡報，按鈕文字優先顯示「全螢幕體驗」
+        if (currentSlideUrl) {
+            musicText.innerText = baseText; 
         } else {
-            player.playVideo();
+            musicText.innerText = action + " " + baseText;
+        }
+    }
+
+    // 4. 按鈕點擊事件 (核心邏輯修改)
+    toggleBtn.addEventListener('click', function() {
+        // 情境 A: 有簡報 -> 進入全螢幕
+        if (currentSlideUrl) {
+            openFullScreen();
+        } 
+        // 情境 B: 無簡報 -> 純播放/暫停音樂
+        else {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
         }
     });
 
+    // 5. 開啟全螢幕函式
+    function openFullScreen() {
+        if (!currentSlideUrl) return;
+
+        // 設定 iframe src
+        fsIframe.src = currentSlideUrl;
+        
+        // 顯示遮罩
+        fsOverlay.style.display = 'block';
+
+        // 確保音樂播放
+        if (!isPlaying && player) {
+            player.playVideo();
+        }
+
+        // 嘗試進入瀏覽器全螢幕
+        var elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+    }
+
+    // 6. 關閉全螢幕函式
+    function closeFullScreen() {
+        // 隱藏遮罩
+        fsOverlay.style.display = 'none';
+        
+        // 清空 iframe src (停止簡報動畫)
+        fsIframe.src = "";
+
+        // 離開瀏覽器全螢幕
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+
+        // 選擇性：關閉全螢幕時是否暫停音樂？這裡設定為暫停，讓體驗有結束感
+        if (isPlaying && player) {
+            player.pauseVideo();
+        }
+    }
+
+    // 7. 監聽 Esc 鍵退出全螢幕
+    document.addEventListener('fullscreenchange', exitHandler);
+    document.addEventListener('webkitfullscreenchange', exitHandler);
+    document.addEventListener('mozfullscreenchange', exitHandler);
+    document.addEventListener('MSFullscreenChange', exitHandler);
+
+    function exitHandler() {
+        if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+            // 如果使用者按 Esc 離開了瀏覽器全螢幕，我們也要隱藏 Overlay
+            if (fsOverlay.style.display === 'block') {
+                closeFullScreen();
+            }
+        }
+    }
+
     // ==========================================
-    // 5. ★ 核心修改：全域捲動偵測
+    // 8. 捲動偵測 (更新 Video ID 與 Slide URL)
     // ==========================================
     function startScrollObserver() {
         var options = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15 // 稍微降低閾值，讓切換更靈敏
+            threshold: 0.15 
         };
 
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                // 只有當區塊「進入」畫面時才觸發
                 if (entry.isIntersecting) {
                     
-                    // 嘗試抓取該區塊的 ID
                     var targetId = entry.target.getAttribute('data-video-id');
                     var targetName = entry.target.getAttribute('data-day-name');
+                    var targetSlide = entry.target.getAttribute('data-slide-url'); // 抓取 Slide URL
 
+                    // 更新目前的 Slide URL
+                    if (targetSlide) {
+                        currentSlideUrl = targetSlide;
+                        musicText.innerText = "全螢幕體驗 " + targetName; // 提示使用者可以看全螢幕
+                    } else {
+                        currentSlideUrl = ''; // 離開有簡報的區域
+                        var action = isPlaying ? "暫停" : "播放";
+                        musicText.innerText = action + " 輕鬆音樂";
+                    }
+
+                    // 切換音樂邏輯
                     if (targetId) {
-                        // A. 如果這個區塊有設定 ID (例如 Day 2)，就播它的歌
                         if (targetId !== currentVideoId) {
-                            changeTrack(targetId, targetName);
+                            changeTrack(targetId);
                         }
                     } else {
-                        // B. 如果這個區塊沒有 ID (例如標題、住宿介紹)，就播 Default
-                        // 為了避免重複觸發，只有當「現在不是播 Default」時才切換
                         if (currentVideoId !== defaultVideoId) {
-                            changeTrack(defaultVideoId, defaultName);
+                            changeTrack(defaultVideoId);
                         }
                     }
                 }
             });
         }, options);
 
-        // ★ 新的寫法 (更聰明)：
-        // 1. 抓取所有結構區塊 (header, section, footer) 用來觸發 Default 音樂
-        // 2. 抓取所有「有設定 data-video-id 屬性」的元素 (不管它是 div 還是 section)
         var allSections = document.querySelectorAll('.header, section, footer, [data-video-id]');
         
         allSections.forEach(function(el) {
@@ -1130,13 +1275,9 @@
         });
     }
 
-    // 6. 切換音樂函式
-    function changeTrack(newId, dayName) {
-        console.log("切換至:", dayName);
+    // 9. 切換音樂函式
+    function changeTrack(newId) {
         currentVideoId = newId;
-
-        var actionVerb = isPlaying ? "暫停" : "播放";
-        musicText.innerText = actionVerb + " " + dayName;
 
         if (isPlaying) {
             player.loadVideoById({

@@ -3,114 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>沉浸式簡報 (完美修正版)</title>
+    <title>智慧簡報配樂系統</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. 簡報容器：改用 visibility 控制，避免 display:none 導致 iframe 在手機不渲染 */
+        /* 1. 簡報容器 */
         #presentation-container {
-            visibility: hidden; /* 預設不可見，但在 DOM 中佔位 */
+            visibility: hidden;
             position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: black;
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.5s ease; /* 淡入效果，避免突兀黑屏 */
+            transition: opacity 0.5s ease;
         }
 
-        /* 顯示狀態 */
         #presentation-container.active {
             visibility: visible;
             opacity: 1;
         }
 
-        /* iframe 設定 */
         #presentation-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+            width: 100%; height: 100%; border: none;
         }
 
-        /* 2. 關閉按鈕：預設顯示 (給手機用) */
+        /* 2. 手機版關閉按鈕 */
         .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            z-index: 10000;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
+            position: absolute; top: 15px; right: 15px; z-index: 10000;
+            background-color: rgba(255, 255, 255, 0.2); color: white;
             border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 9999px;
-            padding: 8px 16px;
-            font-size: 14px;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            border-radius: 9999px; padding: 8px 16px; font-size: 14px;
+            cursor: pointer; backdrop-filter: blur(4px); display: flex; align-items: center; gap: 5px;
         }
 
-        /* ★ 關鍵 CSS：在電腦版 (寬度大於 768px) 隱藏關閉按鈕 */
-        @media (min-width: 768px) {
-            .close-btn {
-                display: none !important;
-            }
-        }
+        @media (min-width: 768px) { .close-btn { display: none !important; } }
 
         /* 3. 隱藏的 YouTube */
         #music-player-container {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-            width: 1px; height: 1px;
-            opacity: 0;
+            position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0;
         }
     </style>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen transition-colors duration-500" id="main-body">
 
     <div id="start-screen" class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-11/12 transition-opacity duration-300">
-        <h1 class="text-3xl font-bold mb-2 text-gray-800">沉浸式簡報</h1>
-        <p class="text-gray-500 mb-6">手機/電腦通用版</p>
+        <h1 class="text-3xl font-bold mb-2 text-gray-800">沉浸式體驗</h1>
+        <p class="text-gray-500 mb-6">簡報模式 / 純音樂模式 自動切換</p>
         
-        <button id="start-btn" onclick="startExperience()" 
+        <button id="action-btn" onclick="handleAction()" 
                 class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto w-full">
-            <span>🚀</span> 開始演示
+            <span id="btn-icon">▶</span> <span id="btn-text">開始體驗</span>
         </button>
-        <p id="loading-text" class="mt-4 text-sm text-gray-400 animate-pulse">正在載入播放器...</p>
+        
+        <p id="status-text" class="mt-4 text-sm text-gray-400 animate-pulse">正在載入系統...</p>
     </div>
 
     <div id="presentation-container">
-        <button class="close-btn" onclick="exitExperience()">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            關閉
-        </button>
-        
-        <iframe 
-            id="slide-frame"
-            src="https://docs.google.com/presentation/d/e/2PACX-1vQHaynvG2zdqsV6dNBSrgw9hyPDyZd8NPjYWF4AFs1BqqpCR_aqU-BTdWGuhUKdl-ANKH7ki4eDcM96/pubembed?start=false&loop=false&delayms=3000" 
-            allowfullscreen="true" 
-            mozallowfullscreen="true" 
-            webkitallowfullscreen="true">
-        </iframe>
+        <button class="close-btn" onclick="exitFullScreenMode()">✕ 關閉</button>
+        <iframe id="slide-frame" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 
-    <div id="music-player-container">
-        <div id="yt-player"></div>
-    </div>
+    <div id="music-player-container"><div id="yt-player"></div></div>
 
     <script>
         // ================= 設定區 =================
-        const YOUTUBE_MUSIC_ID = "5B5R1bVyZS0"; // Lofi Hip Hop
+        
+        // 1. 設定簡報網址 (若為空字串 ""，則只會播放音樂)
+        // const GOOGLE_SLIDE_URL = "https://docs.google.com/presentation/d/e/2PACX-1vR2aXZ8qJ9_0_X_X_X_X/embed?start=false&loop=false&delayms=3000";
+        const GOOGLE_SLIDE_URL = ""; // <-- 目前設定為空，測試純音樂模式
+
+        // 2. YouTube 音樂設定
+        const YOUTUBE_MUSIC_ID = "jfKfPfyJRdk"; // Lofi Hip Hop
         const MUSIC_VOLUME = 50; 
+        
         // =========================================
 
         var player;
         var isPlayerReady = false;
+        var isMusicPlaying = false; // 記錄目前是否正在播放純音樂
 
         // 載入 YouTube API
         var tag = document.createElement('script');
@@ -120,8 +89,7 @@
 
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('yt-player', {
-                height: '200', width: '200',
-                videoId: YOUTUBE_MUSIC_ID,
+                height: '200', width: '200', videoId: YOUTUBE_MUSIC_ID,
                 playerVars: { 'playsinline': 1, 'controls': 0, 'loop': 1, 'playlist': YOUTUBE_MUSIC_ID },
                 events: { 'onReady': onPlayerReady }
             });
@@ -130,65 +98,121 @@
         function onPlayerReady(event) {
             isPlayerReady = true;
             player.setVolume(MUSIC_VOLUME);
-            const statusText = document.getElementById('loading-text');
-            statusText.innerText = "系統就緒，請點擊開始";
-            statusText.className = "mt-4 text-sm text-green-600 font-bold";
+            updateStatus("系統就緒", "text-green-600 font-bold");
         }
 
-        // ====== 開始體驗 ======
-        function startExperience() {
-            if (!isPlayerReady) { alert("音樂載入中，請稍後..."); return; }
+        // ====== ★ 核心邏輯控制器 ★ ======
+        function handleAction() {
+            if (!isPlayerReady) { alert("系統載入中，請稍後..."); return; }
 
-            // 1. 隱藏主畫面 (淡出)
+            // 情境 1: 目前正在播放純音樂 -> 執行停止
+            if (isMusicPlaying) {
+                stopMusicOnlyMode();
+                return;
+            }
+
+            // 情境 2: 有設定簡報網址 -> 進入全螢幕簡報模式
+            if (GOOGLE_SLIDE_URL && GOOGLE_SLIDE_URL.trim() !== "") {
+                startFullScreenMode();
+            } 
+            // 情境 3: 沒有簡報網址 -> 進入純音樂背景模式
+            else {
+                startMusicOnlyMode();
+            }
+        }
+
+        // --- 模式 A: 純音樂模式 ---
+        function startMusicOnlyMode() {
+            player.playVideo();
+            isMusicPlaying = true;
+            
+            // 更新 UI
+            updateButtonUI(true); // 變更按鈕為停止樣式
+            updateStatus("正在播放背景音樂...", "text-indigo-600");
+            document.getElementById('main-body').classList.add("bg-indigo-50"); // 換個背景色更有感
+        }
+
+        function stopMusicOnlyMode() {
+            player.pauseVideo();
+            isMusicPlaying = false;
+
+            // 復原 UI
+            updateButtonUI(false); // 變更按鈕為開始樣式
+            updateStatus("音樂已暫停", "text-gray-500");
+            document.getElementById('main-body').classList.remove("bg-indigo-50");
+        }
+
+        // --- 模式 B: 全螢幕簡報模式 ---
+        function startFullScreenMode() {
+            // 1. 設定 iframe src (現在才設定，避免預先載入無效網址)
+            document.getElementById('slide-frame').src = GOOGLE_SLIDE_URL;
+
+            // 2. 隱藏主畫面
             document.getElementById('start-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('start-screen').style.display = 'none';
-            }, 300);
+            setTimeout(() => { document.getElementById('start-screen').style.display = 'none'; }, 300);
 
-            // 2. 顯示簡報容器 (淡入 + 啟動 Active Class)
+            // 3. 顯示全螢幕容器
             const container = document.getElementById('presentation-container');
-            container.classList.add('active'); // 加入 class 來觸發 visibility: visible
+            container.classList.add('active');
 
-            // 3. 嘗試進入全螢幕 (電腦版)
+            // 4. 請求全螢幕
             if (container.requestFullscreen) container.requestFullscreen().catch(e => {});
             else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
 
-            // 4. 播放音樂
+            // 5. 播放音樂
             player.playVideo();
 
-            // 5. 綁定 Esc 監聽
+            // 6. 綁定 Esc 監聽
             setupExitListener();
         }
 
-        // ====== 退出體驗 ======
-        function exitExperience() {
-            // 嘗試退出瀏覽器全螢幕
+        function exitFullScreenMode() {
             if (document.fullscreenElement || document.webkitIsFullScreen) {
                 if (document.exitFullscreen) document.exitFullscreen();
                 else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
             }
-            // 無論是否有全螢幕，都執行 UI 復原
-            cleanupUI();
+            cleanupFullScreenUI();
         }
 
-        // 復原 UI
-        function cleanupUI() {
-            // 暫停音樂
-            if (player && typeof player.pauseVideo === 'function') {
-                player.pauseVideo();
-            }
-
+        function cleanupFullScreenUI() {
+            player.pauseVideo();
+            
             // 隱藏簡報
             const container = document.getElementById('presentation-container');
-            container.classList.remove('active'); // 移除 class，變回 hidden
+            container.classList.remove('active');
+            
+            // 清空 src 以停止簡報運作
+            setTimeout(() => { document.getElementById('slide-frame').src = ""; }, 500);
 
             // 顯示主畫面
             const startScreen = document.getElementById('start-screen');
             startScreen.style.display = 'block';
-            // 給一點時間讓 display:block 生效後再淡入
-            setTimeout(() => {
-                startScreen.style.opacity = '1';
-            }, 50);
+            setTimeout(() => { startScreen.style.opacity = '1'; }, 50);
+        }
+
+        // --- 輔助函式 ---
+        function updateButtonUI(isPlaying) {
+            const btn = document.getElementById('action-btn');
+            const icon = document.getElementById('btn-icon');
+            const text = document.getElementById('btn-text');
+
+            if (isPlaying) {
+                // 變成紅色停止按鈕
+                btn.className = "bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto w-full";
+                icon.innerText = "⏹";
+                text.innerText = "停止播放";
+            } else {
+                // 變回藍色開始按鈕
+                btn.className = "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto w-full";
+                icon.innerText = "▶";
+                text.innerText = "開始體驗";
+            }
+        }
+
+        function updateStatus(msg, classes) {
+            const el = document.getElementById('status-text');
+            el.innerText = msg;
+            el.className = "mt-4 text-sm " + classes;
         }
 
         // 監聽 Esc
@@ -199,7 +223,10 @@
 
         function handleEscCheck() {
             if (!document.fullscreenElement && !document.webkitIsFullScreen) {
-                cleanupUI();
+                cleanupFullScreenUI();
+                // 移除監聽，避免干擾純音樂模式
+                document.removeEventListener('fullscreenchange', handleEscCheck);
+                document.removeEventListener('webkitfullscreenchange', handleEscCheck);
             }
         }
     </script>

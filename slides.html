@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>沉浸式簡報 (手機修復版)</title>
+    <title>沉浸式簡報 (完美修正版)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 1. 簡報容器：改用 position: fixed 強制蓋版 
-           z-index 設很高，確保蓋住原本的內容
-        */
+        /* 1. 簡報容器：改用 visibility 控制，避免 display:none 導致 iframe 在手機不渲染 */
         #presentation-container {
-            display: none; 
-            position: fixed; /* 關鍵修改：固定定位 */
+            visibility: hidden; /* 預設不可見，但在 DOM 中佔位 */
+            position: fixed;
             top: 0; 
             left: 0; 
-            width: 100vw;    /* 寬度佔滿視窗 */
-            height: 100vh;   /* 高度佔滿視窗 */
+            width: 100%; 
+            height: 100%;
             background-color: black;
-            z-index: 9999;   /* 確保在最上層 */
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 淡入效果，避免突兀黑屏 */
+        }
+
+        /* 顯示狀態 */
+        #presentation-container.active {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* iframe 設定 */
@@ -27,38 +33,45 @@
             border: none;
         }
 
-        /* 2. 手機版必備：自訂關閉按鈕 
-           因為手機沒有 Esc 鍵，需要這個按鈕來復原
-        */
+        /* 2. 關閉按鈕：預設顯示 (給手機用) */
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             z-index: 10000;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 9999px;
             padding: 8px 16px;
             font-size: 14px;
             cursor: pointer;
             backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        /* 3. 隱藏的 YouTube 播放器 */
+        /* ★ 關鍵 CSS：在電腦版 (寬度大於 768px) 隱藏關閉按鈕 */
+        @media (min-width: 768px) {
+            .close-btn {
+                display: none !important;
+            }
+        }
+
+        /* 3. 隱藏的 YouTube */
         #music-player-container {
             position: absolute;
             top: -9999px;
             left: -9999px;
-            width: 1px; 
-            height: 1px;
+            width: 1px; height: 1px;
             opacity: 0;
         }
     </style>
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
 
-    <div id="start-screen" class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-11/12">
+    <div id="start-screen" class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-md w-11/12 transition-opacity duration-300">
         <h1 class="text-3xl font-bold mb-2 text-gray-800">沉浸式簡報</h1>
         <p class="text-gray-500 mb-6">手機/電腦通用版</p>
         
@@ -66,15 +79,20 @@
                 class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-3 mx-auto w-full">
             <span>🚀</span> 開始演示
         </button>
-        <p id="loading-text" class="mt-4 text-sm text-gray-400">正在載入播放器...</p>
+        <p id="loading-text" class="mt-4 text-sm text-gray-400 animate-pulse">正在載入播放器...</p>
     </div>
 
     <div id="presentation-container">
-        <button class="close-btn" onclick="exitExperience()">✕ 關閉</button>
+        <button class="close-btn" onclick="exitExperience()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            關閉
+        </button>
         
         <iframe 
             id="slide-frame"
-            src="https://docs.google.com/presentation/d/e/2PACX-1vQHaynvG2zdqsV6dNBSrgw9hyPDyZd8NPjYWF4AFs1BqqpCR_aqU-BTdWGuhUKdl-ANKH7ki4eDcM96/pubembed?start=false&loop=false&delayms=3000" 
+            src="https://docs.google.com/presentation/d/e/2PACX-1vR2aXZ8qJ9_0_X_X_X_X/embed?start=false&loop=false&delayms=3000" 
             allowfullscreen="true" 
             mozallowfullscreen="true" 
             webkitallowfullscreen="true">
@@ -87,7 +105,7 @@
 
     <script>
         // ================= 設定區 =================
-        const YOUTUBE_MUSIC_ID = "5B5R1bVyZS0"; // Lofi Hip Hop
+        const YOUTUBE_MUSIC_ID = "jfKfPfyJRdk"; // Lofi Hip Hop
         const MUSIC_VOLUME = 50; 
         // =========================================
 
@@ -112,64 +130,74 @@
         function onPlayerReady(event) {
             isPlayerReady = true;
             player.setVolume(MUSIC_VOLUME);
-            document.getElementById('loading-text').innerText = "系統就緒，請點擊開始";
-            document.getElementById('loading-text').className = "mt-4 text-sm text-green-600 font-bold";
+            const statusText = document.getElementById('loading-text');
+            statusText.innerText = "系統就緒，請點擊開始";
+            statusText.className = "mt-4 text-sm text-green-600 font-bold";
         }
 
-        // ====== 核心功能：開始體驗 ======
+        // ====== 開始體驗 ======
         function startExperience() {
             if (!isPlayerReady) { alert("音樂載入中，請稍後..."); return; }
 
-            // 1. 隱藏開始畫面 (解決手機版被遮擋的問題)
-            document.getElementById('start-screen').style.display = 'none';
+            // 1. 隱藏主畫面 (淡出)
+            document.getElementById('start-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('start-screen').style.display = 'none';
+            }, 300);
 
-            // 2. 顯示簡報容器 (佔滿全螢幕)
+            // 2. 顯示簡報容器 (淡入 + 啟動 Active Class)
             const container = document.getElementById('presentation-container');
-            container.style.display = 'block';
+            container.classList.add('active'); // 加入 class 來觸發 visibility: visible
 
-            // 3. 嘗試進入瀏覽器全螢幕 (電腦版有效，手機版可能無效但沒關係，因為我們用了 fixed css)
+            // 3. 嘗試進入全螢幕 (電腦版)
             if (container.requestFullscreen) container.requestFullscreen().catch(e => {});
             else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
 
             // 4. 播放音樂
             player.playVideo();
 
-            // 5. 綁定 Esc 監聽 (給電腦版用)
+            // 5. 綁定 Esc 監聽
             setupExitListener();
         }
 
-        // ====== 核心功能：退出體驗 (手動按鈕或 Esc) ======
+        // ====== 退出體驗 ======
         function exitExperience() {
-            // 1. 退出瀏覽器全螢幕
+            // 嘗試退出瀏覽器全螢幕
             if (document.fullscreenElement || document.webkitIsFullScreen) {
                 if (document.exitFullscreen) document.exitFullscreen();
                 else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
             }
-
-            // 2. 執行清理工作
+            // 無論是否有全螢幕，都執行 UI 復原
             cleanupUI();
         }
 
-        // 真正的 UI 復原邏輯
+        // 復原 UI
         function cleanupUI() {
             // 暫停音樂
             if (player && typeof player.pauseVideo === 'function') {
                 player.pauseVideo();
             }
 
-            // 隱藏簡報，顯示開始畫面
-            document.getElementById('presentation-container').style.display = 'none';
-            document.getElementById('start-screen').style.display = 'block'; // 關鍵：把主畫面叫回來
+            // 隱藏簡報
+            const container = document.getElementById('presentation-container');
+            container.classList.remove('active'); // 移除 class，變回 hidden
+
+            // 顯示主畫面
+            const startScreen = document.getElementById('start-screen');
+            startScreen.style.display = 'block';
+            // 給一點時間讓 display:block 生效後再淡入
+            setTimeout(() => {
+                startScreen.style.opacity = '1';
+            }, 50);
         }
 
-        // 監聽 Esc 鍵 (電腦版)
+        // 監聽 Esc
         function setupExitListener() {
             document.addEventListener('fullscreenchange', handleEscCheck);
             document.addEventListener('webkitfullscreenchange', handleEscCheck);
         }
 
         function handleEscCheck() {
-            // 如果偵測到退出全螢幕，就執行清理
             if (!document.fullscreenElement && !document.webkitIsFullScreen) {
                 cleanupUI();
             }

@@ -427,7 +427,7 @@
 
     <div id="fs-overlay">
         <button id="fs-close-btn" onclick="closeFullScreen()">✕ 關閉體驗</button>
-        <div id="fs-hint">💡 手機版左右滑動 | 電腦版點擊左/右側或使用鍵盤左右鍵切換頁面</div>
+        <div id="fs-hint">💡 點擊螢幕後，手機版請左右滑動切換 | 電腦版請使用鍵盤左右鍵切換頁面</div>
         <iframe id="fs-iframe" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 
@@ -486,7 +486,7 @@
             if (fsOverlay.style.display === 'block') {
                 musicText.innerText = action + " " + currentDayName + " 配樂";
             } else {
-                musicText.innerText = currentSlideUrl ? "全螢幕體驗 " + currentDayName : action + " 輕鬆音樂";
+                musicText.innerText = currentSlideUrl ? "播放 " + currentDayName : action + " 輕鬆音樂";
             }
         }
 

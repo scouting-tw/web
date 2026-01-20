@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多洛米蒂山脈 14 天深度行程規劃</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* Custom font for a clean look */
+        /* Custom font and base styles */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
+            background-color: #f8fafc;
         }
         .header {
             background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/76/2d/32/caption.jpg?w=1200&h=-1&s=1');
@@ -28,22 +29,6 @@
             font-size: 1.1em;
             text-shadow: 1px 1px 2px #000;
             margin-top: 10px;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
-            border-radius: 10px;
         }
         .list-circle li::marker {
             content: '• ';
@@ -66,7 +51,7 @@
             height: 100%;
         }
 
-        /* 音樂播放器專用樣式 */
+        /* 音樂播放器隱藏容器 */
         #yt-player-container {
             position: fixed;
             bottom: 0;
@@ -98,6 +83,53 @@
         @keyframes sound {
             0% { height: 3px; opacity: .35; }
             100% { height: 15px; opacity: 0.95; }
+        }
+
+        /* ================= 全螢幕遮罩層樣式 ================= */
+        #fs-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-color: black;
+            z-index: 9999;
+        }
+        #fs-overlay iframe {
+            width: 100%; height: 100%;
+            border: none;
+        }
+        #fs-close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            z-index: 10001;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            font-weight: bold;
+        }
+        /* 電腦版隱藏關閉按鈕，因可用 Esc */
+        @media (min-width: 1024px) {
+            #fs-close-btn { display: none !important; }
+        }
+        /* 底部提示文字 (覆蓋控制列) */
+        #fs-hint {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 12px 0;
+            font-size: 14px;
+            text-align: center;
+            pointer-events: none; /* 讓點擊穿透 */
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -143,15 +175,15 @@
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-green-50 p-6 rounded-lg shadow-inner">
-                    <h3 class="text-2xl font-semibold text-green-800 mb-3">聖盧加諾 (San Lugano) / 費梅谷 (Val di Fiemme)</h3>
-                    <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂西南部，是連接 Adige 谷地與 Val di Fiemme 的戰略隘口。這裡距離<b>卡雷扎湖 (Lago di Carezza)</b> 與<b>玫瑰花園</b>極近，前往<b>聖馬蒂諾迪卡斯特羅扎</b>也相當順路。雖然前往奧蒂塞伊（塞切達山/休斯高原）需約 50-60 分鐘車程，但此區住宿更為寧靜，且離回米蘭的高速公路入口較近，是極佳的西側基地。</p>
+                    <h3 class="text-2xl font-semibold text-green-800 mb-3">聖盧加諾 (San Lugano) 附近小鎮</h3>
+                    <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂西南部，是連接 Adige 谷地與 Val di Fiemme 的戰略隘口。這裡距離<b>卡雷扎湖 (Lago di Carezza)</b> 與<b>玫瑰花園</b>極近。雖然前往奧蒂塞伊（塞切達山/休斯高原）需約 50-60 分鐘車程，但此區住宿更為寧靜，是極佳的西側基地。</p>
                     <div class="mt-4 flex justify-center">
                         <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=682x2048:format=jpg/path/sbba1b6916cdd0516/image/i83870bdf054095f2/version/1701980242/image.jpg" alt="聖盧加諾與費梅谷周邊景色" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
                     </div>
                 </div>
                 <div class="bg-blue-50 p-6 rounded-lg shadow-inner">
                     <h3 class="text-2xl font-semibold text-blue-800 mb-3">科爾蒂納丹佩佐 (Cortina d'Ampezzo) 附近小鎮</h3>
-                    <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂東部，是前往三尖山、賈烏山口、五塔、馬爾莫拉達山、布萊依斯湖和羅薩爾滕湖的絕佳基地。科爾蒂納本身也是一個熱鬧且設施完善的山城。</p>
+                    <p class="text-base mb-2"><b>優勢：</b> 位於多洛米蒂東部，是前往三尖山 (Tre Cime)、賈烏山口、五塔 (Cinque Torri)、馬爾莫拉達山 (Marmolada)、布萊依斯湖 (Lago di Braies) 和索拉皮斯湖 (Lago di Sorapis) 的絕佳基地。科爾蒂納本身也是一個熱鬧且設施完善的山城。</p>
                     <div class="mt-4 flex justify-center">
                         <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/611187689.jpg?k=d98d2f76976d68a6d7379790a3816d70f1c954ad7980c1801d2cca5abe5047d4&o=" alt="科爾蒂納丹佩佐小鎮" class="rounded-lg shadow-lg w-full md:w-3/4 lg:w-2/3">
                     </div>
@@ -159,17 +191,11 @@
             </div>
         </section>
 
-        <section class="mb-12 bg-white p-8 rounded-xl shadow-md">
-            <h2 class="text-3xl font-bold text-blue-700 mb-4">交通方式</h2>
-            <p class="text-lg leading-relaxed">
-                <b>租車自駕。</b> 多洛米蒂地區公共交通網絡雖然存在，但班次較少且靈活性低，自駕能讓您更自由地探索各個景點，尤其是在清晨或傍晚避開人潮。
-            </p>
-        </section>
-
         <section class="mb-12">
             <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">行程規劃</h2>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="dQw4w9WgXcQ" data-day-name="多洛米蒂 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="dQw4w9WgXcQ" data-day-name="多洛米蒂 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSmBc7bTK8xQU9c58dwAMvxROVJwy4JNhXb0PdsUO17LRkySl_4Nt1wwA2Hh66tANweGOPNTOtKnk8D/pubembed?start=false&loop=false&delayms=3000">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 1 天：米蘭市區集合，租車，前往多洛米蒂</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li>
@@ -185,7 +211,8 @@
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="hYAn5S6QDSc" data-day-name="三尖山 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="hYAn5S6QDSc" data-day-name="三尖山 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9XejG5qk/XV80LcldgRM5sbCSatP88g/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 2 天：多洛米蒂的象徵 - 三尖山 (Tre Cime di Lavaredo) 經典環形徒步</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> <b>啟動「三尖峰」遠征計畫</b> (建議 09:00 抵達停車場整備)。
@@ -219,16 +246,10 @@
                     </li>
                     <li><b>住宿：</b> 科爾蒂納丹佩佐附近。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9XejG5qk/XV80LcldgRM5sbCSatP88g/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="qJPDpr8kiig" data-day-name="布萊依斯湖 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="qJPDpr8kiig" data-day-name="布萊依斯湖 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9niNx1mA/fn-ZpBJvAtHJi98EuCHFHw/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 3 天：多洛米蒂的珍珠 - 布萊依斯湖 (Lago di Braies)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> <b>策略性提早出發</b> (建議 08:00 前抵達)，前往<b class="text-blue-600">布萊依斯湖 (Lago di Braies)</b>。
@@ -260,16 +281,10 @@
                     </li>
                     <li><b>住宿：</b> 科爾蒂納丹佩佐附近。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9niNx1mA/fn-ZpBJvAtHJi98EuCHFHw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="DR_zcCLihAU" data-day-name="Marmolada 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="DR_zcCLihAU" data-day-name="馬爾莫拉達山 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9nmj_91w/9ZlxWNUR3MXCkG34B-256w/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 4 天：多洛米蒂女王 - 馬爾莫拉達山 (Marmolada)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>全天：</b> 啟動「多洛米蒂女王」遠征計畫。駕車前往 <b>Passo Fedaia</b> 作為戰略起點，這裡停車空間相對充足且風景優美。
@@ -291,16 +306,10 @@
                     </li>
                     <li><b>住宿：</b> 科爾蒂納丹佩佐附近。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9nmj_91w/9ZlxWNUR3MXCkG34B-256w/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="3oEhYfWb9ZU" data-day-name="Lago di Sorapis 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="3oEhYfWb9ZU" data-day-name="索拉皮斯湖 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9ni9Dk7U/7oBVG23A6c4abh5do8dTOQ/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 5 天：夢幻牛奶藍 - 索拉皮斯湖 (Lago di Sorapis) 徒步</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>全天選擇一：</b> 挑戰網紅景點<b class="text-blue-600">索拉皮斯湖 (Lago di Sorapis)</b> (需做好心理準備)。
@@ -323,16 +332,10 @@
                     </li>
                     <li><b>住宿：</b> 科爾蒂納丹佩佐附近。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9ni9Dk7U/7oBVG23A6c4abh5do8dTOQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="mnLOqSEg0_8" data-day-name="五塔 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="mnLOqSEg0_8" data-day-name="五塔 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9nh1Yv1Y/bQCX_SDTeGe3cTyF2JPZfQ/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 6 天：高山隘口與二戰遺跡 - 五塔 (CinqTorriue ) 與拉加祖瓦伊山 (Lagazuoi)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 駕車前往<b class="text-blue-600">賈烏山口 (Passo Giau)</b> (從科爾蒂納約 30 分鐘車程)。
@@ -355,16 +358,10 @@
                     </li>
                     <li><b>住宿：</b> 科爾蒂納丹佩佐附近。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9nh1Yv1Y/bQCX_SDTeGe3cTyF2JPZfQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="7Kz79l-aNXI" data-day-name="塞拉山口 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="7Kz79l-aNXI" data-day-name="塞拉山口 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9n63Te1E/eZzzgcCULTqSiTTifmuAmw/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 7 天：山隘巡禮 - Passo Sella - Passo Pordoi</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>全天：</b> 攻略多洛米蒂核心區的<b class="text-blue-600">雙山口 (Passo Sella & Passo Pordoi)</b>。
@@ -385,16 +382,10 @@
                     </li>
                     <li><b>住宿：</b> 晚上抵達 <b>San Lugano</b> 入住。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9n63Te1E/eZzzgcCULTqSiTTifmuAmw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="IthCUE9d2D0" data-day-name="塞切達山 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="IthCUE9d2D0" data-day-name="塞切達山 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9ngXf5l4/MUhOMg5faROEcK3Y4rtOeA/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 8 天：鋸齒山脊的震撼 - 塞切達山 (Seceda)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 駕車前往奧蒂塞伊 (Ortisei) (從 San Lugano 出發約 50 分鐘)，準備迎接<b>「卡片回本日」</b>。
@@ -422,16 +413,10 @@
                     </li>
                     <li><b>住宿：</b> 返回 San Lugano。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9ngXf5l4/MUhOMg5faROEcK3Y4rtOeA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>                
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="viHroWHLc78" data-day-name="休斯高原 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="viHroWHLc78" data-day-name="休斯高原 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9n-2rT90/wpQ5tTRVjlbFQaBF2g7rOA/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 9 天：歐洲最大高山草甸 - 休斯高原 (Alpe di Siusi)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 駕車前往奧蒂塞伊 (Ortisei)，搭乘標誌性的紅色圓形纜車<b class="text-blue-600">Mont Sëuc (Ortisei - Alpe di Siusi)</b> 直達休斯高原北側。
@@ -458,16 +443,10 @@
                     </li>
                     <li><b>住宿：</b> 返回 San Lugano。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9n-2rT90/wpQ5tTRVjlbFQaBF2g7rOA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>                
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="-8riccCVXdw" data-day-name="卡雷扎湖 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="-8riccCVXdw" data-day-name="卡雷扎湖 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9n8bz_ds/QprQbPkbRNVWkeSANzDJYA/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 10 天：彩虹湖的傳說 - 卡雷扎湖 (Lago di Carezza)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 駕車前往<b class="text-blue-600">卡雷扎湖 (Lago di Carezza)</b>。
@@ -492,16 +471,10 @@
                     </li>
                     <li><b>住宿：</b> 返回 <b>San Lugano</b> 基地。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9n8bz_ds/QprQbPkbRNVWkeSANzDJYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="MyCXbFA7w-c" data-day-name="富內斯山谷 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="MyCXbFA7w-c" data-day-name="富內斯山谷 導覽"
+                 data-slide-url="https://www.canva.com/design/DAG9nkpFads/FwtSImwf5Z8SZKibmljL6Q/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 11 天：明信片般的田園風光 - 富內斯山谷 (Val di Funes)</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午 (山巒健行篇)：</b> 駕車前往 <b>Zannes 停車場</b>，以此為起點踏上經典的<b class="text-blue-600">阿道夫·梅斯納步道 (Adolf Munkel Weg)</b>。
@@ -531,16 +504,10 @@
                     </li>
                     <li><b>住宿：</b> 返回 <b>San Lugano</b> 基地。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9nkpFads/FwtSImwf5Z8SZKibmljL6Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>                
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="30KBUvM2fMk" data-day-name="阿萊格湖 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="30KBUvM2fMk" data-day-name="阿萊格湖 導覽"
+                data-slide-url="https://www.canva.com/design/DAG9n9tiz7w/-FI5g3HrhHZPiV16wXLPrA/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 12 天：高山隘口與湖泊 - 阿萊格湖 (Lago di Alleghe) 與 費梅谷</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 啟動「移動即風景」的一天。從科爾蒂納出發，首站挑戰多洛米蒂最美隘口之一的<b class="text-blue-600">賈烏山口 (Passo Giau)</b> (2236m)。
@@ -566,16 +533,10 @@
                     </li>
                     <li><b>住宿：</b> 返回 <b>San Lugano</b> 基地。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9n9tiz7w/-FI5g3HrhHZPiV16wXLPrA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="rr9rdwm1RMk" data-day-name="南多洛米蒂 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="rr9rdwm1RMk" data-day-name="南多洛米蒂 導覽"
+                data-slide-url="https://www.canva.com/design/DAG9n3QvFJk/O_9G2XLe1rOq5MIiokl6wA/view?embed">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 13 天：南多洛米蒂風情 - 聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza) - 米蘭</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li><b>上午：</b> 抵達多洛米蒂精華地帶<b class="text-blue-600">聖馬蒂諾迪卡斯特羅扎 (San Martino di Castrozza)</b> (從 San Lugano 出發約 50 分鐘)。
@@ -600,16 +561,10 @@
                     <li><b>下午：</b> 結束高山探險後，駕車返回米蘭市區 (車程約 3.5 - 4 小時)，辦理還車手續。</li>
                     <li><b>住宿：</b> 米蘭市區。</li>
                 </ul>
-                <div style="position: relative; width: 100%; height: 0; padding-top: 55.8342%;
-                    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
-                    border-radius: 8px; will-change: transform;">
-                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                        src="https://www.canva.com/design/DAG9n3QvFJk/O_9G2XLe1rOq5MIiokl6wA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                    </iframe>
-                </div>
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="dQw4w9WgXcQ" data-day-name="米蘭市區 導覽">
+            <div class="bg-white p-6 rounded-xl shadow-md mb-6" data-video-id="dQw4w9WgXcQ" data-day-name="米蘭市區 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSmBc7bTK8xQU9c58dwAMvxROVJwy4JNhXb0PdsUO17LRkySl_4Nt1wwA2Hh66tANweGOPNTOtKnk8D/pubembed?start=false&loop=false&delayms=3000">
                 <h4 class="text-xl font-semibold text-gray-800 mb-3">第 14 天：米蘭市區解散</h4>
                 <ul class="list-disc list-inside space-y-2 text-gray-700">
                     <li>
@@ -637,159 +592,152 @@
                 </a>
             </div>
         </section>
-
     </main>
 
-    <footer class="bg-gray-800 text-white p-6 mt-12 rounded-t-xl">
-        <div class="container mx-auto text-center text-sm opacity-80">
-            © 2026 多洛米蒂深度之旅規劃。祝您旅途愉快！
-        </div>
-    </footer>
+    <div id="yt-player-container"><div id="video-placeholder"></div></div>
 
-    <div id="yt-player-container">
-        <div id="video-placeholder"></div>
+    <div id="fs-overlay">
+        <button id="fs-close-btn" onclick="closeFullScreen()">✕ 關閉</button>
+        <div id="fs-hint">💡 手機版請左右滑動 | 電腦版點擊左/右側或使用鍵盤左右鍵切換，按 <b>Esc</b> 退出</div>
+        <iframe id="fs-iframe" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 
     <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
         <div class="music-wave" id="music-wave-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
         </div>
-        
         <span id="music-text" class="font-bold text-sm tracking-wide">播放 輕鬆音樂</span>
     </button>
 
     <script>
         var player;
         var isPlaying = false; 
-        var currentVideoId = ''; 
-        // ★ 設定預設音樂 (輕鬆背景音樂)
-        var defaultVideoId = 'V7Bohz21qq4'; 
-        var defaultName = "輕鬆背景音樂";
+        var defaultVideoId = 'V7Bohz21qq4'; // 背景音樂
+        var currentVideoId = defaultVideoId;
+        
+        var targetSectionVideoId = defaultVideoId; 
+        var currentSlideUrl = ''; 
+        var currentDayName = '';
 
         var toggleBtn = document.getElementById('music-toggle');
         var musicText = document.getElementById('music-text');
         var waveIcon = document.getElementById('music-wave-icon');
-    
-        // 1. 載入 YouTube API
+        var fsOverlay = document.getElementById('fs-overlay');
+        var fsIframe = document.getElementById('fs-iframe');
+
+        // 1. YouTube API
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
-        // 2. 初始化播放器
+
         function onYouTubeIframeAPIReady() {
-            currentVideoId = defaultVideoId;
-    
             player = new YT.Player('video-placeholder', {
                 videoId: defaultVideoId,
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': defaultVideoId
-                },
+                playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': defaultVideoId },
                 events: {
                     'onStateChange': onPlayerStateChange,
                     'onReady': startScrollObserver 
                 }
             });
         }
-    
-        // 3. 監聽播放狀態 (控制按鈕樣式)
+
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 isPlaying = true;
                 toggleBtn.classList.add('ring-2', 'ring-blue-400', 'bg-blue-50');
                 waveIcon.classList.add('playing');
-                if(musicText.innerText.includes('播放')) {
-                    musicText.innerText = musicText.innerText.replace('播放', '暫停');
-                }
+                updateButtonText(true);
             } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
                 isPlaying = false;
                 toggleBtn.classList.remove('ring-2', 'ring-blue-400', 'bg-blue-50');
                 waveIcon.classList.remove('playing');
-                if(musicText.innerText.includes('暫停')) {
-                    musicText.innerText = musicText.innerText.replace('暫停', '播放');
-                }
+                updateButtonText(false);
             }
         }
-    
-        // 4. 按鈕點擊事件
-        toggleBtn.addEventListener('click', function() {
-            if (isPlaying) {
-                player.pauseVideo();
+
+        function updateButtonText(playing) {
+            var action = playing ? "暫停" : "播放";
+            if (fsOverlay.style.display === 'block') {
+                musicText.innerText = action + " " + currentDayName + " 配樂";
             } else {
-                player.playVideo();
+                musicText.innerText = currentSlideUrl ? "播放 " + currentDayName : action + " 輕鬆音樂";
+            }
+        }
+
+        // 4. 按鈕點擊
+        toggleBtn.addEventListener('click', function() {
+            if (currentSlideUrl) {
+                if (fsOverlay.style.display === 'block') {
+                    if (isPlaying) player.pauseVideo(); else player.playVideo();
+                } else { openFullScreen(); }
+            } else {
+                if (isPlaying) player.pauseVideo();
+                else {
+                    if (currentVideoId !== defaultVideoId) loadTrack(defaultVideoId);
+                    else player.playVideo();
+                }
             }
         });
-    
-        // ==========================================
-        // 5. ★ 核心修改：全域捲動偵測
-        // ==========================================
+
+        function openFullScreen() {
+            if (!currentSlideUrl) return;
+            fsIframe.src = currentSlideUrl;
+            fsOverlay.style.display = 'block';
+            if (targetSectionVideoId && targetSectionVideoId !== currentVideoId) {
+                loadTrack(targetSectionVideoId);
+            } else if (!isPlaying) { player.playVideo(); }
+            var elem = document.documentElement;
+            if (elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+        }
+
+        function closeFullScreen() {
+            fsOverlay.style.display = 'none';
+            fsIframe.src = "";
+            if (currentVideoId !== defaultVideoId) loadTrack(defaultVideoId);
+            if (!isPlaying) player.playVideo();
+            if (document.exitFullscreen) document.exitFullscreen();
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+
+        function loadTrack(videoId) {
+            currentVideoId = videoId;
+            player.loadVideoById({ videoId: videoId, startSeconds: 0 });
+        }
+
+        document.addEventListener('fullscreenchange', exitHandler);
+        document.addEventListener('webkitfullscreenchange', exitHandler);
+
+        function exitHandler() {
+            if (!document.fullscreenElement && !document.webkitIsFullScreen) {
+                if (fsOverlay.style.display === 'block') closeFullScreen();
+            }
+        }
+
         function startScrollObserver() {
-            var options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15 // 稍微降低閾值，讓切換更靈敏
-            };
-    
+            var options = { root: null, rootMargin: '0px', threshold: 0.15 };
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
-                    // 只有當區塊「進入」畫面時才觸發
                     if (entry.isIntersecting) {
-                        
-                        // 嘗試抓取該區塊的 ID
-                        var targetId = entry.target.getAttribute('data-video-id');
-                        var targetName = entry.target.getAttribute('data-day-name');
-
-                        if (targetId) {
-                            // A. 如果這個區塊有設定 ID (例如 Day 2)，就播它的歌
-                            if (targetId !== currentVideoId) {
-                                changeTrack(targetId, targetName);
-                            }
+                        var detectedId = entry.target.getAttribute('data-video-id');
+                        var detectedName = entry.target.getAttribute('data-day-name');
+                        var detectedSlide = entry.target.getAttribute('data-slide-url');
+                        if (detectedSlide) {
+                            currentSlideUrl = detectedSlide;
+                            currentDayName = detectedName;
+                            targetSectionVideoId = detectedId || defaultVideoId;
                         } else {
-                            // B. 如果這個區塊沒有 ID (例如標題、住宿介紹)，就播 Default
-                            // 為了避免重複觸發，只有當「現在不是播 Default」時才切換
-                            if (currentVideoId !== defaultVideoId) {
-                                changeTrack(defaultVideoId, defaultName);
-                            }
+                            currentSlideUrl = ''; currentDayName = '';
+                            targetSectionVideoId = defaultVideoId;
                         }
+                        updateButtonText(isPlaying);
                     }
                 });
             }, options);
-    
-            // ★ 新的寫法 (更聰明)：
-            // 1. 抓取所有結構區塊 (header, section, footer) 用來觸發 Default 音樂
-            // 2. 抓取所有「有設定 data-video-id 屬性」的元素 (不管它是 div 還是 section)
-            var allSections = document.querySelectorAll('.header, section, footer, [data-video-id]');
-            
-            allSections.forEach(function(el) {
-                observer.observe(el);
-            });
-        }
-    
-        // 6. 切換音樂函式
-        function changeTrack(newId, dayName) {
-            console.log("切換至:", dayName);
-            currentVideoId = newId;
-    
-            var actionVerb = isPlaying ? "暫停" : "播放";
-            musicText.innerText = actionVerb + " " + dayName;
-    
-            if (isPlaying) {
-                player.loadVideoById({
-                    videoId: newId,
-                    startSeconds: 0
-                });
-            } else {
-                player.cueVideoById({
-                    videoId: newId,
-                    startSeconds: 0
-                });
-            }
+            // 監控所有具備導覽性質的區塊
+            var allSections = document.querySelectorAll('.header, section, footer, .bg-white.p-6.rounded-xl');
+            allSections.forEach(function(el) { observer.observe(el); });
         }
     </script>
 </body>

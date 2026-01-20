@@ -1015,6 +1015,220 @@
 <script>
     var player;
     var isPlaying = false; 
+    
+    // 音樂設定
+    var defaultVideoId = 'V7Bohz21qq4'; // 原始背景音樂 (輕鬆音樂)
+    var currentVideoId = defaultVideoId; // 目前正在播放的 ID
+    
+    // 暫存變數 (由捲動偵測更新，但不立即播放)
+    var targetSectionVideoId = defaultVideoId; // 當前視窗區塊 "想要" 播放的音樂
+    var currentSlideUrl = ''; // 當前視窗區塊的簡報連結
+    var currentDayName = '';  // 當前視窗區塊的名稱
+
+    var toggleBtn = document.getElementById('music-toggle');
+    var musicText = document.getElementById('music-text');
+    var waveIcon = document.getElementById('music-wave-icon');
+    var fsOverlay = document.getElementById('fs-overlay');
+    var fsIframe = document.getElementById('fs-iframe');
+
+    // 1. 載入 YouTube API
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 2. 初始化播放器
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video-placeholder', {
+            videoId: defaultVideoId,
+            playerVars: {
+                'autoplay': 0,
+                'controls': 0,
+                'loop': 1,
+                'playlist': defaultVideoId
+            },
+            events: {
+                'onStateChange': onPlayerStateChange,
+                'onReady': startScrollObserver 
+            }
+        });
+    }
+
+    // 3. 監聽播放狀態 (控制按鈕外觀)
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            isPlaying = true;
+            toggleBtn.classList.add('ring-2', 'ring-blue-400', 'bg-blue-50');
+            waveIcon.classList.add('playing');
+            updateButtonText(true);
+        } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+            isPlaying = false;
+            toggleBtn.classList.remove('ring-2', 'ring-blue-400', 'bg-blue-50');
+            waveIcon.classList.remove('playing');
+            updateButtonText(false);
+        }
+    }
+
+    // 更新按鈕文字 (UI)
+    function updateButtonText(playing) {
+        var action = playing ? "暫停" : "播放";
+        
+        // 如果目前全螢幕開啟中，文字顯示 "全螢幕體驗中" (或可自訂)
+        if (fsOverlay.style.display === 'block') {
+            musicText.innerText = action + " " + currentDayName + " 配樂";
+        } else {
+            // 一般瀏覽模式
+            if (currentSlideUrl) {
+                musicText.innerText = "全螢幕體驗 " + currentDayName;
+            } else {
+                musicText.innerText = action + " 輕鬆音樂";
+            }
+        }
+    }
+
+    // 4. 按鈕點擊事件 (觸發點)
+    toggleBtn.addEventListener('click', function() {
+        // 情境 A: 有簡報連結 -> 啟動全螢幕流程 (切換音樂 + 顯示簡報)
+        if (currentSlideUrl) {
+            // 如果已經在全螢幕模式，點擊按鈕則控制暫停/播放
+            if (fsOverlay.style.display === 'block') {
+                if (isPlaying) player.pauseVideo();
+                else player.playVideo();
+            } else {
+                openFullScreen();
+            }
+        } 
+        // 情境 B: 無簡報 (頁首/頁尾) -> 純控制背景音樂播放/暫停
+        else {
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                // 確保播放的是預設音樂
+                if (currentVideoId !== defaultVideoId) {
+                    loadTrack(defaultVideoId);
+                } else {
+                    player.playVideo();
+                }
+            }
+        }
+    });
+
+    // 5. 開啟全螢幕 (切換至該段落音樂)
+    function openFullScreen() {
+        if (!currentSlideUrl) return;
+
+        // A. 載入簡報
+        fsIframe.src = currentSlideUrl;
+        fsOverlay.style.display = 'block';
+
+        // B. ★ 關鍵：切換至該段落的專屬音樂
+        // 如果該段落有指定音樂 ID，且跟現在播的不一樣，就切換
+        if (targetSectionVideoId && targetSectionVideoId !== currentVideoId) {
+            loadTrack(targetSectionVideoId);
+        } else {
+            // 如果一樣(或沒指定)，確保它是播放狀態
+            if (!isPlaying) player.playVideo();
+        }
+    }
+
+    // 6. 關閉全螢幕 (切換回原始音樂)
+    function closeFullScreen() {
+        // A. 關閉簡報
+        fsOverlay.style.display = 'none';
+        fsIframe.src = ""; // 停止 iframe 運作
+
+        // B. ★ 關鍵：切換回原始背景音樂
+        if (currentVideoId !== defaultVideoId) {
+            loadTrack(defaultVideoId);
+        }
+        
+        // 離開全螢幕時，維持音樂播放 (營造無縫背景感)，如果不想要自動播，可把下一行註解掉
+        if (!isPlaying) player.playVideo();
+
+        // 離開瀏覽器全螢幕 API
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+
+    // 7. 載入並播放音樂的輔助函式
+    function loadTrack(videoId) {
+        currentVideoId = videoId;
+        player.loadVideoById({
+            videoId: videoId,
+            startSeconds: 0
+        });
+        // loadVideoById 會自動開始播放
+    }
+
+    // 8. 監聽 Esc 鍵
+    document.addEventListener('fullscreenchange', exitHandler);
+    document.addEventListener('webkitfullscreenchange', exitHandler);
+    document.addEventListener('mozfullscreenchange', exitHandler);
+    document.addEventListener('MSFullscreenChange', exitHandler);
+
+    function exitHandler() {
+        if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+            if (fsOverlay.style.display === 'block') {
+                closeFullScreen();
+            }
+        }
+    }
+
+    // ==========================================
+    // 9. 捲動偵測 (只更新變數，不切換音樂)
+    // ==========================================
+    function startScrollObserver() {
+        var options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    
+                    var detectedId = entry.target.getAttribute('data-video-id');
+                    var detectedName = entry.target.getAttribute('data-day-name');
+                    var detectedSlide = entry.target.getAttribute('data-slide-url');
+
+                    // 1. 更新按鈕要顯示的文字與狀態變數
+                    if (detectedSlide) {
+                        currentSlideUrl = detectedSlide;
+                        currentDayName = detectedName;
+                        targetSectionVideoId = detectedId || defaultVideoId; // 如果該段落沒設音樂，就用預設
+                    } else {
+                        // 進入沒有簡報的區域 (如地圖、注意事項)
+                        currentSlideUrl = '';
+                        currentDayName = '';
+                        targetSectionVideoId = defaultVideoId;
+                    }
+
+                    // 2. 更新按鈕文字 (UI)
+                    updateButtonText(isPlaying);
+
+                    // ★ 注意：這裡移除了原本的 changeTrack() 呼叫
+                    // 因此捲動時，音樂不會改變，只有變數改變。
+                }
+            });
+        }, options);
+
+        var allSections = document.querySelectorAll('.header, section, footer, [data-video-id]');
+        allSections.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+</script>
+
+<script>
+    /*
+    var player;
+    var isPlaying = false; 
     var currentVideoId = ''; 
     var defaultVideoId = 'V7Bohz21qq4'; 
     var defaultName = "輕鬆背景音樂";
@@ -1122,9 +1336,9 @@
         var elem = document.documentElement;
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
+        } else if (elem.webkitRequestFullscreen) {
             elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
+        } else if (elem.msRequestFullscreen) {
             elem.msRequestFullscreen();
         }
     }
@@ -1232,6 +1446,7 @@
             });
         }
     }
+*/    
 </script>
 </body>
 </html>

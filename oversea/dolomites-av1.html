@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
         }
+
         .header {
             background-image: url('https://images.simedia.cloud/cms-v2/CustomerData/557/Files/Images/drei-zinnen-sextner-dolomiten/allgemein/pragser-wildsee/pragser-wildsee-fullscreen.jpg/image.jpg?v=638978644022');
             background-size: cover;
@@ -20,19 +22,23 @@
             padding: 100px 20px;
             text-align: center;
         }
+
         .header h1 {
             font-size: 3.2em;
             margin: 0;
             text-shadow: 3px 3px 6px #000;
         }
+
         .header p.subtitle {
             font-size: 1.4em;
             text-shadow: 2px 2px 4px #000;
             margin-top: 15px;
         }
+
         .section-title {
             color: #1e40af;
         }
+
         .map-container {
             position: relative;
             width: 100%;
@@ -42,6 +48,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+
         .map-container iframe {
             position: absolute;
             top: 0;
@@ -49,6 +56,7 @@
             width: 100%;
             height: 100%;
         }
+
         .day-card {
             background-color: white;
             padding: 24px;
@@ -56,6 +64,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
         }
+
         .day-card:hover {
             transform: translateY(-5px);
         }
@@ -78,6 +87,7 @@
             align-items: center;
             height: 20px;
         }
+
         .bar {
             width: 3px;
             height: 10px;
@@ -86,30 +96,45 @@
             animation: sound 0ms -800ms linear infinite alternate;
             transition: height 0.8s;
         }
+
         .playing .bar {
             animation-duration: 400ms;
         }
+
         @keyframes sound {
-            0% { height: 3px; opacity: .35; }
-            100% { height: 15px; opacity: 0.95; }
+            0% {
+                height: 3px;
+                opacity: .35;
+            }
+
+            100% {
+                height: 15px;
+                opacity: 0.95;
+            }
         }
 
         /* ================= 全螢幕遮罩層樣式 ================= */
         #fs-overlay {
-            display: none; 
+            display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             background-color: black;
             z-index: 9999;
         }
+
         #fs-overlay iframe {
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             border: none;
         }
+
         #fs-close-btn {
             position: absolute;
-            top: 20px; right: 20px;
+            top: 20px;
+            right: 20px;
             z-index: 10001;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
@@ -121,11 +146,16 @@
             backdrop-filter: blur(4px);
             font-weight: bold;
         }
-        #fs-close-btn:hover { background-color: rgba(255, 0, 0, 0.8); }
+
+        #fs-close-btn:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
 
         /* 電腦版隱藏關閉按鈕，因可用 Esc */
         @media (min-width: 1024px) {
-            #fs-close-btn { display: none !important; }
+            #fs-close-btn {
+                display: none !important;
+            }
         }
 
         /* 底部操作提示文字 (覆蓋控制列) */
@@ -140,28 +170,48 @@
             padding: 12px 0;
             font-size: 14px;
             text-align: center;
-            pointer-events: none; /* 點擊穿透 */
+            pointer-events: none;
+            /* 點擊穿透 */
             letter-spacing: 1px;
         }
     </style>
 </head>
+
 <body class="text-gray-800">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div
+            class="container mx-auto px-4 py-3 flex justify-between items-center text-sm font-bold text-blue-900 overflow-x-auto whitespace-nowrap gap-6 no-scrollbar">
+            <a href="#top-header" class="hover:text-blue-600 transition-colors">概覽</a>
+            <a href="#prep" class="hover:text-blue-600 transition-colors">裝備建議</a>
+            <a href="#logistics" class="hover:text-blue-600 transition-colors">交通安排</a>
+            <a href="#day1" class="hover:text-blue-600 transition-colors">D1</a>
+            <a href="#day2" class="hover:text-blue-600 transition-colors">D2</a>
+            <a href="#day4" class="hover:text-blue-600 transition-colors">D4</a>
+            <a href="#day5" class="hover:text-blue-600 transition-colors">D5</a>
+            <a href="#day9" class="hover:text-blue-600 transition-colors">D9</a>
+            <a href="#day11" class="hover:text-blue-600 transition-colors">D11</a>
+            <a href="#booking"
+                class="bg-blue-900 text-white px-4 py-1.5 rounded-full hover:bg-blue-800 transition-all">安全提示</a>
+        </div>
+    </nav>
 
     <header class="header" id="top-header">
         <h1>⛰️ Alta Via 1：多洛米蒂高山步道全程</h1>
         <p class="subtitle"><b>12 天</b>純粹山岳體驗，從<b>米蘭</b>出發的壯麗健行之旅</p>
         <div style="text-align:center; padding-top:30px;">
-            <a href="#booking" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest text-sm">
+            <a href="#booking"
+                class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest text-sm">
                 立即報名
             </a>
         </div>
     </header>
-    
+
     <main class="container mx-auto px-4 py-12">
 
         <section class="mb-12 bg-white p-6 md:p-10 rounded-xl shadow-xl">
             <h2 class="text-3xl font-extrabold section-title mb-6 border-b-2 pb-2">關於 Alta Via 1 (AV1) 健行</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-8">
                 <div class="p-4 bg-yellow-50 rounded-lg shadow-inner">
                     <p class="text-4xl font-bold text-yellow-700">10 天</p>
@@ -178,22 +228,50 @@
             </div>
 
             <p class="text-lg leading-relaxed mb-6">
-                本行程是經典的 AV1 高山步道全程規劃，總天數為 <b>12 天</b>，其中包含 <b>10 天</b>的純粹健行。將在雄偉的多洛米蒂山脈中，全程入住傳統的山區小屋 <b>(Rifugio)</b>，體驗最道地的義大利高山生活。
+                本行程是經典的 AV1 高山步道全程規劃，總天數為 <b>12 天</b>，其中包含 <b>10 天</b>的純粹健行。將在雄偉的多洛米蒂山脈中，全程入住傳統的山區小屋
+                <b>(Rifugio)</b>，體驗最道地的義大利高山生活。
             </p>
-            
+
             <div class="map-container mb-8">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1isVS42rkRtx9E_F5SbDqNltgmtIpEjaQ&ehbc=2E312F" 
+                <iframe src="https://www.google.com/maps/d/embed?mid=1isVS42rkRtx9E_F5SbDqNltgmtIpEjaQ&ehbc=2E312F"
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
 
-        <section class="mb-12 bg-blue-50 p-8 rounded-xl shadow-lg">
+        <section id="prep" class="mb-12">
+            <h2 class="text-3xl font-extrabold section-title mb-6 border-b-2 pb-2">行前準備與裝備建議</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-5 rounded-lg border border-blue-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-blue-800 mt-0 mb-3">📦 AV1 核心裝備清單</h3>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li><b>背包：</b>35-45L。AV1 路徑較荒涼，建議準備充足容量以應對多變天氣。</li>
+                        <li><b>鞋具：</b>高刷毛/中高筒登山鞋（必須具備優良的 VIBRAM 大底，應對多洛米蒂破碎的石灰岩路段）。</li>
+                        <li><b>防護：</b>強韌的登山杖（下坡極陡且碎石多，必備）。</li>
+                        <li><b>通訊：</b>離線地圖 (Gaia/AllTrails) + 備用行動電源（部分偏遠山屋如 Pramperet 電力受限）。</li>
+                        <li><b>衣物：</b>必須準備輕量羽絨及防風外套。高海拔即便夏季也可能出現接近零度的低溫。</li>
+                    </ul>
+                </div>
+                <div class="bg-emerald-50 p-5 rounded-lg border border-emerald-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-emerald-800 mt-0 mb-3">👟 多洛米蒂專屬訓練</h3>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li><b>碎石坡穩定：</b>加強腳踝力量與平衡訓練。AV1 充滿大量碎石 (Scree) 路段，重心掌控至關重要。</li>
+                        <li><b>負重陡升：</b>AV1 多次出現 +800m 以上的連續攀降，週間推薦階梯訓練。</li>
+                        <li><b>核心強化：</b>有助於在陡峭不穩定的下降路面保護膝蓋與腰部。</li>
+                        <li><b>心理準備：</b>AV1 南段（Day 9-10）人煙稀少，需具備一定程度的荒野心理素質。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="logistics" class="mb-12 bg-blue-50 p-8 rounded-xl shadow-lg">
             <h2 class="text-3xl font-extrabold section-title mb-6">🚄 交通與後勤安排</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="text-2xl font-semibold text-blue-800 mb-3">米蘭往返交通</h3>
-                    <p class="text-base mb-2"><b>Day 1 (去程):</b> 從米蘭搭乘火車至 <b>波爾查諾 (Bolzano)</b>，在此過夜。次日轉區間車至 <b>布魯尼科 (Brunico)</b>，再搭乘巴士 <b>Bus 442</b> 至起點 Lago di Braies。</p>
-                    <p class="text-base mb-2"><b>Day 11 (返程):</b> 從終點 La Pissa 經 <b>Belluno</b> 火車站搭乘火車，再由 <b>Venezia Mestre 或 Verona</b> 轉乘高速列車，當天即可返回 <b>米蘭</b>。</p>
+                    <p class="text-base mb-2"><b>Day 1 (去程):</b> 從米蘭搭乘火車至 <b>波爾查諾 (Bolzano)</b>，在此過夜。次日轉區間車至 <b>布魯尼科
+                            (Brunico)</b>，再搭乘巴士 <b>Bus 442</b> 至起點 Lago di Braies。</p>
+                    <p class="text-base mb-2"><b>Day 11 (返程):</b> 從終點 La Pissa 經 <b>Belluno</b> 火車站搭乘火車，再由 <b>Venezia
+                            Mestre 或 Verona</b> 轉乘高速列車，當天即可返回 <b>米蘭</b>。</p>
                 </div>
                 <div>
                     <h3 class="text-2xl font-semibold text-blue-800 mb-3">山屋與餐食</h3>
@@ -209,319 +287,377 @@
             <h2 class="text-3xl font-extrabold section-title mb-8 text-center border-b-2 pb-2">🗓️ 詳細行程規劃</h2>
 
             <div class="day-card mb-8" data-video-id="eBQ9XlIhNFY" data-day-name="Milano → Bolzano 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vReu8nh5_N60Bbrzxz0hyOUKeuukHghM3_rfJGqwVB5zuIEZ8oIj23HMYiTDw3xvSo7ZLkvERSejZp5/embed?start=false&loop=false">
-                 <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 1：米蘭 (Milano) → 波爾查諾 (Bolzano/Bozen)</h4>
-                 <p class="text-lg font-semibold text-slate-600 mb-4">跨越北義大利 — 從阿爾卑斯抵達多洛米蒂</p>
-                 
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                     <div class="md:col-span-2">
-                         <div class="mb-4">
-                             <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">交通大略：速度與效率的權衡</h5>
-                             <p class="text-base leading-relaxed text-gray-700">
-                                 今日任務是橫跨義大利北部，從時尚之都米蘭移動至多洛米蒂的門戶。我們推薦使用<b>高速火車 (Frecciarossa/Italo)</b>，這是最快且最舒適的選擇。請注意，從米蘭出發通常需要在<b>維羅納 (Verona)</b> 或<b>布雷西亞 (Brescia)</b> 進行一次轉乘。
-                             </p>
-                         </div>
-             
-                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
-                             <h5 class="font-bold text-gray-800 mb-2 text-sm">🕘 交通段落詳解：</h5>
-                             <div class="space-y-2 text-sm text-gray-600">
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>Stage 1: 市區銜接</b></span>
-                                     <span>米蘭地鐵 M1 線 (約 30 分鐘)</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>Stage 2: 長途橫越</b></span>
-                                     <span>米蘭中央車站 → 波爾查諾 (高速火車)</span>
-                                 </div>
-                                 <div class="flex justify-between pb-1">
-                                     <span><b>預計總車程</b></span>
-                                     <span class="text-blue-600 font-bold">約 3 小時 3 分鐘</span>
-                                 </div>
-                             </div>
-                         </div>
-             
-                         <div class="grid grid-cols-2 gap-4">
-                             <div class="bg-blue-100 p-3 rounded border border-blue-200 text-center">
-                                 <p class="text-xs font-bold text-blue-800 uppercase">預估費用</p>
-                                 <p class="text-lg font-bold text-blue-900">€30 - €85 /人</p>
-                             </div>
-                             <div class="bg-emerald-100 p-3 rounded border border-emerald-200 text-center">
-                                 <p class="text-xs font-bold text-emerald-800 uppercase">住宿區域</p>
-                                 <p class="text-sm font-bold text-emerald-900">波爾查諾火車站周邊</p>
-                             </div>
-                         </div>
-                     </div>
-             
-                     <div class="flex flex-col gap-4">
-                         <div class="relative">
-                             <img src="https://www.sundaytour.com.tw/upfiles/chinese/attractions/tw_attractions_caty01692757544.jpg" alt="波爾查諾市景" class="rounded-lg w-full h-48 object-cover shadow-md">
-                             <span class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Bolzano 門戶城市</span>
-                         </div>
-                         
-                         <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200 shadow-inner">
-                             <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 購票黃金法則</h6>
-                             <p class="text-xs text-yellow-900 leading-relaxed mb-2">
-                                 <b>提前預訂：</b> 義大利火車票價浮動劇烈。早鳥票可低至 €30，臨時購票則可能飆升至 €85 以上。
-                             </p>
-                             <p class="text-xs text-yellow-900 leading-relaxed">
-                                 <b>轉乘提示：</b> 建議選擇在 Verona 轉乘的班次，班次最密集且銜接最順暢。
-                             </p>
-                         </div>
-                     </div>
-                 </div>
-            </div>
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vReu8nh5_N60Bbrzxz0hyOUKeuukHghM3_rfJGqwVB5zuIEZ8oIj23HMYiTDw3xvSo7ZLkvERSejZp5/embed?start=false&loop=false">
+                <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 1：米蘭 (Milano) → 波爾查諾 (Bolzano/Bozen)</h4>
+                <p class="text-lg font-semibold text-slate-600 mb-4">跨越北義大利 — 從阿爾卑斯抵達多洛米蒂</p>
 
-            <div class="day-card mb-8" data-video-id="V4tvvpfmvEI" data-day-name="Bolzano → Lago di Braies → Rifugio Sennes 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTDsw-LR9kJk7IJyY2VvgV62XECqTujPJ7lEQYzXg5Vamu5vAqGRPENrdWki3JIuuJRt-9ZFMCwqbHJ/embed?start=false&loop=false">
-                 <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 2：Bolzano → Lago di Braies → Rifugio Sennes</h4>
-                 <p class="text-lg font-semibold text-green-700 mb-4">AV1 首日挑戰：從城市黎明到山中日落的 10 小時跨度</p>
-                 
-                 <div class="content-block">
-                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                         <div class="md:col-span-2">
-                             <p class="text-base leading-relaxed text-gray-700 mb-4">
-                                 今日是體能與意志的雙重試煉。您將從波爾查諾出發，經由兩次精準的交通轉乘抵達 AV1 起點。緊接著迎接您的，是整個行程最著名的「開場震撼教育」：從湖畔直衝 800 公尺海拔的連續陡坡。
-                             </p>
-                             
-                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                                 <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-center">
-                                     <p class="text-xs text-gray-500 font-bold uppercase">總行程時間</p>
-                                     <p class="text-lg font-bold text-gray-800">10 小時</p>
-                                 </div>
-                                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
-                                     <p class="text-xs text-blue-600 font-bold uppercase">核心徒步爬升</p>
-                                     <p class="text-lg font-bold text-gray-800">+1,085 m</p>
-                                 </div>
-                                 <div class="bg-orange-50 p-3 rounded-lg border border-orange-100 text-center">
-                                     <p class="text-xs text-orange-600 font-bold uppercase">徒步耗時</p>
-                                     <p class="text-lg font-bold text-gray-800">5 - 6 小時</p>
-                                 </div>
-                                 <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-center">
-                                     <p class="text-xs text-emerald-600 font-bold uppercase">難度分級</p>
-                                     <p class="text-lg font-bold text-gray-800">EE (資深)</p>
-                                 </div>
-                             </div>
-             
-                             <div class="mb-6">
-                                 <h4 class="font-bold text-blue-700 border-l-4 border-blue-600 pl-2 mb-3">階段一：跨區域交通攻防戰 (06:00 - 09:30)</h4>
-                                 <ul class="space-y-2 text-sm text-gray-700">
-                                     <li class="flex items-start">
-                                         <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">06:00</span>
-                                         <span><b>Bolzano 出發：</b>搭乘首班區域火車。這是計畫的基石，錯過將壓縮爬升的體力 buffer。</span>
-                                     </li>
-                                     <li class="flex items-start">
-                                         <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">08:00</span>
-                                         <span><b>Monguelfo/Brunico 轉乘：</b>切換至 <b>Bus 442</b>。夏季旺季務必確認預約或提早候車。</span>
-                                     </li>
-                                     <li class="flex items-start">
-                                         <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">09:15</span>
-                                         <span><b>抵達 Lago di Braies：</b>在此進行最後整裝，並於 09:30 前開始攀登以避開人群。</span>
-                                     </li>
-                                 </ul>
-                             </div>
-     
-                             <div class="mb-6">
-                                 <h4 class="font-bold text-blue-700 border-l-4 border-blue-600 pl-2 mb-3">階段二：核心爬升試煉 (步道 CAI 1)</h4>
-                                 <p class="text-sm text-gray-600 mb-2 italic">「最初的 +800m 垂直爬升是 AV1 對所有徒步者的首場考驗。」</p>
-                                 <ul class="space-y-2 text-sm text-gray-700">
-                                     <li><b>Forcella Foresta 攻堅：</b>持續約 2.5 小時的樹林陡升，考驗節奏掌控。</li>
-                                     <li><b>Sennes 高原：</b>翻越隘口後視野豁然開朗，景觀轉為開闊的高原與碎石坡。</li>
-                                     <li><b>Rifugio Biella (2,327m)：</b>約 13:15 抵達，是行程中最佳的熱食與能量補充站。</li>
-                                 </ul>
-                             </div>
-                         </div>
-     
-                         <div class="flex flex-col gap-4">
-                             <div class="relative">
-                                 <img src="https://cdn.bookatrekking.com/data/images/2024/03/lago-di-braies-hike-1.webp" alt="Lago di Braies" class="rounded-lg w-full h-56 object-cover shadow-md">
-                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 rounded-lg">
-                                     <p class="text-white text-xs font-semibold italic text-right w-full">起點：Lago di Braies (1,494m)</p>
-                                 </div>
-                             </div>
-                             
-                             <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                                 <h5 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
-                                     <span class="mr-1">💡</span> 專家戰術提示
-                                 </h5>
-                                 <ul class="text-xs text-yellow-900 space-y-2 leading-relaxed">
-                                     <li><b>體能分配：</b>最初 2 小時切勿衝刺，保持「能對話」的呼吸節奏。</li>
-                                     <li><b>時機管理：</b>09:30 前未起步者，建議縮短在湖邊拍照時間，因為午後高原紫外線極強。</li>
-                                     <li><b>最終衝刺：</b>從 Biella 下降至 Sennes 約 45 分鐘，路徑寬闊平緩，可放鬆膝蓋。</li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>    
-                 </div>
-            </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <div class="mb-4">
+                            <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">交通大略：速度與效率的權衡</h5>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                今日任務是橫跨義大利北部，從時尚之都米蘭移動至多洛米蒂的門戶。我們推薦使用<b>高速火車
+                                    (Frecciarossa/Italo)</b>，這是最快且最舒適的選擇。請注意，從米蘭出發通常需要在<b>維羅納 (Verona)</b> 或<b>布雷西亞
+                                    (Brescia)</b> 進行一次轉乘。
+                            </p>
+                        </div>
 
-            <div class="day-card mb-8" data-video-id="75QucdUV47s" data-day-name="Rifugio Sennes → Malga Pices Fanes 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQSvyj3V8sikYPR-rETzW4MxA0qz4StjDv2YhxQva2FXHHZ3CVWSmSFHhOBaBxQ-xY5Y8SMCCUGdpbG/embed?start=false&loop=false">
-                 <h3 class="text-2xl font-bold text-blue-800 mb-2">第3天：Rifugio Sennes → Rifugio Pederü → Malga Pices Fanes</h3>
-                 <p class="text-lg font-semibold text-red-700 mb-4">深谷的試煉 — 橫越 Pederü V 型谷底</p>
-                 
-                 <div class="content-block">
-                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                         <div class="md:col-span-2">
-                             <p class="text-base leading-relaxed text-gray-700 mb-4">
-                                 今日行程是一場典型的「V 型」地理考驗。您將從海拔 2,120 公尺的 Sennes 高原出發，經歷一段極其陡峭的下降抵達谷底，隨後立即轉向面對同樣規模的連續爬升，最終抵達如仙境般的 Fanes 高原湖區。
-                             </p>
-                             
-                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                                 <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
-                                     <p class="text-xs text-blue-600 font-bold uppercase">總下降</p>
-                                     <p class="text-lg font-bold text-gray-800">-572 m</p>
-                                 </div>
-                                 <div class="bg-red-50 p-3 rounded-lg border border-red-100 text-center">
-                                     <p class="text-xs text-red-600 font-bold uppercase">總爬升</p>
-                                     <p class="text-lg font-bold text-gray-800">+554 m</p>
-                                 </div>
-                                 <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-center">
-                                     <p class="text-xs text-gray-500 font-bold uppercase">徒步耗時</p>
-                                     <p class="text-lg font-bold text-gray-800">3.5 - 4 小時</p>
-                                 </div>
-                                 <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-center">
-                                     <p class="text-xs text-emerald-600 font-bold uppercase">難度分級</p>
-                                     <p class="text-lg font-bold text-gray-800">E (要求體力)</p>
-                                 </div>
-                             </div>
-             
-                             <div class="space-y-4 mb-6">
-                                 <div class="border-l-4 border-blue-500 pl-4">
-                                     <h4 class="font-bold text-blue-800">第一幕：深谷墜落 (下降 -572m)</h4>
-                                     <p class="text-sm text-gray-600">沿著步道 6/7 號，從高原俯衝至谷底的 <b>Rifugio Pederü (1,548m)</b>。這段路徑坡度較大，建議使用登山杖保護膝蓋。這裡也是本日最重要的中繼補給站。</p>
-                                 </div>
-                                 <div class="border-l-4 border-red-500 pl-4">
-                                     <h4 class="font-bold text-red-800">第二幕：向高原突擊 (爬升 +554m)</h4>
-                                     <p class="text-sm text-gray-600">離開 Pederü 後，迎接您的事持續的爬升，目標是壯闊的 <b>Fanes 高原</b>。隨著海拔升高，石灰岩地形將轉變為廣闊的高山草甸與清澈溪流。</p>
-                                 </div>
-                             </div>
-     
-                             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-inner">
-                                 <h5 class="font-bold text-gray-800 flex items-center mb-2">
-                                     <span class="mr-2">🏠</span> 住宿確認：Malga Pices Fanes
-                                 </h5>
-                                 <ul class="text-sm text-gray-700 space-y-1">
-                                     <li><b>團隊規模：</b> 12 人大通鋪 (Dormitory) 已確認。</li>
-                                     <li><b>餐食計畫：</b> 含早晚餐 (Mezza Pensione)。</li>
-                                     <li><b>戰術位置：</b> 位於 Rifugio Fanes 附近，僅需 <b>15 分鐘平緩步行</b> 即可抵達。</li>
-                                 </ul>
-                             </div>
-                         </div>
-     
-                         <div class="flex flex-col gap-4">
-                             <div class="relative">
-                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMFulhktM911QuBVTmQaM8B8saZhBtYJfrA&s" alt="Fanes 高原" class="rounded-lg w-full h-48 object-cover shadow-md">
-                                 <div class="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
-                                     Fanes 高原景觀
-                                 </div>
-                             </div>
-                             
-                             <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                                 <h5 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
-                                     <span class="mr-1">💡</span> 戰術建議
-                                 </h5>
-                                 <p class="text-xs text-yellow-900 leading-relaxed">
-                                     <b>節奏管理：</b>Pederü 谷底是今日的體力分水嶺。強烈建議在 Pederü 享用咖啡或點心，為隨後的一小時陡升儲備能量。
-                                     <br><br>
-                                     <b>通訊提醒：</b>Fanes 高原地處偏遠，訊號可能不穩，請提前下載離線地圖或截圖住宿細節。
-                                 </p>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-            </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
+                            <h5 class="font-bold text-gray-800 mb-2 text-sm">🕘 交通段落詳解：</h5>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>Stage 1: 市區銜接</b></span>
+                                    <span>米蘭地鐵 M1 線 (約 30 分鐘)</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>Stage 2: 長途橫越</b></span>
+                                    <span>米蘭中央車站 → 波爾查諾 (高速火車)</span>
+                                </div>
+                                <div class="flex justify-between pb-1">
+                                    <span><b>預計總車程</b></span>
+                                    <span class="text-blue-600 font-bold">約 3 小時 3 分鐘</span>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="day-card mb-8" data-video-id="BLI5hZxVtR0" data-day-name="Malga Pices Fanes → Rifugio Col Gallina 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQc-ciBabVUZjxwycA4GMac67ixYctTVthykU5V1UQttaeBNsj6kqaTme7m_xC5yJRM4BtX8N1yQi3O/embed?start=false&loop=false">
-                 <h4 class="text-2xl font-bold text-blue-900 mb-2">Day 4：Malga Pices Fanes → Rifugio Lagazuoi → Rifugio Col Gallina</h4>
-                 <p class="text-lg font-semibold text-red-700 mb-3">史詩級大穿越：跨越拉加佐伊巔峰的長征</p>
-             
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-                     <div class="md:col-span-2">
-                         <div class="mb-4">
-                             <h5 class="font-bold text-gray-800 mb-2 flex items-center">
-                                 <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">階段一</span> 核心攀登：征服 2,752m 頂峰
-                             </h5>
-                             <p class="text-base leading-relaxed text-gray-700">
-                                 從 Fanes 出發，沿 <b>CAI 11→401</b> 前進。先經過 <b>Passo Limo</b> 與 <b>Gran Fanes</b> 的平緩橫切，隨後迎來全日最大挑戰：在 <b>Forcella del Lago</b> 經歷極度陡峭且崎嶇的連續爬升，最終抵達 360 度環景的 Rifugio Lagazuoi。
-                             </p>
-                         </div>
- 
-                         <div class="mb-6">
-                             <h5 class="font-bold text-gray-800 mb-2 flex items-center">
-                                 <span class="bg-red-600 text-white text-xs px-2 py-1 rounded mr-2">階段二</span> 歷史遺產與垂直下撤
-                             </h5>
-                             <p class="text-base leading-relaxed text-gray-700 font-medium">
-                                 <b>不留宿頂峰，直取谷底：</b> 抵達頂峰稍作休息後，選擇 <b>Option B</b> 下山。您可以穿越一戰著名的 <b>Lagazuoi 隧道 (Galleria del Lagazuoi)</b> 或蜿蜒的山徑，一路下降至 <b>Passo Falzarego</b> 附近的 Rifugio Col Gallina。
-                             </p>
-                         </div>
-                         
-                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-                             <div class="bg-white p-3 rounded shadow-sm border border-red-100 text-center">
-                                 <p class="text-xs text-gray-500 uppercase font-bold">累計爬升</p>
-                                 <p class="font-bold text-red-600">+950 m</p>
-                             </div>
-                             <div class="bg-white p-3 rounded shadow-sm border border-blue-100 text-center">
-                                 <p class="text-xs text-gray-500 uppercase font-bold">累計下降</p>
-                                 <p class="font-bold text-blue-600">-600 m+</p>
-                             </div>
-                             <div class="bg-white p-3 rounded shadow-sm border border-gray-100 text-center">
-                                 <p class="text-xs text-gray-500 uppercase font-bold">最高點</p>
-                                 <p class="font-bold text-gray-800">2,752 m</p>
-                             </div>
-                             <div class="bg-white p-3 rounded shadow-sm border border-emerald-100 text-center">
-                                 <p class="text-xs text-gray-500 uppercase font-bold">徒步時長</p>
-                                 <p class="font-bold text-emerald-700">7-8 小時</p>
-                             </div>
-                         </div>
- 
-                         <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
-                             <p class="text-base font-semibold text-emerald-900"><b>🏠 夜宿：Rifugio Col Gallina (海拔 2,055m)</b></p>
-                             <p class="text-sm text-emerald-800 mt-1 italic">「今日完成史詩級的大穿越，在谷底溫馨的山屋中慶祝勝利。這裡相較於頂峰，更接近明日五塔的起點。」</p>
-                         </div>
-                     </div>
-                     
-                     <div class="flex flex-col gap-4">
-                         <div class="relative">
-                             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/74/96/d8/rifugio-lagazuoi.jpg?w=900&h=500&s=1" alt="Rifugio Lagazuoi 展望" class="rounded-lg w-full h-48 object-cover shadow-md">
-                             <span class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">頂峰展望 Tofana 群峰</span>
-                         </div>
-                         
-                         <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                             <h6 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
-                                 <span class="mr-1">⚠️</span> 戰術提示
-                             </h6>
-                             <p class="text-xs text-yellow-900 leading-relaxed">
-                                 1. <b>隧道下山建議：</b> 若計畫進入 Lagazuoi 隧道，<b>必須準備頭燈</b> 且地面濕滑需格外小心。<br><br>
-                                 2. <b>體力管理：</b> 下撤距離長，請在 Rifugio Lagazuoi 充分補充能量後再出發。<br><br>
-                                 3. <b>纜車備案：</b> 若體力不支，可從 Lagazuoi 頂峰搭乘纜車下至 Passo Falzarego，再步行前往 Col Gallina。
-                             </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-blue-100 p-3 rounded border border-blue-200 text-center">
+                                <p class="text-xs font-bold text-blue-800 uppercase">預估費用</p>
+                                <p class="text-lg font-bold text-blue-900">€30 - €85 /人</p>
+                            </div>
+                            <div class="bg-emerald-100 p-3 rounded border border-emerald-200 text-center">
+                                <p class="text-xs font-bold text-emerald-800 uppercase">住宿區域</p>
+                                <p class="text-sm font-bold text-emerald-900">波爾查諾火車站周邊</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="relative">
+                            <img src="https://www.sundaytour.com.tw/upfiles/chinese/attractions/tw_attractions_caty01692757544.jpg"
+                                alt="波爾查諾市景" class="rounded-lg w-full h-48 object-cover shadow-md">
+                            <span
+                                class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Bolzano
+                                門戶城市</span>
+                        </div>
+
+                        <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200 shadow-inner">
+                            <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 購票黃金法則</h6>
+                            <p class="text-xs text-yellow-900 leading-relaxed mb-2">
+                                <b>提前預訂：</b> 義大利火車票價浮動劇烈。早鳥票可低至 €30，臨時購票則可能飆升至 €85 以上。
+                            </p>
+                            <p class="text-xs text-yellow-900 leading-relaxed mb-3">
+                                <b>轉乘提示：</b> 建議選擇在 Verona 轉乘的班次，班次最密集且銜接最順暢。
+                            </p>
+                            <div class="bg-blue-600/10 p-2 rounded border border-blue-600/20">
+                                <p class="text-[10px] font-bold text-blue-800 uppercase tracking-tighter mb-1">🔥 Pro
+                                    Tip (在地首選):</p>
+                                <p class="text-[11px] text-blue-900 leading-tight">抵達 Bolzano 後，傍晚推薦前往 <b>Via dei
+                                        Portici (長廊街)</b> 散步。若想吃頓好的，<b>Franziskanerstubl</b> 的義式漢堡與傳統德式豬腳絕對能為健行啟動最強體能。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="ct7cxuHN89k" data-day-name="Rifugio Col Gallina → Cinque Torri → Federa Lake 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTy4Jhy7wsLI_Xa1MKZqdC4EaV2mILStg9uSjR63vhG-u3hchMRfit64o0sSZgPXqg-iSwaIfimiXJT/embed?start=false&loop=false">
-                 <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+            <div class="day-card mb-8" data-video-id="V4tvvpfmvEI"
+                data-day-name="Bolzano → Lago di Braies → Rifugio Sennes 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTDsw-LR9kJk7IJyY2VvgV62XECqTujPJ7lEQYzXg5Vamu5vAqGRPENrdWki3JIuuJRt-9ZFMCwqbHJ/embed?start=false&loop=false">
+                <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 2：Bolzano → Lago di Braies → Rifugio Sennes</h4>
+                <p class="text-lg font-semibold text-green-700 mb-4">AV1 首日挑戰：從城市黎明到山中日落的 10 小時跨度</p>
+
+                <div class="content-block">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <p class="text-base leading-relaxed text-gray-700 mb-4">
+                                今日是體能與意志的雙重試煉。您將從波爾查諾出發，經由兩次精準的交通轉乘抵達 AV1 起點。緊接著迎接您的，是整個行程最著名的「開場震撼教育」：從湖畔直衝 800
+                                公尺海拔的連續陡坡。
+                            </p>
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-center">
+                                    <p class="text-xs text-gray-500 font-bold uppercase">總行程時間</p>
+                                    <p class="text-lg font-bold text-gray-800">10 小時</p>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
+                                    <p class="text-xs text-blue-600 font-bold uppercase">核心徒步爬升</p>
+                                    <p class="text-lg font-bold text-gray-800">+1,085 m</p>
+                                </div>
+                                <div class="bg-orange-50 p-3 rounded-lg border border-orange-100 text-center">
+                                    <p class="text-xs text-orange-600 font-bold uppercase">徒步耗時</p>
+                                    <p class="text-lg font-bold text-gray-800">5 - 6 小時</p>
+                                </div>
+                                <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-center">
+                                    <p class="text-xs text-emerald-600 font-bold uppercase">難度分級</p>
+                                    <p class="text-lg font-bold text-gray-800">EE (資深)</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold text-blue-700 border-l-4 border-blue-600 pl-2 mb-3">階段一：跨區域交通攻防戰
+                                    (06:00 - 09:30)</h4>
+                                <ul class="space-y-2 text-sm text-gray-700">
+                                    <li class="flex items-start">
+                                        <span
+                                            class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">06:00</span>
+                                        <span><b>Bolzano 出發：</b>搭乘首班區域火車。這是計畫的基石，錯過將壓縮爬升的體力 buffer。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span
+                                            class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">08:00</span>
+                                        <span><b>Monguelfo/Brunico 轉乘：</b>切換至 <b>Bus 442</b>。夏季旺季務必確認預約或提早候車。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span
+                                            class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded mr-2 text-xs font-bold">09:15</span>
+                                        <span><b>抵達 Lago di Braies：</b>在此進行最後整裝，並於 09:30 前開始攀登以避開人群。</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold text-blue-700 border-l-4 border-blue-600 pl-2 mb-3">階段二：核心爬升試煉 (步道
+                                    CAI 1)</h4>
+                                <p class="text-sm text-gray-600 mb-2 italic">「最初的 +800m 垂直爬升是 AV1 對所有徒步者的首場考驗。」</p>
+                                <ul class="space-y-2 text-sm text-gray-700">
+                                    <li><b>Forcella Foresta 攻堅：</b>持續約 2.5 小時的樹林陡升，考驗節奏掌控。</li>
+                                    <li><b>Sennes 高原：</b>翻越隘口後視野豁然開朗，景觀轉為開闊的高原與碎石坡。</li>
+                                    <li><b>Rifugio Biella (2,327m)：</b>約 13:15 抵達，是行程中最佳的熱食與能量補充站。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-4">
+                            <div class="relative">
+                                <img src="https://cdn.bookatrekking.com/data/images/2024/03/lago-di-braies-hike-1.webp"
+                                    alt="Lago di Braies" class="rounded-lg w-full h-56 object-cover shadow-md">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 rounded-lg">
+                                    <p class="text-white text-xs font-semibold italic text-right w-full">起點：Lago di
+                                        Braies (1,494m)</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                <h5 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
+                                    <span class="mr-1">💡</span> 專家戰術提示
+                                </h5>
+                                <ul class="text-xs text-yellow-900 space-y-2 leading-relaxed">
+                                    <li><b>體能分配：</b>最初 2 小時切勿衝刺，保持「能對話」的呼吸節奏。</li>
+                                    <li><b>時機管理：</b>09:30 前未起步者，建議縮短在湖邊拍照時間，因為午後高原紫外線極極。</li>
+                                    <li class="bg-yellow-200/50 p-2 rounded"><b>📸 Pro Tip (攝影哨位)：</b>Lago di Braies
+                                        的網紅小木屋早上 08:30 前光線最美且水面最平靜。這也是為何我們建議在 Bolzano 搭首班車的原因。</li>
+                                    <li class="mt-3 bg-blue-600/10 p-2 rounded border border-blue-600/20">
+                                        <p class="text-[10px] font-bold text-blue-800 uppercase tracking-tighter mb-1">
+                                            🔥 Pro Tip (交通):</p>
+                                        <p class="text-[11px] text-blue-900 leading-tight">夏季旺季 (7-9月) Lago di Braies
+                                            交通管制嚴格。若無預約，09:30-16:00 私家車無法進入。務必搭乘巴士或提早抵達。</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card mb-8" data-video-id="75QucdUV47s" data-day-name="Rifugio Sennes → Malga Pices Fanes 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQSvyj3V8sikYPR-rETzW4MxA0qz4StjDv2YhxQva2FXHHZ3CVWSmSFHhOBaBxQ-xY5Y8SMCCUGdpbG/embed?start=false&loop=false">
+                <h3 class="text-2xl font-bold text-blue-800 mb-2">第3天：Rifugio Sennes → Rifugio Pederü → Malga Pices
+                    Fanes</h3>
+                <p class="text-lg font-semibold text-red-700 mb-4">深谷的試煉 — 橫越 Pederü V 型谷底</p>
+
+                <div class="content-block">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <p class="text-base leading-relaxed text-gray-700 mb-4">
+                                今日行程是一場典型的「V 型」地理考驗。您將從海拔 2,120 公尺的 Sennes
+                                高原出發，經歷一段極其陡峭的下降抵達谷底，隨後立即轉向面對同樣規模的連續爬升，最終抵達如仙境般的 Fanes 高原湖區。
+                            </p>
+
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
+                                    <p class="text-xs text-blue-600 font-bold uppercase">總下降</p>
+                                    <p class="text-lg font-bold text-gray-800">-572 m</p>
+                                </div>
+                                <div class="bg-red-50 p-3 rounded-lg border border-red-100 text-center">
+                                    <p class="text-xs text-red-600 font-bold uppercase">總爬升</p>
+                                    <p class="text-lg font-bold text-gray-800">+554 m</p>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-center">
+                                    <p class="text-xs text-gray-500 font-bold uppercase">徒步耗時</p>
+                                    <p class="text-lg font-bold text-gray-800">3.5 - 4 小時</p>
+                                </div>
+                                <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-100 text-center">
+                                    <p class="text-xs text-emerald-600 font-bold uppercase">難度分級</p>
+                                    <p class="text-lg font-bold text-gray-800">E (要求體力)</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <h4 class="font-bold text-blue-800">第一幕：深谷墜落 (下降 -572m)</h4>
+                                    <p class="text-sm text-gray-600">沿著步道 6/7 號，從高原俯衝至谷底的 <b>Rifugio Pederü
+                                            (1,548m)</b>。這段路徑坡度較大，建議使用登山杖保護膝蓋。這裡也是本日最重要的中繼補給站。</p>
+                                </div>
+                                <div class="border-l-4 border-red-500 pl-4">
+                                    <h4 class="font-bold text-red-800">第二幕：向高原突擊 (爬升 +554m)</h4>
+                                    <p class="text-sm text-gray-600">離開 Pederü 後，迎接您的事持續的爬升，目標是壯闊的 <b>Fanes
+                                            高原</b>。隨著海拔升高，石灰岩地形將轉變為廣闊的高山草甸與清澈溪流。</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-inner">
+                                <h5 class="font-bold text-gray-800 flex items-center mb-2">
+                                    <span class="mr-2">🏠</span> 住宿確認：Malga Pices Fanes
+                                </h5>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li><b>團隊規模：</b> 12 人大通鋪 (Dormitory) 已確認。</li>
+                                    <li><b>餐食計畫：</b> 含早晚餐 (Mezza Pensione)。</li>
+                                    <li><b>戰術位置：</b> 位於 Rifugio Fanes 附近，僅需 <b>15 分鐘平緩步行</b> 即可抵達。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-4">
+                            <div class="relative">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMFulhktM911QuBVTmQaM8B8saZhBtYJfrA&s"
+                                    alt="Fanes 高原" class="rounded-lg w-full h-48 object-cover shadow-md">
+                                <div
+                                    class="absolute bottom-2 left-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">
+                                    Fanes 高原景觀
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                <h5 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
+                                    <span class="mr-1">💡</span> 戰術建議
+                                </h5>
+                                <p class="text-xs text-yellow-900 leading-relaxed">
+                                    <b>節奏管理：</b>Pederü 谷底是今日的體力分水嶺。強烈建議在 Pederü 享用咖啡或點心，為隨後的一小時陡升儲備能量。
+                                    <br><br>
+                                    <b>通訊提醒：</b>Fanes 高原地處偏遠，訊號可能不穩，請提前下載離線地圖或截圖住宿細節。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card mb-8" data-video-id="BLI5hZxVtR0"
+                data-day-name="Malga Pices Fanes → Rifugio Col Gallina 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQc-ciBabVUZjxwycA4GMac67ixYctTVthykU5V1UQttaeBNsj6kqaTme7m_xC5yJRM4BtX8N1yQi3O/embed?start=false&loop=false">
+                <h4 class="text-2xl font-bold text-blue-900 mb-2">Day 4：Malga Pices Fanes → Rifugio Lagazuoi → Rifugio
+                    Col Gallina</h4>
+                <p class="text-lg font-semibold text-red-700 mb-3">史詩級大穿越：跨越拉加佐伊巔峰的長征</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    <div class="md:col-span-2">
+                        <div class="mb-4">
+                            <h5 class="font-bold text-gray-800 mb-2 flex items-center">
+                                <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mr-2">階段一</span> 核心攀登：征服
+                                2,752m 頂峰
+                            </h5>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                從 Fanes 出發，沿 <b>CAI 11→401</b> 前進。先經過 <b>Passo Limo</b> 與 <b>Gran Fanes</b>
+                                的平緩橫切，隨後迎來全日最大挑戰：在 <b>Forcella del Lago</b> 經歷極度陡峭且崎嶇的連續爬升，最終抵達 360 度環景的 Rifugio
+                                Lagazuoi。
+                            </p>
+                        </div>
+
+                        <div class="mb-6">
+                            <h5 class="font-bold text-gray-800 mb-2 flex items-center">
+                                <span class="bg-red-600 text-white text-xs px-2 py-1 rounded mr-2">階段二</span> 歷史遺產與垂直下撤
+                            </h5>
+                            <p class="text-base leading-relaxed text-gray-700 font-medium">
+                                <b>不留宿頂峰，直取谷底：</b> 抵達頂峰稍作休息後，選擇 <b>Option B</b> 下山。您可以穿越一戰著名的 <b>Lagazuoi 隧道 (Galleria
+                                    del Lagazuoi)</b> 或蜿蜒的山徑，一路下降至 <b>Passo Falzarego</b> 附近的 Rifugio Col Gallina。
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                            <div class="bg-white p-3 rounded shadow-sm border border-red-100 text-center">
+                                <p class="text-xs text-gray-500 uppercase font-bold">累計爬升</p>
+                                <p class="font-bold text-red-600">+950 m</p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-blue-100 text-center">
+                                <p class="text-xs text-gray-500 uppercase font-bold">累計下降</p>
+                                <p class="font-bold text-blue-600">-600 m+</p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-gray-100 text-center">
+                                <p class="text-xs text-gray-500 uppercase font-bold">最高點</p>
+                                <p class="font-bold text-gray-800">2,752 m</p>
+                            </div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-emerald-100 text-center">
+                                <p class="text-xs text-gray-500 uppercase font-bold">徒步時長</p>
+                                <p class="font-bold text-emerald-700">7-8 小時</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
+                            <p class="text-base font-semibold text-emerald-900"><b>🏠 夜宿：Rifugio Col Gallina (海拔
+                                    2,055m)</b></p>
+                            <p class="text-sm text-emerald-800 mt-1 italic">
+                                「今日完成史詩級的大穿越，在谷底溫馨的山屋中慶祝勝利。這裡相較於頂峰，更接近明日五塔的起點。」</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="relative">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/74/96/d8/rifugio-lagazuoi.jpg?w=900&h=500&s=1"
+                                alt="Rifugio Lagazuoi 展望" class="rounded-lg w-full h-48 object-cover shadow-md">
+                            <span
+                                class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">頂峰展望
+                                Tofana 群峰</span>
+                        </div>
+
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                            <h6 class="font-bold text-yellow-800 text-sm mb-2 flex items-center">
+                                <span class="mr-1">⚠️</span> 戰術提示
+                            </h6>
+                            <p class="text-xs text-yellow-900 leading-relaxed">
+                                1. <b>隧道下山建議：</b> 若計畫進入 Lagazuoi 隧道，<b>必須準備頭燈</b> 且地面濕滑需格外小心。<br><br>
+                                2. <b>體力管理：</b> 下撤距離長，請在 Rifugio Lagazuoi 充分補充能量後再出發。<br><br>
+                                3. <b>纜車備案：</b> 若體力不支，可從 Lagazuoi 頂峰搭乘纜車下至 Passo Falzarego。<br>
+                            </p>
+                            <div class="mt-3 bg-red-600/10 p-2 rounded border border-red-600/20">
+                                <p class="text-[10px] font-bold text-red-800 uppercase tracking-tighter mb-1">✨ Pro Tip
+                                    (史詩視角):</p>
+                                <p class="text-[11px] text-red-900 leading-tight">Lagazuoi
+                                    頂峰的露台是「多洛米蒂夕陽之王」。雖然我們不留宿在此，但強烈建議在下山前喝杯咖啡，欣賞 Tofana 與 Marmolada (冰河之后) 的合影。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card mb-8" data-video-id="ct7cxuHN89k"
+                data-day-name="Rifugio Col Gallina → Cinque Torri → Federa Lake 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTy4Jhy7wsLI_Xa1MKZqdC4EaV2mILStg9uSjR63vhG-u3hchMRfit64o0sSZgPXqg-iSwaIfimiXJT/embed?start=false&loop=false">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6">
                     <div>
-                        <h3 class="text-3xl font-extrabold text-blue-900 mb-2">Day 5：Rifugio Col Gallina → Cinque Torri → Rifugio Croda da Lago</h3>
+                        <h3 class="text-3xl font-extrabold text-blue-900 mb-2">Day 5：Rifugio Col Gallina → Cinque Torri
+                            → Rifugio Croda da Lago</h3>
                         <p class="text-xl font-bold text-emerald-700 flex items-center">
                             <span class="mr-2">🏔️</span> 史詩湖泊路線 — 穿越五塔群，尋訪費德拉湖
                         </p>
                     </div>
                     <div class="mt-4 md:mt-0">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Via 1 經典段</span>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta
+                            Via 1 經典段</span>
                     </div>
                 </div>
-                
+
                 <div class="content-block">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2">
                             <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                今日行程是一場穿越時空的視覺長征。從 <b>Col Gallina</b> 出發，您將首先仰望 <b>Averau</b> 巨大的岩壁，隨後進入 <b>五塔群 (Cinque Torri)</b> 的核心。這裡不僅是自然奇觀，更是<b>一戰戶外歷史博物館</b>。在翻越當日最高點 <b>Forcella Ambrizzola</b> 後，被譽為「上帝寶座」的 <b>Monte Pelmo</b> 將震撼現身，引領您抵達靜謐的費德拉湖畔。
+                                今日行程是一場穿越時空的視覺長征。從 <b>Col Gallina</b> 出發，您將首先仰望 <b>Averau</b> 巨大的岩壁，隨後進入 <b>五塔群 (Cinque
+                                    Torri)</b> 的核心。這裡不僅是自然奇觀，更是<b>一戰戶外歷史博物館</b>。在翻越當日最高點 <b>Forcella Ambrizzola</b>
+                                後，被譽為「上帝寶座」的 <b>Monte Pelmo</b> 將震撼現身，引領您抵達靜謐的費德拉湖畔。
                             </p>
-                            
+
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                                 <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 shadow-sm">
                                     <p class="text-xs text-blue-500 font-bold uppercase mb-1">最高海拔</p>
@@ -540,7 +676,7 @@
                                     <p class="text-xl font-black text-gray-800">中等 (E)</p>
                                 </div>
                             </div>
-    
+
                             <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm mb-6">
                                 <table class="w-full text-sm">
                                     <tr class="bg-gray-50 border-b border-gray-200">
@@ -557,49 +693,71 @@
                                     </tr>
                                     <tr>
                                         <th class="p-3 text-left font-bold text-gray-600">關鍵導航</th>
-                                        <td class="p-3 text-gray-800"><span class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path 419</span> → <span class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path 439</span> → <span class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path 434</span></td>
+                                        <td class="p-3 text-gray-800"><span
+                                                class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path
+                                                419</span> → <span
+                                                class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path
+                                                439</span> → <span
+                                                class="bg-gray-200 px-2 py-0.5 rounded font-mono text-xs">Path
+                                                434</span></td>
                                     </tr>
                                 </table>
                             </div>
 
                             <div class="border-t border-gray-100 pt-8">
                                 <h4 class="font-black text-gray-900 mb-6 text-xl flex items-center">
-                                    <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
+                                    <span
+                                        class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-3 text-sm">3</span>
                                     今日征服階段
                                 </h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                    <div class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                                        <div class="absolute -top-3 left-4 bg-gray-800 text-white text-xs px-2 py-1 rounded">第一階段</div>
+                                    <div
+                                        class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                                        <div
+                                            class="absolute -top-3 left-4 bg-gray-800 text-white text-xs px-2 py-1 rounded">
+                                            第一階段</div>
                                         <h6 class="font-bold text-gray-800 mt-2 mb-2">巨石與戰壕</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed">離開 Col Gallina 後沿著 419 號步道穩步爬升，穿越五塔群的核心，探索戰時的碉堡與野戰通訊遺址。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed">離開 Col Gallina 後沿著 419
+                                            號步道穩步爬升，穿越五塔群的核心，探索戰時的碉堡與野戰通訊遺址。</p>
                                     </div>
-                                    <div class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                                        <div class="absolute -top-3 left-4 bg-red-600 text-white text-xs px-2 py-1 rounded">核心挑戰</div>
+                                    <div
+                                        class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                                        <div
+                                            class="absolute -top-3 left-4 bg-red-600 text-white text-xs px-2 py-1 rounded">
+                                            核心挑戰</div>
                                         <h6 class="font-bold text-gray-800 mt-2 mb-2">征服 Ambrizzola</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed">這是本日最耗體力的路段。沿著 434 號步道直上海拔 2,277 公尺的隘口，雖然辛苦，但回報是極致的山頂視野。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed">這是本日最耗體力的路段。沿著 434 號步道直上海拔
+                                            2,277 公尺的隘口，雖然辛苦，但回報是極致的山頂視野。</p>
                                     </div>
-                                    <div class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
-                                        <div class="absolute -top-3 left-4 bg-emerald-600 text-white text-xs px-2 py-1 rounded">最終目的地</div>
+                                    <div
+                                        class="relative bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                                        <div
+                                            class="absolute -top-3 left-4 bg-emerald-600 text-white text-xs px-2 py-1 rounded">
+                                            最終目的地</div>
                                         <h6 class="font-bold text-gray-800 mt-2 mb-2">費德拉湖畔之夜</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed">越過隘口後緩步下降 15 分鐘，迎接您的是如翡翠般的費德拉湖。今晚，在上帝的寶座之下安穩入眠。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed">越過隘口後緩步下降 15
+                                            分鐘，迎接您的是如翡翠般的費德拉湖。今晚，在上帝的寶座之下安穩入眠。</p>
                                     </div>
                                 </div>
-                            </div>        
+                            </div>
                         </div>
-    
+
                         <div class="flex flex-col gap-6">
                             <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                                <img src="https://www.kbecan.com/wp-content/uploads/2024/10/Dolomites_Cinque_Torri_family_trip_climbing_07.jpg" alt="Cinque Torri" class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500">
+                                <img src="https://www.kbecan.com/wp-content/uploads/2024/10/Dolomites_Cinque_Torri_family_trip_climbing_07.jpg"
+                                    alt="Cinque Torri"
+                                    class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                                 <span class="absolute bottom-3 left-3 text-white text-sm font-bold">一戰博物館與五塔巨岩</span>
                             </div>
-                            
+
                             <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-inner">
                                 <h5 class="font-black text-amber-800 mb-2 flex items-center italic">
                                     <span class="mr-2">🍰</span> 山屋美食情報：
                                 </h5>
                                 <p class="text-sm text-amber-900 leading-relaxed font-medium">
-                                    抵達 Rifugio Croda da Lago 後，千萬別錯過他們的 <b>野生莓果塔 (Fruit Tart)</b> 或傳統的 <b>Polenta (玉米糕)</b>。坐在湖畔享用這份美味，是多洛米蒂行程中最奢侈的享受。
+                                    抵達 Rifugio Croda da Lago 後，千萬別錯過他們的 <b>野生莓果塔 (Fruit Tart)</b> 或傳統的 <b>Polenta
+                                        (玉米糕)</b>。坐在湖畔享用這份美味，是多洛米蒂行程中最奢侈的享受。
                                 </p>
                             </div>
 
@@ -608,35 +766,40 @@
                                     <span class="mr-2">📸</span> 必拍視角
                                 </h5>
                                 <p class="text-xs leading-relaxed text-blue-100">
-                                    翻過 Forcella Ambrizzola 後，請準備好相機。您將看到 <b>Monte Pelmo (上帝的寶座)</b> 與 <b>Lago Federa (費德拉湖)</b> 同框的經典倒影。
+                                    翻過 Forcella Ambrizzola 後，請準備好相機。您將看到 <b>Monte Pelmo (上帝的寶座)</b> 與 <b>Lago Federa
+                                        (費德拉湖)</b> 同框的經典倒影。
                                 </p>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="ScWSQvP-oY8" data-day-name="Federa Lake → Passo Staulanza → Rifugio Coldai 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vR8W1nnI2ivI5aOSpREOn_ScY5o8lKzCq-BCGSxlQG8t1LY70ja09NdKIFoG_tgTjbaB66HJC9H1caX/embed?start=false&loop=false">
-                 <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+            <div class="day-card mb-8" data-video-id="ScWSQvP-oY8"
+                data-day-name="Federa Lake → Passo Staulanza → Rifugio Coldai 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vR8W1nnI2ivI5aOSpREOn_ScY5o8lKzCq-BCGSxlQG8t1LY70ja09NdKIFoG_tgTjbaB66HJC9H1caX/embed?start=false&loop=false">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6">
                     <div>
-                        <h3 class="text-3xl font-extrabold text-blue-900 mb-2">Day 6：Rifugio Croda da Lago → Passo Staulanza → Rifugio Coldai</h3>
+                        <h3 class="text-3xl font-extrabold text-blue-900 mb-2">Day 6：Rifugio Croda da Lago → Passo
+                            Staulanza → Rifugio Coldai</h3>
                         <p class="text-xl font-bold text-emerald-700 flex items-center">
                             <span class="mr-2">🏔️</span> 奇維塔巨牆下的翡翠之心 — 史詩跨越
                         </p>
                     </div>
                     <div class="mt-4 md:mt-0">
-                        <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">高強度長征</span>
+                        <span
+                            class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">高強度長征</span>
                     </div>
                 </div>
-            
+
                 <div class="content-block">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2">
                             <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                今日是一場長達 <b>16 公里</b> 的長征。您將告別費德拉湖的晨光，穿越壯闊的高山草甸，並在被譽為「上帝的寶座」的 <b>Mount Pelmo</b> 注視下行軍。行程的終極考驗在於最後 <b>366 公尺</b> 的陡峭之字形攀升，這將直指 <b>Civetta</b> 的心臟。
+                                今日是一場長達 <b>16 公里</b> 的長征。您將告別費德拉湖的晨光，穿越壯闊的高山草甸，並在被譽為「上帝的寶座」的 <b>Mount Pelmo</b>
+                                注視下行軍。行程的終極考驗在於最後 <b>366 公尺</b> 的陡峭之字形攀升，這將直指 <b>Civetta</b> 的心臟。
                             </p>
-            
+
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                                 <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 shadow-sm text-center">
                                     <p class="text-xs text-blue-500 font-bold uppercase mb-1">總爬升</p>
@@ -646,7 +809,8 @@
                                     <p class="text-xs text-red-500 font-bold uppercase mb-1">累計下降</p>
                                     <p class="text-xl font-black text-gray-800">-900 m</p>
                                 </div>
-                                <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 shadow-sm text-center">
+                                <div
+                                    class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 shadow-sm text-center">
                                     <p class="text-xs text-emerald-500 font-bold uppercase mb-1">預估時間</p>
                                     <p class="text-xl font-black text-gray-800">7-8.5 hr</p>
                                 </div>
@@ -655,7 +819,7 @@
                                     <p class="text-xl font-black text-gray-800">16 km</p>
                                 </div>
                             </div>
-            
+
                             <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm mb-6">
                                 <table class="w-full text-sm">
                                     <tr class="bg-gray-50 border-b border-gray-200">
@@ -678,79 +842,103 @@
                             </div>
 
                             <div class="border-t border-gray-100 pt-8">
-                                <h4 class="font-black text-gray-900 mb-8 text-2xl text-center uppercase tracking-widest">
+                                <h4
+                                    class="font-black text-gray-900 mb-8 text-2xl text-center uppercase tracking-widest">
                                     遠征三部曲：全攻略拆解
                                 </h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                                    <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition group text-center">
-                                        <div class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold">1</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition group text-center">
+                                        <div
+                                            class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold">
+                                            1</div>
                                         <h6 class="font-bold text-gray-800 mb-3 text-lg">告別王座</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed">離開費德拉湖，由 434 號步道攀升。在 Forcella Ambrizzola 留下對山谷最後的回眸，隨後進入廣袤的高原地帶。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed">離開費德拉湖，由 434 號步道攀升。在 Forcella
+                                            Ambrizzola 留下對山谷最後的回眸，隨後進入廣袤的高原地帶。</p>
                                     </div>
-                                    <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition group text-center">
-                                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold">2</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border-2 border-blue-500 shadow-md hover:shadow-xl transition group text-center">
+                                        <div
+                                            class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold">
+                                            2</div>
                                         <h6 class="font-bold text-gray-800 mb-3 text-lg">壯闊橫越</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed">在 <b>Mount Pelmo</b> 的伴隨下下降至 Passo Staulanza。這是本日路程最長、景觀最開闊、海拔變化最穩定的橫切階段。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed">在 <b>Mount Pelmo</b> 的伴隨下下降至
+                                            Passo Staulanza。這是本日路程最長、景觀最開闊、海拔變化最穩定的橫切階段。</p>
                                     </div>
-                                    <div class="relative bg-white p-6 rounded-2xl border-2 border-red-500 shadow-md hover:shadow-xl transition group text-center">
-                                        <div class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold animate-pulse">3</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border-2 border-red-500 shadow-md hover:shadow-xl transition group text-center">
+                                        <div
+                                            class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold animate-pulse">
+                                            3</div>
                                         <h6 class="font-bold text-red-700 mb-3 text-lg">巨人之影</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed"><b>意志力試煉：</b>在 557 號步道迎接陡峭的 +366m 攀升。當奇維塔巨牆覆蓋您的視野，便是勝利的訊號。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed"><b>意志力試煉：</b>在 557 號步道迎接陡峭的
+                                            +366m 攀升。當奇維塔巨牆覆蓋您的視野，便是勝利的訊號。</p>
                                     </div>
                                 </div>
-                            </div>        
+                            </div>
                         </div>
-            
+
                         <div class="flex flex-col gap-6">
                             <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/bf/e5/b2/il-laghetto-ai-piedi.jpg?w=1200&h=-1&s=1" alt="Lago Coldai" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold">絕美翡翠湖：Lago Coldai</span>
+                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/bf/e5/b2/il-laghetto-ai-piedi.jpg?w=1200&h=-1&s=1"
+                                    alt="Lago Coldai"
+                                    class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                                </div>
+                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold">絕美翡翠湖：Lago
+                                    Coldai</span>
                             </div>
-                            
+
                             <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200 shadow-inner">
                                 <h5 class="font-black text-emerald-800 mb-2 flex items-center">
                                     <span class="mr-2">🔓</span> 隱藏任務指南：
                                 </h5>
                                 <p class="text-sm text-emerald-900 leading-relaxed font-medium">
-                                    抵達 Rifugio Coldai 後，即便精疲力竭也請不要立刻坐下！<b>再走 15 分鐘</b> 翻過屋後小丘，鑲嵌在巨牆下的翡翠之鏡 —— <b>Lago Coldai</b> 才是今日真正的終極回報。
+                                    抵達 Rifugio Coldai 後，即便精疲力竭也請不要立刻坐下！<b>再走 15 分鐘</b> 翻過屋後小丘，鑲嵌在巨牆下的翡翠之鏡 —— <b>Lago
+                                        Coldai</b> 才是今日真正的終極回報。
                                 </p>
                             </div>
-            
+
                             <div class="bg-indigo-900 p-5 rounded-2xl text-white shadow-xl">
                                 <h5 class="font-bold mb-2 flex items-center text-indigo-200 text-sm">
                                     <span class="mr-2">🔦</span> 戰術建議
                                 </h5>
                                 <p class="text-xs leading-relaxed text-indigo-100">
-                                    在 <b>Passo Staulanza</b> 務必充分補水與進食。接下來 557 號步道的 <b>最後 366 公尺爬升</b> 毫無遮蔽且極其陡峭，是今日唯一的意志力決戰點。
+                                    在 <b>Passo Staulanza</b> 務必充分補水與進食。接下來 557 號步道的 <b>最後 366 公尺爬升</b>
+                                    毫無遮蔽且極其陡峭，是今日唯一的意志力決戰點。
                                 </p>
                             </div>
                         </div>
-                    </div>            
+                    </div>
                 </div>
             </div>
 
             <div class="day-card mb-8" data-video-id="eQJ7WYYQnos" data-day-name="Rifugio Coldai → Rifugio Vazzoler 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTO-bHoM-w6sz1DmmBnJCSZjbl2CBo4VoufzkADZLrXZKNUxIaOCHgoMdZUekk8gqSbpiy1mGRfJqJO/embed?start=false&loop=false">
-                 <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vTO-bHoM-w6sz1DmmBnJCSZjbl2CBo4VoufzkADZLrXZKNUxIaOCHgoMdZUekk8gqSbpiy1mGRfJqJO/embed?start=false&loop=false">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
                     <div>
-                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 7：Rifugio Coldai → Rifugio Vazzoler</h4>
+                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 7：Rifugio Coldai → Rifugio Vazzoler
+                        </h4>
                         <p class="text-xl font-bold text-indigo-700 flex items-center">
                             <span class="mr-2">🏔️</span> 橫斷「岩壁之牆」：奇維塔山的史詩穿越
                         </p>
                     </div>
                     <div class="mt-4 md:mt-0">
-                        <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">AV1 視覺巔峰</span>
+                        <span
+                            class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">AV1
+                            視覺巔峰</span>
                     </div>
                 </div>
-                
+
                 <div class="content-block">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2">
                             <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                今日行程是 AV1 的傳奇路段。您將行走在素有<b>「岩壁之牆」(Wall of Walls)</b> 美譽的奇維塔山 (Monte Civetta) 巨大的西北側山壁下方。這是一段純粹的視覺饗宴，雖然路程較長，但技術難度不高，適合盡情享受大自然的鬼斧神工。
+                                今日行程是 AV1 的傳奇路段。您將行走在素有<b>「岩壁之牆」(Wall of Walls)</b> 美譽的奇維塔山 (Monte Civetta)
+                                巨大的西北側山壁下方。這是一段純粹的視覺饗宴，雖然路程較長，但技術難度不高，適合盡情享受大自然的鬼斧神工。
                             </p>
-            
+
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 text-center">
                                 <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 shadow-sm">
                                     <p class="text-xs text-blue-500 font-bold uppercase mb-1">步行時間</p>
@@ -769,7 +957,7 @@
                                     <p class="text-xl font-black text-gray-800">E (徒步)</p>
                                 </div>
                             </div>
-            
+
                             <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm mb-6">
                                 <table class="w-full text-sm">
                                     <thead class="bg-gray-100">
@@ -797,36 +985,43 @@
                                         </tr>
                                         <tr class="bg-red-50">
                                             <td class="p-3 font-bold text-red-600">4</td>
-                                            <td class="p-3 text-gray-800 font-semibold">Forcella del Camp → Vazzoler (555)</td>
+                                            <td class="p-3 text-gray-800 font-semibold">Forcella del Camp → Vazzoler
+                                                (555)</td>
                                             <td class="p-3 text-red-700"><b>陡峭下坡挑戰</b> (45分)</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-            
+
                         <div class="flex flex-col gap-6">
                             <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                                <img src="https://rifugiotissi.com/Images/Gallery/Normale/3/g4.jpg" alt="Lago Coldai" class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold italic">鏡像之湖: Lago Coldai</span>
+                                <img src="https://rifugiotissi.com/Images/Gallery/Normale/3/g4.jpg" alt="Lago Coldai"
+                                    class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                                </div>
+                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold italic">鏡像之湖: Lago
+                                    Coldai</span>
                             </div>
-                            
+
                             <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-inner">
                                 <h5 class="font-black text-amber-800 mb-2 flex items-center">
                                     <span class="mr-2">📸</span> 攝影師戰術：
                                 </h5>
                                 <p class="text-sm text-amber-900 leading-relaxed font-medium">
-                                    不要錯過 <b>Rifugio Tissi</b> 後方的觀景台。那裡可以俯瞰整個 Alleghe 湖與 1,000 公尺垂直落差的 Civetta 北壁，是多洛米蒂最震撼的視角。
+                                    不要錯過 <b>Rifugio Tissi</b> 後方的觀景台。那裡可以俯瞰整個 Alleghe 湖與 1,000 公尺垂直落差的 Civetta
+                                    北壁，是多洛米蒂最震撼的視角。
                                 </p>
                             </div>
-            
+
                             <div class="bg-red-900 p-5 rounded-2xl text-white shadow-xl">
                                 <h5 class="font-bold mb-2 flex items-center text-red-200">
                                     <span class="mr-2">🦵</span> 膝蓋保護提醒
                                 </h5>
                                 <p class="text-xs leading-relaxed text-red-100 italic">
-                                    從 Forcella del Camp 轉入 555 號步道後，路徑會迅速下降至綠意盎然的 Val Corpassa。這段下坡對膝蓋是個考驗，代表今日史詩旅程即將完美收尾。
+                                    從 Forcella del Camp 轉入 555 號步道後，路徑會迅速下降至綠意盎然的 Val
+                                    Corpassa。這段下坡對膝蓋是個考驗，代表今日史詩旅程即將完美收尾。
                                 </p>
                             </div>
                         </div>
@@ -834,27 +1029,31 @@
                 </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="kn64JAsnnpw" data-day-name="Rifugio Vazzoler → Rifugio Carestiato 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQu7jNpCDAMpaWHKXTMw627RS0t8OaWPdHDSF5NpUqHJVTZjndyP3fgloWLEScI5CFJiNhXFKvL81G4/embed?start=false&loop=false">
-                 <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
+            <div class="day-card mb-8" data-video-id="kn64JAsnnpw"
+                data-day-name="Rifugio Vazzoler → Rifugio Carestiato 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vQu7jNpCDAMpaWHKXTMw627RS0t8OaWPdHDSF5NpUqHJVTZjndyP3fgloWLEScI5CFJiNhXFKvL81G4/embed?start=false&loop=false">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
                     <div>
-                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 8：Rifugio Vazzoler → Rifugio Carestiato</h4>
+                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 8：Rifugio Vazzoler → Rifugio
+                            Carestiato</h4>
                         <p class="text-xl font-bold text-red-700 flex items-center">
                             <span class="mr-2">⚖️</span> Moiazza 山群的抉擇：兩條路，一個目的地
                         </p>
                     </div>
                     <div class="mt-4 md:mt-0">
-                        <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">關鍵抉擇點</span>
+                        <span
+                            class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">關鍵抉擇點</span>
                     </div>
                 </div>
-                
+
                 <div class="content-block">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2">
                             <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                今日您將繞行壯麗的 <b>Moiazza 山群</b>。網路資料可能讓您困惑：這段路究竟是 4 小時的輕鬆橫切，還是 7 小時的高山挑戰？事實是：兩者皆正確。您的選擇將決定今日是享受<b>開闊全景的漫步</b>，還是體驗<b>高海拔碎石坡的意志試煉</b>。
+                                今日您將繞行壯麗的 <b>Moiazza 山群</b>。網路資料可能讓您困惑：這段路究竟是 4 小時的輕鬆橫切，還是 7
+                                小時的高山挑戰？事實是：兩者皆正確。您的選擇將決定今日是享受<b>開闊全景的漫步</b>，還是體驗<b>高海拔碎石坡的意志試煉</b>。
                             </p>
-            
+
                             <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm mb-6">
                                 <table class="w-full text-sm">
                                     <thead class="bg-gray-100 text-gray-600">
@@ -894,14 +1093,19 @@
                                 </table>
                             </div>
                         </div>
-            
+
                         <div class="flex flex-col gap-6">
                             <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSNiUdsi4APZSk8pmCdYouLRgO8iKH3CZm1TTlQomcq6D6BfQDo9ub7UEArOcopQYI7gdjYMEnT7mioDyFSVig8Vtnh49RUhSSdHSFe7bL2rvmKAu9_JKo_P8fyW_zNG37v5SS3oaVXlvA/s1600/Il+rifugio+Carestiato+con+la+Moiazza+dietro.JPG" alt="Rifugio Carestiato" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold">目標：Rifugio Carestiato (1,834m)</span>
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSNiUdsi4APZSk8pmCdYouLRgO8iKH3CZm1TTlQomcq6D6BfQDo9ub7UEArOcopQYI7gdjYMEnT7mioDyFSVig8Vtnh49RUhSSdHSFe7bL2rvmKAu9_JKo_P8fyW_zNG37v5SS3oaVXlvA/s1600/Il+rifugio+Carestiato+con+la+Moiazza+dietro.JPG"
+                                    alt="Rifugio Carestiato"
+                                    class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                                </div>
+                                <span class="absolute bottom-3 left-3 text-white text-sm font-bold">目標：Rifugio
+                                    Carestiato (1,834m)</span>
                             </div>
-            
+
                             <div class="bg-indigo-900 p-5 rounded-2xl text-white shadow-xl">
                                 <h5 class="font-bold mb-3 flex items-center text-indigo-200">
                                     <span class="mr-2">🛡️</span> 戰術決策建議
@@ -909,11 +1113,13 @@
                                 <div class="space-y-3">
                                     <div class="border-l-2 border-indigo-400 pl-3">
                                         <p class="text-xs font-bold text-indigo-300 uppercase">選【藍線】CAI 554</p>
-                                        <p class="text-xs leading-relaxed text-indigo-100">若您偏好穩定的節奏、想節省體力給明天的長征、或遇天氣不穩定。這是大多數人的首選。</p>
+                                        <p class="text-xs leading-relaxed text-indigo-100">
+                                            若您偏好穩定的節奏、想節省體力給明天的長征、或遇天氣不穩定。這是大多數人的首選。</p>
                                     </div>
                                     <div class="border-l-2 border-orange-400 pl-3">
                                         <p class="text-xs font-bold text-orange-300 uppercase">選【橘線】CAI 558</p>
-                                        <p class="text-xs leading-relaxed text-indigo-100">若您體能極佳、有豐富的高海拔碎石坡經驗且天氣晴朗。回報是與眾不同的高山孤寂感與震撼景觀。</p>
+                                        <p class="text-xs leading-relaxed text-indigo-100">
+                                            若您體能極佳、有豐富的高海拔碎石坡經驗且天氣晴朗。回報是與眾不同的高山孤寂感與震撼景觀。</p>
                                     </div>
                                 </div>
                             </div>
@@ -922,27 +1128,32 @@
                 </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="f-MscWP2pU8" data-day-name="Rifugio Carestiato → Rifugio Pramperet 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vRMYKhUYT1v7OMI8IOcq2QZ-PtRZ31dHq0HsDHAKH4A48grhoFS7zSubSVzUmaXSSS1YqFeb8tdukCO/embed?start=false&loop=false">
-                 <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
+            <div class="day-card mb-8" data-video-id="f-MscWP2pU8"
+                data-day-name="Rifugio Carestiato → Rifugio Pramperet 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vRMYKhUYT1v7OMI8IOcq2QZ-PtRZ31dHq0HsDHAKH4A48grhoFS7zSubSVzUmaXSSS1YqFeb8tdukCO/embed?start=false&loop=false">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-6 border-b border-gray-100 pb-4">
                     <div>
-                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 9：Rifugio Carestiato → Rifugio Pramperet</h4>
+                        <h4 class="text-3xl font-extrabold text-blue-900 mb-2">Day 9：Rifugio Carestiato → Rifugio
+                            Pramperet</h4>
                         <p class="text-xl font-bold text-gray-600 flex items-center">
                             <span class="mr-2">🌲</span> 深入荒野：貝盧諾多洛米蒂國家公園的序曲
                         </p>
                     </div>
                     <div class="mt-4 md:mt-0 text-right">
-                        <span class="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">專業級挑戰 EE</span>
+                        <span
+                            class="bg-orange-100 text-orange-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">專業級挑戰
+                            EE</span>
                     </div>
                 </div>
-            
+
                 <div class="content-block">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="md:col-span-2">
                             <p class="text-lg leading-relaxed text-gray-700 mb-6">
-                                今日行程將帶您正式進入 <b>Dolomiti Bellunesi 國家公園</b> 核心。這是一段遠離熱門人潮的漫長征途，您將在荒涼且壯麗的 Pramper 谷地中前行。這不僅是對體能的考驗，更是一場關於高山氣候應對與意志力的深度對話。
+                                今日行程將帶您正式進入 <b>Dolomiti Bellunesi 國家公園</b> 核心。這是一段遠離熱門人潮的漫長征途，您將在荒涼且壯麗的 Pramper
+                                谷地中前行。這不僅是對體能的考驗，更是一場關於高山氣候應對與意志力的深度對話。
                             </p>
-            
+
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 text-center">
                                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-sm">
                                     <p class="text-xs text-slate-500 font-bold uppercase mb-1">核心時間</p>
@@ -961,7 +1172,7 @@
                                     <p class="text-xl font-black text-gray-800">EE (專業)</p>
                                 </div>
                             </div>
-            
+
                             <div class="overflow-hidden rounded-xl border border-gray-200 shadow-sm mb-6">
                                 <table class="w-full text-sm">
                                     <tbody class="divide-y divide-gray-200">
@@ -986,45 +1197,63 @@
                             </div>
 
                             <div class="border-t border-gray-100 pt-8">
-                                <h4 class="font-black text-gray-900 mb-8 text-2xl text-center uppercase tracking-widest italic">
+                                <h4
+                                    class="font-black text-gray-900 mb-8 text-2xl text-center uppercase tracking-widest italic">
                                     征途三幕：穿越國家公園心臟
                                 </h4>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                                    <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
-                                        <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">I</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
+                                        <div
+                                            class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">
+                                            I</div>
                                         <h6 class="font-bold text-gray-800 mb-3 text-lg">開場：下降與森林</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed italic">離開 Carestiato 下降至 Passo Duran，隨後進入茂密森林開始今日首段爬升。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed italic">離開 Carestiato 下降至 Passo
+                                            Duran，隨後進入茂密森林開始今日首段爬升。</p>
                                     </div>
-                                    <div class="relative bg-white p-6 rounded-2xl border-2 border-indigo-500 shadow-md hover:shadow-xl transition text-center">
-                                        <div class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">II</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border-2 border-indigo-500 shadow-md hover:shadow-xl transition text-center">
+                                        <div
+                                            class="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">
+                                            II</div>
                                         <h6 class="font-bold text-indigo-800 mb-3 text-lg">高潮：隘口攀登</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed italic font-semibold"><b>全日最艱鉅：</b>穿過森林持續陡升，直取 2,055m 的 Forcella Dagarei。這裡是絕佳觀景與午餐點。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed italic font-semibold">
+                                            <b>全日最艱鉅：</b>穿過森林持續陡升，直取 2,055m 的 Forcella Dagarei。這裡是絕佳觀景與午餐點。
+                                        </p>
                                     </div>
-                                    <div class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
-                                        <div class="w-12 h-12 bg-slate-800 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">III</div>
+                                    <div
+                                        class="relative bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition text-center">
+                                        <div
+                                            class="w-12 h-12 bg-slate-800 text-white rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white font-bold text-lg italic shadow-md">
+                                            III</div>
                                         <h6 class="font-bold text-gray-800 mb-3 text-lg">尾聲：谷地漫步</h6>
-                                        <p class="text-sm text-gray-600 leading-relaxed italic">穿越 Pramper 山谷的漫長橫切，雖有起伏但路徑壯麗。最終抵達寧靜的 Pramperet 山屋。</p>
+                                        <p class="text-sm text-gray-600 leading-relaxed italic">穿越 Pramper
+                                            山谷的漫長橫切，雖有起伏但路徑壯麗。最終抵達寧靜的 Pramperet 山屋。</p>
                                     </div>
                                 </div>
-                            </div>        
+                            </div>
                         </div>
-            
+
                         <div class="flex flex-col gap-6">
                             <div class="group relative overflow-hidden rounded-2xl shadow-lg">
-                                <img src="https://www.planetmountain.com/uploads/img/1/136940.jpg" alt="Pramperet" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <img src="https://www.planetmountain.com/uploads/img/1/136940.jpg" alt="Pramperet"
+                                    class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                                </div>
                                 <span class="absolute bottom-3 left-3 text-white text-sm font-bold">Pramper 山谷之影</span>
                             </div>
-                            
+
                             <div class="bg-indigo-900 p-5 rounded-2xl text-white shadow-xl">
                                 <h5 class="font-bold mb-3 flex items-center text-indigo-200">
                                     <span class="mr-2">⛈️</span> 氣候戰術指南
                                 </h5>
                                 <p class="text-xs leading-relaxed text-indigo-100">
-                                    <b>午後雷雨警戒：</b>多洛米蒂下午天氣變化極速。今日路徑多位於開闊山脊與暴露山腰，毫無遮蔽。強烈建議 <b>07:30 前出發</b>，確保在雷雨高發的午後前翻越關鍵隘口。
+                                    <b>午後雷雨警戒：</b>多洛米蒂下午天氣變化極速。今日路徑多位於開闊山脊與暴露山腰，毫無遮蔽。強烈建議 <b>07:30
+                                        前出發</b>，確保在雷雨高發的午後前翻越關鍵隘口。
                                 </p>
                             </div>
-            
+
                             <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200 shadow-inner">
                                 <h5 class="font-black text-amber-800 mb-2 flex items-center text-sm italic">
                                     <span class="mr-2">🥪</span> 絕佳午餐點：
@@ -1034,158 +1263,199 @@
                                 </p>
                             </div>
                         </div>
-                    </div>                                
+                    </div>
                 </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="iBfDtSkLQU4" data-day-name="Rifugio Pramperet → Refuge Furio Bianchet 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSXyUtE76BKmzAFy6ICCcMaT5-tcpkBY72APIAirXaOQywfR4RxkGOZLfGRzSS2ChhF7eL236-S59c9/embed?start=false&loop=false">
-                 <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 10：Rifugio Pramperet → Refuge Furio Bianchet</h4>
-                 <p class="text-lg font-semibold text-emerald-700 mb-4">AV1 荒野最終章：避開攀岩的安全徒步路線</p>
-                 
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                     <div class="md:col-span-2">
-                         <div class="mb-4">
-                             <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">核心挑戰：貝盧諾國家公園的長征</h5>
-                             <p class="text-base leading-relaxed text-gray-700">
-                                 今日行程深入 <b>Dolomiti Bellunesi 國家公園</b> 核心。為確保安全，我們選擇 <b>CAI 518 號步道</b>，避開需要技術裝備的鐵索攀岩路段。這是一段從荒涼石灰岩高原 (Van de Zità) 橫跨至蔥鬱森林深谷 (Cansla) 的極致景觀轉變。
-                             </p>
-                         </div>
-             
-                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
-                             <h5 class="font-bold text-gray-800 mb-2">🕘 精確時間安排：</h5>
-                             <div class="space-y-2 text-sm text-gray-600">
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>08:00</b> 出發：Rifugio Pramperet</span>
-                                     <span class="text-blue-600">準時出發關鍵日</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>08:00-11:00</b> 穿越 Van de Zità 高原</span>
-                                     <span>石灰岩喀斯特地貌</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>11:00</b> 抵達 Rifugio Pian de Fontana</span>
-                                     <span class="text-red-600 font-bold">重要轉折補給點</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>12:00-13:00</b> 攻頂 Forcella la Varetta</span>
-                                     <span>本日最後高點 (1,701m)</span>
-                                 </div>
-                                 <div class="flex justify-between pb-1">
-                                     <span><b>13:00-15:30</b> 緩長下坡至 Cansla 谷地</span>
-                                     <span>下降至森林區</span>
-                                 </div>
-                             </div>
-                         </div>
-             
-                         <div class="grid grid-cols-2 gap-4">
-                             <div class="bg-white p-3 rounded border border-gray-200">
-                                 <p class="text-sm font-semibold"><b>累積時間：</b> 6.5 - 7.5 小時</p>
-                                 <p class="text-sm font-semibold"><b>難度分級：</b> EE (資深徒步者)</p>
-                             </div>
-                             <div class="bg-white p-3 rounded border border-gray-200">
-                                 <p class="text-sm font-semibold"><b>住宿點：</b> Refuge Furio Bianchet</p>
-                                 <p class="text-sm font-semibold"><b>關鍵步道：</b> CAI 514 → CAI 518</p>
-                             </div>
-                         </div>
-                     </div>
-             
-                     <div class="flex flex-col gap-4">
-                         <div class="relative">
-                             <img src="https://www.visitdolomitibellunesi.com/imports/images/importedObj/rifugio-furio-bianchet-1cd69842-70e0-4d04-a6e3-79f4775c92c8/76291/image-thumb__76291__thumb1920/images-trn-1-7d07f6b2-4695-4a36-b7d8-be997174880c-99-image.jpg" alt="Refuge Furio Bianchet 谷地景觀" class="rounded-lg w-full h-48 object-cover shadow-md">
-                             <span class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Furio Bianchet 寧靜山屋</span>
-                         </div>
-                         
-                         <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200">
-                             <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 專家戰術建議</h6>
-                             <p class="text-xs text-yellow-900 leading-relaxed mb-2">
-                                 <b>路線選擇：</b>在 Pian de Fontana 後務必切換至 <b>518 號步道</b>，絕不可走入 514 號攀岩段。
-                             </p>
-                             <p class="text-xs text-yellow-900 leading-relaxed">
-                                 <b>膝蓋保護：</b>午後為 2.5 小時長下坡，建議全程使用雙登山杖。
-                             </p>
-                         </div>
-                     </div>
-                 </div>
+            <div class="day-card mb-8" data-video-id="iBfDtSkLQU4"
+                data-day-name="Rifugio Pramperet → Refuge Furio Bianchet 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vSXyUtE76BKmzAFy6ICCcMaT5-tcpkBY72APIAirXaOQywfR4RxkGOZLfGRzSS2ChhF7eL236-S59c9/embed?start=false&loop=false">
+                <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 10：Rifugio Pramperet → Refuge Furio Bianchet</h4>
+                <p class="text-lg font-semibold text-emerald-700 mb-4">AV1 荒野最終章：避開攀岩的安全徒步路線</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <div class="mb-4">
+                            <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">核心挑戰：貝盧諾國家公園的長征</h5>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                今日行程深入 <b>Dolomiti Bellunesi 國家公園</b> 核心。為確保安全，我們選擇 <b>CAI 518
+                                    號步道</b>，避開需要技術裝備的鐵索攀岩路段。這是一段從荒涼石灰岩高原 (Van de Zità) 橫跨至蔥鬱森林深谷 (Cansla) 的極致景觀轉變。
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
+                            <h5 class="font-bold text-gray-800 mb-2">🕘 精確時間安排：</h5>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>08:00</b> 出發：Rifugio Pramperet</span>
+                                    <span class="text-blue-600">準時出發關鍵日</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>08:00-11:00</b> 穿越 Van de Zità 高原</span>
+                                    <span>石灰岩喀斯特地貌</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>11:00</b> 抵達 Rifugio Pian de Fontana</span>
+                                    <span class="text-red-600 font-bold">重要轉折補給點</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>12:00-13:00</b> 攻頂 Forcella la Varetta</span>
+                                    <span>本日最後高點 (1,701m)</span>
+                                </div>
+                                <div class="flex justify-between pb-1">
+                                    <span><b>13:00-15:30</b> 緩長下坡至 Cansla 谷地</span>
+                                    <span>下降至森林區</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded border border-gray-200">
+                                <p class="text-sm font-semibold"><b>累積時間：</b> 6.5 - 7.5 小時</p>
+                                <p class="text-sm font-semibold"><b>難度分級：</b> EE (資深徒步者)</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border border-gray-200">
+                                <p class="text-sm font-semibold"><b>住宿點：</b> Refuge Furio Bianchet</p>
+                                <p class="text-sm font-semibold"><b>關鍵步道：</b> CAI 514 → CAI 518</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="relative">
+                            <img src="https://www.visitdolomitibellunesi.com/imports/images/importedObj/rifugio-furio-bianchet-1cd69842-70e0-4d04-a6e3-79f4775c92c8/76291/image-thumb__76291__thumb1920/images-trn-1-7d07f6b2-4695-4a36-b7d8-be997174880c-99-image.jpg"
+                                alt="Refuge Furio Bianchet 谷地景觀" class="rounded-lg w-full h-48 object-cover shadow-md">
+                            <span
+                                class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Furio
+                                Bianchet 寧靜山屋</span>
+                        </div>
+
+                        <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200">
+                            <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 專家戰術建議</h6>
+                            <p class="text-xs text-yellow-900 leading-relaxed mb-2">
+                                <b>路線選擇：</b>在 Pian de Fontana 後務必切換至 <b>518 號步道</b>，絕不可走入 514 號攀岩段。
+                            </p>
+                            <p class="text-xs text-yellow-900 leading-relaxed mb-3">
+                                <b>膝蓋保護：</b>午後為 2.5 小時長下坡，建議全程使用雙登山杖。
+                            </p>
+                            <div class="bg-blue-600/10 p-2 rounded border border-blue-600/20">
+                                <p class="text-[10px] font-bold text-blue-800 uppercase tracking-tighter mb-1">🔥 Pro
+                                    Tip (山屋):</p>
+                                <p class="text-[11px] text-blue-900 leading-tight">Rifugio Pramperet
+                                    電力供應有限，建議自備行動電源。這裡的晚餐是 AV1 沿線最道地的，別錯過他們的自製義大利麵！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="day-card mb-8" data-video-id="aCrkXVM0INs" data-day-name="Refuge Furio Bianchet → La Pissa → Milano 導覽"
-                 data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vR3mvcxCHYaJR8H-jX6wGLdZTOEsEo0aPxDXCNBCxceoj5QOeeHlhgZEnITLkzbRFme32or2ASKo2D5/embed?start=false&loop=false">
-                 <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 11：Refuge Furio Bianchet → La Pissa → 返回米蘭</h4>
-                 <p class="text-lg font-semibold text-slate-600 mb-4">從荒野回歸文明：一日跨越北義大利</p>
-                 
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                     <div class="md:col-span-2">
-                         <div class="mb-4">
-                             <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">告別山徑 (下坡)</h5>
-                             <p class="text-base leading-relaxed text-gray-700">
-                                 從 <b>Refuge Furio Bianchet</b> 出發，沿著寬闊的碎石林道輕鬆緩降。這段 7.5 公里的路徑難度等級為 <b>T (觀光級)</b>，讓您在靜謐的森林與溪谷中完成 AV1 的最後一哩路。
-                             </p>
-                         </div>
-             
-                         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
-                             <h5 class="font-bold text-gray-800 mb-2">🕘 精確行程規劃：</h5>
-                             <div class="space-y-2 text-sm text-gray-600">
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>08:30 - 11:30</b> 徒步：Bianchet → La Pissa</span>
-                                     <span class="text-blue-600">緩降 850m</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>12:10 - 12:40</b> 巴士：La Pissa → Belluno</span>
-                                     <span>DolomitiBus (Line 38)</span>
-                                 </div>
-                                 <div class="flex justify-between border-b pb-1">
-                                     <span><b>12:40 - 14:20</b> 中繼：Belluno 車站</span>
-                                     <span class="text-emerald-600 font-bold">午餐與整備時光</span>
-                                 </div>
-                                 <div class="flex justify-between pb-1">
-                                     <span><b>14:20 - 18:30</b> 火車：Belluno → 米蘭</span>
-                                     <span>經 Padova/Venezia 轉乘</span>
-                                 </div>
-                             </div>
-                         </div>
-             
-                         <div class="grid grid-cols-2 gap-4">
-                             <div class="bg-blue-100 p-3 rounded border border-blue-200 text-center">
-                                 <p class="text-sm font-bold text-blue-800">總徒步距離</p>
-                                 <p class="text-lg font-bold text-blue-900">7.5 公里</p>
-                             </div>
-                             <div class="bg-orange-100 p-3 rounded border border-orange-200 text-center">
-                                 <p class="text-sm font-bold text-orange-800">總回程耗時</p>
-                                 <p class="text-lg font-bold text-orange-900">約 10 小時</p>
-                             </div>
-                         </div>
-                     </div>
-             
-                     <div class="flex flex-col gap-4">
-                         <div class="relative">
-                             <img src="https://www.dolomiti.it/storage/localities/21264/conversions/belluno_vista_dal_ponte_iStock-tablet.jpg" alt="Belluno 火車站" class="rounded-lg w-full h-48 object-cover shadow-md">
-                             <span class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Belluno 中繼站</span>
-                         </div>
-                         
-                         <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200 shadow-inner">
-                             <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 回程戰術提示</h6>
-                             <ul class="text-xs text-yellow-900 space-y-2 list-disc pl-4">
-                                 <li><b>巴士上車站：</b> La Pissa 站牌位於國道 SS50 旁，見到公車請務必招手。</li>
-                                 <li><b>火車票預訂：</b> 第二段高鐵 (Frecciarossa/Italo) 建議提前購買，以確保座位。</li>
-                                 <li><b>Belluno 特色：</b> 車站附近設有付費置物箱，方便您進城輕鬆用餐。</li>
-                             </ul>
-                         </div>
-                     </div>
-                 </div>
+            <div class="day-card mb-8" data-video-id="aCrkXVM0INs"
+                data-day-name="Refuge Furio Bianchet → La Pissa → Milano 導覽"
+                data-slide-url="https://docs.google.com/presentation/d/e/2PACX-1vR3mvcxCHYaJR8H-jX6wGLdZTOEsEo0aPxDXCNBCxceoj5QOeeHlhgZEnITLkzbRFme32or2ASKo2D5/embed?start=false&loop=false">
+                <h4 class="text-2xl font-bold text-blue-800 mb-2">Day 11：Refuge Furio Bianchet → La Pissa → 返回米蘭</h4>
+                <p class="text-lg font-semibold text-slate-600 mb-4">從荒野回歸文明：一日跨越北義大利</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <div class="mb-4">
+                            <h5 class="font-bold text-blue-700 border-b border-blue-200 mb-2">告別山徑 (下坡)</h5>
+                            <p class="text-base leading-relaxed text-gray-700">
+                                從 <b>Refuge Furio Bianchet</b> 出發，沿著寬闊的碎石林道輕鬆緩降。這段 7.5 公里的路徑難度等級為 <b>T
+                                    (觀光級)</b>，讓您在靜謐的森林與溪谷中完成 AV1 的最後一哩路。
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4">
+                            <h5 class="font-bold text-gray-800 mb-2">🕘 精確行程規劃：</h5>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>08:30 - 11:30</b> 徒步：Bianchet → La Pissa</span>
+                                    <span class="text-blue-600">緩降 850m</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>12:10 - 12:40</b> 巴士：La Pissa → Belluno</span>
+                                    <span>DolomitiBus (Line 38)</span>
+                                </div>
+                                <div class="flex justify-between border-b pb-1">
+                                    <span><b>12:40 - 14:20</b> 中繼：Belluno 車站</span>
+                                    <span class="text-emerald-600 font-bold">午餐與整備時光</span>
+                                </div>
+                                <div class="flex justify-between pb-1">
+                                    <span><b>14:20 - 18:30</b> 火車：Belluno → 米蘭</span>
+                                    <span>經 Padova/Venezia 轉乘</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-blue-100 p-3 rounded border border-blue-200 text-center">
+                                <p class="text-sm font-bold text-blue-800">總徒步距離</p>
+                                <p class="text-lg font-bold text-blue-900">7.5 公里</p>
+                            </div>
+                            <div class="bg-orange-100 p-3 rounded border border-orange-200 text-center">
+                                <p class="text-sm font-bold text-orange-800">總回程耗時</p>
+                                <p class="text-lg font-bold text-orange-900">約 10 小時</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                        <div class="relative">
+                            <img src="https://www.dolomiti.it/storage/localities/21264/conversions/belluno_vista_dal_ponte_iStock-tablet.jpg"
+                                alt="Belluno 火車站" class="rounded-lg w-full h-48 object-cover shadow-md">
+                            <span
+                                class="absolute bottom-2 right-2 bg-black bg-opacity-60 text-white text-xs px-2 py-1 rounded">Belluno
+                                中繼站</span>
+                        </div>
+
+                        <div class="bg-yellow-100 p-4 rounded-lg border border-yellow-200 shadow-inner">
+                            <h6 class="font-bold text-yellow-800 text-sm mb-2">💡 回程戰術提示</h6>
+                            <ul class="text-xs text-yellow-900 space-y-2 list-disc pl-4">
+                                <li><b>巴士上車站：</b> La Pissa 站牌位於國道 SS50 旁，見到公車請務必招手。</li>
+                                <li><b>火車票預訂：</b> 第二段高鐵 (Frecciarossa/Italo) 建議提前購買。</li>
+                                <li class="bg-emerald-200/40 p-1.5 rounded-sm"><b>🍦 Pro Tip (慶功儀式):</b> 抵達 Belluno
+                                    後，請直奔舊城區的 <b>Gelateria delle Alpi</b>。沒什麼比一球純正的義式冰淇淋更能完美結束這 12 天的高山征程了。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="booking" class="bg-yellow-50 p-8 rounded-xl shadow-md border-l-4 border-yellow-500">
             <h2 class="text-3xl font-bold text-yellow-800 mb-4">🚨 <b>關鍵安全與預訂提示 (AV1)</b></h2>
-            <ul class="list-disc list-inside space-y-3 text-gray-700">
+            <div class="mt-8 bg-white p-6 rounded-xl border border-yellow-200 shadow-sm">
+                <h3 class="text-2xl font-bold text-yellow-800 mb-4 flex items-center">
+                    <span class="mr-2">🍝</span> 多洛米蒂美食攻略 (Dine like a local)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-2">🏔️ 山屋特色餐飲</h4>
+                        <ul class="list-disc ml-5 space-y-1 text-gray-700">
+                            <li><b>南蒂羅爾傳統：</b>必嚐 <b>Canederli (Knödel)</b> 麵疙瘩與 <b>Apple Strudel</b>。</li>
+                            <li><b>帕斯塔之巔：</b>多數山屋提供自製 <b>Pappardelle</b> 寬麵，配上野豬肉醬或鹿肉醬。</li>
+                            <li><b>湖畔午餐：</b>Day 5 推薦在 <b>Rifugio Croda da Lago</b> 享用手工藍莓派。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-2">💧 水資源與補給</h4>
+                        <ul class="list-disc ml-5 space-y-1 text-gray-700">
+                            <li><b>飲用水：</b>多數山屋提供可飲用泉水，標註 "Acqua Potabile" 即可安心飲用。部分偏遠山屋需購買瓶裝水。</li>
+                            <li><b>行動糧：</b>建議在 Bolzano 超市補足能量膠、乾果與起司。</li>
+                            <li><b>Picnic 午餐：</b>入住山屋時可預訂隔日的 Lunch Packet (€10 - €15)。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul class="list-disc list-inside mt-8 space-y-3 text-gray-700">
                 <li><b>山屋預訂：</b> 這是 AV1 成功的<b>第一步</b>。在出發前需要預訂所有山屋。直接透過山屋官方網站或電子郵件預訂。</li>
                 <li><b>交通銜接：</b> Belluno 無法直達米蘭，必須經過 Verona 或 Venezia Mestre 轉乘高速列車。</li>
                 <li><b>裝備要求：</b> 需具備<b>適合高山徒步的靴子</b>、<b>防雨/防風外套</b>、<b>頭燈</b>和充足的補給品。</li>
                 <li><b>地圖準備：</b> 準備好詳細的地圖 (如 <b>Tabacco 1:25000</b>) 和 GPS 軌跡。</li>
             </ul>
             <div style="text-align:center; padding-top:30px;">
-                <a href="#header" class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest">
+                <a href="#header"
+                    class="bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-red-700 transition-colors duration-300 uppercase tracking-widest">
                     準備好了！開始規劃山屋預訂
                 </a>
             </div>
@@ -1196,7 +1466,9 @@
         © 2026 多洛米蒂 AV1 健行規劃。祝您旅途愉快！
     </footer>
 
-    <div id="yt-player-container"><div id="video-placeholder"></div></div>
+    <div id="yt-player-container">
+        <div id="video-placeholder"></div>
+    </div>
 
     <div id="fs-overlay">
         <button id="fs-close-btn" onclick="closeFullScreen()">✕ 關閉</button>
@@ -1204,21 +1476,25 @@
         <iframe id="fs-iframe" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     </div>
 
-    <button id="music-toggle" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
+    <button id="music-toggle"
+        class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur text-blue-900 border border-blue-100 shadow-2xl rounded-full px-5 py-3 flex items-center gap-3 hover:scale-105 hover:bg-blue-50 transition-all duration-300 group">
         <div class="music-wave" id="music-wave-icon">
-            <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
         <span id="music-text" class="font-bold text-sm tracking-wide">播放 輕鬆音樂</span>
     </button>
 
     <script>
         var player;
-        var isPlaying = false; 
+        var isPlaying = false;
         var defaultVideoId = 'V7Bohz21qq4'; // 原始背景音樂
         var currentVideoId = defaultVideoId;
-        
-        var targetSectionVideoId = defaultVideoId; 
-        var currentSlideUrl = ''; 
+
+        var targetSectionVideoId = defaultVideoId;
+        var currentSlideUrl = '';
         var currentDayName = '';
 
         var toggleBtn = document.getElementById('music-toggle');
@@ -1239,7 +1515,7 @@
                 playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': defaultVideoId },
                 events: {
                     'onStateChange': onPlayerStateChange,
-                    'onReady': startScrollObserver 
+                    'onReady': startScrollObserver
                 }
             });
         }
@@ -1267,7 +1543,7 @@
             }
         }
 
-        toggleBtn.addEventListener('click', function() {
+        toggleBtn.addEventListener('click', function () {
             if (currentSlideUrl) {
                 if (fsOverlay.style.display === 'block') {
                     if (isPlaying) player.pauseVideo(); else player.playVideo();
@@ -1324,8 +1600,8 @@
         // 捲動偵測
         function startScrollObserver() {
             var options = { root: null, rootMargin: '0px', threshold: 0.15 };
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         var detectedId = entry.target.getAttribute('data-video-id');
                         var detectedName = entry.target.getAttribute('data-day-name');
@@ -1343,8 +1619,9 @@
                 });
             }, options);
             var allSections = document.querySelectorAll('.header, section, footer, .day-card');
-            allSections.forEach(function(el) { observer.observe(el); });
+            allSections.forEach(function (el) { observer.observe(el); });
         }
     </script>
 </body>
+
 </html>

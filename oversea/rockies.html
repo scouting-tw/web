@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>終極北美大環線：22天落磯山山海之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --alpine-blue: #1a3a5f;
+            --forest-green: #2d5a27;
+            --sunset-orange: #e67e22;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.12);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Use generated hero image if path is available, else fallback */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('/Users/roverchen/.gemini/antigravity/brain/2c2f2929-c17a-47c7-b8c7-59a7ccb80271/rockies_hero_premium_1772258339014.png');
+        }
+
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(26, 58, 95, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fbbf24;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .stage-badge {
+            background: linear-gradient(135deg, var(--alpine-blue), #3b82f6);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .image-zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-zoom img {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Music Toggle Button */
+        #music-toggle {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #music-toggle:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Music Wave Animation */
+        .music-wave {
+            display: inline-flex;
+            align-items: center;
+            height: 20px;
+        }
+
+        .bar {
+            width: 3px;
+            height: 10px;
+            background: #fbbf24;
+            margin: 0 1px;
+            animation: sound 0ms -800ms linear infinite alternate;
+            transition: height 0.8s;
+            opacity: 0.5;
+        }
+
+        .playing .bar {
+            animation-duration: 400ms;
+            opacity: 1;
+        }
+
+        @keyframes sound {
+            0% {
+                height: 3px;
+                opacity: .35;
+            }
+
+            100% {
+                height: 15px;
+                opacity: 0.95;
+            }
+        }
+
+        #yt-player-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Fullscreen Slides Overlay */
+        #fs-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            z-index: 9999;
+        }
+
+        #fs-overlay iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #fs-close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #fs-close-btn:hover {
+            background: rgba(220, 38, 38, 0.8);
+            transform: scale(1.05);
+        }
+
+        #fs-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        /* Section Headings Decor */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            width: 1.5rem;
+            height: 2px;
+            background: #fbbf24;
+        }
+
+        /* Responsive Grid Adjustments */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+
+            .hero-section p {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50">
+
+    <!-- YouTube Music Player Container -->
+    <div id="yt-player-container">
+        <div id="video-placeholder"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section px-4" id="home">
+        <div class="z-10 animate-fade-in-up">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 drop-shadow-2xl tracking-tight">落磯山山海之旅</h1>
+            <p class="text-xl md:text-3xl font-light mb-12 max-w-3xl mx-auto drop-shadow-lg leading-relaxed opacity-90">
+                22天縱貫北美：從科羅拉多高峰到太平洋西北海岸
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#stage1"
+                    class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-2xl hover:-translate-y-1 active:scale-95">
+                    展開探險行程
+                </a>
+                <button id="music-toggle"
+                    class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-10 rounded-full transition-all flex items-center gap-4">
+                    <div class="music-wave" id="music-wave-icon">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <span id="music-text">播放輕鬆背景音樂</span>
+                </button>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-50 animate-bounce opacity-50">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav
+        class="nav-sticky px-6 py-4 hidden md:flex justify-center gap-10 text-white text-xs font-bold uppercase tracking-widest">
+        <a href="#home" class="nav-link">首頁</a>
+        <a href="#stage1" class="nav-link">第一階段：美南</a>
+        <a href="#stage2" class="nav-link">第二階段：加南</a>
+        <a href="#stage3" class="nav-link">第三階段：卑詩</a>
+        <a href="#stage4" class="nav-link">第四階段：華州</a>
+        <a href="#advice" class="nav-link">旅行攻略</a>
+    </nav>
+
+    <main class="container mx-auto px-4 py-20 max-w-6xl">
+
+        <!-- Introduction -->
+        <section class="mb-32 text-center" data-video-id="V7Bohz21qq4">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 text-slate-800 section-title">終極北美大環線</h2>
+            <div class="glass-card p-10 md:p-16 max-w-4xl mx-auto mb-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-5">
+                    <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z" />
+                    </svg>
+                </div>
+                <p class="text-xl leading-relaxed text-slate-600 mb-12 italic">
+                    「這是一段橫跨美加兩國、縱貫落磯山脈並延伸至太平洋西北海岸的壯闊史詩。由南往北前行，將壯麗的冰河與高山湖泊推向旅途的高潮。」
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="group">
+                        <span
+                            class="block text-4xl font-black text-amber-500 group-hover:scale-110 transition-transform">22</span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2 block">冒險天數</span>
+                    </div>
+                    <div class="group">
+                        <span
+                            class="block text-4xl font-black text-amber-500 group-hover:scale-110 transition-transform">8+</span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2 block">國家公園</span>
+                    </div>
+                    <div class="group">
+                        <span
+                            class="block text-4xl font-black text-amber-500 group-hover:scale-110 transition-transform">2</span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2 block">大國跨越</span>
+                    </div>
+                    <div class="group">
+                        <span
+                            class="block text-4xl font-black text-amber-500 group-hover:scale-110 transition-transform">∞</span>
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mt-2 block">永恆回憶</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 1 -->
+        <section id="stage1" class="mb-32 scroll-mt-24" data-day-name="第一階段：美南落磯山之旅" data-video-id="NiJkBsOnD5Y">
+            <div class="stage-badge">STAGE 01：美國內陸落磯山</div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-slate-900 leading-tight">丹佛 ➔ 黃石：<br><span
+                    class="text-amber-500">地熱奇觀</span>與雲端公路</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <div class="glass-card p-8 border-l-8 border-amber-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 1-2：雲端上的漫步</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            從丹佛出發，直上 <b>Trail Ridge Road</b>——全美最高的景觀公路。在海拔 3,600 公尺之巔，俯瞰落磯山脈的壯麗連綿。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-l-8 border-amber-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 3：大地的驚嘆號 - 魔鬼塔</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            橫越懷俄明州，造訪震撼人心的 <b>Devils Tower</b>。這座孤立的巨石，是北美大陸最古老且神祕的自然奇觀。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-l-8 border-amber-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 4-7：黃石與提頓的狂野</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            黃石大稜鏡的繽紛、老忠實的律動、大提頓的倒影。在拉馬爾谷，屏息觀察狼群與野牛的原始律動。
+                        </p>
+                    </div>
+                </div>
+                <div class="relative group cursor-pointer"
+                    onclick="openFullScreen('https://www.youtube.com/embed/NiJkBsOnD5Y?autoplay=1')">
+                    <div class="image-zoom overflow-hidden rounded-[2.5rem] shadow-2xl h-[600px]">
+                        <img src="/Users/roverchen/.gemini/antigravity/brain/2c2f2929-c17a-47c7-b8c7-59a7ccb80271/yellowstone_grand_prismatic_vibrant_1772258355029.png"
+                            alt="Yellowstone" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all rounded-[2.5rem] flex items-center justify-center">
+                        <div
+                            class="bg-white/90 p-6 rounded-full shadow-2xl scale-75 group-hover:scale-100 transition-transform">
+                            <svg class="w-10 h-10 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-center text-slate-400 text-sm italic font-light tracking-wide">點擊欣賞黃石壯麗景觀</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 2 -->
+        <section id="stage2" class="mb-32 scroll-mt-24" data-day-name="第二階段：加拿大落磯山精華" data-video-id="rxJ2X8t_cVU">
+            <div class="stage-badge">STAGE 02：越過邊境的加國精華</div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-slate-900 leading-tight">黃石 ➔ 傑斯伯：<br><span
+                    class="text-emerald-600">冰原大道</span>與藍寶石湖</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative group cursor-pointer"
+                    onclick="openFullScreen('https://www.youtube.com/embed/rxJ2X8t_cVU?autoplay=1')">
+                    <div class="image-zoom overflow-hidden rounded-[2.5rem] shadow-2xl h-[600px]">
+                        <img src="/Users/roverchen/.gemini/antigravity/brain/2c2f2929-c17a-47c7-b8c7-59a7ccb80271/rockies_hero_premium_1772258339014.png"
+                            alt="Banff Moraine Lake" class="w-full h-full object-cover">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all rounded-[2.5rem] flex items-center justify-center">
+                        <div
+                            class="bg-white/90 p-6 rounded-full shadow-2xl scale-75 group-hover:scale-100 transition-transform">
+                            <svg class="w-10 h-10 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 space-y-10">
+                    <div class="glass-card p-8 border-l-8 border-emerald-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 8-10：國際和平公園</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            馳騁於蒙大拿州的 <b>向陽大道</b>，隨即跨越邊境進入加拿大。入住歷史悠久的威爾斯親王酒店，俯瞰沃特頓湖的寧靜。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-l-8 border-emerald-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 11-13：夢之湖泊與冰原大道</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            露易絲湖的翡翠、夢蓮湖的湛藍。行駛在<b>九十三號公路（冰原大道）</b>，這是被譽為「地表最美」的史詩級景觀路線。
+                        </p>
+                    </div>
+                    <div class="glass-card p-8 border-l-8 border-emerald-500">
+                        <h3 class="text-2xl font-bold mb-4 text-slate-800">Day 14-15：傑斯伯：最北的寧靜</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            瑪琳湖中的精靈島、震耳欲聾的阿薩巴斯卡瀑布。在行程的最北點，感受大自然最深邃的呼吸。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 3 -->
+        <section id="stage3" class="mb-32 scroll-mt-24" data-day-name="第三階段：卑詩省與溫哥華" data-video-id="5B5R1bVyZS0">
+            <div class="stage-badge">STAGE 03：橫跨卑詩省 ➔ 溫哥華</div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-slate-900 leading-tight">傑斯伯 ➔ 溫哥華：<br><span
+                    class="text-indigo-600">森林之巔</span>與海港漫步</h2>
+
+            <div class="glass-card p-10 md:p-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-3xl font-bold mb-6 text-slate-800">山海交會的洗禮</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600 mt-1">
+                                    <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 2a8 8 0 100 16 8 8 0 000-16zm-1 11H7v-2h2v2zm0-4H7V7h2v2zm4 4h-2v-2h2v2zm0-4h-2V7h2v2z" />
+                                    </svg>
+                                </div>
+                                <p class="text-slate-600 leading-relaxed"><b>Mt. Robson：</b> 向落磯山脈的最高峰致敬，看它如何穿破雲層。</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600 mt-1">
+                                    <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M4 4v12l12-6L4 4z" />
+                                    </svg>
+                                </div>
+                                <p class="text-slate-600 leading-relaxed"><b>Stanley Park：</b> 在溫哥華的綠帶中騎行，看印地安圖騰與落日餘暉。
+                                </p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-indigo-100 p-2 rounded-lg text-indigo-600 mt-1">
+                                    <svg class="w-5 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M13 3v14H7V3h6z" />
+                                    </svg>
+                                </div>
+                                <p class="text-slate-600 leading-relaxed"><b>Granville Island：</b>
+                                    走進充滿活力的港都市場，品嚐最新鮮的加國海味。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="image-zoom rounded-3xl overflow-hidden shadow-2xl h-80">
+                        <img src="https://images.unsplash.com/photo-1559511260-66a654ae982a?auto=format&fit=crop&w=800&q=80"
+                            alt="Vancouver" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stage 4 -->
+        <section id="stage4" class="mb-32 scroll-mt-24" data-day-name="第四階段：華盛頓州冒險" data-video-id="Nh_QH4Y9pWY">
+            <div class="stage-badge">STAGE 04：南下華盛頓州 ➔ 西雅圖</div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-20 text-slate-900 leading-tight">溫哥華 ➔ 西雅圖：<br><span
+                    class="text-sky-600">翡翠之城</span>的終曲</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-6 group hover:border-sky-400 transition-all">
+                    <div class="overflow-hidden rounded-2xl mb-6 shadow-lg h-48">
+                        <img src="https://images.unsplash.com/photo-1627844718626-4a6b963baacf?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="North Cascades">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">North Cascades</h3>
+                    <p class="text-slate-500 leading-relaxed text-xs">
+                        「美國的阿爾卑斯山」。行駛 WA-20 景觀公路，親睹壯觀的冰河。
+                    </p>
+                </div>
+                <div class="glass-card p-6 group hover:border-sky-400 transition-all">
+                    <div class="overflow-hidden rounded-2xl mb-6 shadow-lg h-48">
+                        <img src="https://images.unsplash.com/photo-1473181475562-4ca7fafc5bc4?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Olympic">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">奧林匹克 NP</h3>
+                    <p class="text-slate-500 leading-relaxed text-xs">
+                        Hurricane Ridge 雪山、Hoh 溫帶雨林與 Ruby Beach 的巨型漂流木。
+                    </p>
+                </div>
+                <div class="glass-card p-6 group hover:border-sky-400 transition-all">
+                    <div class="overflow-hidden rounded-2xl mb-6 shadow-lg h-48">
+                        <img src="/Users/roverchen/.gemini/antigravity/brain/2c2f2929-c17a-47c7-b8c7-59a7ccb80271/mt_rainier_paradise_flowers_1772258368256.png"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Rainier">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">雷尼爾山 NP</h3>
+                    <p class="text-slate-500 leading-relaxed text-xs">
+                        西雅圖的精神象徵。在 Paradise Area 健行，近距離看巨大的冰河火山。
+                    </p>
+                </div>
+                <div class="glass-card p-6 group hover:border-sky-400 transition-all">
+                    <div class="overflow-hidden rounded-2xl mb-6 shadow-lg h-48">
+                        <img src="https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            alt="Seattle">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">西雅圖還車</h3>
+                    <p class="text-slate-500 leading-relaxed text-xs">
+                        拜訪太空針塔、派克市場。最後前往西雅圖塔科馬機場 (SEA) 還車。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advice Section -->
+        <section id="advice" class="mb-20 scroll-mt-24">
+            <h2 class="text-4xl md:text-6xl font-bold mb-16 text-center text-slate-900">💡 2026 探險家攻略</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-blue-900 text-white p-12 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute -right-10 -bottom-10 opacity-10 rotate-12 transition-transform group-hover:scale-110">
+                        <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V9h2v7zm4 0h-2V9h2v7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-10 flex items-center gap-4">
+                        <span class="bg-amber-500 text-white p-3 rounded-2xl">01</span>
+                        通行證與時段預約
+                    </h3>
+                    <ul class="space-y-6 text-lg font-light opacity-90">
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                            <span><b>美國段：</b> 預購 "America the Beautiful" 年票。</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                            <span><b>加拿大段：</b> 必備 "Discovery Pass"。</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-amber-500 rounded-full"></span>
+                            <span><b>核心預約：</b> RMNP, 冰河, 雷尼爾山需提前 3-4 個月卡位。</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card p-12 rounded-[3rem] border-slate-200">
+                    <h3 class="text-3xl font-bold mb-10 flex items-center gap-4">
+                        <span class="bg-indigo-600 text-white p-3 rounded-2xl">02</span>
+                        租車與保險細則
+                    </h3>
+                    <ul class="space-y-6 text-lg text-slate-600">
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+                            <span>勾選 <b>Different Drop-off Location</b> (丹佛領、西雅圖還)。</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+                            <span>領取 <b>Canada Non-Resident</b> 跨境保險卡。</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+                            <span>電子簽證 <b>ESTA</b> (美) 與 <b>eTA</b> (加) 務必備妥。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 text-center">
+                <a href="https://forms.gle/jG65VeNgh18TWSLXA"
+                    class="inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-white font-black text-xl py-6 px-16 rounded-full shadow-2xl hover:scale-105 transition-all active:scale-95">
+                    立即索取詳細路線書
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-500 py-20 px-6 text-center border-t border-slate-800">
+        <div class="mb-10 flex justify-center gap-8">
+            <svg class="w-8 h-8 opacity-20 hover:opacity-100 transition-opacity cursor-pointer" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+        </div>
+        <p class="mb-6 font-light">© 2026 終極北美大環線旅遊指南 - 為你策劃的山海冒險</p>
+        <div class="flex justify-center gap-10 text-xs uppercase tracking-[0.2em] font-bold">
+            <a href="#" class="hover:text-white transition-colors">隱私權規則</a>
+            <a href="#" class="hover:text-white transition-colors">服務協議</a>
+            <a href="#" class="hover:text-white transition-colors">合作洽談</a>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Overlay -->
+    <div id="fs-overlay">
+        <button id="fs-close-btn" onclick="closeFullScreen()">✕ 關閉探索模式</button>
+        <div id="fs-hint">
+            💡 使用鍵盤左右鍵（← →）切換畫面景點
+        </div>
+        <iframe id="fs-iframe" allowfullscreen="true"></iframe>
+    </div>
+
+    <script>
+        var player;
+        var isPlaying = false;
+        var defaultVideoId = 'V7Bohz21qq4'; // 輕鬆背景音樂
+        var currentVideoId = defaultVideoId;
+        var currentDayName = '';
+
+        // 1. YouTube IFrame Player API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-placeholder', {
+                videoId: defaultVideoId,
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': defaultVideoId
+                },
+                events: {
+                    'onStateChange': onPlayerStateChange,
+                    'onReady': startScrollObserver
+                }
+            });
+        }
+
+        function onPlayerStateChange(event) {
+            const toggleBtn = document.getElementById('music-toggle');
+            const waveIcon = document.getElementById('music-wave-icon');
+            const musicText = document.getElementById('music-text');
+
+            if (event.data == YT.PlayerState.PLAYING) {
+                isPlaying = true;
+                waveIcon.classList.add('playing');
+                musicText.innerText = (currentDayName ? "播放中：" + currentDayName : "播放輕鬆音樂");
+            } else {
+                isPlaying = false;
+                waveIcon.classList.remove('playing');
+                musicText.innerText = "播放音樂";
+            }
+        }
+
+        document.getElementById('music-toggle').addEventListener('click', function () {
+            if (isPlaying) player.pauseVideo();
+            else player.playVideo();
+        });
+
+        // Fullscreen Logic
+        function openFullScreen(url) {
+            const overlay = document.getElementById('fs-overlay');
+            const iframe = document.getElementById('fs-iframe');
+            iframe.src = url;
+            overlay.style.display = 'block';
+
+            // Request browser fullscreen
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) elem.requestFullscreen();
+            else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen();
+        }
+
+        function closeFullScreen() {
+            const overlay = document.getElementById('fs-overlay');
+            const iframe = document.getElementById('fs-iframe');
+            overlay.style.display = 'none';
+            iframe.src = "";
+            if (document.exitFullscreen) document.exitFullscreen();
+        }
+
+        // Scroll Observer for Contextual Music/Info
+        function startScrollObserver() {
+            const options = { threshold: 0.3 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const newVideoId = entry.target.getAttribute('data-video-id');
+                        const newName = entry.target.getAttribute('data-day-name');
+
+                        if (newVideoId && newVideoId !== currentVideoId) {
+                            currentVideoId = newVideoId;
+                            currentDayName = newName || '';
+                            player.loadVideoById(newVideoId);
+                        }
+                    }
+                });
+            }, options);
+
+            document.querySelectorAll('[data-video-id]').forEach(el => observer.observe(el));
+        }
+
+        // Handle Escape Key for Overlay
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeFullScreen();
+        });
+    </script>
+</body>
+
+</html>

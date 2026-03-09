@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +12,23 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
         /* 確保圖片在卡片中良好顯示 */
         .card-image {
             width: 100%;
-            height: 200px; /* 固定高度，保持一致性 */
-            object-fit: cover; /* 裁剪圖片以填充容器 */
-            border-top-left-radius: 0.75rem; /* 與卡片圓角一致 */
+            height: 200px;
+            /* 固定高度，保持一致性 */
+            object-fit: cover;
+            /* 裁剪圖片以填充容器 */
+            border-top-left-radius: 0.75rem;
+            /* 與卡片圓角一致 */
             border-top-right-radius: 0.75rem;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-900 to-indigo-900 text-gray-100 min-h-screen flex flex-col items-center py-10 px-4">
+
+<body
+    class="bg-gradient-to-br from-blue-900 to-indigo-900 text-gray-100 min-h-screen flex flex-col items-center py-10 px-4">
 
     <!-- 主標題區塊 -->
     <header class="text-center mb-12">
@@ -37,154 +44,199 @@
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl w-full">
 
         <!-- 卡片 1: 多洛米蒂 - 深綠色主題 (Green Theme) -->
-        <div class="bg-green-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-green-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/2ecc71/ffffff?text=Dolomites" alt="多洛米蒂" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-green-300 mb-3">多洛米蒂山脈深度之旅</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     穿越義大利多洛米蒂山脈的史詩級路線，感受阿爾卑斯山的雄偉。
                 </p>
-                <a href="oversea/dolomites.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/dolomites.html"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 2: 環白朗峰 (TMB) - 深紅色主題 (Red Theme) -->
-        <div class="bg-red-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="https://placehold.co/400x200/e74c3c/ffffff?text=Tour+du+Mont+Blanc" alt="環白朗峰步道" class="card-image">
+        <div
+            class="bg-red-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/e74c3c/ffffff?text=Tour+du+Mont+Blanc" alt="環白朗峰步道"
+                class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-red-300 mb-3">環白朗峰步道 (TMB)</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     歐洲最經典的徒步路線之一，環繞西歐最高峰白朗峰。
                 </p>
-                <a href="oversea/tmb.html" class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300" style="text-align: center;margin: 5px;">
+                <a href="oversea/tmb.html"
+                    class="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300"
+                    style="text-align: center;margin: 5px;">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 3: Dolomites AV1 - 深藍/青色主題 (Cyan Theme) -->
-        <div class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="https://placehold.co/400x200/0891b2/ffffff?text=Dolomites+AV1" alt="Dolomites-AV1" class="card-image">
+        <div
+            class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/0891b2/ffffff?text=Dolomites+AV1" alt="Dolomites-AV1"
+                class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-cyan-300 mb-3">多洛米蒂 AV1 全程健行</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     從米蘭出發，征服多洛米蒂高山步道一號線 (Alta Via 1)！
                 </p>
-                <a href="oversea/dolomites-av1.html" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/dolomites-av1.html"
+                    class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 4: 西班牙朝聖之路 - 深琥珀色主題 (Amber Theme) -->
-        <div class="bg-amber-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="https://placehold.co/400x200/f39c12/ffffff?text=Camino de Santiago" alt="Camino de Santiago" class="card-image">
+        <div
+            class="bg-amber-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/f39c12/ffffff?text=Camino de Santiago" alt="Camino de Santiago"
+                class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-amber-300 mb-3">西班牙朝聖之路</h2>
                 <p class="text-gray-200 text-lg mb-4">
-                    「北方之路 (Camino del Norte)」Irun-Oviedo 466公里與「原始之路 (Camino Primitivo)」Oviedo-Santiago de Compostela 315公里。
+                    「北方之路 (Camino del Norte)」Irun-Oviedo 466公里與「原始之路 (Camino Primitivo)」Oviedo-Santiago de Compostela
+                    315公里。
                 </p>
-                <a href="oversea/norte.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/norte.html"
+                    class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 5: 帕塔哥尼雅 - 深靛藍色主題 (Indigo Theme) -->
-        <div class="bg-indigo-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-indigo-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/4b0082/ffffff?text=Patagonia" alt="Patagonia" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-indigo-300 mb-3">帕塔哥尼雅 (Patagonia)</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     阿根廷、智利的經典徒步路線，直達 Patagonia 的壯麗核心。
                 </p>
-                <a href="oversea/patagonia.html" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/patagonia.html"
+                    class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 6: 安納普爾納基地營 (ABC) - 深橙色主題 (Orange Theme) -->
-        <div class="bg-orange-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-orange-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/e67e22/ffffff?text=ABC" alt="ABC" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-orange-300 mb-3">安納普爾納基地營 (ABC) </h2>
                 <p class="text-gray-200 text-lg mb-4">
                     安納普爾納基地營（Annapurna Base Camp，簡稱ABC）是尼泊爾一個海拔4130公尺的高山營地，也是一條極受歡迎的經典健行路線。
                 </p>
-                <a href="oversea/abc.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/abc.html"
+                    class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 7: Walker’s Haute Route - 深青綠色主題 (Teal Theme) -->
-        <div class="bg-teal-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
-            <img src="https://placehold.co/400x200/16a085/ffffff?text=Walker’s+Haute+Route" alt="Walker’s Haute Route" class="card-image">
+        <div
+            class="bg-teal-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/16a085/ffffff?text=Walker’s+Haute+Route" alt="Walker’s Haute Route"
+                class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-teal-300 mb-3">Walker’s Haute Route</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     從白朗峰的霞慕尼（Chamonix）一路走到馬特洪峰的策馬特（Zermatt）。
                 </p>
-                <a href="oversea/walkers-haute-route.html" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/walkers-haute-route.html"
+                    class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 8: 比利牛斯山 - 深藍/青色主題 (Cyan Theme) -->
-        <div class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/0891b2/ffffff?text=Pyrenees" alt="比利牛斯山" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-cyan-300 mb-3">比利牛斯山史詩級徒步之旅</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     體驗壯麗的高山風光和深峽谷的壯麗景觀，沉浸於比利牛斯山的野性之美，探索鮮為人知的埃爾普雷皮里尼奧山脈。
                 </p>
-                <a href="oversea/pyrenees.html" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/pyrenees.html"
+                    class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 9: 多洛米蒂 - 深綠色主題 (Green Theme) -->
-        <div class="bg-green-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-green-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/2ecc71/ffffff?text=Greenland" alt="多洛米蒂" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-green-300 mb-3">格陵蘭島健行</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     空無一人的阿爾卑斯山：探索東格陵蘭原始的冰雪荒野。
                 </p>
-                <a href="oversea/greenland.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/greenland.html"
+                    class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 10: 日本北阿爾卑斯 - 深石板灰主題 (Slate Theme) -->
-        <div class="bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-slate-800 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/607d8b/ffffff?text=Japan+Alps" alt="日本北阿爾卑斯山脈" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-slate-300 mb-3">日本北阿爾卑斯山脈極限挑戰</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     探索日本壯麗的山脈，體驗獨特的文化與令人屏息的自然風光。
                 </p>
-                <a href="oversea/japan-alps2.html" class="inline-block bg-slate-600 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/japan-alps2.html"
+                    class="inline-block bg-slate-600 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
         </div>
 
         <!-- 卡片 1: 阿爾卑斯山脈 - 深藍/青色主題 (Cyan Theme) -->
-        <div class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+        <div
+            class="bg-cyan-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
             <img src="https://placehold.co/400x200/0891b2/ffffff?text=Alps" alt="阿爾卑斯山脈" class="card-image">
             <div class="p-6">
                 <h2 class="text-3xl font-bold text-cyan-300 mb-3">阿爾卑斯三大名峰深度健行之旅 - 少女峰、馬特洪峰、白朗峰</h2>
                 <p class="text-gray-200 text-lg mb-4">
                     阿爾卑斯三大名峰深度健行之旅 - 少女峰、馬特洪峰、白朗峰。
                 </p>
-                <a href="oversea/alps.html" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                <a href="oversea/alps.html"
+                    class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
+                    了解更多
+                </a>
+            </div>
+        </div>
+
+        <!-- 卡片 12: 落磯山山海之旅 - 深琥珀色主題 (Amber Theme) -->
+        <div
+            class="bg-amber-900 rounded-xl shadow-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <img src="https://placehold.co/400x200/d97706/ffffff?text=Canadian+Rockies" alt="落磯山山海之旅"
+                class="card-image">
+            <div class="p-6">
+                <h2 class="text-3xl font-bold text-amber-300 mb-3">終極北美大環線：22天落磯山山海之旅</h2>
+                <p class="text-gray-200 text-lg mb-4">
+                    從科羅拉多高峰到太平洋西北海岸，縱貫美加兩國落磯山脈的壯闊史詩。
+                </p>
+                <a href="oversea/rockies.html"
+                    class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors duration-300">
                     了解更多
                 </a>
             </div>
@@ -198,4 +250,5 @@
     </footer>
 
 </body>
+
 </html>

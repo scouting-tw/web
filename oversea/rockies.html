@@ -118,60 +118,7 @@
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Music Toggle Button */
-        #music-toggle {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        #music-toggle:hover {
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Music Wave Animation */
-        .music-wave {
-            display: inline-flex;
-            align-items: center;
-            height: 20px;
-        }
-
-        .bar {
-            width: 3px;
-            height: 10px;
-            background: #fbbf24;
-            margin: 0 1px;
-            animation: sound 0ms -800ms linear infinite alternate;
-            transition: height 0.8s;
-            opacity: 0.5;
-        }
-
-        .playing .bar {
-            animation-duration: 400ms;
-            opacity: 1;
-        }
-
-        @keyframes sound {
-            0% {
-                height: 3px;
-                opacity: .35;
-            }
-
-            100% {
-                height: 15px;
-                opacity: 0.95;
-            }
-        }
-
-        #yt-player-container {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            width: 1px;
-            height: 1px;
-            opacity: 0.01;
-            pointer-events: none;
-            z-index: -1;
-        }
 
         /* Fullscreen Slides Overlay */
         #fs-overlay {
@@ -257,10 +204,7 @@
 
 <body class="bg-slate-50">
 
-    <!-- YouTube Music Player Container -->
-    <div id="yt-player-container">
-        <div id="video-placeholder"></div>
-    </div>
+
 
     <!-- Hero Section -->
     <header class="hero-section px-4" id="home">
@@ -274,16 +218,6 @@
                     class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-2xl hover:-translate-y-1 active:scale-95">
                     展開探險行程
                 </a>
-                <button id="music-toggle"
-                    class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-10 rounded-full transition-all flex items-center gap-4">
-                    <div class="music-wave" id="music-wave-icon">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <span id="music-text">播放輕鬆背景音樂</span>
-                </button>
             </div>
         </div>
         <!-- Scroll Indicator -->
@@ -1282,54 +1216,7 @@
     </div>
 
     <script>
-        var player;
-        var isPlaying = false;
-        var defaultVideoId = 'V7Bohz21qq4'; // 輕鬆背景音樂
-        var currentVideoId = defaultVideoId;
-        var currentDayName = '';
 
-        // 1. YouTube IFrame Player API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('video-placeholder', {
-                videoId: defaultVideoId,
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'loop': 1,
-                    'playlist': defaultVideoId
-                },
-                events: {
-                    'onStateChange': onPlayerStateChange,
-                    'onReady': startScrollObserver
-                }
-            });
-        }
-
-        function onPlayerStateChange(event) {
-            const toggleBtn = document.getElementById('music-toggle');
-            const waveIcon = document.getElementById('music-wave-icon');
-            const musicText = document.getElementById('music-text');
-
-            if (event.data == YT.PlayerState.PLAYING) {
-                isPlaying = true;
-                waveIcon.classList.add('playing');
-                musicText.innerText = (currentDayName ? "播放中：" + currentDayName : "播放輕鬆音樂");
-            } else {
-                isPlaying = false;
-                waveIcon.classList.remove('playing');
-                musicText.innerText = "播放音樂";
-            }
-        }
-
-        document.getElementById('music-toggle').addEventListener('click', function () {
-            if (isPlaying) player.pauseVideo();
-            else player.playVideo();
-        });
 
         // Fullscreen Logic
         function openFullScreen(url) {
@@ -1352,26 +1239,7 @@
             if (document.exitFullscreen) document.exitFullscreen();
         }
 
-        // Scroll Observer for Contextual Music/Info
-        function startScrollObserver() {
-            const options = { threshold: 0.3 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const newVideoId = entry.target.getAttribute('data-video-id');
-                        const newName = entry.target.getAttribute('data-day-name');
 
-                        if (newVideoId && newVideoId !== currentVideoId) {
-                            currentVideoId = newVideoId;
-                            currentDayName = newName || '';
-                            player.loadVideoById(newVideoId);
-                        }
-                    }
-                });
-            }, options);
-
-            document.querySelectorAll('[data-video-id]').forEach(el => observer.observe(el));
-        }
 
         // Handle Escape Key for Overlay
         document.addEventListener('keydown', e => {
